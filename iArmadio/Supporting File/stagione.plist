@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>estiva</key>
+	<dict>
+		<key>temp_min</key>
+		<integer>80</integer>
+		<key>temp_max</key>
+		<integer>30</integer>
+		<key>date_from</key>
+		<string>1-1</string>
+		<key>date_to</key>
+		<string>1-1</string>
+	</dict>
+	<key>invernale</key>
+	<dict>
+		<key>temp_min</key>
+		<integer>-80</integer>
+		<key>temp_max</key>
+		<integer>10</integer>
+		<key>date_from</key>
+		<string>1-1</string>
+		<key>date_to</key>
+		<string>1-1</string>
+	</dict>
+	<key>autunnale</key>
+	<dict>
+		<key>temp_min</key>
+		<integer>10</integer>
+		<key>temp_max</key>
+		<integer>30</integer>
+		<key>date_from</key>
+		<string>09-20</string>
+		<key>date_to</key>
+		<string>10-20</string>
+	</dict>
+	<key>primaverile</key>
+	<dict>
+		<key>temp_min</key>
+		<integer>20</integer>
+		<key>temp_max</key>
+		<integer>30</integer>
+		<key>date_from</key>
+		<string>1-1</string>
+		<key>date_to</key>
+		<string>1-1</string>
+	</dict>
+</dict>
+</plist>

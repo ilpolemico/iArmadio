@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>1</key>
+	<dict>
+		<key>name</key>
+		<string>scarpe</string>
+		<key>allow</key>
+		<string>*</string>
+	</dict>
+	<key>2</key>
+	<dict>
+		<key>name</key>
+		<string>gonna</string>
+		<key>allow</key>
+		<string>cravatta, camicia, maglietta, giacca</string>
+	</dict>
+	<key>3</key>
+	<dict>
+		<key>allow</key>
+		<string>gonna, tailer</string>
+		<key>name</key>
+		<string>pantalone</string>
+	</dict>
+	<key>4</key>
+	<dict>
+		<key>name</key>
+		<string>giacca</string>
+		<key>allow</key>
+		<string>tailer</string>
+	</dict>
+	<key>5</key>
+	<dict>
+		<key>name</key>
+		<string>cravatta</string>
+		<key>allow</key>
+		<string>maglietta</string>
+	</dict>
+	<key>6</key>
+	<dict>
+		<key>name</key>
+		<string>camicia</string>
+		<key>allow</key>
+		<string>maglietta</string>
+	</dict>
+	<key>7</key>
+	<dict>
+		<key>name</key>
+		<string>maglietta</string>
+		<key>allow</key>
+		<string>cravatta</string>
+	</dict>
+	<key>8</key>
+	<dict>
+		<key>name</key>
+		<string>tailer</string>
+		<key>allow</key>
+		<string>pantalone, gonna</string>
+	</dict>
+</dict>
+</plist>

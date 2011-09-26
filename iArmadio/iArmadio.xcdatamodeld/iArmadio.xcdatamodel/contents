@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="562" systemVersion="11B26" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Combinazione" representedClassName="Combinazione">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="nome" optional="YES" attributeType="String"/>
+        <relationship name="fattaDi" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Vestito" inverseName="combinazioni" inverseEntity="Vestito"/>
+        <relationship name="stagione" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Stagione" inverseName="combinazione" inverseEntity="Stagione"/>
+    </entity>
+    <entity name="ProprietaCombinazione" representedClassName="ProprietaCombinazione">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="nome" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="ProprietaVestito" representedClassName="ProprietaVestito">
+        <attribute name="gradimento" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
+        <relationship name="delVestito" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Vestito" inverseName="conProprieta" inverseEntity="Vestito"/>
+    </entity>
+    <entity name="Stagione" representedClassName="Stagione">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="nome" optional="YES" attributeType="String"/>
+        <relationship name="combinazione" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Combinazione" inverseName="stagione" inverseEntity="Combinazione"/>
+        <relationship name="vestito" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Vestito" inverseName="perLaStagione" inverseEntity="Vestito"/>
+    </entity>
+    <entity name="Tipologia" representedClassName="Tipologia">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="nome" optional="YES" attributeType="String"/>
+        <relationship name="vestiti" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Vestito" inverseName="tipi" inverseEntity="Vestito"/>
+    </entity>
+    <entity name="Vestito" representedClassName="Vestito">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="immagine" optional="YES" attributeType="String"/>
+        <relationship name="combinazioni" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Combinazione" inverseName="fattaDi" inverseEntity="Combinazione"/>
+        <relationship name="conProprieta" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ProprietaVestito" inverseName="delVestito" inverseEntity="ProprietaVestito"/>
+        <relationship name="perLaStagione" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Stagione" inverseName="vestito" inverseEntity="Stagione"/>
+        <relationship name="tipi" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Tipologia" inverseName="vestiti" inverseEntity="Tipologia"/>
+    </entity>
+    <elements>
+        <element name="Combinazione" positionX="927" positionY="234" width="128" height="105"/>
+        <element name="ProprietaCombinazione" positionX="736" positionY="117" width="128" height="45"/>
+        <element name="ProprietaVestito" positionX="225" positionY="-12" width="128" height="75"/>
+        <element name="Stagione" positionX="765" positionY="432" width="128" height="105"/>
+        <element name="Tipologia" positionX="225" positionY="378" width="128" height="90"/>
+        <element name="Vestito" positionX="493" positionY="237" width="128" height="135"/>
+    </elements>
+</model>

@@ -1,0 +1,511 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9CD1ACB01412840600441AB7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD1ACAF1412840600441AB7 /* UIKit.framework */; };
+		9CD1ACB21412840600441AB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD1ACB11412840600441AB7 /* Foundation.framework */; };
+		9CD1ACB41412840600441AB7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD1ACB31412840600441AB7 /* CoreGraphics.framework */; };
+		9CD1ACD61412841E00441AB7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD1ACD51412841E00441AB7 /* CoreData.framework */; };
+		A30A331F14308E3100D44356 /* ClothViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A32DF14308E3100D44356 /* ClothViewController.m */; };
+		A30A332014308E3100D44356 /* ClothManagerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30A32E014308E3100D44356 /* ClothManagerView.xib */; };
+		A30A332114308E3100D44356 /* ClothManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A32E214308E3100D44356 /* ClothManagerViewController.m */; };
+		A30A332214308E3100D44356 /* ClothTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30A32E414308E3100D44356 /* ClothTableView.xib */; };
+		A30A332314308E3100D44356 /* ClothTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A32E614308E3100D44356 /* ClothTableViewController.m */; };
+		A30A332414308E3100D44356 /* IarmadioDao.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A32E914308E3100D44356 /* IarmadioDao.m */; };
+		A30A332514308E3100D44356 /* ClothView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30A32EA14308E3100D44356 /* ClothView.xib */; };
+		A30A332614308E3100D44356 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A30A32EC14308E3100D44356 /* InfoPlist.strings */; };
+		A30A332714308E3100D44356 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A30A32EE14308E3100D44356 /* Localizable.strings */; };
+		A30A332814308E3100D44356 /* Combinazione.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A32F214308E3100D44356 /* Combinazione.m */; };
+		A30A332914308E3100D44356 /* Proprieta.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A32F414308E3100D44356 /* Proprieta.m */; };
+		A30A332A14308E3100D44356 /* ProprietaCombinazione.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A32F614308E3100D44356 /* ProprietaCombinazione.m */; };
+		A30A332B14308E3100D44356 /* ProprietaVestito.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A32F814308E3100D44356 /* ProprietaVestito.m */; };
+		A30A332C14308E3100D44356 /* Stagione.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A32FA14308E3100D44356 /* Stagione.m */; };
+		A30A332D14308E3100D44356 /* Stile.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A32FC14308E3100D44356 /* Stile.m */; };
+		A30A332E14308E3100D44356 /* Tipologia.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A32FE14308E3100D44356 /* Tipologia.m */; };
+		A30A332F14308E3100D44356 /* Vestito.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A330014308E3100D44356 /* Vestito.m */; };
+		A30A333014308E3100D44356 /* GeoLocal.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A330314308E3100D44356 /* GeoLocal.m */; };
+		A30A333114308E3100D44356 /* iArmadio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A30A330514308E3100D44356 /* iArmadio.xcdatamodeld */; };
+		A30A333214308E3100D44356 /* iArmadioAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A330914308E3100D44356 /* iArmadioAppDelegate.m */; };
+		A30A333314308E3100D44356 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A330C14308E3100D44356 /* main.m */; };
+		A30A333414308E3100D44356 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30A330D14308E3100D44356 /* MainWindow.xib */; };
+		A30A333514308E3100D44356 /* ScrollImagesController.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A331014308E3100D44356 /* ScrollImagesController.m */; };
+		A30A333614308E3100D44356 /* ScrollImagesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30A331114308E3100D44356 /* ScrollImagesController.xib */; };
+		A30A333714308E3100D44356 /* Shake2Style.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A331414308E3100D44356 /* Shake2Style.m */; };
+		A30A333814308E3100D44356 /* 02.png in Resources */ = {isa = PBXBuildFile; fileRef = A30A331614308E3100D44356 /* 02.png */; };
+		A30A333914308E3100D44356 /* 2011-09-09-04-01-11.png in Resources */ = {isa = PBXBuildFile; fileRef = A30A331714308E3100D44356 /* 2011-09-09-04-01-11.png */; };
+		A30A333B14308E3100D44356 /* stagione.plist in Resources */ = {isa = PBXBuildFile; fileRef = A30A331914308E3100D44356 /* stagione.plist */; };
+		A30A333C14308E3100D44356 /* stile.plist in Resources */ = {isa = PBXBuildFile; fileRef = A30A331A14308E3100D44356 /* stile.plist */; };
+		A30A333E14308E3100D44356 /* tipologia.plist in Resources */ = {isa = PBXBuildFile; fileRef = A30A331C14308E3100D44356 /* tipologia.plist */; };
+		A357353C1426850F008A742D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A357353B1426850F008A742D /* MapKit.framework */; };
+		A357353E142686F8008A742D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A357353D142686F8008A742D /* CoreLocation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9CD1ACAB1412840600441AB7 /* iArmadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iArmadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CD1ACAF1412840600441AB7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9CD1ACB11412840600441AB7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9CD1ACB31412840600441AB7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9CD1ACD51412841E00441AB7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		A30A32DE14308E3100D44356 /* ClothViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClothViewController.h; sourceTree = "<group>"; };
+		A30A32DF14308E3100D44356 /* ClothViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClothViewController.m; sourceTree = "<group>"; };
+		A30A32E014308E3100D44356 /* ClothManagerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClothManagerView.xib; sourceTree = "<group>"; };
+		A30A32E114308E3100D44356 /* ClothManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClothManagerViewController.h; sourceTree = "<group>"; };
+		A30A32E214308E3100D44356 /* ClothManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClothManagerViewController.m; sourceTree = "<group>"; };
+		A30A32E414308E3100D44356 /* ClothTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClothTableView.xib; sourceTree = "<group>"; };
+		A30A32E514308E3100D44356 /* ClothTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClothTableViewController.h; sourceTree = "<group>"; };
+		A30A32E614308E3100D44356 /* ClothTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClothTableViewController.m; sourceTree = "<group>"; };
+		A30A32E814308E3100D44356 /* IarmadioDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IarmadioDao.h; sourceTree = "<group>"; };
+		A30A32E914308E3100D44356 /* IarmadioDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IarmadioDao.m; sourceTree = "<group>"; };
+		A30A32EB14308E3100D44356 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ClothView.xib; sourceTree = "<group>"; };
+		A30A32ED14308E3100D44356 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A30A32EF14308E3100D44356 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A30A32F114308E3100D44356 /* Combinazione.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Combinazione.h; sourceTree = "<group>"; };
+		A30A32F214308E3100D44356 /* Combinazione.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Combinazione.m; sourceTree = "<group>"; };
+		A30A32F314308E3100D44356 /* Proprieta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Proprieta.h; sourceTree = "<group>"; };
+		A30A32F414308E3100D44356 /* Proprieta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Proprieta.m; sourceTree = "<group>"; };
+		A30A32F514308E3100D44356 /* ProprietaCombinazione.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProprietaCombinazione.h; sourceTree = "<group>"; };
+		A30A32F614308E3100D44356 /* ProprietaCombinazione.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProprietaCombinazione.m; sourceTree = "<group>"; };
+		A30A32F714308E3100D44356 /* ProprietaVestito.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProprietaVestito.h; sourceTree = "<group>"; };
+		A30A32F814308E3100D44356 /* ProprietaVestito.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProprietaVestito.m; sourceTree = "<group>"; };
+		A30A32F914308E3100D44356 /* Stagione.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stagione.h; sourceTree = "<group>"; };
+		A30A32FA14308E3100D44356 /* Stagione.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stagione.m; sourceTree = "<group>"; };
+		A30A32FB14308E3100D44356 /* Stile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stile.h; sourceTree = "<group>"; };
+		A30A32FC14308E3100D44356 /* Stile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stile.m; sourceTree = "<group>"; };
+		A30A32FD14308E3100D44356 /* Tipologia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tipologia.h; sourceTree = "<group>"; };
+		A30A32FE14308E3100D44356 /* Tipologia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tipologia.m; sourceTree = "<group>"; };
+		A30A32FF14308E3100D44356 /* Vestito.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vestito.h; sourceTree = "<group>"; };
+		A30A330014308E3100D44356 /* Vestito.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vestito.m; sourceTree = "<group>"; };
+		A30A330214308E3100D44356 /* GeoLocal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoLocal.h; sourceTree = "<group>"; };
+		A30A330314308E3100D44356 /* GeoLocal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeoLocal.m; sourceTree = "<group>"; };
+		A30A330414308E3100D44356 /* iArmadio-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iArmadio-Prefix.pch"; sourceTree = "<group>"; };
+		A30A330614308E3100D44356 /* iArmadio 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "iArmadio 2.xcdatamodel"; sourceTree = "<group>"; };
+		A30A330714308E3100D44356 /* iArmadio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iArmadio.xcdatamodel; sourceTree = "<group>"; };
+		A30A330814308E3100D44356 /* iArmadioAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iArmadioAppDelegate.h; sourceTree = "<group>"; };
+		A30A330914308E3100D44356 /* iArmadioAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iArmadioAppDelegate.m; sourceTree = "<group>"; };
+		A30A330A14308E3100D44356 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A30A330B14308E3100D44356 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A30A330C14308E3100D44356 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A30A330D14308E3100D44356 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		A30A330F14308E3100D44356 /* ScrollImagesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollImagesController.h; sourceTree = "<group>"; };
+		A30A331014308E3100D44356 /* ScrollImagesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollImagesController.m; sourceTree = "<group>"; };
+		A30A331114308E3100D44356 /* ScrollImagesController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScrollImagesController.xib; sourceTree = "<group>"; };
+		A30A331314308E3100D44356 /* Shake2Style.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shake2Style.h; sourceTree = "<group>"; };
+		A30A331414308E3100D44356 /* Shake2Style.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shake2Style.m; sourceTree = "<group>"; };
+		A30A331614308E3100D44356 /* 02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 02.png; sourceTree = "<group>"; };
+		A30A331714308E3100D44356 /* 2011-09-09-04-01-11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2011-09-09-04-01-11.png"; sourceTree = "<group>"; };
+		A30A331914308E3100D44356 /* stagione.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = stagione.plist; sourceTree = "<group>"; };
+		A30A331A14308E3100D44356 /* stile.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = stile.plist; sourceTree = "<group>"; };
+		A30A331C14308E3100D44356 /* tipologia.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tipologia.plist; sourceTree = "<group>"; };
+		A357353B1426850F008A742D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A357353D142686F8008A742D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		A36A7A311430B91C00BB8EB7 /* iArmadio-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "iArmadio-Info.plist"; path = "../iArmadio-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9CD1ACA81412840600441AB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A357353E142686F8008A742D /* CoreLocation.framework in Frameworks */,
+				A357353C1426850F008A742D /* MapKit.framework in Frameworks */,
+				9CD1ACD61412841E00441AB7 /* CoreData.framework in Frameworks */,
+				9CD1ACB01412840600441AB7 /* UIKit.framework in Frameworks */,
+				9CD1ACB21412840600441AB7 /* Foundation.framework in Frameworks */,
+				9CD1ACB41412840600441AB7 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9CD1ACA01412840500441AB7 = {
+			isa = PBXGroup;
+			children = (
+				A30A32D814308E3100D44356 /* iArmadio */,
+				9CD1ACAE1412840600441AB7 /* Frameworks */,
+				9CD1ACAC1412840600441AB7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9CD1ACAC1412840600441AB7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9CD1ACAB1412840600441AB7 /* iArmadio.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9CD1ACAE1412840600441AB7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A357353D142686F8008A742D /* CoreLocation.framework */,
+				A357353B1426850F008A742D /* MapKit.framework */,
+				9CD1ACD51412841E00441AB7 /* CoreData.framework */,
+				9CD1ACAF1412840600441AB7 /* UIKit.framework */,
+				9CD1ACB11412840600441AB7 /* Foundation.framework */,
+				9CD1ACB31412840600441AB7 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A30A32D814308E3100D44356 /* iArmadio */ = {
+			isa = PBXGroup;
+			children = (
+				A30A330114308E3100D44356 /* GeoLocal */,
+				A30A32E714308E3100D44356 /* Dao */,
+				A30A32D914308E3100D44356 /* ClothManager */,
+				A30A32EC14308E3100D44356 /* InfoPlist.strings */,
+				A30A32EE14308E3100D44356 /* Localizable.strings */,
+				A30A330414308E3100D44356 /* iArmadio-Prefix.pch */,
+				A30A330514308E3100D44356 /* iArmadio.xcdatamodeld */,
+				A30A330814308E3100D44356 /* iArmadioAppDelegate.h */,
+				A30A330914308E3100D44356 /* iArmadioAppDelegate.m */,
+				A30A330C14308E3100D44356 /* main.m */,
+				A30A330D14308E3100D44356 /* MainWindow.xib */,
+				A30A330E14308E3100D44356 /* ScrollViewController */,
+				A30A331214308E3100D44356 /* Shake2Style */,
+				A30A331514308E3100D44356 /* Supporting File */,
+			);
+			path = iArmadio;
+			sourceTree = "<group>";
+		};
+		A30A32D914308E3100D44356 /* ClothManager */ = {
+			isa = PBXGroup;
+			children = (
+				A30A32DA14308E3100D44356 /* Add&ModifyCloth */,
+				A30A32E014308E3100D44356 /* ClothManagerView.xib */,
+				A30A32E114308E3100D44356 /* ClothManagerViewController.h */,
+				A30A32E214308E3100D44356 /* ClothManagerViewController.m */,
+				A30A32E314308E3100D44356 /* ClothViewTable */,
+			);
+			path = ClothManager;
+			sourceTree = "<group>";
+		};
+		A30A32DA14308E3100D44356 /* Add&ModifyCloth */ = {
+			isa = PBXGroup;
+			children = (
+				A30A32EA14308E3100D44356 /* ClothView.xib */,
+				A30A32DE14308E3100D44356 /* ClothViewController.h */,
+				A30A32DF14308E3100D44356 /* ClothViewController.m */,
+			);
+			path = "Add&ModifyCloth";
+			sourceTree = "<group>";
+		};
+		A30A32E314308E3100D44356 /* ClothViewTable */ = {
+			isa = PBXGroup;
+			children = (
+				A30A32E414308E3100D44356 /* ClothTableView.xib */,
+				A30A32E514308E3100D44356 /* ClothTableViewController.h */,
+				A30A32E614308E3100D44356 /* ClothTableViewController.m */,
+			);
+			path = ClothViewTable;
+			sourceTree = "<group>";
+		};
+		A30A32E714308E3100D44356 /* Dao */ = {
+			isa = PBXGroup;
+			children = (
+				A30A32F014308E3100D44356 /* Entities */,
+				A30A32E814308E3100D44356 /* IarmadioDao.h */,
+				A30A32E914308E3100D44356 /* IarmadioDao.m */,
+			);
+			path = Dao;
+			sourceTree = "<group>";
+		};
+		A30A32F014308E3100D44356 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				A30A32F114308E3100D44356 /* Combinazione.h */,
+				A30A32F214308E3100D44356 /* Combinazione.m */,
+				A30A32F314308E3100D44356 /* Proprieta.h */,
+				A30A32F414308E3100D44356 /* Proprieta.m */,
+				A30A32F514308E3100D44356 /* ProprietaCombinazione.h */,
+				A30A32F614308E3100D44356 /* ProprietaCombinazione.m */,
+				A30A32F714308E3100D44356 /* ProprietaVestito.h */,
+				A30A32F814308E3100D44356 /* ProprietaVestito.m */,
+				A30A32F914308E3100D44356 /* Stagione.h */,
+				A30A32FA14308E3100D44356 /* Stagione.m */,
+				A30A32FB14308E3100D44356 /* Stile.h */,
+				A30A32FC14308E3100D44356 /* Stile.m */,
+				A30A32FD14308E3100D44356 /* Tipologia.h */,
+				A30A32FE14308E3100D44356 /* Tipologia.m */,
+				A30A32FF14308E3100D44356 /* Vestito.h */,
+				A30A330014308E3100D44356 /* Vestito.m */,
+			);
+			name = Entities;
+			path = ../Entities;
+			sourceTree = "<group>";
+		};
+		A30A330114308E3100D44356 /* GeoLocal */ = {
+			isa = PBXGroup;
+			children = (
+				A30A330214308E3100D44356 /* GeoLocal.h */,
+				A30A330314308E3100D44356 /* GeoLocal.m */,
+			);
+			path = GeoLocal;
+			sourceTree = "<group>";
+		};
+		A30A330E14308E3100D44356 /* ScrollViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A30A330F14308E3100D44356 /* ScrollImagesController.h */,
+				A30A331014308E3100D44356 /* ScrollImagesController.m */,
+				A30A331114308E3100D44356 /* ScrollImagesController.xib */,
+			);
+			path = ScrollViewController;
+			sourceTree = "<group>";
+		};
+		A30A331214308E3100D44356 /* Shake2Style */ = {
+			isa = PBXGroup;
+			children = (
+				A30A331314308E3100D44356 /* Shake2Style.h */,
+				A30A331414308E3100D44356 /* Shake2Style.m */,
+			);
+			path = Shake2Style;
+			sourceTree = "<group>";
+		};
+		A30A331514308E3100D44356 /* Supporting File */ = {
+			isa = PBXGroup;
+			children = (
+				A36A7A311430B91C00BB8EB7 /* iArmadio-Info.plist */,
+				A30A331614308E3100D44356 /* 02.png */,
+				A30A331714308E3100D44356 /* 2011-09-09-04-01-11.png */,
+				A30A331914308E3100D44356 /* stagione.plist */,
+				A30A331A14308E3100D44356 /* stile.plist */,
+				A30A331C14308E3100D44356 /* tipologia.plist */,
+			);
+			path = "Supporting File";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9CD1ACAA1412840600441AB7 /* iArmadio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9CD1ACD21412840600441AB7 /* Build configuration list for PBXNativeTarget "iArmadio" */;
+			buildPhases = (
+				9CD1ACA71412840600441AB7 /* Sources */,
+				9CD1ACA81412840600441AB7 /* Frameworks */,
+				9CD1ACA91412840600441AB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iArmadio;
+			productName = iArmadio;
+			productReference = 9CD1ACAB1412840600441AB7 /* iArmadio.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9CD1ACA21412840500441AB7 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 9CD1ACA51412840500441AB7 /* Build configuration list for PBXProject "iArmadio" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				it,
+			);
+			mainGroup = 9CD1ACA01412840500441AB7;
+			productRefGroup = 9CD1ACAC1412840600441AB7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9CD1ACAA1412840600441AB7 /* iArmadio */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9CD1ACA91412840600441AB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A30A332014308E3100D44356 /* ClothManagerView.xib in Resources */,
+				A30A332214308E3100D44356 /* ClothTableView.xib in Resources */,
+				A30A332514308E3100D44356 /* ClothView.xib in Resources */,
+				A30A332614308E3100D44356 /* InfoPlist.strings in Resources */,
+				A30A332714308E3100D44356 /* Localizable.strings in Resources */,
+				A30A333414308E3100D44356 /* MainWindow.xib in Resources */,
+				A30A333614308E3100D44356 /* ScrollImagesController.xib in Resources */,
+				A30A333814308E3100D44356 /* 02.png in Resources */,
+				A30A333914308E3100D44356 /* 2011-09-09-04-01-11.png in Resources */,
+				A30A333B14308E3100D44356 /* stagione.plist in Resources */,
+				A30A333C14308E3100D44356 /* stile.plist in Resources */,
+				A30A333E14308E3100D44356 /* tipologia.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9CD1ACA71412840600441AB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A30A331F14308E3100D44356 /* ClothViewController.m in Sources */,
+				A30A332114308E3100D44356 /* ClothManagerViewController.m in Sources */,
+				A30A332314308E3100D44356 /* ClothTableViewController.m in Sources */,
+				A30A332414308E3100D44356 /* IarmadioDao.m in Sources */,
+				A30A332814308E3100D44356 /* Combinazione.m in Sources */,
+				A30A332914308E3100D44356 /* Proprieta.m in Sources */,
+				A30A332A14308E3100D44356 /* ProprietaCombinazione.m in Sources */,
+				A30A332B14308E3100D44356 /* ProprietaVestito.m in Sources */,
+				A30A332C14308E3100D44356 /* Stagione.m in Sources */,
+				A30A332D14308E3100D44356 /* Stile.m in Sources */,
+				A30A332E14308E3100D44356 /* Tipologia.m in Sources */,
+				A30A332F14308E3100D44356 /* Vestito.m in Sources */,
+				A30A333014308E3100D44356 /* GeoLocal.m in Sources */,
+				A30A333114308E3100D44356 /* iArmadio.xcdatamodeld in Sources */,
+				A30A333214308E3100D44356 /* iArmadioAppDelegate.m in Sources */,
+				A30A333314308E3100D44356 /* main.m in Sources */,
+				A30A333514308E3100D44356 /* ScrollImagesController.m in Sources */,
+				A30A333714308E3100D44356 /* Shake2Style.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A30A32EA14308E3100D44356 /* ClothView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A30A32EB14308E3100D44356 /* en */,
+			);
+			name = ClothView.xib;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		A30A32EC14308E3100D44356 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A30A32ED14308E3100D44356 /* en */,
+				A30A330A14308E3100D44356 /* it */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A30A32EE14308E3100D44356 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A30A32EF14308E3100D44356 /* en */,
+				A30A330B14308E3100D44356 /* it */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9CD1ACD01412840600441AB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9CD1ACD11412840600441AB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9CD1ACD31412840600441AB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iArmadio/iArmadio-Prefix.pch";
+				INFOPLIST_FILE = "iArmadio/iArmadio-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9CD1ACD41412840600441AB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iArmadio/iArmadio-Prefix.pch";
+				INFOPLIST_FILE = "iArmadio/iArmadio-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9CD1ACA51412840500441AB7 /* Build configuration list for PBXProject "iArmadio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CD1ACD01412840600441AB7 /* Debug */,
+				9CD1ACD11412840600441AB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9CD1ACD21412840600441AB7 /* Build configuration list for PBXNativeTarget "iArmadio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9CD1ACD31412840600441AB7 /* Debug */,
+				9CD1ACD41412840600441AB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A30A330514308E3100D44356 /* iArmadio.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A30A330614308E3100D44356 /* iArmadio 2.xcdatamodel */,
+				A30A330714308E3100D44356 /* iArmadio.xcdatamodel */,
+			);
+			currentVersion = A30A330614308E3100D44356 /* iArmadio 2.xcdatamodel */;
+			path = iArmadio.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 9CD1ACA21412840500441AB7 /* Project object */;
+}
