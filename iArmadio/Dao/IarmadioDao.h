@@ -76,7 +76,9 @@ static NSString * const STILE_PLIST = @"stile";
 - (Vestito *)addVestito:(UIImage *)image gradimento:(NSInteger)gradimento  tipi:(NSArray *)_tipi stagioni:(NSArray *)_stagioni stili:(NSArray *)_stili;
 
 
+
 - (void)delVestito:(Vestito *)Vestito;
+- (void)modifyVestito:(Vestito *)Vestito;
 
 
 - (NSArray *)getCombinazioni:(NSInteger)filterGradimento filterStagioni:(NSArray *)filterStagioni filterStili:(NSArray *)filterStili;

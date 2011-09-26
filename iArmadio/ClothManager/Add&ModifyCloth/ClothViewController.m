@@ -13,7 +13,17 @@
 
 
 
-@synthesize imageView, undoButton, saveButton, tipologia, stagione, gradimento, scrollview, addNavigationBar;
+@synthesize imageView, 
+            undoButton, 
+            saveButton, 
+            tipologia, 
+            stagione, 
+            gradimento, 
+            scrollview, 
+            addNavigationBar,
+            casual,
+            sportivo,
+            elegante;
  
 
 
@@ -37,7 +47,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
-    
+    dao = [IarmadioDao shared];
    
     if(newimage != nil){
         self.imageView.image = newimage;
@@ -45,12 +55,15 @@
     }
     
     if(vestito != nil){
-        NSLog(@"%@",self.addNavigationBar.items);
         self.navigationItem.rightBarButtonItem = ((UINavigationItem *)[self.addNavigationBar.items objectAtIndex:0]).rightBarButtonItem;
+        
+        
         [self.addNavigationBar setHidden:YES];
+        
+        self.imageView.image = [dao getImageFromVestito:vestito];
     }
     
-    dao = [IarmadioDao shared];
+    
     
     UIImage *image = [UIImage imageNamed:@"02.png"];
     
@@ -62,23 +75,70 @@
     [self.tipologia removeSegmentAtIndex:0 animated:NO];
     [self.tipologia removeSegmentAtIndex:0 animated:NO];
     
+    NSMutableDictionary *indextipo =  [[NSMutableDictionary alloc] init];
+    
     for(NSString *tipo in tipologie){
         [self.tipologia insertSegmentWithImage:image atIndex:cont animated:YES];
         [self.tipologia setEnabled: YES forSegmentAtIndex: cont];
+        [indextipo setObject:[NSString stringWithFormat:@"%d",cont]  forKey:tipo];
         cont++;
     }
     
     
     self.scrollview.scrollEnabled = YES;
     //self.scrollview.pagingEnabled = YES;
-    self.scrollview.clipsToBounds = YES;
+    //self.scrollview.clipsToBounds = YES;
     self.scrollview.directionalLockEnabled = YES;
     self.scrollview.showsVerticalScrollIndicator = NO;
     self.scrollview.showsHorizontalScrollIndicator = YES;
     self.scrollview.delegate = self;
-    self.scrollview.autoresizesSubviews = YES;
+    //self.scrollview.autoresizesSubviews = YES;
     self.scrollview.bounces = YES; 
     [self.scrollview setContentSize:CGSizeMake(320,560)];
+    
+    if(!addCloth){
+        self.scrollview.frame = CGRectMake(0,90, self.scrollview.frame.size.width, self.scrollview.frame.size.height);
+    }
+    
+    
+    if(newimage != nil){
+        self.tipologia.selectedSegmentIndex = 0;
+        [self initStagione:dao.curr_stagione];
+    }
+    else if(vestito != nil){
+        
+        Tipologia *tipo = [[vestito.tipi allObjects] objectAtIndex:0];
+        self.tipologia.selectedSegmentIndex = [[indextipo objectForKey:tipo.nome] intValue];
+        
+        NSNumber *grad = vestito.gradimento;
+        
+        if(grad != nil){
+            gradimento.selectedSegmentIndex = grad.intValue;
+        } 
+        
+        [self initStagione:[vestito.perLaStagione allObjects]];
+        
+        
+        if([vestito.conStile count] > 0){
+            NSArray *stili = [vestito.conStile allObjects];
+            
+            for(Stile *tmp in stili){
+                if([tmp.stile caseInsensitiveCompare:@"casual"] == 0){
+                    casual.on = YES; 
+                }
+                if([tmp.stile caseInsensitiveCompare:@"sportivo"] == 0){
+                    sportivo.on = YES; 
+                }
+                if([tmp.stile caseInsensitiveCompare:@"elegante"] == 0){
+                    elegante.on = YES; 
+                }
+                
+            }
+        }
+        
+        
+        
+    }
     
     [super viewDidLoad];
    
@@ -117,13 +177,49 @@
     
    NSString *nametipo = [tipologie objectAtIndex:self.tipologia.selectedSegmentIndex]; 
    NSArray *tipi = [[NSArray alloc] initWithObjects:[dao getTipo: nametipo],nil];
-   [dao addVestito:self.imageView.image gradimento:-1 tipi:tipi stagioni:nil stili:nil];
+   
+    NSMutableArray *stili = [[NSMutableArray alloc] init];
+    if(casual.on){
+        [stili addObject:[dao getStile:@"casual"]];
+    }
+    if(sportivo.on){
+        [stili addObject:[dao getStile:@"sportivo"]]; 
+    }
+    if(elegante.on){
+        [stili addObject:[dao getStile:@"elegante"]]; 
+    } 
     
-   /*NSLog(@"%d",self.tipologia.selectedSegmentIndex);
-   
-   UITableView *tableview = (UITableView *)self.navigationController;
-   NSLog(@"%@",tableview); */
-   
+    
+    NSMutableArray *scelta_stagioni = [[NSMutableArray alloc] init];
+    
+    if(stagione.selectedSegmentIndex == 0){
+        [scelta_stagioni addObject:[dao getStagione:@"estiva"]];
+        [scelta_stagioni addObject:[dao getStagione:@"primaverile"]];
+    }
+    
+    if(stagione.selectedSegmentIndex == 1){
+        [scelta_stagioni addObject:[dao getStagione:@"invernale"]];
+        [scelta_stagioni addObject:[dao getStagione:@"autunnale"]];
+    }
+    
+    if(stagione.selectedSegmentIndex == 2){
+        [scelta_stagioni addObject:[dao getStagione:@"invernale"]];
+        [scelta_stagioni addObject:[dao getStagione:@"autunnale"]];
+        [scelta_stagioni addObject:[dao getStagione:@"estiva"]];
+        [scelta_stagioni addObject:[dao getStagione:@"primaverile"]];
+    }
+    
+    if(addCloth){ 
+        [dao addVestito:self.imageView.image gradimento:gradimento.selectedSegmentIndex tipi:tipi stagioni:scelta_stagioni stili:stili];
+    }
+    else{
+        vestito.gradimento = [NSNumber numberWithInteger:gradimento.selectedSegmentIndex] ;
+        vestito.tipi = [NSSet setWithArray:tipi];
+        vestito.conStile = [NSSet setWithArray:stili];
+        vestito.perLaStagione = [NSSet setWithArray:scelta_stagioni];
+        [dao modifyVestito:vestito];
+    }
+    
     if(addCloth){
         [self dismissModalViewControllerAnimated:YES];
     }
@@ -133,6 +229,8 @@
     
 }
 
+
+
 -(IBAction) undoCloth:(id) sender{
     if(addCloth){
         [self dismissModalViewControllerAnimated:YES];
@@ -140,6 +238,26 @@
   
 }
 
+
+- (void)initStagione:(NSArray *)_stagioni{
+    BOOL caldo = NO;
+    BOOL freddo = NO;
+    
+    for(Stagione *s in _stagioni){
+        if(([s.stagione caseInsensitiveCompare:@"primaverile"] == 0)||([s.stagione caseInsensitiveCompare:@"estiva"] == 0)){
+            caldo = YES; 
+            stagione.selectedSegmentIndex = 0;
+        }
+        else{
+            freddo = YES;
+            stagione.selectedSegmentIndex = 1;
+        }
+    }
+    
+    if(caldo&&freddo){
+        stagione.selectedSegmentIndex = 2;
+    } 
+}
 
 - (IBAction)segmentSwitch:(id)sender {
     //UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;

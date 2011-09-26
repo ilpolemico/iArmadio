@@ -60,6 +60,9 @@
     
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadVestiti:) name:ADD_CLOTH_EVENT object:nil];
+    
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadVestiti:) name:MOD_CLOTH_EVENT object:nil];
+    
     [self reloadVestiti];
     
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
@@ -131,9 +134,19 @@
     // Configure the cell...
     
     NSArray *tmp = [vestitiForType objectAtIndex:indexPath.section];
+    cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+    cell.backgroundView = [[UIImageView alloc] initWithImage:[dao getImageFromVestito:((Vestito *)[tmp objectAtIndex:indexPath.row])]];
+    //cell.imageView.image = [dao getImageFromVestito:((Vestito *)[tmp objectAtIndex:indexPath.row])];
+    //cell.imageView.frame = CGRectMake(100,10, 100, 10);
     
-    cell.textLabel.text = ((Vestito *)[tmp objectAtIndex:indexPath.row]).immagine;
+    //cell.textLabel.text = ((Vestito *)[tmp objectAtIndex:indexPath.row]).immagine;
+    
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)aTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return  100;
 }
 
 

@@ -175,6 +175,13 @@ static IarmadioDao *singleton;
     
 }
 
+- (void)modifyVestito:(Vestito *)Vestito{
+    [self saveContext];
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:MOD_CLOTH_EVENT
+     object:self];
+}
+
 
 - (NSArray *)getCombinazioni:(NSInteger)filterGradimento filterStagioni:(NSArray *)filterStagioni filterStili:(NSArray *)filterStili{
     

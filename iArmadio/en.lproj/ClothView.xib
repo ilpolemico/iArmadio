@@ -234,7 +234,6 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
-								<bool key="IBUIOn">YES</bool>
 							</object>
 							<object class="IBUISwitch" id="905572590">
 								<reference key="NSNextResponder" ref="113461832"/>
@@ -248,7 +247,6 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
-								<bool key="IBUIOn">YES</bool>
 							</object>
 							<object class="IBUISwitch" id="354479137">
 								<reference key="NSNextResponder" ref="113461832"/>
@@ -256,12 +254,12 @@
 								<string key="NSFrame">{{181, 459}, {94, 27}}</string>
 								<reference key="NSSuperview" ref="113461832"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:590</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
-								<bool key="IBUIOn">YES</bool>
 							</object>
 							<object class="IBUILabel" id="778436580">
 								<reference key="NSNextResponder" ref="113461832"/>
@@ -365,14 +363,6 @@
 					<int key="connectionID">3</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">imageView</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="1068561965"/>
-					</object>
-					<int key="connectionID">18</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">segmentSwitch:</string>
 						<reference key="source" ref="802271380"/>
@@ -420,6 +410,54 @@
 						<reference key="destination" ref="359885623"/>
 					</object>
 					<int key="connectionID">100</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">gradimento</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="468839808"/>
+					</object>
+					<int key="connectionID">103</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">stagione</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="408794282"/>
+					</object>
+					<int key="connectionID">104</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">casual</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="826994770"/>
+					</object>
+					<int key="connectionID">105</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">elegante</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="354479137"/>
+					</object>
+					<int key="connectionID">106</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">sportivo</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="905572590"/>
+					</object>
+					<int key="connectionID">107</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">imageView</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="1068561965"/>
+					</object>
+					<int key="connectionID">108</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -618,7 +656,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">100</int>
+			<int key="maxID">108</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -670,10 +708,13 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>addNavigationBar</string>
+							<string>casual</string>
+							<string>elegante</string>
 							<string>gradimento</string>
 							<string>imageView</string>
 							<string>saveButton</string>
 							<string>scrollview</string>
+							<string>sportivo</string>
 							<string>stagione</string>
 							<string>tipologia</string>
 							<string>undoButton</string>
@@ -681,10 +722,13 @@
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UINavigationBar</string>
+							<string>UISwitch</string>
+							<string>UISwitch</string>
 							<string>UISegmentedControl</string>
 							<string>UIImageView</string>
 							<string>UIBarButtonItem</string>
 							<string>UIScrollView</string>
+							<string>UISwitch</string>
 							<string>UISegmentedControl</string>
 							<string>UISegmentedControl</string>
 							<string>UIBarButtonItem</string>
@@ -695,10 +739,13 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>addNavigationBar</string>
+							<string>casual</string>
+							<string>elegante</string>
 							<string>gradimento</string>
 							<string>imageView</string>
 							<string>saveButton</string>
 							<string>scrollview</string>
+							<string>sportivo</string>
 							<string>stagione</string>
 							<string>tipologia</string>
 							<string>undoButton</string>
@@ -708,6 +755,14 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">addNavigationBar</string>
 								<string key="candidateClassName">UINavigationBar</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">casual</string>
+								<string key="candidateClassName">UISwitch</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">elegante</string>
+								<string key="candidateClassName">UISwitch</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">gradimento</string>
@@ -724,6 +779,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">scrollview</string>
 								<string key="candidateClassName">UIScrollView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">sportivo</string>
+								<string key="candidateClassName">UISwitch</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">stagione</string>

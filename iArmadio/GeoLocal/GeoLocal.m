@@ -18,6 +18,7 @@
 
 - (void)startUpdatingLocation
 {
+    
     [self performSelector:@selector(hackLocationFix) withObject:nil afterDelay:0.1];
 }
 
@@ -47,7 +48,10 @@ int curr_temp;
     locationManager.delegate = self;
     locationManager.distanceFilter = kCLDistanceFilterNone;
     locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
-    [locationManager startMonitoringSignificantLocationChanges];
+    //[locationManager startMonitoringSignificantLocationChanges];
+    
+    [locationManager startUpdatingLocation];
+   
     return self;
 }
 
@@ -74,6 +78,7 @@ int curr_temp;
         [parser release];
         
         oldTemperatura = curr_temp;
+        
         [self.appDelegate.dao curr_stagioneFromTemp:curr_temp]; 
     }
 }
@@ -137,6 +142,7 @@ int curr_temp;
         geoCoder = [[MKReverseGeocoder alloc] initWithCoordinate:newLocation.coordinate];
         [geoCoder setDelegate:self];
         [geoCoder start];
+         
     }
     //[locationManager stopUpdatingLocation];
     
