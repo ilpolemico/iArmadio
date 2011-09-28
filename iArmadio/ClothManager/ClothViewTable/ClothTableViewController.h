@@ -18,5 +18,5 @@
     NSMutableArray *vestitiForType;
 }
 
-- (void)reloadVestiti;    
+- (void)reloadVestiti;     
 @end
