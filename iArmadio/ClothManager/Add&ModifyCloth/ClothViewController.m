@@ -30,6 +30,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil setImage:(UIImage *)image{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     newimage = image;
+    [newimage retain];
     addCloth = YES;
     return self;
 }
@@ -37,6 +38,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil getVestito:(Vestito *)_vestito{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     vestito = _vestito;
+    [vestito retain];
     addCloth = NO;
     return self;
 }
@@ -264,6 +266,16 @@
     //NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
     //NSLog(@"%@",selectedSegment);
     
+}
+
+-(IBAction) selectImage:(id) sender{
+    ImageItemViewController *imageviewcontroller = [[ImageItemViewController alloc] initWithNibName:@"ImageItemViewController" bundle:nil];
+    
+    
+    //[self.view addSubview:imageviewcontroller.view]; 
+    [((iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate]).tabBarController presentModalViewController:imageviewcontroller animated:YES];     
+    imageviewcontroller.imageviewFinale.image = [dao getImageFromVestito:vestito];
+
 }
 
 

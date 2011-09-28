@@ -10,6 +10,7 @@
 #import "iArmadioAppDelegate.h"
 #import "IarmadioDao.h"
 #import "ClothTableViewController.h"
+#import "ImageItemViewController.h"
 
 @interface ClothViewController : UIViewController <UIScrollViewDelegate> {
     
@@ -54,7 +55,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil getVestito:(Vestito *)vestito;
 
 
-
+-(IBAction) selectImage:(id) sender;
 -(IBAction) addCloth:(id) sender;
 -(IBAction) undoCloth:(id) sender;
 -(IBAction) segmentSwitch:(id)sender;

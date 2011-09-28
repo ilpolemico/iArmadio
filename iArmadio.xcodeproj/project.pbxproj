@@ -41,6 +41,28 @@
 		A30A333B14308E3100D44356 /* stagione.plist in Resources */ = {isa = PBXBuildFile; fileRef = A30A331914308E3100D44356 /* stagione.plist */; };
 		A30A333C14308E3100D44356 /* stile.plist in Resources */ = {isa = PBXBuildFile; fileRef = A30A331A14308E3100D44356 /* stile.plist */; };
 		A30A333E14308E3100D44356 /* tipologia.plist in Resources */ = {isa = PBXBuildFile; fileRef = A30A331C14308E3100D44356 /* tipologia.plist */; };
+		A31729F414327C09005E1A03 /* sfondo.png in Resources */ = {isa = PBXBuildFile; fileRef = A31729F214327C09005E1A03 /* sfondo.png */; };
+		A31729F514327C09005E1A03 /* completa.png in Resources */ = {isa = PBXBuildFile; fileRef = A31729F314327C09005E1A03 /* completa.png */; };
+		A32294851431BE11001A8A36 /* ImageItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A32294831431BE11001A8A36 /* ImageItemViewController.m */; };
+		A32294861431BE12001A8A36 /* ImageItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A32294841431BE11001A8A36 /* ImageItemViewController.xib */; };
+		A32BA531143310530019979B /* AFItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA52B143310530019979B /* AFItemView.m */; };
+		A32BA532143310530019979B /* AFOpenFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA52E143310530019979B /* AFOpenFlowView.m */; };
+		A32BA533143310530019979B /* AFUIImageReflection.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA530143310530019979B /* AFUIImageReflection.m */; };
+		A32BA5371433117B0019979B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A32BA5361433117B0019979B /* QuartzCore.framework */; };
+		A32BA599143356100019979B /* UIImage+Blurring.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA588143356100019979B /* UIImage+Blurring.m */; };
+		A32BA59A143356100019979B /* UIImage+Filtering.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA58A143356100019979B /* UIImage+Filtering.m */; };
+		A32BA59B143356100019979B /* UIImage+Masking.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA58C143356100019979B /* UIImage+Masking.m */; };
+		A32BA59C143356100019979B /* UIImage+Reflection.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA58E143356100019979B /* UIImage+Reflection.m */; };
+		A32BA59D143356100019979B /* UIImage+Resizing.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA590143356100019979B /* UIImage+Resizing.m */; };
+		A32BA59E143356100019979B /* UIImage+Rotating.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA592143356100019979B /* UIImage+Rotating.m */; };
+		A32BA59F143356100019979B /* UIImage+Saving.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA594143356100019979B /* UIImage+Saving.m */; };
+		A32BA5A0143356100019979B /* NYXImagesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA597143356100019979B /* NYXImagesHelper.m */; };
+		A32BA5A2143357050019979B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A32BA5A1143357050019979B /* MobileCoreServices.framework */; };
+		A32BA5A4143357370019979B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A32BA5A3143357370019979B /* ImageIO.framework */; };
+		A32BA5A914336F830019979B /* ArmadioTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A32BA5A614336F830019979B /* ArmadioTableView.xib */; };
+		A32BA5AA14336F830019979B /* ArmadioTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA5A814336F830019979B /* ArmadioTableViewController.m */; };
+		A32BA5AF143375530019979B /* CoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA5AD143375530019979B /* CoverViewController.m */; };
+		A32BA5B0143375530019979B /* CoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A32BA5AE143375530019979B /* CoverViewController.xib */; };
 		A357353C1426850F008A742D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A357353B1426850F008A742D /* MapKit.framework */; };
 		A357353E142686F8008A742D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A357353D142686F8008A742D /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
@@ -101,6 +123,45 @@
 		A30A331914308E3100D44356 /* stagione.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = stagione.plist; sourceTree = "<group>"; };
 		A30A331A14308E3100D44356 /* stile.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = stile.plist; sourceTree = "<group>"; };
 		A30A331C14308E3100D44356 /* tipologia.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tipologia.plist; sourceTree = "<group>"; };
+		A31729F214327C09005E1A03 /* sfondo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sfondo.png; sourceTree = "<group>"; };
+		A31729F314327C09005E1A03 /* completa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = completa.png; sourceTree = "<group>"; };
+		A32294821431BE11001A8A36 /* ImageItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageItemViewController.h; sourceTree = "<group>"; };
+		A32294831431BE11001A8A36 /* ImageItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageItemViewController.m; sourceTree = "<group>"; };
+		A32294841431BE11001A8A36 /* ImageItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageItemViewController.xib; sourceTree = "<group>"; };
+		A32BA52A143310530019979B /* AFItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFItemView.h; sourceTree = "<group>"; };
+		A32BA52B143310530019979B /* AFItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFItemView.m; sourceTree = "<group>"; };
+		A32BA52C143310530019979B /* AFOpenFlowConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFOpenFlowConstants.h; sourceTree = "<group>"; };
+		A32BA52D143310530019979B /* AFOpenFlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFOpenFlowView.h; sourceTree = "<group>"; };
+		A32BA52E143310530019979B /* AFOpenFlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFOpenFlowView.m; sourceTree = "<group>"; };
+		A32BA52F143310530019979B /* AFUIImageReflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFUIImageReflection.h; sourceTree = "<group>"; };
+		A32BA530143310530019979B /* AFUIImageReflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFUIImageReflection.m; sourceTree = "<group>"; };
+		A32BA5351433117B0019979B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A32BA5361433117B0019979B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A32BA587143356100019979B /* UIImage+Blurring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Blurring.h"; sourceTree = "<group>"; };
+		A32BA588143356100019979B /* UIImage+Blurring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Blurring.m"; sourceTree = "<group>"; };
+		A32BA589143356100019979B /* UIImage+Filtering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filtering.h"; sourceTree = "<group>"; };
+		A32BA58A143356100019979B /* UIImage+Filtering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filtering.m"; sourceTree = "<group>"; };
+		A32BA58B143356100019979B /* UIImage+Masking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Masking.h"; sourceTree = "<group>"; };
+		A32BA58C143356100019979B /* UIImage+Masking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Masking.m"; sourceTree = "<group>"; };
+		A32BA58D143356100019979B /* UIImage+Reflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Reflection.h"; sourceTree = "<group>"; };
+		A32BA58E143356100019979B /* UIImage+Reflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Reflection.m"; sourceTree = "<group>"; };
+		A32BA58F143356100019979B /* UIImage+Resizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resizing.h"; sourceTree = "<group>"; };
+		A32BA590143356100019979B /* UIImage+Resizing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resizing.m"; sourceTree = "<group>"; };
+		A32BA591143356100019979B /* UIImage+Rotating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotating.h"; sourceTree = "<group>"; };
+		A32BA592143356100019979B /* UIImage+Rotating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotating.m"; sourceTree = "<group>"; };
+		A32BA593143356100019979B /* UIImage+Saving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Saving.h"; sourceTree = "<group>"; };
+		A32BA594143356100019979B /* UIImage+Saving.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Saving.m"; sourceTree = "<group>"; };
+		A32BA596143356100019979B /* NYXImagesHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYXImagesHelper.h; sourceTree = "<group>"; };
+		A32BA597143356100019979B /* NYXImagesHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYXImagesHelper.m; sourceTree = "<group>"; };
+		A32BA598143356100019979B /* NYXImagesUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYXImagesUtilities.h; sourceTree = "<group>"; };
+		A32BA5A1143357050019979B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		A32BA5A3143357370019979B /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		A32BA5A614336F830019979B /* ArmadioTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArmadioTableView.xib; sourceTree = "<group>"; };
+		A32BA5A714336F830019979B /* ArmadioTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArmadioTableViewController.h; sourceTree = "<group>"; };
+		A32BA5A814336F830019979B /* ArmadioTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArmadioTableViewController.m; sourceTree = "<group>"; };
+		A32BA5AC143375530019979B /* CoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = CoverViewController.h; sourceTree = "<group>"; };
+		A32BA5AD143375530019979B /* CoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoverViewController.m; sourceTree = "<group>"; };
+		A32BA5AE143375530019979B /* CoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoverViewController.xib; sourceTree = "<group>"; };
 		A357353B1426850F008A742D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A357353D142686F8008A742D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A36A7A311430B91C00BB8EB7 /* iArmadio-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "iArmadio-Info.plist"; path = "../iArmadio-Info.plist"; sourceTree = "<group>"; };
@@ -111,12 +172,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A32BA5A4143357370019979B /* ImageIO.framework in Frameworks */,
+				A32BA5A2143357050019979B /* MobileCoreServices.framework in Frameworks */,
+				9CD1ACB41412840600441AB7 /* CoreGraphics.framework in Frameworks */,
+				A32BA5371433117B0019979B /* QuartzCore.framework in Frameworks */,
 				A357353E142686F8008A742D /* CoreLocation.framework in Frameworks */,
 				A357353C1426850F008A742D /* MapKit.framework in Frameworks */,
 				9CD1ACD61412841E00441AB7 /* CoreData.framework in Frameworks */,
 				9CD1ACB01412840600441AB7 /* UIKit.framework in Frameworks */,
 				9CD1ACB21412840600441AB7 /* Foundation.framework in Frameworks */,
-				9CD1ACB41412840600441AB7 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +190,9 @@
 		9CD1ACA01412840500441AB7 = {
 			isa = PBXGroup;
 			children = (
+				A32BA586143356100019979B /* Categories */,
+				A32BA595143356100019979B /* Helper */,
+				A32BA529143310530019979B /* OpenFlow */,
 				A30A32D814308E3100D44356 /* iArmadio */,
 				9CD1ACAE1412840600441AB7 /* Frameworks */,
 				9CD1ACAC1412840600441AB7 /* Products */,
@@ -143,6 +210,10 @@
 		9CD1ACAE1412840600441AB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A32BA5A3143357370019979B /* ImageIO.framework */,
+				A32BA5A1143357050019979B /* MobileCoreServices.framework */,
+				A32BA5351433117B0019979B /* CoreGraphics.framework */,
+				A32BA5361433117B0019979B /* QuartzCore.framework */,
 				A357353D142686F8008A742D /* CoreLocation.framework */,
 				A357353B1426850F008A742D /* MapKit.framework */,
 				9CD1ACD51412841E00441AB7 /* CoreData.framework */,
@@ -177,6 +248,9 @@
 		A30A32D914308E3100D44356 /* ClothManager */ = {
 			isa = PBXGroup;
 			children = (
+				A32BA5AB143375520019979B /* CoverFlowCloth */,
+				A32BA5A514336F820019979B /* ArmadioViewTable */,
+				A32294801431BDDD001A8A36 /* ManageImage */,
 				A30A32DA14308E3100D44356 /* Add&ModifyCloth */,
 				A30A32E014308E3100D44356 /* ClothManagerView.xib */,
 				A30A32E114308E3100D44356 /* ClothManagerViewController.h */,
@@ -271,6 +345,8 @@
 		A30A331514308E3100D44356 /* Supporting File */ = {
 			isa = PBXGroup;
 			children = (
+				A31729F214327C09005E1A03 /* sfondo.png */,
+				A31729F314327C09005E1A03 /* completa.png */,
 				A36A7A311430B91C00BB8EB7 /* iArmadio-Info.plist */,
 				A30A331614308E3100D44356 /* 02.png */,
 				A30A331714308E3100D44356 /* 2011-09-09-04-01-11.png */,
@@ -279,6 +355,84 @@
 				A30A331C14308E3100D44356 /* tipologia.plist */,
 			);
 			path = "Supporting File";
+			sourceTree = "<group>";
+		};
+		A32294801431BDDD001A8A36 /* ManageImage */ = {
+			isa = PBXGroup;
+			children = (
+				A32294821431BE11001A8A36 /* ImageItemViewController.h */,
+				A32294831431BE11001A8A36 /* ImageItemViewController.m */,
+				A32294841431BE11001A8A36 /* ImageItemViewController.xib */,
+			);
+			path = ManageImage;
+			sourceTree = "<group>";
+		};
+		A32BA529143310530019979B /* OpenFlow */ = {
+			isa = PBXGroup;
+			children = (
+				A32BA52A143310530019979B /* AFItemView.h */,
+				A32BA52B143310530019979B /* AFItemView.m */,
+				A32BA52C143310530019979B /* AFOpenFlowConstants.h */,
+				A32BA52D143310530019979B /* AFOpenFlowView.h */,
+				A32BA52E143310530019979B /* AFOpenFlowView.m */,
+				A32BA52F143310530019979B /* AFUIImageReflection.h */,
+				A32BA530143310530019979B /* AFUIImageReflection.m */,
+			);
+			name = OpenFlow;
+			path = iArmadio/OpenFlow;
+			sourceTree = "<group>";
+		};
+		A32BA586143356100019979B /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				A32BA587143356100019979B /* UIImage+Blurring.h */,
+				A32BA588143356100019979B /* UIImage+Blurring.m */,
+				A32BA589143356100019979B /* UIImage+Filtering.h */,
+				A32BA58A143356100019979B /* UIImage+Filtering.m */,
+				A32BA58B143356100019979B /* UIImage+Masking.h */,
+				A32BA58C143356100019979B /* UIImage+Masking.m */,
+				A32BA58D143356100019979B /* UIImage+Reflection.h */,
+				A32BA58E143356100019979B /* UIImage+Reflection.m */,
+				A32BA58F143356100019979B /* UIImage+Resizing.h */,
+				A32BA590143356100019979B /* UIImage+Resizing.m */,
+				A32BA591143356100019979B /* UIImage+Rotating.h */,
+				A32BA592143356100019979B /* UIImage+Rotating.m */,
+				A32BA593143356100019979B /* UIImage+Saving.h */,
+				A32BA594143356100019979B /* UIImage+Saving.m */,
+			);
+			name = Categories;
+			path = iArmadio/Categories;
+			sourceTree = "<group>";
+		};
+		A32BA595143356100019979B /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				A32BA596143356100019979B /* NYXImagesHelper.h */,
+				A32BA597143356100019979B /* NYXImagesHelper.m */,
+				A32BA598143356100019979B /* NYXImagesUtilities.h */,
+			);
+			name = Helper;
+			path = iArmadio/Helper;
+			sourceTree = "<group>";
+		};
+		A32BA5A514336F820019979B /* ArmadioViewTable */ = {
+			isa = PBXGroup;
+			children = (
+				A32BA5A614336F830019979B /* ArmadioTableView.xib */,
+				A32BA5A714336F830019979B /* ArmadioTableViewController.h */,
+				A32BA5A814336F830019979B /* ArmadioTableViewController.m */,
+			);
+			path = ArmadioViewTable;
+			sourceTree = "<group>";
+		};
+		A32BA5AB143375520019979B /* CoverFlowCloth */ = {
+			isa = PBXGroup;
+			children = (
+				A32BA5AC143375530019979B /* CoverViewController.h */,
+				A32BA5AD143375530019979B /* CoverViewController.m */,
+				A32BA5AE143375530019979B /* CoverViewController.xib */,
+			);
+			path = CoverFlowCloth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,6 +495,11 @@
 				A30A333B14308E3100D44356 /* stagione.plist in Resources */,
 				A30A333C14308E3100D44356 /* stile.plist in Resources */,
 				A30A333E14308E3100D44356 /* tipologia.plist in Resources */,
+				A32294861431BE12001A8A36 /* ImageItemViewController.xib in Resources */,
+				A31729F414327C09005E1A03 /* sfondo.png in Resources */,
+				A31729F514327C09005E1A03 /* completa.png in Resources */,
+				A32BA5A914336F830019979B /* ArmadioTableView.xib in Resources */,
+				A32BA5B0143375530019979B /* CoverViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +528,20 @@
 				A30A333314308E3100D44356 /* main.m in Sources */,
 				A30A333514308E3100D44356 /* ScrollImagesController.m in Sources */,
 				A30A333714308E3100D44356 /* Shake2Style.m in Sources */,
+				A32294851431BE11001A8A36 /* ImageItemViewController.m in Sources */,
+				A32BA531143310530019979B /* AFItemView.m in Sources */,
+				A32BA532143310530019979B /* AFOpenFlowView.m in Sources */,
+				A32BA533143310530019979B /* AFUIImageReflection.m in Sources */,
+				A32BA599143356100019979B /* UIImage+Blurring.m in Sources */,
+				A32BA59A143356100019979B /* UIImage+Filtering.m in Sources */,
+				A32BA59B143356100019979B /* UIImage+Masking.m in Sources */,
+				A32BA59C143356100019979B /* UIImage+Reflection.m in Sources */,
+				A32BA59D143356100019979B /* UIImage+Resizing.m in Sources */,
+				A32BA59E143356100019979B /* UIImage+Rotating.m in Sources */,
+				A32BA59F143356100019979B /* UIImage+Saving.m in Sources */,
+				A32BA5A0143356100019979B /* NYXImagesHelper.m in Sources */,
+				A32BA5AA14336F830019979B /* ArmadioTableViewController.m in Sources */,
+				A32BA5AF143375530019979B /* CoverViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,8 +626,21 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iArmadio/iArmadio-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 				INFOPLIST_FILE = "iArmadio/iArmadio-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/**",
+					"$(inherited)",
+				);
+				OTHER_CFLAGS = "";
+				"OTHER_CFLAGS[arch=*]" = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"-Dmacintosh=1",
+				);
+				OTHER_LDFLAGS = "";
+				"OTHER_LDFLAGS[arch=*]" = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -464,8 +650,26 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iArmadio/iArmadio-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 				INFOPLIST_FILE = "iArmadio/iArmadio-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"/**",
+					"$(inherited)",
+				);
+				OTHER_CFLAGS = "";
+				"OTHER_CFLAGS[arch=*]" = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"-Dmacintosh=1",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"-Dmacintosh=1",
+				);
+				OTHER_LDFLAGS = "";
+				"OTHER_LDFLAGS[arch=*]" = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

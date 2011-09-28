@@ -13,65 +13,7 @@
 
 
 
-/*
-- (UIView *) clothHigh1{
-    if(clothHigh1 == nil){
-        CGSize size = CGSizeMake(100.0f,100.0f); 
-        ScrollImagesController *scrollcontroller = (ScrollImagesController *)[[ScrollImagesController alloc ]initWithNibName:@"ScrollImagesController" bundle:nil listCoth:[appDelegate.dao getCamicie] size:size];
-            clothHigh1 = scrollcontroller.view;
-  
-    }
-    [clothHigh1 retain];
-    return clothHigh1;
-}
 
-- (UIView *) clothHigh2{
-    if(clothHigh2 == nil){
-        CGSize size = CGSizeMake(100.0f,100.0f); 
-        ScrollImagesController *scrollcontroller = (ScrollImagesController *)[[ScrollImagesController alloc ]initWithNibName:@"ScrollImagesController" bundle:nil listCoth:[appDelegate.dao getCamicie] size:size];
-        clothHigh2 = scrollcontroller.view; 
-        
-    }
-    [clothHigh2 retain];
-    return clothHigh2;
-}
-
-
-- (UIView *) clothHigh3{
-    if(clothHigh3 == nil){
-        CGSize size = CGSizeMake(100.0f,100.0f); 
-        ScrollImagesController *scrollcontroller = (ScrollImagesController *)[[ScrollImagesController alloc ]initWithNibName:@"ScrollImagesController" bundle:nil listCoth:[appDelegate.dao getCamicie] size:size];
-        clothHigh3 = scrollcontroller.view; 
-        
-    }
-    [clothHigh3 retain];
-    return clothHigh3;
-}
-
-
-- (UIView *) clothMiddle{
-    if(clothMiddle == nil){
-        CGSize size = CGSizeMake(100.0f,100.0f); 
-        ScrollImagesController *scrollcontroller = (ScrollImagesController *)[[ScrollImagesController alloc ]initWithNibName:@"ScrollImagesController" bundle:nil listCoth:[appDelegate.dao getPantaloni] size:size];
-        clothMiddle = scrollcontroller.view; 
-        
-    }
-    [clothMiddle retain];
-    return clothMiddle;
-}
-
-
-- (UIView *) clothBottom{
-    if(clothBottom == nil){
-        CGSize size = CGSizeMake(100.0f,100.0f); 
-        ScrollImagesController *scrollcontroller = (ScrollImagesController *)[[ScrollImagesController alloc ]initWithNibName:@"ScrollImagesController" bundle:nil listCoth:[appDelegate.dao getPantaloni] size:size];
-        clothBottom = scrollcontroller.view; 
-    }
-    [clothBottom retain];
-    return clothBottom;
-}
-
-*/
 
 - (IBAction) modify:(id) sender{
     NSLog(@"modifica!");

@@ -51,7 +51,6 @@
 - (void)reloadVestiti:(NSNotification *)pNotification{
     [self reloadVestiti];
     [(UITableView *)self.view reloadData];
-    NSLog(@"Notification OK!");
 }
 
 - (void)viewDidLoad
@@ -134,9 +133,9 @@
     // Configure the cell...
     
     NSArray *tmp = [vestitiForType objectAtIndex:indexPath.section];
-    cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
-    cell.backgroundView = [[UIImageView alloc] initWithImage:[dao getImageFromVestito:((Vestito *)[tmp objectAtIndex:indexPath.row])]];
-    //cell.imageView.image = [dao getImageFromVestito:((Vestito *)[tmp objectAtIndex:indexPath.row])];
+    //cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+    //cell.backgroundView = [[UIImageView alloc] initWithImage:[dao getImageFromVestito:((Vestito *)[tmp objectAtIndex:indexPath.row])]];
+    cell.imageView.image = [dao getImageFromVestito:((Vestito *)[tmp objectAtIndex:indexPath.row])];
     //cell.imageView.frame = CGRectMake(100,10, 100, 10);
     
     //cell.textLabel.text = ((Vestito *)[tmp objectAtIndex:indexPath.row]).immagine;
@@ -146,7 +145,7 @@
 
 - (CGFloat)tableView:(UITableView *)aTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return  100;
+    return  50;
 }
 
 
@@ -205,6 +204,7 @@
     
     ClothViewController *getviewcontroller = [[ClothViewController alloc] initWithNibName:@"ClothView" bundle:nil getVestito: vestito];
     
+    [tableView  deselectRowAtIndexPath:indexPath animated:YES];  
     [self.navigationController pushViewController:getviewcontroller animated:YES];
     [getviewcontroller release];
      
