@@ -23,7 +23,9 @@
             addNavigationBar,
             casual,
             sportivo,
-            elegante;
+            elegante,
+            toolbar,
+            trash;
  
 
 
@@ -53,15 +55,19 @@
    
     if(newimage != nil){
         self.imageView.image = newimage;
-        [self.addNavigationBar setHidden:NO];
+        //[self.addNavigationBar setHidden:NO];
+        NSMutableArray *items = [[toolbar.items mutableCopy] autorelease];
+        [items removeObject:trash]; 
+        toolbar.items = items;
     }
     
     if(vestito != nil){
-        self.navigationItem.rightBarButtonItem = ((UINavigationItem *)[self.addNavigationBar.items objectAtIndex:0]).rightBarButtonItem;
+        //self.navigationItem.rightBarButtonItem = ((UINavigationItem *)[self.addNavigationBar.items objectAtIndex:0]).rightBarButtonItem;
         
         
-        [self.addNavigationBar setHidden:YES];
+        //[self.addNavigationBar setHidden:YES];
         
+       
         self.imageView.image = [dao getImageFromVestito:vestito];
     }
     
@@ -99,7 +105,7 @@
     [self.scrollview setContentSize:CGSizeMake(320,560)];
     
     
-    self.scrollview.frame = CGRectMake(0,90, self.scrollview.frame.size.width, self.scrollview.frame.size.height);
+    //self.scrollview.frame = CGRectMake(0,90, self.scrollview.frame.size.width, self.scrollview.frame.size.height);
     
     
     
@@ -173,6 +179,9 @@
 }
 
 -(IBAction) deleteCloth:(id) sender {
+    
+    [dao delVestito:vestito];
+    [self dismissModalViewControllerAnimated:YES];    
 
 }
 
@@ -226,22 +235,15 @@
         [dao modifyVestito:vestito];
     }
     
-    if(addCloth){
-        [self dismissModalViewControllerAnimated:YES];
-    }
-    else{
-        [self.navigationController popViewControllerAnimated:YES];
-    } 
+   
+    [self dismissModalViewControllerAnimated:YES];
     
 }
 
 
 
 -(IBAction) undoCloth:(id) sender{
-    if(addCloth){
-        [self dismissModalViewControllerAnimated:YES];
-    }
-  
+   [self dismissModalViewControllerAnimated:YES];
 }
 
 

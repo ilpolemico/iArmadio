@@ -30,11 +30,17 @@
     IBOutlet UISwitch *sportivo;
     IBOutlet UISwitch *elegante;
     
+    
+    IBOutlet UIToolbar *toolbar;
+    IBOutlet UIBarButtonItem *trash;
+    
     NSArray *tipologie;
     BOOL addCloth;
       
 }
 
+@property (nonatomic, retain ) IBOutlet UIToolbar *toolbar;
+@property (nonatomic, retain ) IBOutlet UIBarButtonItem *trash;
 @property (nonatomic, retain) IBOutlet UIScrollView *scrollview;
 @property (nonatomic, retain) IBOutlet UIImageView * imageView;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem * saveButton;

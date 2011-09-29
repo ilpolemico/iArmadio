@@ -12,12 +12,13 @@
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<string>IBUIView</string>
-			<string>IBUINavigationItem</string>
-			<string>IBUIViewController</string>
-			<string>IBUINavigationBar</string>
-			<string>IBUINavigationController</string>
 			<string>IBProxyObject</string>
+			<string>IBUINavigationController</string>
+			<string>IBUIViewController</string>
+			<string>IBUIBarButtonItem</string>
+			<string>IBUINavigationBar</string>
+			<string>IBUINavigationItem</string>
+			<string>IBUIView</string>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -46,7 +47,6 @@
 				<string key="NSFrameSize">{320, 416}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MQA</bytes>
@@ -81,6 +81,12 @@
 						<object class="IBUINavigationItem" key="IBUINavigationItem" id="870740877">
 							<reference key="IBUINavigationBar"/>
 							<string key="IBUITitle">Armadio</string>
+							<object class="IBUIBarButtonItem" key="IBUIRightBarButtonItem" id="1056915145">
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<int key="IBUIStyle">1</int>
+								<reference key="IBUINavigationItem" ref="870740877"/>
+								<int key="IBUISystemItemIdentifier">4</int>
+							</object>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						</object>
 						<reference key="IBUIParentViewController" ref="483123197"/>
@@ -121,6 +127,22 @@
 						<reference key="destination" ref="379560280"/>
 					</object>
 					<int key="connectionID">78</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">addItemBtn</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="1056915145"/>
+					</object>
+					<int key="connectionID">80</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">addItem:</string>
+						<reference key="source" ref="1056915145"/>
+						<reference key="destination" ref="372490531"/>
+					</object>
+					<int key="connectionID">81</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -173,6 +195,7 @@
 						<reference key="object" ref="870740877"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="1056915145"/>
 						</object>
 						<reference key="parent" ref="379560280"/>
 						<string key="objectName">ArmadioTable - ArmadioTable View Controller</string>
@@ -181,6 +204,11 @@
 						<int key="objectID">1</int>
 						<reference key="object" ref="191373211"/>
 						<reference key="parent" ref="0"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">79</int>
+						<reference key="object" ref="1056915145"/>
+						<reference key="parent" ref="870740877"/>
 					</object>
 				</object>
 			</object>
@@ -198,6 +226,7 @@
 					<string>63.CustomClassName</string>
 					<string>63.IBPluginDependency</string>
 					<string>64.IBPluginDependency</string>
+					<string>79.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -209,6 +238,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>ArmadioTableViewController</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
@@ -225,7 +255,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">78</int>
+			<int key="maxID">81</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
