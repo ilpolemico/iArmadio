@@ -550,7 +550,7 @@ static IarmadioDao *singleton;
     [self loadTipologia:TIPOLOGIA_PLIST];
     [self loadStagione:STAGIONE_PLIST];
     [self loadStile:STILE_PLIST];
-    [self debugDB];
+    //[self debugDB];
 }
 
 
@@ -570,9 +570,9 @@ static IarmadioDao *singleton;
     [_stili addObject:[self getStile:@"casual"]];
     [_stagioni addObject:[self getStagione:@"estiva"]];
     
-   
+    UIImage *image = [UIImage imageWithContentsOfFile:@"2011-09-09-04-01-11.png"];
     
-    Vestito *v1=[self addVestito:[[UIImage alloc] autorelease] gradimento:-1  tipi:_tipi stagioni:_stagioni stili:_stili];
+    Vestito *v1=[self addVestito:image gradimento:-1  tipi:_tipi stagioni:_stagioni stili:_stili];
     
     
     
@@ -580,7 +580,7 @@ static IarmadioDao *singleton;
     [_stili addObject:[self getStile:@"casual"]];
     [_stagioni addObject:[self getStagione:@"estiva"]];
     
-    Vestito *v2 = [self addVestito:[[UIImage alloc] autorelease] gradimento:-1  tipi:_tipi stagioni:_stagioni stili:_stili];
+    Vestito *v2 = [self addVestito:image gradimento:-1  tipi:_tipi stagioni:_stagioni stili:_stili];
 
     
     NSMutableArray *a = [NSMutableArray arrayWithObjects:v1,v2,nil];
@@ -677,6 +677,7 @@ static IarmadioDao *singleton;
             {
                 NSLog(@"error get stagioni -> %@", &error);
             }
+            [curr_stagione retain];
         }
     }
     return curr_stagione;

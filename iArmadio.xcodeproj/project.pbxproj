@@ -159,7 +159,7 @@
 		A32BA5A614336F830019979B /* ArmadioTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArmadioTableView.xib; sourceTree = "<group>"; };
 		A32BA5A714336F830019979B /* ArmadioTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArmadioTableViewController.h; sourceTree = "<group>"; };
 		A32BA5A814336F830019979B /* ArmadioTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArmadioTableViewController.m; sourceTree = "<group>"; };
-		A32BA5AC143375530019979B /* CoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = CoverViewController.h; sourceTree = "<group>"; };
+		A32BA5AC143375530019979B /* CoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoverViewController.h; sourceTree = "<group>"; };
 		A32BA5AD143375530019979B /* CoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoverViewController.m; sourceTree = "<group>"; };
 		A32BA5AE143375530019979B /* CoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoverViewController.xib; sourceTree = "<group>"; };
 		A357353B1426850F008A742D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };

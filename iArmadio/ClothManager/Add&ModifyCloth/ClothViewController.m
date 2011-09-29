@@ -98,9 +98,9 @@
     self.scrollview.bounces = YES; 
     [self.scrollview setContentSize:CGSizeMake(320,560)];
     
-    if(!addCloth){
-        self.scrollview.frame = CGRectMake(0,90, self.scrollview.frame.size.width, self.scrollview.frame.size.height);
-    }
+    
+    self.scrollview.frame = CGRectMake(0,90, self.scrollview.frame.size.width, self.scrollview.frame.size.height);
+    
     
     
     if(newimage != nil){
@@ -172,7 +172,11 @@
     // e.g. self.myOutlet = nil;
 }
 
--(IBAction) addCloth:(id) sender {
+-(IBAction) deleteCloth:(id) sender {
+
+}
+
+-(IBAction) saveCloth:(id) sender {
 	//NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(imageView.image)];
    
    
@@ -212,7 +216,7 @@
     }
     
     if(addCloth){ 
-        [dao addVestito:self.imageView.image gradimento:gradimento.selectedSegmentIndex tipi:tipi stagioni:scelta_stagioni stili:stili];
+        [dao addVestito:self.imageView.image.normal gradimento:gradimento.selectedSegmentIndex tipi:tipi stagioni:scelta_stagioni stili:stili];
     }
     else{
         vestito.gradimento = [NSNumber numberWithInteger:gradimento.selectedSegmentIndex] ;

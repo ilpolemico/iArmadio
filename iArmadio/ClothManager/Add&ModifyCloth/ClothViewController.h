@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NYXImagesUtilities.h"
 #import "iArmadioAppDelegate.h"
 #import "IarmadioDao.h"
 #import "ClothTableViewController.h"
@@ -56,7 +57,8 @@
 
 
 -(IBAction) selectImage:(id) sender;
--(IBAction) addCloth:(id) sender;
+-(IBAction) saveCloth:(id) sender;
+-(IBAction) deleteCloth:(id) sender;
 -(IBAction) undoCloth:(id) sender;
 -(IBAction) segmentSwitch:(id)sender;
 -(void)initStagione:(NSArray *)_stagioni;
