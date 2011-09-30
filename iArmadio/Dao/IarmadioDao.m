@@ -95,12 +95,13 @@ static IarmadioDao *singleton;
         [fetchRequest setPredicate: predicate];
     }
     
-    NSError *error;
+    NSError *error = nil;
     NSArray *vestiti = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
     if( vestiti == nil)
     {
-        NSLog(@"error get vestito -> %@", &error );
+       NSLog(@"GetVestitiEntities error %@, %@", error, [error userInfo]);
+       abort(); 
     }
     
     [vestiti retain];
@@ -123,6 +124,24 @@ static IarmadioDao *singleton;
     
     [vestito setValue:id forKey:@"id"];
     [vestito setValue:imageFilename forKey:@"immagine"];
+    
+    vestito = [self modifyVestitoEntity:vestito isNew:YES gradimento:gradimento  tipiKeys:tipiKeys stagioniKeys:stagioniKeys stiliKeys:stiliKeys];
+    
+    [self saveContext];
+    
+    [vestito retain];
+    [vestito autorelease];
+    
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:ADD_CLOTH_EVENT
+     object:self];
+    return vestito;
+    
+
+}
+
+- (Vestito *)modifyVestitoEntity:(Vestito *)vestito isNew:(BOOL)new gradimento:(NSInteger)gradimento  tipiKeys:(NSArray *)tipiKeys stagioniKeys:(NSArray *)stagioniKeys stiliKeys:(NSArray *)stiliKeys{
+
     [vestito setValue:[NSNumber numberWithInteger:gradimento] forKey:@"gradimento"];
     
     if((tipiKeys != nil )&&([tipiKeys count] > 0)){
@@ -146,18 +165,16 @@ static IarmadioDao *singleton;
         }
         vestito.perLaStagione = [NSSet setWithArray:tmp];
     }
-    
-    [self saveContext];
-    
-    [vestito retain];
-    [vestito autorelease];
-    
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:ADD_CLOTH_EVENT
-     object:self];
-    return vestito;
-    
 
+
+    if(!new){
+        [self saveContext];
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:MOD_CLOTH_EVENT
+         object:self];
+    }
+    
+    return vestito;
 }
 
 
@@ -231,12 +248,13 @@ static IarmadioDao *singleton;
         [fetchRequest setPredicate: predicate];
     }
     
-    NSError *error;
+    NSError *error = nil;
     NSArray *combinazioni = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
     if( combinazioni == nil)
     {
-        NSLog(@"error get vestito -> %@", &error );
+         NSLog(@"GetCombinazioniEntities error %@, %@", error, [error userInfo]);
+         abort();
     }
     
     [combinazioni retain];
@@ -283,6 +301,17 @@ static IarmadioDao *singleton;
     return combinazione;    
 }
 
+- (Combinazione *)modifyCombinazioneEntity:(Combinazione *)combinazione gradimento:(NSInteger)gradimento  tipiKeys:(NSArray *)tipiKeys stagioniKeys:(NSArray *)stagioniKeys stiliKeys:(NSArray *)stiliKeys{
+    
+    
+    [self saveContext];
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:MOD_LOOK_EVENT
+     object:self];
+    
+    return combinazione;
+}
+
 
 - (void)delCombinazioneEntity:(Combinazione *)combinazione{
     [self.managedObjectContext deleteObject:combinazione];
@@ -309,6 +338,10 @@ static IarmadioDao *singleton;
 		NSError * error = nil;
 		NSArray *entities = [self.managedObjectContext executeFetchRequest:allItem error:&error];
         
+        if(entities == nil){
+            NSLog(@"tipiEntities error %@, %@", error, [error userInfo]);
+            abort();
+        }    
         
         tipiEntities = [[NSMutableDictionary alloc] init];
         for (Tipologia *obj in entities) {
@@ -360,10 +393,17 @@ static IarmadioDao *singleton;
 		NSError *error = nil;
 		NSArray *entities = [self.managedObjectContext executeFetchRequest:allItem error:&error];
         
+        if(entities == nil){
+            NSLog(@"stiliEntities error %@, %@", error, [error userInfo]);
+            abort();
+        }
+        
         stiliEntities = [[NSMutableDictionary alloc] init];
         for (Stile *obj in entities) {
             [stiliEntities setObject:obj forKey:obj.stile];
         }
+        
+        
         
 	}
 	return stiliEntities;
@@ -379,8 +419,13 @@ static IarmadioDao *singleton;
 	if([stagioniEntities count] == 0){
 		NSFetchRequest *allItem = [[[NSFetchRequest alloc] init] autorelease];
 		[allItem setEntity:[NSEntityDescription entityForName:@"Stagione" inManagedObjectContext:self.managedObjectContext]];
-		NSError * error = nil;
+		NSError *error = nil;
 		NSArray *entities = [self.managedObjectContext executeFetchRequest:allItem error:&error];
+        
+        if(entities == nil){
+             NSLog(@"stagioniEntities error %@, %@", error, [error userInfo]);
+             abort();
+        }
         
         stagioniEntities = [[NSMutableDictionary alloc] init];
         for (Stagione *obj in entities) {
@@ -397,70 +442,6 @@ static IarmadioDao *singleton;
 
 
 /**
- Returns the managed object context for the application.
- If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
- */
-- (NSManagedObjectContext *) managedObjectContext {
-	
-	if (managedObjectContext != nil) { 
-		return managedObjectContext;
-	}
-	NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-	if (coordinator != nil) { 
-		managedObjectContext = [[NSManagedObjectContext alloc] init]; 
-		[managedObjectContext setPersistentStoreCoordinator: coordinator];
-	} 
-	return managedObjectContext;
-}
-
-/**
- Returns the managed object model for the application.
- If the model doesn't already exist, it is created from the application's model.
- */
-- (NSManagedObjectModel *)managedObjectModel {
-	if (managedObjectModel != nil) { 
-		return managedObjectModel;
-	} 
-	NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"iArmadio" withExtension:@"momd"];
-    managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];    
-	return managedObjectModel;
-}
-
-
-/**
- Returns the persistent store coordinator for the application.
- If the coordinator doesn't already exist, it is created and the application's store added to it.
- */
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
-    
-    if (persistentStoreCoordinator != nil) {
-        return persistentStoreCoordinator;
-    }
-    
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"iarmadioDB.sqlite"];
-    
-    NSError *error = nil;
-    persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-		abort();
-    }    
-    return persistentStoreCoordinator;
-}
-
-- (void)saveContext {
-    
-    NSError *error = nil;
-	if (managedObjectContext != nil) {
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
-        } 
-    }
-  
-} 
-
-/**
  Returns the URL to the application's Documents directory.
  */
 - (NSURL *)applicationDocumentsDirectory {
@@ -475,6 +456,10 @@ static IarmadioDao *singleton;
     NSError *error = nil;
     NSArray *entities = [self.managedObjectContext executeFetchRequest:allItem error:&error];
     
+    if(entities == nil){
+        NSLog(@"loadTipologie error %@, %@", error, [error userInfo]);
+        abort();
+    }
     
     if([entities count] == 0){
         NSString *path=[[NSBundle mainBundle] pathForResource:namefile ofType:@"plist"];
@@ -524,6 +509,11 @@ static IarmadioDao *singleton;
     NSError *error = nil;
     NSArray *entities = [self.managedObjectContext executeFetchRequest:allItem error:&error];
     
+    if(entities == nil){
+        NSLog(@"LoadStili error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    
     if([entities count] == 0){
         NSString *path=[[NSBundle mainBundle] pathForResource:namefile ofType:@"plist"];
         NSDictionary *dict=[NSDictionary dictionaryWithContentsOfFile:path];
@@ -550,6 +540,11 @@ static IarmadioDao *singleton;
     
     NSError *error = nil;
     NSArray *entities = [self.managedObjectContext executeFetchRequest:allItem error:&error];
+    
+    if(entities == nil){
+        NSLog(@"loadStagioni error %@, %@", error, [error userInfo]);
+        abort();
+    }
     
     if([entities count] == 0){
         NSString *path=[[NSBundle mainBundle] pathForResource:namefile ofType:@"plist"];
@@ -681,12 +676,13 @@ static IarmadioDao *singleton;
     NSString *filterdate = [formatter stringFromDate:date];
     
     predicate = [NSPredicate predicateWithFormat:@"date_from <= %@ AND date_to >=%@",filterdate,filterdate];
-    predicate = [NSPredicate predicateWithFormat:@"temp_min <= %d AND temp_max >=%d",temperatura,temperatura];
+    
     [predicates addObject:predicate];
     
-    NSError *error;
+    
     [fetchRequest setPredicate:[NSCompoundPredicate andPredicateWithSubpredicates:predicates]];
     
+    NSError *error = nil;
     NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error]; 
     
     
@@ -697,7 +693,8 @@ static IarmadioDao *singleton;
         [currStagioneKey retain];
     }
     else{
-        NSLog(@"error get stagioni -> %@", &error);
+        currStagioneKey = @"estiva";
+        NSLog(@"error get stagioni -> No season found");
     }
 }
 
@@ -705,8 +702,78 @@ static IarmadioDao *singleton;
     if(currStagioneKey == nil){
             [self setCurrStagioneKeyFromTemp:999];
     }
+    
+    //NSLog(@"%@",currStagioneKey);
+    
     return currStagioneKey;
 }
+
+
+
+/**
+ Returns the managed object context for the application.
+ If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
+ */
+- (NSManagedObjectContext *) managedObjectContext {
+	
+	if (managedObjectContext != nil) { 
+		return managedObjectContext;
+	}
+	NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+	if (coordinator != nil) { 
+		managedObjectContext = [[NSManagedObjectContext alloc] init]; 
+		[managedObjectContext setPersistentStoreCoordinator: coordinator];
+	} 
+	return managedObjectContext;
+}
+
+/**
+ Returns the managed object model for the application.
+ If the model doesn't already exist, it is created from the application's model.
+ */
+- (NSManagedObjectModel *)managedObjectModel {
+	if (managedObjectModel != nil) { 
+		return managedObjectModel;
+	} 
+	NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"iArmadio" withExtension:@"momd"];
+    managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];    
+	return managedObjectModel;
+}
+
+
+/**
+ Returns the persistent store coordinator for the application.
+ If the coordinator doesn't already exist, it is created and the application's store added to it.
+ */
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
+    
+    if (persistentStoreCoordinator != nil) {
+        return persistentStoreCoordinator;
+    }
+    
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"iarmadioDB.sqlite"];
+    
+    NSError *error = nil;
+    persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
+    if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+		abort();
+    }    
+    return persistentStoreCoordinator;
+}
+
+- (void)saveContext {
+    
+    NSError *error = nil;
+	if (managedObjectContext != nil) {
+        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        } 
+    }
+    
+} 
+
 
 
 - (void)dealloc{

@@ -67,7 +67,7 @@
 -(IBAction) deleteCloth:(id) sender;
 -(IBAction) undoCloth:(id) sender;
 -(IBAction) segmentSwitch:(id)sender;
--(void)initStagione:(NSArray *)_stagioni;
+-(void)initStagioniEntities:(NSArray *)_stagioni;
 
 
 

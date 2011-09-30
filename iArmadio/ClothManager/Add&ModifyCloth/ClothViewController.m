@@ -111,7 +111,7 @@
     
     if(newimage != nil){
         self.tipologia.selectedSegmentIndex = 0;
-        [self initStagione:[[NSArray alloc] initWithObjects:dao.currStagioneKey, nil]];
+        [self initStagioniEntities:[[[NSArray alloc] initWithObjects:[dao getStagioneEntity:dao.currStagioneKey], nil] autorelease]];
     }
     else if(vestito != nil){
         
@@ -124,7 +124,7 @@
             gradimento.selectedSegmentIndex = grad.intValue;
         } 
         
-        [self initStagione:[vestito.perLaStagione allObjects]];
+        [self initStagioniEntities:[vestito.perLaStagione allObjects]];
         
         
         if([vestito.conStile count] > 0){
@@ -228,11 +228,7 @@
         [dao addVestitoEntity:self.imageView.image.normal gradimento:gradimento.selectedSegmentIndex tipiKeys:tipi stagioniKeys:scelta_stagioni stiliKeys:stili];
     }
     else{
-        vestito.gradimento = [NSNumber numberWithInteger:gradimento.selectedSegmentIndex] ;
-        vestito.tipi = [NSSet setWithArray:tipi];
-        vestito.conStile = [NSSet setWithArray:stili];
-        vestito.perLaStagione = [NSSet setWithArray:scelta_stagioni];
-        [dao modifyVestitiEntities];
+        [dao modifyVestitoEntity:vestito isNew:NO gradimento:gradimento.selectedSegmentIndex tipiKeys:tipi stagioniKeys:scelta_stagioni stiliKeys:stili];
     }
     
     [scelta_stagioni release];
@@ -249,7 +245,7 @@
 }
 
 
-- (void)initStagione:(NSArray *)_stagioni{
+- (void)initStagioniEntities:(NSArray *)_stagioni{
     BOOL caldo = NO;
     BOOL freddo = NO;
     
@@ -286,7 +282,7 @@
 }
 
 -(void) dealloc{
-
+   
     [super dealloc];
 }
 

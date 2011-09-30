@@ -63,15 +63,17 @@
     picker.delegate = self;
 
     if (buttonIndex == 0) {
-          picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-          //picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-          picker.allowsEditing = YES;
+            #if !(TARGET_IPHONE_SIMULATOR)
+                    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            #else
+                    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            #endif
           [self presentModalViewController:picker animated:YES];
           [picker release];
     }
     else if (buttonIndex == 1) {
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        picker.allowsEditing = YES;
+        //picker.allowsEditing = YES;
         [self presentModalViewController:picker animated:YES];
         [picker release];
     } 
@@ -80,10 +82,12 @@
   
 }
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image
+                  editingInfo:(NSDictionary *)editingInfo 
+    {
 	[picker dismissModalViewControllerAnimated:NO];
     
-    ClothViewController *addviewcontroller = [[ClothViewController alloc] initWithNibName:@"ClothView" bundle:nil setImage: [info objectForKey:@"UIImagePickerControllerEditedImage"]];
+    ClothViewController *addviewcontroller = [[ClothViewController alloc] initWithNibName:@"ClothView" bundle:nil setImage: image];
     
     //addviewcontroller.tipologia = tipologia;
     [self presentModalViewController:addviewcontroller animated:YES];
