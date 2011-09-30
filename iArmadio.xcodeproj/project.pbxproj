@@ -66,6 +66,8 @@
 		A357353C1426850F008A742D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A357353B1426850F008A742D /* MapKit.framework */; };
 		A357353E142686F8008A742D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A357353D142686F8008A742D /* CoreLocation.framework */; };
 		A357D7161435B7BC00594E69 /* FileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A357D7151435B7BC00594E69 /* FileSystem.m */; };
+		A3908B371436096900E76B5F /* CoverViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = A32BA5AC143375530019979B /* CoverViewController.h */; };
+		A3908B381436096900E76B5F /* CoverViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = A32BA5AE143375530019979B /* CoverViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -515,6 +517,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3908B371436096900E76B5F /* CoverViewController.h in Sources */,
+				A3908B381436096900E76B5F /* CoverViewController.xib in Sources */,
 				A30A331F14308E3100D44356 /* ClothViewController.m in Sources */,
 				A30A332114308E3100D44356 /* ClothManagerViewController.m in Sources */,
 				A30A332314308E3100D44356 /* ClothTableViewController.m in Sources */,
