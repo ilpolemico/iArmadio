@@ -37,11 +37,11 @@
         [vestitiForType release];
     }
     
-    vestitiForType = [[NSMutableArray alloc] initWithCapacity:[dao.listTipi count]];
+    vestitiForType = [[NSMutableArray alloc] initWithCapacity:[dao.listTipiKeys count]];
     
-    for( NSString *tipo in dao.listTipi){ 
+    for( NSString *tipo in dao.listTipiKeys){ 
         
-        NSArray *vestiti = [dao getVestiti:[NSArray arrayWithObjects:tipo,nil] filterStagioni:nil filterStili:nil filterGradimento:-1];
+        NSArray *vestiti = [dao getVestitiEntities:[NSArray arrayWithObjects:tipo,nil] filterStagioniKeys:nil filterStiliKeys:nil filterGradimento:-1];
         
         [vestitiForType addObject:vestiti];
     }
@@ -112,7 +112,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return [dao.listTipi count];
+    return [dao.listTipiKeys count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -166,7 +166,7 @@
         NSArray *tmp = [vestitiForType objectAtIndex:indexPath.section];
         
         
-        [dao delVestito:[tmp objectAtIndex:indexPath.row]];
+        [dao delVestitoEntity:[tmp objectAtIndex:indexPath.row]];
         [self reloadVestiti];
         
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -213,7 +213,7 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     
     if([[vestitiForType objectAtIndex:section] count] > 0){
-        return [dao.listTipi objectAtIndex:section];
+        return [dao.listTipiKeys objectAtIndex:section];
     }
     return nil;
 

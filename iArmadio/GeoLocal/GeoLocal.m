@@ -25,7 +25,6 @@
 @end
 
 @implementation GeoLocal
-@synthesize appDelegate;
 static GeoLocal *singleton;
 BOOL currentConditions;
 int curr_temp;
@@ -39,7 +38,7 @@ int curr_temp;
 
 
 - (id)init{
-    appDelegate = (iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate];
+    dao = [IarmadioDao shared];
     currLocation = @"";
     oldLocation = @"";
     curr_temp = 999;
@@ -59,7 +58,7 @@ int curr_temp;
 -(void)setTemperatura{
     if(([currLocation length]>0)&&(![currLocation isEqualToString:oldLocation])){
         NSString *request = [NSString stringWithFormat:@"http://www.google.com/ig/api?weather=%@",currLocation];
-        NSURLRequest *myRequest = [ [NSURLRequest alloc] initWithURL: [NSURL URLWithString:request] ];
+        NSURLRequest *myRequest = [ [[NSURLRequest alloc] initWithURL: [NSURL URLWithString:request]] autorelease];
         
         NSError        *error = nil;
         NSURLResponse  *response = nil;
@@ -79,7 +78,7 @@ int curr_temp;
         
         oldTemperatura = curr_temp;
         
-        [self.appDelegate.dao curr_stagioneFromTemp:curr_temp]; 
+        [dao setCurrStagioneKeyFromTemp:curr_temp]; 
     }
 }
 

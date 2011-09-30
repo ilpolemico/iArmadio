@@ -13,9 +13,6 @@
 
 @implementation IarmadioDao
 
-@synthesize appDelegate;
-@dynamic curr_stagione;
-
 static IarmadioDao *singleton;
 
 
@@ -28,20 +25,18 @@ static IarmadioDao *singleton;
 
 - (IarmadioDao*)initDao{
     srand(time(NULL));
-    appDelegate = (iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate];
-    [appDelegate retain];
     singleton = self;
     return self;
 }
 
 
-- (UIImage *)getImageFromVestito:(Vestito *)vestito{
-    return [self getImageFromFile:vestito.immagine];
+- (UIImage *)getImageFromVestito:(Vestito *)vestitoEntity{
+    return [self getImageFromFile:vestitoEntity.immagine];
 }
 
 
 - (UIImage *)getImageFromFile:(NSString *)file{
-    NSString *filename = [appDelegate filePathDocuments:file];
+    NSString *filename = [self filePathDocuments:file];
     return [UIImage imageWithContentsOfFile:filename];
 }
 
@@ -50,18 +45,19 @@ static IarmadioDao *singleton;
     NSDateFormatter* formatter = [[[NSDateFormatter alloc] init] autorelease];
     [formatter setDateFormat:@"yyyy-MM-dd-hh-mm-ss"];
     NSString *str = [formatter stringFromDate:date];
-    
+    NSTimeInterval timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
     
     int d1 = rand() % 9;
     int d2 = rand() % 9;
     int d3 = rand() % 9;
-    NSString *tail_casual = [NSString stringWithFormat:@"_%d%d%d",d1,d2,d3];
+    int d4 = rand() % 9;
+    NSString *tail_casual = [NSString stringWithFormat:@"_%d%d%d%d%d",timePassed_ms,d1,d2,d3,d4];
     
     return  [str stringByAppendingString:tail_casual];
 }
 
 
-- (NSArray *)getVestiti:(NSArray *)filterTipi filterStagioni:(NSArray *)filterStagioni filterStili:(NSArray *)filterStili filterGradimento:(NSInteger)filterGradimento
+- (NSArray *)getVestitiEntities:(NSArray *)filterTipiKeys filterStagioniKeys:(NSArray *)filterStagioniKeys filterStiliKeys:(NSArray *)filterStiliKeys filterGradimento:(NSInteger)filterGradimento
     {
    
     NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
@@ -70,20 +66,20 @@ static IarmadioDao *singleton;
     
     
     NSMutableArray *predicates = [[[NSMutableArray alloc] init] autorelease];     
-    if((filterTipi != nil)&&([filterTipi count] > 0)){
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY tipi.nome in %@",filterTipi];
+    if((filterTipiKeys != nil)&&([filterTipiKeys count] > 0)){
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY tipi.nome in %@",filterTipiKeys];
         [predicates addObject:predicate];
     }
     
     
-    if((filterStagioni != nil)&&([filterStagioni count] > 0)){
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY perLaStagione.stagione in %@",filterStagioni];
+    if((filterStagioniKeys != nil)&&([filterStagioniKeys count] > 0)){
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY perLaStagione.stagione in %@",filterStagioniKeys];
         [predicates addObject:predicate];
     }  
     
     
-    if((filterStili != nil)&&([filterStili count] > 0)){
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY conStile.stile in %@",filterStili];
+    if((filterStiliKeys != nil)&&([filterStiliKeys count] > 0)){
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY conStile.stile in %@",filterStiliKeys];
         [predicates addObject:predicate];
     }    
     
@@ -113,13 +109,13 @@ static IarmadioDao *singleton;
 }
 
 
-- (Vestito *)addVestito:(UIImage *)image gradimento:(NSInteger)gradimento  tipi:(NSArray *)_tipi stagioni:(NSArray *)_stagioni stili:(NSArray *)_stili; {
+- (Vestito *)addVestitoEntity:(UIImage *)image gradimento:(NSInteger)gradimento  tipiKeys:(NSArray *)tipiKeys stagioniKeys:(NSArray *)stagioniKeys stiliKeys:(NSArray *)stiliKeys; {
     
     NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(image)];
     NSString *imageFilename; 
     NSString *id = [self getNewID];
     imageFilename = [id stringByAppendingString:@".png"];
-    [imageData writeToFile:[appDelegate filePathDocuments:imageFilename] atomically:YES];
+    [imageData writeToFile:[self filePathDocuments:imageFilename] atomically:YES];
     
     Vestito *vestito = [NSEntityDescription insertNewObjectForEntityForName:@"Vestito" inManagedObjectContext:self.managedObjectContext];
     
@@ -129,9 +125,27 @@ static IarmadioDao *singleton;
     [vestito setValue:imageFilename forKey:@"immagine"];
     [vestito setValue:[NSNumber numberWithInteger:gradimento] forKey:@"gradimento"];
     
-    if((_tipi != nil )&&([_tipi count] > 0)){vestito.tipi = [NSSet setWithArray: _tipi];}
-    if((_stili != nil )&&([_stili count] > 0)){vestito.conStile = [NSSet setWithArray:_stili];}
-    if((_stagioni != nil )&&([_stagioni count] > 0)){vestito.perLaStagione = [NSSet setWithArray:_stagioni];}
+    if((tipiKeys != nil )&&([tipiKeys count] > 0)){
+        NSMutableArray *tmp = [[[NSMutableArray alloc] init] autorelease];
+        for (NSString *key in tipiKeys) {
+            [tmp addObject:[self getTipoEntity:key]];
+        }
+        vestito.tipi = [NSSet setWithArray: tmp];
+    }
+    if((stiliKeys != nil )&&([stiliKeys count] > 0)){
+        NSMutableArray *tmp = [[[NSMutableArray alloc] init] autorelease];
+        for (NSString *key in stiliKeys) {
+            [tmp addObject:[self getStileEntity:key]];
+        }
+        vestito.conStile = [NSSet setWithArray:tmp];
+    }
+    if((stagioniKeys != nil )&&([stagioniKeys count] > 0)){
+        NSMutableArray *tmp = [[[NSMutableArray alloc] init] autorelease];
+        for (NSString *key in stagioniKeys) {
+            [tmp addObject:[self getStagioneEntity:key]];
+        }
+        vestito.perLaStagione = [NSSet setWithArray:tmp];
+    }
     
     [self saveContext];
     
@@ -147,27 +161,26 @@ static IarmadioDao *singleton;
 }
 
 
-- (void)delVestito:(Vestito *)vestito{
+- (void)delVestitoEntity:(Vestito *)vestitoEntity{
     
-    NSSet *inCombinazioni = vestito.inCombinazioni;
+    NSSet *inCombinazioni = vestitoEntity.inCombinazioni;
     
     for(Combinazione *combinazione in inCombinazioni){
         if([combinazione.fattaDi count] == 1){
-            [self delCombinazione:combinazione]; 
+            [self delCombinazioneEntity:combinazione]; 
         }
     }
     
     
     
-    if((vestito.immagine != nil)&&([vestito.immagine length] > 0)){ 
+    if((vestitoEntity.immagine != nil)&&([vestitoEntity.immagine length] > 0)){ 
         [[NSFileManager defaultManager] 
-            removeItemAtPath:
-                    [appDelegate filePathDocuments:vestito.immagine]
+            removeItemAtPath:[self filePathDocuments:vestitoEntity.immagine]
             error:nil
         ];
     }
     
-    [self.managedObjectContext deleteObject:vestito];
+    [self.managedObjectContext deleteObject:vestitoEntity];
     [self saveContext];
     [[NSNotificationCenter defaultCenter]
      postNotificationName:DEL_CLOTH_EVENT
@@ -175,7 +188,7 @@ static IarmadioDao *singleton;
     
 }
 
-- (void)modifyVestito:(Vestito *)Vestito{
+- (void)modifyVestitiEntities{
     [self saveContext];
     [[NSNotificationCenter defaultCenter]
      postNotificationName:MOD_CLOTH_EVENT
@@ -183,7 +196,7 @@ static IarmadioDao *singleton;
 }
 
 
-- (NSArray *)getCombinazioni:(NSInteger)filterGradimento filterStagioni:(NSArray *)filterStagioni filterStili:(NSArray *)filterStili{
+- (NSArray *)getCombinazioniEntities:(NSInteger)filterGradimento filterStagioniKeys:(NSArray *)filterStagioniKeys filterStiliKeys:(NSArray *)filterStiliKeys{
     
     
     NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
@@ -194,14 +207,14 @@ static IarmadioDao *singleton;
     NSMutableArray *predicates = [[[NSMutableArray alloc] init] autorelease];     
     
     
-    if((filterStagioni != nil)&&([filterStagioni count] > 0)){
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY perLaStagione.stagione in %@",filterStagioni];
+    if((filterStagioniKeys != nil)&&([filterStagioniKeys count] > 0)){
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY perLaStagione.stagione in %@",filterStagioniKeys];
         [predicates addObject:predicate];
     }  
     
     
-    if((filterStili != nil)&&([filterStili count] > 0)){
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY conStile.stile in %@",filterStili];
+    if((filterStiliKeys != nil)&&([filterStiliKeys count] > 0)){
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY conStile.stile in %@",filterStiliKeys];
         [predicates addObject:predicate];
     }    
     
@@ -235,7 +248,7 @@ static IarmadioDao *singleton;
 }
 
 
-- (Combinazione *)addCombinazione:(NSSet *)vestiti gradimento:(NSInteger)gradimento stagioni:(NSArray *)_stagioni stile:(NSArray *)_stili{
+- (Combinazione *)addCombinazioneEntity:(NSSet *)vestitiEntities gradimento:(NSInteger)gradimento stagioniKeys:(NSArray *)stagioniKeys stiliKeys:(NSArray *)stiliKeys{
     
     Combinazione *combinazione = [NSEntityDescription insertNewObjectForEntityForName:@"Combinazione" inManagedObjectContext:self.managedObjectContext];
     
@@ -245,118 +258,140 @@ static IarmadioDao *singleton;
     
     
     
-    if((_stili != nil )&&([_stili count] > 0)){combinazione.conStile = [NSSet setWithArray:_stili];}
-    if((_stagioni != nil )&&([_stagioni count] > 0)){combinazione.perLaStagione = [NSSet setWithArray:_stagioni];}
-    combinazione.fattaDi = vestiti;
+    if((stiliKeys != nil )&&([stiliKeys count] > 0)){
+        NSMutableArray *tmp = [[[NSMutableArray alloc] init] autorelease];
+        for (NSString *key in stiliKeys) {
+            [tmp addObject:[self getStileEntity:key]];
+        }
+        combinazione.conStile = [NSSet setWithArray:tmp];
+    }
+    if((stagioniKeys != nil )&&([stagioniKeys count] > 0)){
+        NSMutableArray *tmp = [[[NSMutableArray alloc] init] autorelease];
+        for (NSString *key in stagioniKeys) {
+            [tmp addObject:[self getStagioneEntity:key]];
+        }
+        combinazione.perLaStagione = [NSSet setWithArray:tmp];
+    }
+    combinazione.fattaDi = vestitiEntities;
     
     [self saveContext];
-    
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:ADD_LOOK_EVENT
+     object:self];
     [combinazione retain];
     [combinazione autorelease];
     return combinazione;    
 }
 
 
-- (void)delCombinazione:(Combinazione *)combinazione{
+- (void)delCombinazioneEntity:(Combinazione *)combinazione{
     [self.managedObjectContext deleteObject:combinazione];
     [self saveContext];
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:DEL_LOOK_EVENT
+     object:self];
+}
+
+
+- (void)modifyCombinazioniEntities{
+    [self saveContext];
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:MOD_LOOK_EVENT
+     object:self];
 }
 
 
 
-
-- (NSMutableDictionary *)tipi{
-	if([tipi count] == 0){
+- (NSMutableDictionary *)tipiEntities{
+	if([tipiEntities count] == 0){
 		NSFetchRequest *allItem = [[[NSFetchRequest alloc] init] autorelease];
 		[allItem setEntity:[NSEntityDescription entityForName:@"Tipologia" inManagedObjectContext:self.managedObjectContext]];
 		NSError * error = nil;
 		NSArray *entities = [self.managedObjectContext executeFetchRequest:allItem error:&error];
         
         
-        tipi = [[NSMutableDictionary alloc] init];
+        tipiEntities = [[NSMutableDictionary alloc] init];
         for (Tipologia *obj in entities) {
-            [tipi setObject:obj forKey:obj.nome];
+            [tipiEntities setObject:obj forKey:obj.nome];
         }
         
 	}
-	return tipi;
+	return tipiEntities;
 };
 
 
-- (NSArray *)listTipi{
+- (NSArray *)listTipiKeys{
 
-    if(listTipi == nil){
-        listTipi = [[self.tipi allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
-        [listTipi retain];
+    if(listTipiKeys == nil){
+        listTipiKeys = [[self.tipiEntities allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+        [listTipiKeys retain];
     }
-    return listTipi;
+    return listTipiKeys;
 };
 
-- (NSArray *)listStagioni{
-    if(listStagioni == nil){
-        
-        listStagioni = [self.stagioni allKeys]  ;
+- (NSArray *)listStagioniKeys{
+    if(listStagioniKeys == nil){
+        listStagioniKeys = [self.stagioniEntities allKeys]  ;
     }
     
-    return listStagioni;
+    return listStagioniKeys;
 };
 
 
 
 
-- (NSArray *)listStili{
+- (NSArray *)listStiliKeys{
  
-    if(listStagioni == nil){
-        
-      ;
+    if(listStiliKeys == nil){
+        listStiliKeys = [self.stiliEntities allKeys]  ;
     }
     
-    return listStagioni;
+    return listStiliKeys;
 };
 
-- (Tipologia *) getTipo:(NSString *)tipo{
-   return (Tipologia *)[self.tipi objectForKey:tipo];
+- (Tipologia *) getTipoEntity:(NSString *)tipo{
+   return (Tipologia *)[self.tipiEntities objectForKey:tipo];
 }
 
-- (NSMutableDictionary *)stili{
-	if([stili count] == 0){
+- (NSMutableDictionary *)stiliEntities{
+	if([stiliEntities count] == 0){
         NSFetchRequest *allItem = [[[NSFetchRequest alloc] init] autorelease];
 		[allItem setEntity:[NSEntityDescription entityForName:@"Stile" inManagedObjectContext:self.managedObjectContext]];
 		NSError *error = nil;
 		NSArray *entities = [self.managedObjectContext executeFetchRequest:allItem error:&error];
         
-        stili = [[NSMutableDictionary alloc] init];
+        stiliEntities = [[NSMutableDictionary alloc] init];
         for (Stile *obj in entities) {
-            [stili setObject:obj forKey:obj.stile];
+            [stiliEntities setObject:obj forKey:obj.stile];
         }
         
 	}
-	return stili;
+	return stiliEntities;
 };
 
 
-- (Stile *) getStile:(NSString *)stile{
-    return (Stile *)[self.stili objectForKey:stile];
+- (Stile *) getStileEntity:(NSString *)stileKey{
+    return (Stile *)[self.stiliEntities objectForKey:stileKey];
 }
 
 
-- (NSMutableDictionary *)stagioni{
-	if([stagioni count] == 0){
+- (NSMutableDictionary *)stagioniEntities{
+	if([stagioniEntities count] == 0){
 		NSFetchRequest *allItem = [[[NSFetchRequest alloc] init] autorelease];
 		[allItem setEntity:[NSEntityDescription entityForName:@"Stagione" inManagedObjectContext:self.managedObjectContext]];
 		NSError * error = nil;
 		NSArray *entities = [self.managedObjectContext executeFetchRequest:allItem error:&error];
         
-        stagioni = [[NSMutableDictionary alloc] init];
+        stagioniEntities = [[NSMutableDictionary alloc] init];
         for (Stagione *obj in entities) {
-            [stagioni setObject:obj forKey:obj.stagione];
+            [stagioniEntities setObject:obj forKey:obj.stagione];
         }
 	}
-	return stagioni;
+	return stagioniEntities;
 };
 
-- (Stagione *) getStagione:(NSString *)stagione{
-    return (Stagione *)[self.stagioni objectForKey:stagione];
+- (Stagione *) getStagioneEntity:(NSString *)stagioneKey{
+    return (Stagione *)[self.stagioniEntities objectForKey:stagioneKey];
 }
 
 
@@ -432,7 +467,7 @@ static IarmadioDao *singleton;
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
-- (void)loadTipologia:(NSString *)namefile{
+- (void)loadTipologie:(NSString *)namefile{
 	NSFetchRequest * allItem = [[[NSFetchRequest alloc] init] autorelease];
     [allItem setEntity:[NSEntityDescription entityForName:@"Tipologia" inManagedObjectContext:self.managedObjectContext]];
     [allItem setIncludesPropertyValues:NO];
@@ -458,29 +493,30 @@ static IarmadioDao *singleton;
         
         [self saveContext];
         
-        for (NSString *key in self.tipi) {
+        for (NSString *key in self.tipiEntities) {
             NSMutableSet *array = [[NSMutableSet alloc] init];
-            Tipologia *tipo = [self.tipi objectForKey:key];
+            Tipologia *tipo = [self.tipiEntities objectForKey:key];
             NSDictionary *type = (NSDictionary *)[dict objectForKey:tipo.id];
             NSString *allow = (NSString *)[type objectForKey:@"allow"];
             NSArray *tipologieAllow = [allow componentsSeparatedByString:@","];
             for (NSString *tipoallow in tipologieAllow){
                 tipoallow = [tipoallow stringByTrimmingCharactersInSet:
                  [NSCharacterSet whitespaceAndNewlineCharacterSet]];
-                 Tipologia *t = [self getTipo:tipoallow];
+                 Tipologia *t = [self getTipoEntity:tipoallow];
                  if(t != nil){
-                    [array addObject:[self getTipo:tipoallow]];
+                    [array addObject:[self getTipoEntity:tipoallow]];
                  }    
             }
             tipo.allow = array;
             [array autorelease];
         }
+        [self saveContext];
     }
 }
 
 
 
-- (void)loadStile:(NSString *)namefile{
+- (void)loadStili:(NSString *)namefile{
 	NSFetchRequest * allItem = [[[NSFetchRequest alloc] init] autorelease];
     [allItem setEntity:[NSEntityDescription entityForName:@"Stile" inManagedObjectContext:self.managedObjectContext]];
     [allItem setIncludesPropertyValues:NO];
@@ -507,7 +543,7 @@ static IarmadioDao *singleton;
 }
 
 
-- (void)loadStagione:(NSString *)namefile{
+- (void)loadStagioni:(NSString *)namefile{
 	NSFetchRequest * allItem = [[[NSFetchRequest alloc] init] autorelease];
     [allItem setEntity:[NSEntityDescription entityForName:@"Stagione" inManagedObjectContext:self.managedObjectContext]];
     [allItem setIncludesPropertyValues:NO];
@@ -547,9 +583,9 @@ static IarmadioDao *singleton;
 
 -(void)setupDB
 {
-    [self loadTipologia:TIPOLOGIA_PLIST];
-    [self loadStagione:STAGIONE_PLIST];
-    [self loadStile:STILE_PLIST];
+    [self loadTipologie:TIPOLOGIA_PLIST];
+    [self loadStagioni:STAGIONE_PLIST];
+    [self loadStili:STILE_PLIST];
     //[self debugDB];
 }
 
@@ -566,21 +602,21 @@ static IarmadioDao *singleton;
     //NSArray *_curr_stagioni = [self getCurrStagioni];
     
     
-    [_tipi addObject:[self getTipo:@"giacca"]];
-    [_stili addObject:[self getStile:@"casual"]];
-    [_stagioni addObject:[self getStagione:@"estiva"]];
+    [_tipi addObject:[self getTipoEntity:@"giacca"]];
+    [_stili addObject:[self getStileEntity:@"casual"]];
+    [_stagioni addObject:[self getStagioneEntity:@"estiva"]];
     
     UIImage *image = [UIImage imageWithContentsOfFile:@"2011-09-09-04-01-11.png"];
     
-    Vestito *v1=[self addVestito:image gradimento:-1  tipi:_tipi stagioni:_stagioni stili:_stili];
+    Vestito *v1=[self addVestitoEntity:image gradimento:-1  tipiKeys:_tipi stagioniKeys:_stagioni stiliKeys:_stili];
     
     
     
     //[_tipi addObject:[self getTipo:@"giacca"]];
-    [_stili addObject:[self getStile:@"casual"]];
-    [_stagioni addObject:[self getStagione:@"estiva"]];
+    [_stili addObject:[self getStileEntity:@"casual"]];
+    [_stagioni addObject:[self getStagioneEntity:@"estiva"]];
     
-    Vestito *v2 = [self addVestito:image gradimento:-1  tipi:_tipi stagioni:_stagioni stili:_stili];
+    Vestito *v2 = [self addVestitoEntity:image gradimento:-1  tipiKeys:_tipi stagioniKeys:_stagioni stiliKeys:_stili];
 
     
     NSMutableArray *a = [NSMutableArray arrayWithObjects:v1,v2,nil];
@@ -593,7 +629,7 @@ static IarmadioDao *singleton;
     NSMutableSet *set = [[NSMutableSet alloc] initWithArray:a];
     
     
-    [self addCombinazione:set  gradimento:-1 stagioni:nil stile:nil];
+    [self addCombinazioneEntity:set  gradimento:-1 stagioniKeys:nil stiliKeys:nil];
     
     //NSArray *res = [self getCombinazioni:-1 filterStagioni:nil filterStili:nil];
     
@@ -624,7 +660,7 @@ static IarmadioDao *singleton;
 }
 
 
-- (void)curr_stagioneFromTemp:(int) temperatura{
+- (void)setCurrStagioneKeyFromTemp:(int)temperatura{
     NSPredicate *predicate;
     
     
@@ -632,57 +668,44 @@ static IarmadioDao *singleton;
     NSEntityDescription *ed = [NSEntityDescription entityForName:@"Stagione" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:ed];
   
-    predicate = [NSPredicate predicateWithFormat:@"temp_min <= %d AND temp_max >=%d",temperatura,temperatura];
-    NSError *error;
-    [fetchRequest setPredicate:predicate];
-    if(!curr_stagione){ [curr_stagione release]; }
-    self.curr_stagione = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    NSMutableArray *predicates = [[[NSMutableArray alloc] init] autorelease];
     
-    if( curr_stagione == nil)
-    {
+    if(temperatura != 999){
+        predicate = [NSPredicate predicateWithFormat:@"temp_min <= %d AND temp_max >=%d",temperatura,temperatura];
+        [predicates addObject:predicate];
+    }
+    
+    NSDate* date = [NSDate date];
+    NSDateFormatter* formatter = [[[NSDateFormatter alloc] init] autorelease];
+    [formatter setDateFormat:@"MM-dd"];
+    NSString *filterdate = [formatter stringFromDate:date];
+    
+    predicate = [NSPredicate predicateWithFormat:@"date_from <= %@ AND date_to >=%@",filterdate,filterdate];
+    predicate = [NSPredicate predicateWithFormat:@"temp_min <= %d AND temp_max >=%d",temperatura,temperatura];
+    [predicates addObject:predicate];
+    
+    NSError *error;
+    [fetchRequest setPredicate:[NSCompoundPredicate andPredicateWithSubpredicates:predicates]];
+    
+    NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error]; 
+    
+    
+    
+    if([results count] > 0){
+        if(!currStagioneKey){ [currStagioneKey release];} 
+       currStagioneKey = ((Stagione *)[results objectAtIndex:0]).stagione;
+        [currStagioneKey retain];
+    }
+    else{
         NSLog(@"error get stagioni -> %@", &error);
     }
 }
 
-- (void)setCurr_stagione:(NSArray *)_curr_stagione{
-    @synchronized(self) {
-        if(curr_stagione == nil){
-            [curr_stagione release];
-        }
-        curr_stagione = _curr_stagione;
-        [curr_stagione retain];
-    }    
-}
-
-- (NSArray *)curr_stagione{
-    @synchronized(self) {
-        if(curr_stagione == nil){
-            NSPredicate *predicate;
-            NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
-            NSEntityDescription *ed = [NSEntityDescription entityForName:@"Stagione" inManagedObjectContext:self.managedObjectContext];
-            [fetchRequest setEntity:ed];
-
-        
-            NSDate* date = [NSDate date];
-            NSDateFormatter* formatter = [[[NSDateFormatter alloc] init] autorelease];
-            [formatter setDateFormat:@"MM-dd"];
-            NSString *filterdate = [formatter stringFromDate:date];
-            
-            predicate = [NSPredicate predicateWithFormat:@"date_from <= %@ AND date_to >=%@",filterdate,filterdate];
-            NSError *error;
-            [fetchRequest setPredicate:predicate];
-            if(curr_stagione == nil){ [curr_stagione release]; }
-            curr_stagione = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-            if( curr_stagione == nil)
-            {
-                NSLog(@"error get stagioni -> %@", &error);
-            }
-            [curr_stagione retain];
-        }
+- (NSString *)currStagioneKey{
+    if(currStagioneKey == nil){
+            [self setCurrStagioneKeyFromTemp:999];
     }
-    return curr_stagione;
-
-    
+    return currStagioneKey;
 }
 
 
@@ -690,14 +713,14 @@ static IarmadioDao *singleton;
 	[managedObjectContext release];
 	[managedObjectModel release];
     [persistentStoreCoordinator release]; 
-    [appDelegate release];
-    [stili release];
-    [tipi release];
-    [listTipi release];
-    [listStagioni release];
-    [listStili release];
-    [stagioni release];
-    [curr_stagione release];
+    [stiliEntities release];
+    [tipiEntities release];
+    [listTipiKeys release];
+    [listStagioniKeys release];
+    [listStiliKeys release];
+    [stagioniEntities release];
+    [currStagioneKey release];
+    [singleton release];
 	[super dealloc];
 }
 

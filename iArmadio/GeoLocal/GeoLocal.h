@@ -11,10 +11,10 @@
 #import "IarmadioDao.h"
 
 
-@class iArmadioAppDelegate;
 
 @interface GeoLocal: NSObject  <MKMapViewDelegate, CLLocationManagerDelegate, MKReverseGeocoderDelegate, NSXMLParserDelegate> { 
     
+    IarmadioDao *dao;
     MKReverseGeocoder *geoCoder;
     NSData*responseData;
     int temperatura;
@@ -22,13 +22,12 @@
     NSString *currLocation;
     NSString *oldLocation;
     CLLocationManager *locationManager;
-    iArmadioAppDelegate *appDelegate;
-    
+      
 }
 
 
 @property (nonatomic,retain, readonly) MKReverseGeocoder *geoCoder;
-@property (nonatomic, retain) iArmadioAppDelegate *appDelegate;
+
 
 + (GeoLocal *)shared;
 -(void)setTemperatura;

@@ -65,6 +65,7 @@
 		A32BA5B0143375530019979B /* CoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A32BA5AE143375530019979B /* CoverViewController.xib */; };
 		A357353C1426850F008A742D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A357353B1426850F008A742D /* MapKit.framework */; };
 		A357353E142686F8008A742D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A357353D142686F8008A742D /* CoreLocation.framework */; };
+		A357D7161435B7BC00594E69 /* FileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A357D7151435B7BC00594E69 /* FileSystem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -164,6 +165,8 @@
 		A32BA5AE143375530019979B /* CoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoverViewController.xib; sourceTree = "<group>"; };
 		A357353B1426850F008A742D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A357353D142686F8008A742D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		A357D7141435B7BC00594E69 /* FileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileSystem.h; sourceTree = "<group>"; };
+		A357D7151435B7BC00594E69 /* FileSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileSystem.m; sourceTree = "<group>"; };
 		A36A7A311430B91C00BB8EB7 /* iArmadio-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "iArmadio-Info.plist"; path = "../iArmadio-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -399,6 +402,8 @@
 				A32BA592143356100019979B /* UIImage+Rotating.m */,
 				A32BA593143356100019979B /* UIImage+Saving.h */,
 				A32BA594143356100019979B /* UIImage+Saving.m */,
+				A357D7141435B7BC00594E69 /* FileSystem.h */,
+				A357D7151435B7BC00594E69 /* FileSystem.m */,
 			);
 			name = Categories;
 			path = iArmadio/Categories;
@@ -542,6 +547,7 @@
 				A32BA5A0143356100019979B /* NYXImagesHelper.m in Sources */,
 				A32BA5AA14336F830019979B /* ArmadioTableViewController.m in Sources */,
 				A32BA5AF143375530019979B /* CoverViewController.m in Sources */,
+				A357D7161435B7BC00594E69 /* FileSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "iArmadioAppDelegate.h"
 #import "IarmadioDao.h"
 
 @interface Shake2Style : NSObject{

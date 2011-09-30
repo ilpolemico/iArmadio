@@ -75,7 +75,7 @@
     
     UIImage *image = [UIImage imageNamed:@"02.png"];
     
-    tipologie = dao.listTipi;
+    tipologie = dao.listTipiKeys;
     NSInteger cont;
     cont = 0;
     
@@ -111,7 +111,7 @@
     
     if(newimage != nil){
         self.tipologia.selectedSegmentIndex = 0;
-        [self initStagione:dao.curr_stagione];
+        [self initStagione:[[NSArray alloc] initWithObjects:dao.currStagioneKey, nil]];
     }
     else if(vestito != nil){
         
@@ -147,7 +147,7 @@
         
         
     }
-    
+    [indextipo release];
     [super viewDidLoad];
    
 }
@@ -180,7 +180,7 @@
 
 -(IBAction) deleteCloth:(id) sender {
     
-    [dao delVestito:vestito];
+    [dao delVestitoEntity:vestito];
     [self dismissModalViewControllerAnimated:YES];    
 
 }
@@ -191,51 +191,53 @@
    
     
    NSString *nametipo = [tipologie objectAtIndex:self.tipologia.selectedSegmentIndex]; 
-   NSArray *tipi = [[NSArray alloc] initWithObjects:[dao getTipo: nametipo],nil];
+   NSArray *tipi = [[NSArray alloc] initWithObjects:nametipo,nil];
    
     NSMutableArray *stili = [[NSMutableArray alloc] init];
     if(casual.on){
-        [stili addObject:[dao getStile:@"casual"]];
+        [stili addObject:@"casual"];
     }
     if(sportivo.on){
-        [stili addObject:[dao getStile:@"sportivo"]]; 
+        [stili addObject:@"sportivo"]; 
     }
     if(elegante.on){
-        [stili addObject:[dao getStile:@"elegante"]]; 
+        [stili addObject:@"elegante"]; 
     } 
     
     
     NSMutableArray *scelta_stagioni = [[NSMutableArray alloc] init];
     
     if(stagione.selectedSegmentIndex == 0){
-        [scelta_stagioni addObject:[dao getStagione:@"estiva"]];
-        [scelta_stagioni addObject:[dao getStagione:@"primaverile"]];
+        [scelta_stagioni addObject:@"estiva"];
+        [scelta_stagioni addObject:@"primaverile"];
     }
     
     if(stagione.selectedSegmentIndex == 1){
-        [scelta_stagioni addObject:[dao getStagione:@"invernale"]];
-        [scelta_stagioni addObject:[dao getStagione:@"autunnale"]];
+        [scelta_stagioni addObject:@"invernale"];
+        [scelta_stagioni addObject:@"autunnale"];
     }
     
     if(stagione.selectedSegmentIndex == 2){
-        [scelta_stagioni addObject:[dao getStagione:@"invernale"]];
-        [scelta_stagioni addObject:[dao getStagione:@"autunnale"]];
-        [scelta_stagioni addObject:[dao getStagione:@"estiva"]];
-        [scelta_stagioni addObject:[dao getStagione:@"primaverile"]];
+        [scelta_stagioni addObject:@"invernale"];
+        [scelta_stagioni addObject:@"autunnale"];
+        [scelta_stagioni addObject:@"estiva"];
+        [scelta_stagioni addObject:@"primaverile"];
     }
     
     if(addCloth){ 
-        [dao addVestito:self.imageView.image.normal gradimento:gradimento.selectedSegmentIndex tipi:tipi stagioni:scelta_stagioni stili:stili];
+        [dao addVestitoEntity:self.imageView.image.normal gradimento:gradimento.selectedSegmentIndex tipiKeys:tipi stagioniKeys:scelta_stagioni stiliKeys:stili];
     }
     else{
         vestito.gradimento = [NSNumber numberWithInteger:gradimento.selectedSegmentIndex] ;
         vestito.tipi = [NSSet setWithArray:tipi];
         vestito.conStile = [NSSet setWithArray:stili];
         vestito.perLaStagione = [NSSet setWithArray:scelta_stagioni];
-        [dao modifyVestito:vestito];
+        [dao modifyVestitiEntities];
     }
     
-   
+    [scelta_stagioni release];
+    [tipi release];
+    [stili release];
     [self dismissModalViewControllerAnimated:YES];
     
 }
@@ -278,10 +280,14 @@
     ImageItemViewController *imageviewcontroller = [[ImageItemViewController alloc] initWithNibName:@"ImageItemViewController" bundle:nil];
     
     
-    //[self.view addSubview:imageviewcontroller.view]; 
     [((iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate]).tabBarController presentModalViewController:imageviewcontroller animated:YES];     
     imageviewcontroller.imageviewFinale.image = [dao getImageFromVestito:vestito];
+    [imageviewcontroller release];
+}
 
+-(void) dealloc{
+
+    [super dealloc];
 }
 
 

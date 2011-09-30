@@ -14,9 +14,6 @@
 #import "Tipologia.h"
 
 
-@class GeoLocal;
-@class IarmadioDao;
-
 @interface iArmadioAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate>{
 
     GeoLocal *geolocal;
@@ -30,10 +27,6 @@
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 @property (nonatomic, retain, readonly) IarmadioDao *dao;
-
-
--(NSString *) filePathDocuments: (NSString *) fileName;
--(NSString *) filePathBundle: (NSString *) fileName;
 
 
 

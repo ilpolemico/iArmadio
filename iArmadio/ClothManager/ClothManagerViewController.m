@@ -9,7 +9,7 @@
 #import "ClothManagerViewController.h"
 
 @implementation ClothManagerViewController
-@synthesize navcontroler,tableviewcontroller, addItemBtn, modifyBtn;
+@synthesize navcontroler,tableviewcontroller, addItemBtn, modifyBtn, tipologia;
 
 
 
@@ -85,6 +85,7 @@
     
     ClothViewController *addviewcontroller = [[ClothViewController alloc] initWithNibName:@"ClothView" bundle:nil setImage: [info objectForKey:@"UIImagePickerControllerEditedImage"]];
     
+    //addviewcontroller.tipologia = tipologia;
     [self presentModalViewController:addviewcontroller animated:YES];
     [addviewcontroller release];
 	//imageView.image = [info objectForKey:@"UIImagePickerControllerEditedImage"];

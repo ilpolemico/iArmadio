@@ -16,9 +16,8 @@
     self = [super init];
     if (self) {
         srand(time(NULL));
-        iArmadioAppDelegate *appDelegate = (iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate];
-        dao = appDelegate.dao;
-        [appDelegate retain];
+        dao = [IarmadioDao shared];
+        [dao retain];
     }
     
     return self;
@@ -26,7 +25,7 @@
 
 
 - (Combinazione *)shake2style:(NSArray *)filterStili filterStagioni:(NSArray *)filterStagioni{
-    NSArray *combinazioni = [dao getCombinazioni:0 filterStagioni:filterStagioni filterStili:filterStili];
+    NSArray *combinazioni = [dao getCombinazioniEntities:0 filterStagioniKeys:filterStagioni filterStiliKeys:filterStili];
     
     
     if([combinazioni count] == 0){ return nil;}
@@ -40,6 +39,7 @@
         tot += [c.gradimento intValue];
         [pesi addObject:[NSNumber numberWithInt:tot]];
     }
+    if(tot==0){tot = 1;}
     int random = rand() % tot;
     int index = 0;
     cont = 0;
@@ -49,7 +49,15 @@
         cont++;
     }
     
+    
+    [pesi autorelease];
     return [combinazioni objectAtIndex: index];
+}
+
+-(void) dealloc{
+    [super dealloc];
+    [dao release];
+    
 }
 
 @end
