@@ -57,14 +57,35 @@ static IarmadioDao *singleton;
 }
 
 
-- (NSArray *)getVestitiEntities:(NSArray *)filterTipiKeys filterStagioniKeys:(NSArray *)filterStagioniKeys filterStiliKeys:(NSArray *)filterStiliKeys filterGradimento:(NSInteger)filterGradimento
+- (NSArray *)getVestitiEntities:(NSArray *)filterTipiKeys filterStagioniKeys:(NSArray *)filterStagioniKeys filterStiliKeys:(NSArray *)filterStiliKeys filterGradimento:(NSInteger)filterGradimento{
+
+    return [self getVestitiEntities:filterTipiKeys filterStagioniKeys:filterStagioniKeys filterStiliKeys:filterStiliKeys filterGradimento:filterGradimento sortOnKeys:nil];
+    
+}
+
+- (NSArray *)getVestitiEntities:(NSArray *)filterTipiKeys filterStagioniKeys:(NSArray *)filterStagioniKeys filterStiliKeys:(NSArray *)filterStiliKeys filterGradimento:(NSInteger)filterGradimento sortOnKeys:(NSArray *)sortonkeys
     {
    
+    NSMutableArray *sortDescriptors = [[[NSMutableArray alloc] init] autorelease];
     NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
     NSEntityDescription *ed = [NSEntityDescription entityForName:@"Vestito" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:ed];
     
     
+    if(sortonkeys != nil){
+        for(NSDictionary *key in sortonkeys){
+            
+            BOOL ascending = [(NSString*)[key objectForKey:@"ascending"] boolValue];
+            NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:[key objectForKey:@"field"] ascending:ascending] autorelease];
+            [sortDescriptors addObject:sortDescriptor];;
+        }
+    }
+        
+    NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"id" ascending:NO] autorelease];
+    [sortDescriptors addObject:sortDescriptor];
+         
+    
+        
     NSMutableArray *predicates = [[[NSMutableArray alloc] init] autorelease];     
     if((filterTipiKeys != nil)&&([filterTipiKeys count] > 0)){
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY tipi.nome in %@",filterTipiKeys];
@@ -84,7 +105,7 @@ static IarmadioDao *singleton;
     }    
     
     if(filterGradimento != -1){
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"gradimento >= %d",filterGradimento];
+        NSPredicate *predicate = [NSPredicate  predicateWithFormat:@"gradimento >= %d",filterGradimento];
         
         [predicates addObject:predicate];
     }
@@ -92,6 +113,9 @@ static IarmadioDao *singleton;
     
     if([predicates count] > 0){
         NSPredicate *predicate = [NSCompoundPredicate andPredicateWithSubpredicates:predicates];
+        if(sortDescriptors != nil){
+            [fetchRequest setSortDescriptors:sortDescriptors];
+        }
         [fetchRequest setPredicate: predicate];
     }
     
@@ -105,6 +129,9 @@ static IarmadioDao *singleton;
     }
     
     [vestiti retain];
+        
+   
+        
     [vestiti autorelease];
     return vestiti;
 }
@@ -214,11 +241,18 @@ static IarmadioDao *singleton;
 
 
 - (NSArray *)getCombinazioniEntities:(NSInteger)filterGradimento filterStagioniKeys:(NSArray *)filterStagioniKeys filterStiliKeys:(NSArray *)filterStiliKeys{
+
     
+    return [self getCombinazioniEntities:filterGradimento filterStagioniKeys:filterStagioniKeys filterStiliKeys:filterStiliKeys sortOnKeys:nil];
+    
+}
+
+- (NSArray *)getCombinazioniEntities:(NSInteger)filterGradimento filterStagioniKeys:(NSArray *)filterStagioniKeys filterStiliKeys:(NSArray *)filterStiliKeys sortOnKeys:(NSArray *)keys{
     
     NSFetchRequest *fetchRequest = [[[NSFetchRequest alloc] init] autorelease];
     NSEntityDescription *ed = [NSEntityDescription entityForName:@"Combinazione" inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:ed];
+    
     
     
     NSMutableArray *predicates = [[[NSMutableArray alloc] init] autorelease];     
@@ -266,7 +300,7 @@ static IarmadioDao *singleton;
 }
 
 
-- (Combinazione *)addCombinazioneEntity:(NSSet *)vestitiEntities gradimento:(NSInteger)gradimento stagioniKeys:(NSArray *)stagioniKeys stiliKeys:(NSArray *)stiliKeys{
+- (Combinazione *)addCombinazioneEntity:(NSArray *)vestitiEntities gradimento:(NSInteger)gradimento stagioniKeys:(NSArray *)stagioniKeys stiliKeys:(NSArray *)stiliKeys{
     
     Combinazione *combinazione = [NSEntityDescription insertNewObjectForEntityForName:@"Combinazione" inManagedObjectContext:self.managedObjectContext];
     
@@ -274,7 +308,20 @@ static IarmadioDao *singleton;
     [combinazione setValue:id forKey:@"id"];
     [combinazione setValue:[NSNumber numberWithInteger:gradimento] forKey:@"gradimento"];
     
+    combinazione = [self modifyCombinazioneEntity:combinazione vestitiEntities:vestitiEntities isNew:YES gradimento:gradimento stagioniKeys:stagioniKeys stiliKeys:stiliKeys];
     
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:ADD_LOOK_EVENT
+     object:self];
+    [combinazione retain];
+    [combinazione autorelease];
+    return combinazione;    
+}
+
+- (Combinazione *)modifyCombinazioneEntity:(Combinazione *)combinazione vestitiEntities:(NSArray *)vestitiEntities isNew:(BOOL)isnew gradimento:(NSInteger)gradimento stagioniKeys:(NSArray *)stagioniKeys stiliKeys:(NSArray *)stiliKeys{
+    
+    
+    [combinazione setValue:[NSNumber numberWithInteger:gradimento] forKey:@"gradimento"];
     
     if((stiliKeys != nil )&&([stiliKeys count] > 0)){
         NSMutableArray *tmp = [[[NSMutableArray alloc] init] autorelease];
@@ -290,24 +337,15 @@ static IarmadioDao *singleton;
         }
         combinazione.perLaStagione = [NSSet setWithArray:tmp];
     }
-    combinazione.fattaDi = vestitiEntities;
+    combinazione.fattaDi = [NSSet setWithArray:vestitiEntities];
     
     [self saveContext];
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:ADD_LOOK_EVENT
-     object:self];
-    [combinazione retain];
-    [combinazione autorelease];
-    return combinazione;    
-}
-
-- (Combinazione *)modifyCombinazioneEntity:(Combinazione *)combinazione gradimento:(NSInteger)gradimento  tipiKeys:(NSArray *)tipiKeys stagioniKeys:(NSArray *)stagioniKeys stiliKeys:(NSArray *)stiliKeys{
     
-    
-    [self saveContext];
+    if(!isnew){
     [[NSNotificationCenter defaultCenter]
      postNotificationName:MOD_LOOK_EVENT
      object:self];
+    }    
     
     return combinazione;
 }
@@ -624,7 +662,7 @@ static IarmadioDao *singleton;
     NSMutableSet *set = [[NSMutableSet alloc] initWithArray:a];
     
     
-    [self addCombinazioneEntity:set  gradimento:-1 stagioniKeys:nil stiliKeys:nil];
+    //[self addCombinazioneEntity:set  gradimento:-1 stagioniKeys:nil stiliKeys:nil];
     
     //NSArray *res = [self getCombinazioni:-1 filterStagioni:nil filterStili:nil];
     
@@ -707,6 +745,7 @@ static IarmadioDao *singleton;
     
     return currStagioneKey;
 }
+
 
 
 

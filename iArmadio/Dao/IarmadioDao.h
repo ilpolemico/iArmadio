@@ -71,6 +71,7 @@ static NSString * const STILE_PLIST = @"stile";
 - (UIImage *)getImageFromFile:(NSString *)file;
 
 
+- (NSArray *)getVestitiEntities:(NSArray *)filterTipiKeys filterStagioniKeys:(NSArray *)filterStagioniKeys filterStiliKeys:(NSArray *)filterStiliKeys filterGradimento:(NSInteger)filterGradimento sortOnKeys:(NSArray *)keys;
 
 - (NSArray *)getVestitiEntities:(NSArray *)filterTipiKeys filterStagioniKeys:(NSArray *)filterStagioniKeys filterStiliKeys:(NSArray*)filterStiliKeys filterGradimento:(NSInteger)filterGradimento;
 
@@ -83,15 +84,19 @@ static NSString * const STILE_PLIST = @"stile";
 
 
 
+- (NSArray *)getCombinazioniEntities:(NSInteger)filterGradimento filterStagioniKeys:(NSArray *)filterStagioniKeys filterStiliKeys:(NSArray *)filterStiliKeys sortOnKeys:(NSArray *)keys;
+
 - (NSArray *)getCombinazioniEntities:(NSInteger)filterGradimento filterStagioniKeys:(NSArray *)filterStagioniKeys filterStiliKeys:(NSArray *)filterStiliKeys;
     
 
-- (Combinazione *)addCombinazioneEntity:(NSSet *)vestitiEntities gradimento:(NSInteger)gradimento stagioniKeys:(NSArray *)stagioniKeys stiliKeys:(NSArray *)stiliKeys;
+- (Combinazione *)addCombinazioneEntity:(NSArray *)vestitiEntities gradimento:(NSInteger)gradimento stagioniKeys:(NSArray *)stagioniKeys stiliKeys:(NSArray *)stiliKeys;
+
+- (Combinazione *)modifyCombinazioneEntity:(Combinazione *)combinazione vestitiEntities:(NSArray *)vestitiEntities isNew:(BOOL)isnew gradimento:(NSInteger)gradimento  stagioniKeys:(NSArray *)stagioniKeys stiliKeys:(NSArray *)stiliKeys;
+
 
 
 - (void)delCombinazioneEntity:(Combinazione *)Combinazione;
 
-- (Combinazione *)modifyCombinazioneEntity:(Combinazione *)vestito gradimento:(NSInteger)gradimento  tipiKeys:(NSArray *)tipiKeys stagioniKeys:(NSArray *)stagioniKeys stiliKeys:(NSArray *)stiliKeys;
 
 
 @end
