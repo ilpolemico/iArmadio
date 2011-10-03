@@ -266,10 +266,22 @@ static IarmadioDao *singleton;
     NSMutableArray *predicates = [[[NSMutableArray alloc] init] autorelease];     
     
     
-    if(filterStagioneKey != nil){
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"perLaStagione.stagione == %@",filterStagioneKey];
+    if((filterStagioneKey != nil)&&(![filterStagioneKey isEqualToString:@"ALL"])){
+        NSMutableArray *tmp = [[[NSMutableArray alloc] init] autorelease];
+        NSPredicate *predicate = nil;
+        
+        
+        if(![filterStagioneKey isEqualToString:@"calda-fredda"]){
+            [tmp addObject:filterStagioneKey];
+            [tmp addObject:@"calda-fredda"];
+            predicate = [NSPredicate predicateWithFormat:@"ANY perLaStagione.stagione in %@",tmp];
+        }
+        else{
+            predicate = [NSPredicate predicateWithFormat:@"perLaStagione.stagione == %@",filterStagioneKey];
+        }    
         [predicates addObject:predicate];
     }  
+
     
     
     if((filterStiliKeys != nil)&&([filterStiliKeys count] > 0)){
@@ -544,7 +556,7 @@ static IarmadioDao *singleton;
             [tipologia setValue:plural forKey:@"plural"];
             [tipologia setValue:[NSNumber numberWithInteger:[order integerValue]] forKey:@"order"];
             
-            NSLog(@"%@",tipologia);
+            
         }
         
         [self saveContext];

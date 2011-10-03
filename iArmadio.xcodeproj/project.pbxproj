@@ -11,23 +11,12 @@
 		9CD1ACB21412840600441AB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD1ACB11412840600441AB7 /* Foundation.framework */; };
 		9CD1ACB41412840600441AB7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD1ACB31412840600441AB7 /* CoreGraphics.framework */; };
 		9CD1ACD61412841E00441AB7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD1ACD51412841E00441AB7 /* CoreData.framework */; };
-		A30A331F14308E3100D44356 /* ClothViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A32DF14308E3100D44356 /* ClothViewController.m */; };
 		A30A332014308E3100D44356 /* ClothManagerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30A32E014308E3100D44356 /* ClothManagerView.xib */; };
-		A30A332114308E3100D44356 /* ClothManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A32E214308E3100D44356 /* ClothManagerViewController.m */; };
 		A30A332214308E3100D44356 /* ClothTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30A32E414308E3100D44356 /* ClothTableView.xib */; };
-		A30A332314308E3100D44356 /* ClothTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A32E614308E3100D44356 /* ClothTableViewController.m */; };
-		A30A332414308E3100D44356 /* IarmadioDao.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A32E914308E3100D44356 /* IarmadioDao.m */; };
 		A30A332514308E3100D44356 /* ClothView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30A32EA14308E3100D44356 /* ClothView.xib */; };
 		A30A332614308E3100D44356 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A30A32EC14308E3100D44356 /* InfoPlist.strings */; };
 		A30A332714308E3100D44356 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A30A32EE14308E3100D44356 /* Localizable.strings */; };
-		A30A333014308E3100D44356 /* GeoLocal.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A330314308E3100D44356 /* GeoLocal.m */; };
-		A30A333114308E3100D44356 /* iArmadio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A30A330514308E3100D44356 /* iArmadio.xcdatamodeld */; };
-		A30A333214308E3100D44356 /* iArmadioAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A330914308E3100D44356 /* iArmadioAppDelegate.m */; };
-		A30A333314308E3100D44356 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A330C14308E3100D44356 /* main.m */; };
 		A30A333414308E3100D44356 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30A330D14308E3100D44356 /* MainWindow.xib */; };
-		A30A333514308E3100D44356 /* ScrollImagesController.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A331014308E3100D44356 /* ScrollImagesController.m */; };
-		A30A333614308E3100D44356 /* ScrollImagesController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30A331114308E3100D44356 /* ScrollImagesController.xib */; };
-		A30A333714308E3100D44356 /* Shake2Style.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A331414308E3100D44356 /* Shake2Style.m */; };
 		A30A333814308E3100D44356 /* 02.png in Resources */ = {isa = PBXBuildFile; fileRef = A30A331614308E3100D44356 /* 02.png */; };
 		A30A333914308E3100D44356 /* 2011-09-09-04-01-11.png in Resources */ = {isa = PBXBuildFile; fileRef = A30A331714308E3100D44356 /* 2011-09-09-04-01-11.png */; };
 		A30A333B14308E3100D44356 /* stagione.plist in Resources */ = {isa = PBXBuildFile; fileRef = A30A331914308E3100D44356 /* stagione.plist */; };
@@ -35,33 +24,15 @@
 		A30A333E14308E3100D44356 /* tipologia.plist in Resources */ = {isa = PBXBuildFile; fileRef = A30A331C14308E3100D44356 /* tipologia.plist */; };
 		A31729F414327C09005E1A03 /* sfondo.png in Resources */ = {isa = PBXBuildFile; fileRef = A31729F214327C09005E1A03 /* sfondo.png */; };
 		A31729F514327C09005E1A03 /* completa.png in Resources */ = {isa = PBXBuildFile; fileRef = A31729F314327C09005E1A03 /* completa.png */; };
-		A32294851431BE11001A8A36 /* ImageItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A32294831431BE11001A8A36 /* ImageItemViewController.m */; };
 		A32294861431BE12001A8A36 /* ImageItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A32294841431BE11001A8A36 /* ImageItemViewController.xib */; };
-		A32BA531143310530019979B /* AFItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA52B143310530019979B /* AFItemView.m */; };
-		A32BA532143310530019979B /* AFOpenFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA52E143310530019979B /* AFOpenFlowView.m */; };
-		A32BA533143310530019979B /* AFUIImageReflection.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA530143310530019979B /* AFUIImageReflection.m */; };
 		A32BA5371433117B0019979B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A32BA5361433117B0019979B /* QuartzCore.framework */; };
-		A32BA599143356100019979B /* UIImage+Blurring.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA588143356100019979B /* UIImage+Blurring.m */; };
-		A32BA59A143356100019979B /* UIImage+Filtering.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA58A143356100019979B /* UIImage+Filtering.m */; };
-		A32BA59B143356100019979B /* UIImage+Masking.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA58C143356100019979B /* UIImage+Masking.m */; };
-		A32BA59C143356100019979B /* UIImage+Reflection.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA58E143356100019979B /* UIImage+Reflection.m */; };
-		A32BA59D143356100019979B /* UIImage+Resizing.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA590143356100019979B /* UIImage+Resizing.m */; };
-		A32BA59E143356100019979B /* UIImage+Rotating.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA592143356100019979B /* UIImage+Rotating.m */; };
-		A32BA59F143356100019979B /* UIImage+Saving.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA594143356100019979B /* UIImage+Saving.m */; };
-		A32BA5A0143356100019979B /* NYXImagesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA597143356100019979B /* NYXImagesHelper.m */; };
 		A32BA5A2143357050019979B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A32BA5A1143357050019979B /* MobileCoreServices.framework */; };
 		A32BA5A4143357370019979B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A32BA5A3143357370019979B /* ImageIO.framework */; };
-		A32BA5AA14336F830019979B /* ArmadioTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA5A814336F830019979B /* ArmadioTableViewController.m */; };
-		A32BA5AF143375530019979B /* CoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA5AD143375530019979B /* CoverViewController.m */; };
 		A32BA5B0143375530019979B /* CoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A32BA5AE143375530019979B /* CoverViewController.xib */; };
-		A32C974E1438AFD80038612E /* CurrState.m in Sources */ = {isa = PBXBuildFile; fileRef = A32C974D1438AFD70038612E /* CurrState.m */; };
 		A357353C1426850F008A742D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A357353B1426850F008A742D /* MapKit.framework */; };
 		A357353E142686F8008A742D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A357353D142686F8008A742D /* CoreLocation.framework */; };
-		A357D7161435B7BC00594E69 /* FileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A357D7151435B7BC00594E69 /* FileSystem.m */; };
-		A3908B371436096900E76B5F /* CoverViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = A32BA5AC143375530019979B /* CoverViewController.h */; };
-		A3908B381436096900E76B5F /* CoverViewController.xib in Sources */ = {isa = PBXBuildFile; fileRef = A32BA5AE143375530019979B /* CoverViewController.xib */; };
-		A3B89A1F1437C3F900AD0F64 /* LookManagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B89A1D1437C3F900AD0F64 /* LookManagerController.m */; };
-		A3B89A201437C3F900AD0F64 /* LookManagerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3B89A1E1437C3F900AD0F64 /* LookManagerController.xib */; };
+		A3645A851439C7AA00A13FB5 /* CoverLookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3645A801439C7AA00A13FB5 /* CoverLookViewController.xib */; };
+		A3645A861439C7AA00A13FB5 /* LookManagerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3645A811439C7AA00A13FB5 /* LookManagerView.xib */; };
 		A3B89A2A1437C4E900AD0F64 /* camicia1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3B89A221437C4E900AD0F64 /* camicia1.jpg */; };
 		A3B89A2B1437C4E900AD0F64 /* camicia2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3B89A231437C4E900AD0F64 /* camicia2.jpg */; };
 		A3B89A2C1437C4E900AD0F64 /* camicia3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3B89A241437C4E900AD0F64 /* camicia3.jpg */; };
@@ -71,14 +42,6 @@
 		A3B89A301437C4E900AD0F64 /* pantalone3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3B89A281437C4E900AD0F64 /* pantalone3.jpg */; };
 		A3B89A311437C4E900AD0F64 /* pantalone4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3B89A291437C4E900AD0F64 /* pantalone4.jpg */; };
 		A3FB91D41438FF8F009AF9B4 /* ArmadioViewTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3FB91D31438FF8E009AF9B4 /* ArmadioViewTable.xib */; };
-		A3FB91D714390C34009AF9B4 /* ProprietaCombinazione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FB91D614390C34009AF9B4 /* ProprietaCombinazione.m */; };
-		A3FB91DA14390C35009AF9B4 /* ProprietaVestito.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FB91D914390C35009AF9B4 /* ProprietaVestito.m */; };
-		A3FB91DD14390C35009AF9B4 /* Stile.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FB91DC14390C35009AF9B4 /* Stile.m */; };
-		A3FB91E014390C35009AF9B4 /* Proprieta.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FB91DF14390C35009AF9B4 /* Proprieta.m */; };
-		A3FB91E314390C35009AF9B4 /* Combinazione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FB91E214390C35009AF9B4 /* Combinazione.m */; };
-		A3FB91E614390C35009AF9B4 /* Stagione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FB91E514390C35009AF9B4 /* Stagione.m */; };
-		A3FB91E914390C35009AF9B4 /* Tipologia.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FB91E814390C35009AF9B4 /* Tipologia.m */; };
-		A3FB91EC14390C35009AF9B4 /* Vestito.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FB91EB14390C35009AF9B4 /* Vestito.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,9 +74,6 @@
 		A30A330B14308E3100D44356 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A30A330C14308E3100D44356 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A30A330D14308E3100D44356 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		A30A330F14308E3100D44356 /* ScrollImagesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollImagesController.h; sourceTree = "<group>"; };
-		A30A331014308E3100D44356 /* ScrollImagesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollImagesController.m; sourceTree = "<group>"; };
-		A30A331114308E3100D44356 /* ScrollImagesController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScrollImagesController.xib; sourceTree = "<group>"; };
 		A30A331314308E3100D44356 /* Shake2Style.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shake2Style.h; sourceTree = "<group>"; };
 		A30A331414308E3100D44356 /* Shake2Style.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shake2Style.m; sourceTree = "<group>"; };
 		A30A331614308E3100D44356 /* 02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 02.png; sourceTree = "<group>"; };
@@ -165,10 +125,14 @@
 		A357353D142686F8008A742D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A357D7141435B7BC00594E69 /* FileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileSystem.h; sourceTree = "<group>"; };
 		A357D7151435B7BC00594E69 /* FileSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileSystem.m; sourceTree = "<group>"; };
+		A3645A7E1439C7AA00A13FB5 /* CoverLookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoverLookViewController.h; sourceTree = "<group>"; };
+		A3645A7F1439C7AA00A13FB5 /* CoverLookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoverLookViewController.m; sourceTree = "<group>"; };
+		A3645A801439C7AA00A13FB5 /* CoverLookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoverLookViewController.xib; sourceTree = "<group>"; };
+		A3645A811439C7AA00A13FB5 /* LookManagerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LookManagerView.xib; sourceTree = "<group>"; };
+		A3645A821439C7AA00A13FB5 /* LookManagerVIewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookManagerVIewController.h; sourceTree = "<group>"; };
+		A3645A831439C7AA00A13FB5 /* LookManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookManagerViewController.m; sourceTree = "<group>"; };
+		A3645A881439C8FB00A13FB5 /* CoverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CoverViewController.m; path = iArmadio/ClothManager/CoverFlowCloth/CoverViewController.m; sourceTree = "<group>"; };
 		A36A7A311430B91C00BB8EB7 /* iArmadio-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "iArmadio-Info.plist"; path = "../iArmadio-Info.plist"; sourceTree = "<group>"; };
-		A3B89A1C1437C3F900AD0F64 /* LookManagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookManagerController.h; sourceTree = "<group>"; };
-		A3B89A1D1437C3F900AD0F64 /* LookManagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookManagerController.m; sourceTree = "<group>"; };
-		A3B89A1E1437C3F900AD0F64 /* LookManagerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LookManagerController.xib; sourceTree = "<group>"; };
 		A3B89A221437C4E900AD0F64 /* camicia1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = camicia1.jpg; sourceTree = "<group>"; };
 		A3B89A231437C4E900AD0F64 /* camicia2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = camicia2.jpg; sourceTree = "<group>"; };
 		A3B89A241437C4E900AD0F64 /* camicia3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = camicia3.jpg; sourceTree = "<group>"; };
@@ -219,6 +183,7 @@
 		9CD1ACA01412840500441AB7 = {
 			isa = PBXGroup;
 			children = (
+				A3645A881439C8FB00A13FB5 /* CoverViewController.m */,
 				A32BA586143356100019979B /* Categories */,
 				A32BA595143356100019979B /* Helper */,
 				A32BA529143310530019979B /* OpenFlow */,
@@ -256,9 +221,9 @@
 		A30A32D814308E3100D44356 /* iArmadio */ = {
 			isa = PBXGroup;
 			children = (
-				A3B89A1A1437C3C800AD0F64 /* LookManager */,
 				A30A330114308E3100D44356 /* GeoLocal */,
 				A30A32E714308E3100D44356 /* Dao */,
+				A3645A7B1439C7AA00A13FB5 /* LookManager */,
 				A30A32D914308E3100D44356 /* ClothManager */,
 				A30A32EC14308E3100D44356 /* InfoPlist.strings */,
 				A30A32EE14308E3100D44356 /* Localizable.strings */,
@@ -268,7 +233,6 @@
 				A30A330914308E3100D44356 /* iArmadioAppDelegate.m */,
 				A30A330C14308E3100D44356 /* main.m */,
 				A30A330D14308E3100D44356 /* MainWindow.xib */,
-				A30A330E14308E3100D44356 /* ScrollViewController */,
 				A30A331214308E3100D44356 /* Shake2Style */,
 				A30A331514308E3100D44356 /* Supporting File */,
 			);
@@ -353,16 +317,6 @@
 				A30A330314308E3100D44356 /* GeoLocal.m */,
 			);
 			path = GeoLocal;
-			sourceTree = "<group>";
-		};
-		A30A330E14308E3100D44356 /* ScrollViewController */ = {
-			isa = PBXGroup;
-			children = (
-				A30A330F14308E3100D44356 /* ScrollImagesController.h */,
-				A30A331014308E3100D44356 /* ScrollImagesController.m */,
-				A30A331114308E3100D44356 /* ScrollImagesController.xib */,
-			);
-			path = ScrollViewController;
 			sourceTree = "<group>";
 		};
 		A30A331214308E3100D44356 /* Shake2Style */ = {
@@ -470,14 +424,33 @@
 			path = CoverFlowCloth;
 			sourceTree = "<group>";
 		};
-		A3B89A1A1437C3C800AD0F64 /* LookManager */ = {
+		A3645A7B1439C7AA00A13FB5 /* LookManager */ = {
 			isa = PBXGroup;
 			children = (
-				A3B89A1C1437C3F900AD0F64 /* LookManagerController.h */,
-				A3B89A1D1437C3F900AD0F64 /* LookManagerController.m */,
-				A3B89A1E1437C3F900AD0F64 /* LookManagerController.xib */,
+				A3645A7C1439C7AA00A13FB5 /* Add&ModifyLook */,
+				A3645A7D1439C7AA00A13FB5 /* CoverFlowLook */,
+				A3645A811439C7AA00A13FB5 /* LookManagerView.xib */,
+				A3645A821439C7AA00A13FB5 /* LookManagerVIewController.h */,
+				A3645A831439C7AA00A13FB5 /* LookManagerViewController.m */,
 			);
-			name = LookManager;
+			path = LookManager;
+			sourceTree = "<group>";
+		};
+		A3645A7C1439C7AA00A13FB5 /* Add&ModifyLook */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Add&ModifyLook";
+			sourceTree = "<group>";
+		};
+		A3645A7D1439C7AA00A13FB5 /* CoverFlowLook */ = {
+			isa = PBXGroup;
+			children = (
+				A3645A7E1439C7AA00A13FB5 /* CoverLookViewController.h */,
+				A3645A7F1439C7AA00A13FB5 /* CoverLookViewController.m */,
+				A3645A801439C7AA00A13FB5 /* CoverLookViewController.xib */,
+			);
+			path = CoverFlowLook;
 			sourceTree = "<group>";
 		};
 		A3B89A211437C4D400AD0F64 /* images */ = {
@@ -549,7 +522,6 @@
 				A30A332614308E3100D44356 /* InfoPlist.strings in Resources */,
 				A30A332714308E3100D44356 /* Localizable.strings in Resources */,
 				A30A333414308E3100D44356 /* MainWindow.xib in Resources */,
-				A30A333614308E3100D44356 /* ScrollImagesController.xib in Resources */,
 				A30A333814308E3100D44356 /* 02.png in Resources */,
 				A30A333914308E3100D44356 /* 2011-09-09-04-01-11.png in Resources */,
 				A30A333B14308E3100D44356 /* stagione.plist in Resources */,
@@ -559,7 +531,6 @@
 				A31729F414327C09005E1A03 /* sfondo.png in Resources */,
 				A31729F514327C09005E1A03 /* completa.png in Resources */,
 				A32BA5B0143375530019979B /* CoverViewController.xib in Resources */,
-				A3B89A201437C3F900AD0F64 /* LookManagerController.xib in Resources */,
 				A3B89A2A1437C4E900AD0F64 /* camicia1.jpg in Resources */,
 				A3B89A2B1437C4E900AD0F64 /* camicia2.jpg in Resources */,
 				A3B89A2C1437C4E900AD0F64 /* camicia3.jpg in Resources */,
@@ -569,6 +540,8 @@
 				A3B89A301437C4E900AD0F64 /* pantalone3.jpg in Resources */,
 				A3B89A311437C4E900AD0F64 /* pantalone4.jpg in Resources */,
 				A3FB91D41438FF8F009AF9B4 /* ArmadioViewTable.xib in Resources */,
+				A3645A851439C7AA00A13FB5 /* CoverLookViewController.xib in Resources */,
+				A3645A861439C7AA00A13FB5 /* LookManagerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -579,43 +552,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3908B371436096900E76B5F /* CoverViewController.h in Sources */,
-				A3908B381436096900E76B5F /* CoverViewController.xib in Sources */,
-				A30A331F14308E3100D44356 /* ClothViewController.m in Sources */,
-				A30A332114308E3100D44356 /* ClothManagerViewController.m in Sources */,
-				A30A332314308E3100D44356 /* ClothTableViewController.m in Sources */,
-				A30A332414308E3100D44356 /* IarmadioDao.m in Sources */,
-				A30A333014308E3100D44356 /* GeoLocal.m in Sources */,
-				A30A333114308E3100D44356 /* iArmadio.xcdatamodeld in Sources */,
-				A30A333214308E3100D44356 /* iArmadioAppDelegate.m in Sources */,
-				A30A333314308E3100D44356 /* main.m in Sources */,
-				A30A333514308E3100D44356 /* ScrollImagesController.m in Sources */,
-				A30A333714308E3100D44356 /* Shake2Style.m in Sources */,
-				A32294851431BE11001A8A36 /* ImageItemViewController.m in Sources */,
-				A32BA531143310530019979B /* AFItemView.m in Sources */,
-				A32BA532143310530019979B /* AFOpenFlowView.m in Sources */,
-				A32BA533143310530019979B /* AFUIImageReflection.m in Sources */,
-				A32BA599143356100019979B /* UIImage+Blurring.m in Sources */,
-				A32BA59A143356100019979B /* UIImage+Filtering.m in Sources */,
-				A32BA59B143356100019979B /* UIImage+Masking.m in Sources */,
-				A32BA59C143356100019979B /* UIImage+Reflection.m in Sources */,
-				A32BA59D143356100019979B /* UIImage+Resizing.m in Sources */,
-				A32BA59E143356100019979B /* UIImage+Rotating.m in Sources */,
-				A32BA59F143356100019979B /* UIImage+Saving.m in Sources */,
-				A32BA5A0143356100019979B /* NYXImagesHelper.m in Sources */,
-				A32BA5AA14336F830019979B /* ArmadioTableViewController.m in Sources */,
-				A32BA5AF143375530019979B /* CoverViewController.m in Sources */,
-				A357D7161435B7BC00594E69 /* FileSystem.m in Sources */,
-				A3B89A1F1437C3F900AD0F64 /* LookManagerController.m in Sources */,
-				A32C974E1438AFD80038612E /* CurrState.m in Sources */,
-				A3FB91D714390C34009AF9B4 /* ProprietaCombinazione.m in Sources */,
-				A3FB91DA14390C35009AF9B4 /* ProprietaVestito.m in Sources */,
-				A3FB91DD14390C35009AF9B4 /* Stile.m in Sources */,
-				A3FB91E014390C35009AF9B4 /* Proprieta.m in Sources */,
-				A3FB91E314390C35009AF9B4 /* Combinazione.m in Sources */,
-				A3FB91E614390C35009AF9B4 /* Stagione.m in Sources */,
-				A3FB91E914390C35009AF9B4 /* Tipologia.m in Sources */,
-				A3FB91EC14390C35009AF9B4 /* Vestito.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
