@@ -57,10 +57,36 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
+    lastScaleFactor = 0;
     dao = [IarmadioDao shared];
-   
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    //Edit image
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
+    
+    tapGesture.numberOfTapsRequired = 2;
+    [self.imageView addGestureRecognizer:tapGesture];
+    [tapGesture release];
+    
+    
+    UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)];
+    
+    [self.imageView addGestureRecognizer:pinchGesture];
+    [pinchGesture release];
+    
+    
+    UIRotationGestureRecognizer *rotateGesture = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(handleRotateGesture:)];
+    
+    [self.imageView addGestureRecognizer:rotateGesture];
+    [rotateGesture release];
+    [self.imageView setUserInteractionEnabled:YES];
+    self.imageView.multipleTouchEnabled = YES;
+    
+    ////////////
+    
+    
     if(newimage != nil){
-        self.imageView.image = newimage;
+        [self.imageView setImage:newimage];
         //[self.addNavigationBar setHidden:NO];
         NSMutableArray *items = [[toolbar.items mutableCopy] autorelease];
         [items removeObject:trash]; 
@@ -72,9 +98,9 @@
         
         
         //[self.addNavigationBar setHidden:YES];
-        
+        [self.imageView setImage:[dao getImageFromVestito:vestito]];
        
-        self.imageView.image = [dao getImageFromVestito:vestito];
+        //self.imageView.image = ;
     }
     
     
@@ -235,6 +261,12 @@
         [dao addVestitoEntity:self.imageView.image.normal gradimento:gradimento.selectedSegmentIndex tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili];
     }
     else{
+        
+        NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(self.imageView.image)];
+        NSString *imageFilename; 
+        imageFilename = vestito.immagine;
+        [imageData writeToFile:[self filePathDocuments:imageFilename] atomically:YES];
+        
         [dao modifyVestitoEntity:vestito isNew:NO gradimento:gradimento.selectedSegmentIndex tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili];
     }
     
@@ -265,18 +297,89 @@
 }
 
 -(IBAction) selectImage:(id) sender{
-    ImageItemViewController *imageviewcontroller = [[ImageItemViewController alloc] initWithNibName:@"ImageItemViewController" bundle:nil];
-    
-    
-    [((iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate]).tabBarController presentModalViewController:imageviewcontroller animated:YES];     
-    imageviewcontroller.imageviewFinale.image = [dao getImageFromVestito:vestito];
-    [imageviewcontroller release];
+        UIActionSheet *popupAddItem = [[UIActionSheet alloc] initWithTitle:@"Cambia Immagine Vestito" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Fotocamera", @"Album", nil];
+        
+        popupAddItem.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+        [popupAddItem showInView:self.view];
+        [popupAddItem release];
 }
 
 -(void) dealloc{
    
     [super dealloc];
 }
+
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    
+    if (buttonIndex == 0) {
+#if !(TARGET_IPHONE_SIMULATOR)
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+#else
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+#endif
+        [self presentModalViewController:picker animated:YES];
+        [picker release];
+    }
+    else if (buttonIndex == 1) {
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        //picker.allowsEditing = YES;
+        [self presentModalViewController:picker animated:YES];
+        [picker release];
+    } 
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image
+                  editingInfo:(NSDictionary *)editingInfo 
+{
+	[picker dismissModalViewControllerAnimated:NO];
+    
+    [self.imageView setImage:image];
+}
+
+
+-(IBAction) handleTapGesture:(UIGestureRecognizer *)sender{
+    if(sender.view.contentMode == UIViewContentModeScaleAspectFit)
+        sender.view.contentMode = UIViewContentModeCenter;
+    else
+        sender.view.contentMode = UIViewContentModeScaleAspectFit;
+}
+
+-(IBAction) handlePinchGesture:(UIGestureRecognizer *)sender{
+    CGFloat factor = [(UIPinchGestureRecognizer *)sender scale];
+    if(factor > 1){
+        sender.view.transform = CGAffineTransformMakeScale(lastScaleFactor + (factor-1),lastScaleFactor + (factor-1));
+                                                           
+    }
+    else{
+        sender.view.transform = CGAffineTransformMakeScale(lastScaleFactor*factor, lastScaleFactor+factor);
+    }
+    
+    if(sender.state == UIGestureRecognizerStateEnded){
+        if(factor > 1){
+            lastScaleFactor += (factor-1);
+        }
+        else{
+            lastScaleFactor *=factor;
+        }
+    }
+    
+}
+
+
+-(IBAction) handleRotateGesture:(UIGestureRecognizer *)sender{
+    CGFloat rotation = [(UIRotationGestureRecognizer *)sender rotation];
+    sender.view.transform = CGAffineTransformMakeRotation(rotation + netRotation);
+    
+    if(sender.state == UIGestureRecognizerStateEnded){
+        netRotation += rotation;
+    }
+}
+
 
 
 @end

@@ -13,7 +13,7 @@
 #import "ClothTableViewController.h"
 #import "ImageItemViewController.h"
 
-@interface ClothViewController : UIViewController <UIScrollViewDelegate> {
+@interface ClothViewController : UIViewController <UIScrollViewDelegate,UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     
     UIImageView * imageView;
     IarmadioDao *dao;
@@ -38,6 +38,7 @@
     NSString *currStile;
     NSArray *tipologie;
     BOOL addCloth;
+    int lastScaleFactor, netRotation;
       
 }
 
@@ -46,7 +47,7 @@
 @property (nonatomic, retain ) IBOutlet UIToolbar *toolbar;
 @property (nonatomic, retain ) IBOutlet UIBarButtonItem *trash;
 @property (nonatomic, retain) IBOutlet UIScrollView *scrollview;
-@property (nonatomic, retain) IBOutlet UIImageView * imageView;
+@property (nonatomic, retain) IBOutlet UIImageView *imageView;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem * saveButton;
 @property (nonatomic, retain) IBOutlet UINavigationBar* addNavigationBar;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem * undoButton;

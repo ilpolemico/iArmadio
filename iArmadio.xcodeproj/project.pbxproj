@@ -33,6 +33,40 @@
 		A357353E142686F8008A742D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A357353D142686F8008A742D /* CoreLocation.framework */; };
 		A3645A851439C7AA00A13FB5 /* CoverLookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3645A801439C7AA00A13FB5 /* CoverLookViewController.xib */; };
 		A3645A861439C7AA00A13FB5 /* LookManagerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3645A811439C7AA00A13FB5 /* LookManagerView.xib */; };
+		A3645B151439EBC800A13FB5 /* UIImage+Blurring.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA588143356100019979B /* UIImage+Blurring.m */; };
+		A3645B171439EBC800A13FB5 /* UIImage+Filtering.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA58A143356100019979B /* UIImage+Filtering.m */; };
+		A3645B191439EBC800A13FB5 /* UIImage+Masking.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA58C143356100019979B /* UIImage+Masking.m */; };
+		A3645B1B1439EBC800A13FB5 /* UIImage+Reflection.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA58E143356100019979B /* UIImage+Reflection.m */; };
+		A3645B1D1439EBC800A13FB5 /* UIImage+Resizing.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA590143356100019979B /* UIImage+Resizing.m */; };
+		A3645B1F1439EBC800A13FB5 /* UIImage+Rotating.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA592143356100019979B /* UIImage+Rotating.m */; };
+		A3645B211439EBC800A13FB5 /* UIImage+Saving.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA594143356100019979B /* UIImage+Saving.m */; };
+		A3645B231439EBC800A13FB5 /* FileSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = A357D7151435B7BC00594E69 /* FileSystem.m */; };
+		A3645B241439ECD200A13FB5 /* NYXImagesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA597143356100019979B /* NYXImagesHelper.m */; };
+		A3645B251439ECD200A13FB5 /* AFItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA52B143310530019979B /* AFItemView.m */; };
+		A3645B261439ECD200A13FB5 /* AFOpenFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA52E143310530019979B /* AFOpenFlowView.m */; };
+		A3645B271439ECD200A13FB5 /* AFUIImageReflection.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA530143310530019979B /* AFUIImageReflection.m */; };
+		A3645B281439ECD200A13FB5 /* GeoLocal.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A330314308E3100D44356 /* GeoLocal.m */; };
+		A3645B291439ECD200A13FB5 /* Vestito.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FB91EB14390C35009AF9B4 /* Vestito.m */; };
+		A3645B2A1439ECD200A13FB5 /* Tipologia.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FB91E814390C35009AF9B4 /* Tipologia.m */; };
+		A3645B2B1439ECD200A13FB5 /* Stagione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FB91E514390C35009AF9B4 /* Stagione.m */; };
+		A3645B2C1439ECD200A13FB5 /* Combinazione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FB91E214390C35009AF9B4 /* Combinazione.m */; };
+		A3645B2D1439ECD200A13FB5 /* Proprieta.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FB91DF14390C35009AF9B4 /* Proprieta.m */; };
+		A3645B2E1439ECD200A13FB5 /* Stile.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FB91DC14390C35009AF9B4 /* Stile.m */; };
+		A3645B2F1439ECD200A13FB5 /* ProprietaVestito.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FB91D914390C35009AF9B4 /* ProprietaVestito.m */; };
+		A3645B301439ECD200A13FB5 /* ProprietaCombinazione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FB91D614390C34009AF9B4 /* ProprietaCombinazione.m */; };
+		A3645B311439ECD200A13FB5 /* IarmadioDao.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A32E914308E3100D44356 /* IarmadioDao.m */; };
+		A3645B321439ECD200A13FB5 /* CurrState.m in Sources */ = {isa = PBXBuildFile; fileRef = A32C974D1438AFD70038612E /* CurrState.m */; };
+		A3645B331439ECD200A13FB5 /* CoverLookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3645A7F1439C7AA00A13FB5 /* CoverLookViewController.m */; };
+		A3645B341439ECD200A13FB5 /* LookManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3645A831439C7AA00A13FB5 /* LookManagerViewController.m */; };
+		A3645B351439ECD200A13FB5 /* CoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA5AD143375530019979B /* CoverViewController.m */; };
+		A3645B361439ECD200A13FB5 /* ArmadioTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A32BA5A814336F830019979B /* ArmadioTableViewController.m */; };
+		A3645B371439ECD200A13FB5 /* ImageItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A32294831431BE11001A8A36 /* ImageItemViewController.m */; };
+		A3645B381439ECD200A13FB5 /* ClothViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A32DF14308E3100D44356 /* ClothViewController.m */; };
+		A3645B391439ECD200A13FB5 /* ClothManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A32E214308E3100D44356 /* ClothManagerViewController.m */; };
+		A3645B3A1439ECD200A13FB5 /* ClothTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A32E614308E3100D44356 /* ClothTableViewController.m */; };
+		A3645B3B1439ECD200A13FB5 /* iArmadioAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A330914308E3100D44356 /* iArmadioAppDelegate.m */; };
+		A3645B3C1439ECD200A13FB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A330C14308E3100D44356 /* main.m */; };
+		A3645B3D1439ECD200A13FB5 /* Shake2Style.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A331414308E3100D44356 /* Shake2Style.m */; };
 		A3B89A2A1437C4E900AD0F64 /* camicia1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3B89A221437C4E900AD0F64 /* camicia1.jpg */; };
 		A3B89A2B1437C4E900AD0F64 /* camicia2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3B89A231437C4E900AD0F64 /* camicia2.jpg */; };
 		A3B89A2C1437C4E900AD0F64 /* camicia3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3B89A241437C4E900AD0F64 /* camicia3.jpg */; };
@@ -550,6 +584,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3645B241439ECD200A13FB5 /* NYXImagesHelper.m in Sources */,
+				A3645B251439ECD200A13FB5 /* AFItemView.m in Sources */,
+				A3645B261439ECD200A13FB5 /* AFOpenFlowView.m in Sources */,
+				A3645B271439ECD200A13FB5 /* AFUIImageReflection.m in Sources */,
+				A3645B281439ECD200A13FB5 /* GeoLocal.m in Sources */,
+				A3645B291439ECD200A13FB5 /* Vestito.m in Sources */,
+				A3645B2A1439ECD200A13FB5 /* Tipologia.m in Sources */,
+				A3645B2B1439ECD200A13FB5 /* Stagione.m in Sources */,
+				A3645B2C1439ECD200A13FB5 /* Combinazione.m in Sources */,
+				A3645B2D1439ECD200A13FB5 /* Proprieta.m in Sources */,
+				A3645B2E1439ECD200A13FB5 /* Stile.m in Sources */,
+				A3645B2F1439ECD200A13FB5 /* ProprietaVestito.m in Sources */,
+				A3645B301439ECD200A13FB5 /* ProprietaCombinazione.m in Sources */,
+				A3645B311439ECD200A13FB5 /* IarmadioDao.m in Sources */,
+				A3645B321439ECD200A13FB5 /* CurrState.m in Sources */,
+				A3645B331439ECD200A13FB5 /* CoverLookViewController.m in Sources */,
+				A3645B341439ECD200A13FB5 /* LookManagerViewController.m in Sources */,
+				A3645B351439ECD200A13FB5 /* CoverViewController.m in Sources */,
+				A3645B361439ECD200A13FB5 /* ArmadioTableViewController.m in Sources */,
+				A3645B371439ECD200A13FB5 /* ImageItemViewController.m in Sources */,
+				A3645B381439ECD200A13FB5 /* ClothViewController.m in Sources */,
+				A3645B391439ECD200A13FB5 /* ClothManagerViewController.m in Sources */,
+				A3645B3A1439ECD200A13FB5 /* ClothTableViewController.m in Sources */,
+				A3645B3B1439ECD200A13FB5 /* iArmadioAppDelegate.m in Sources */,
+				A3645B3C1439ECD200A13FB5 /* main.m in Sources */,
+				A3645B3D1439ECD200A13FB5 /* Shake2Style.m in Sources */,
+				A3645B151439EBC800A13FB5 /* UIImage+Blurring.m in Sources */,
+				A3645B171439EBC800A13FB5 /* UIImage+Filtering.m in Sources */,
+				A3645B191439EBC800A13FB5 /* UIImage+Masking.m in Sources */,
+				A3645B1B1439EBC800A13FB5 /* UIImage+Reflection.m in Sources */,
+				A3645B1D1439EBC800A13FB5 /* UIImage+Resizing.m in Sources */,
+				A3645B1F1439EBC800A13FB5 /* UIImage+Rotating.m in Sources */,
+				A3645B211439EBC800A13FB5 /* UIImage+Saving.m in Sources */,
+				A3645B231439EBC800A13FB5 /* FileSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

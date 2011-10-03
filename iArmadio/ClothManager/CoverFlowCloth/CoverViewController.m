@@ -116,8 +116,7 @@ static CGRect frameCover;
         [self.openflow setNumberOfImages:1];
     }
     
-	
-    
+	    
     self.openflow.viewDelegate = self;
     
     
@@ -131,7 +130,7 @@ static CGRect frameCover;
 
     dao = [IarmadioDao shared];
     currstate = [CurrState shared];
-    self.navigationItem.titleView = segmentcontrol;     
+    self.navigationItem.titleView = segmentcontrol;
     
     frameCover = self.openflow.frame;
     
@@ -293,6 +292,10 @@ static CGRect frameCover;
     [addviewcontroller release];
 	//imageView.image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
 }
+
+
+
+
 
 -(void) dealloc{
     [super dealloc]; 
