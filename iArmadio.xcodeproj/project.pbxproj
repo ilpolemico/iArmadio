@@ -131,7 +131,6 @@
 		A3645A811439C7AA00A13FB5 /* LookManagerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LookManagerView.xib; sourceTree = "<group>"; };
 		A3645A821439C7AA00A13FB5 /* LookManagerVIewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookManagerVIewController.h; sourceTree = "<group>"; };
 		A3645A831439C7AA00A13FB5 /* LookManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookManagerViewController.m; sourceTree = "<group>"; };
-		A3645A881439C8FB00A13FB5 /* CoverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CoverViewController.m; path = iArmadio/ClothManager/CoverFlowCloth/CoverViewController.m; sourceTree = "<group>"; };
 		A36A7A311430B91C00BB8EB7 /* iArmadio-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "iArmadio-Info.plist"; path = "../iArmadio-Info.plist"; sourceTree = "<group>"; };
 		A3B89A221437C4E900AD0F64 /* camicia1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = camicia1.jpg; sourceTree = "<group>"; };
 		A3B89A231437C4E900AD0F64 /* camicia2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = camicia2.jpg; sourceTree = "<group>"; };
@@ -183,7 +182,6 @@
 		9CD1ACA01412840500441AB7 = {
 			isa = PBXGroup;
 			children = (
-				A3645A881439C8FB00A13FB5 /* CoverViewController.m */,
 				A32BA586143356100019979B /* Categories */,
 				A32BA595143356100019979B /* Helper */,
 				A32BA529143310530019979B /* OpenFlow */,
