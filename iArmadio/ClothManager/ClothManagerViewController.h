@@ -19,7 +19,6 @@
     
     IarmadioDao *dao;
     IBOutlet UINavigationController *navcontroler;
-    IBOutlet ClothTableViewController *tableviewcontroller;
     IBOutlet UIBarButtonItem *addItemBtn;
     IBOutlet UIBarButtonItem *modifyBtn;
     Tipologia *tipologia;
@@ -31,7 +30,7 @@
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *addItemBtn;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *modifyBtn;
 @property(nonatomic,retain, readonly) IBOutlet UINavigationController *navcontroler;
-@property(nonatomic,retain, readonly) IBOutlet ClothTableViewController *tableviewcontroller;
+
 
 
 

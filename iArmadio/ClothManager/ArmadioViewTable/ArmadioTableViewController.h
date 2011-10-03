@@ -19,6 +19,7 @@
     NSMutableArray *tipologie;
 }
 
+
 - (void)reloadCassetti; 
 - (void)reloadCassetti:(NSNotification *)pNotification;  
 @end

@@ -13,7 +13,15 @@
 
 @implementation CoverViewController
 
-@synthesize addButton,openflow;
+@synthesize addButton,
+            openflow,
+            segmentcontrol,
+            casual,
+            sportivo,
+            elegante,
+            coverView;
+
+static CGRect frameCover;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -46,18 +54,15 @@
 #pragma mark - View lifecycle
 
 - (void)reloadVestiti:(NSNotification *)pNotification{
-
-   
     
-    [self.openflow removeFromSuperview];
-    self.openflow =  [[[AFOpenFlowView alloc] initWithFrame:CGRectMake(0,0, 300, 400)] autorelease];
+    //[self.openflow removeFromSuperview];
+    //self.openflow = [[AFOpenFlowView alloc] initWithFrame:CGRectMake(0,-100,frameCover.size.width,frameCover.size.height)];
     [self reloadVestiti];
     [self.openflow setSelectedCover:[vestiti count]-1];
+     
     imageSelected = [vestiti count]-1;
     [self.openflow centerOnSelectedCover:YES];
-    [self.view addSubview:self.openflow];
-
-    
+    //[self.coverView addSubview:self.openflow];
 }
 
 - (void)reloadVestiti{
@@ -65,17 +70,29 @@
         [vestiti release];
     }
     
+    
+    if(currstate.currStagioneIndex == nil){
+        currstate.currStagioneIndex = [NSNumber numberWithInteger:0];
+        //self.segmentcontrol.selectedSegmentIndex = 0;
+    }
+    else{
+        //self.segmentcontrol.selectedSegmentIndex = [currstate.currStagioneIndex integerValue];
+    }
+    
+    
     NSMutableArray *sort = [[[NSMutableArray alloc] init] autorelease];
     NSMutableDictionary *key = [[[NSMutableDictionary alloc] init] autorelease];
     [key setObject:@"gradimento" forKey:@"field"];
     [key setObject:@"YES" forKey:@"ascending"];
     [sort addObject:key];
     
-     
-    vestiti = [dao getVestitiEntities:[NSArray arrayWithObjects:tipologia,nil] filterStagioniKeys:nil filterStiliKeys:nil filterGradimento:-1 sortOnKeys:sort];
+    
+    currstate.currStagioneIndex = [NSNumber numberWithInt:self.segmentcontrol.selectedSegmentIndex];
+    vestiti = [dao getVestitiEntities:[NSArray arrayWithObjects:tipologia,nil] filterStagioneKey:currstate.currStagioneKey filterStiliKeys:stili filterGradimento:-1 sortOnKeys:sort];
 	[vestiti retain];
     
     
+    //NSLog(@"%@ - %d",vestiti,[vestiti count]);
     
     for (int i=0; i < [vestiti count]; i++) {
         UIImage *image = [dao getImageFromVestito:[vestiti objectAtIndex:i]];
@@ -103,19 +120,20 @@
     
     self.openflow.viewDelegate = self;
     
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTap:)];
-    [self.openflow addGestureRecognizer:tap];
-    [tap release];
-    self.openflow.userInteractionEnabled = YES;
+    
+    
 
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     dao = [IarmadioDao shared];
+    currstate = [CurrState shared];
+    self.navigationItem.titleView = segmentcontrol;     
     
-    
+    frameCover = self.openflow.frame;
     
     self.navigationItem.rightBarButtonItem = self.addButton;
     loadImagesOperationQueue = [[NSOperationQueue alloc] init];
@@ -127,11 +145,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadVestiti:) name:MOD_CLOTH_EVENT object:nil];
     
     [self reloadVestiti];
-	imageSelected = 0;
+    
+    imageSelected = 0;
 }
 
-- (void)imageTap:(UITapGestureRecognizer *)sender {
-    
+- (void)imageTap{
     if([vestiti count] > 0){
         ClothViewController *getviewcontroller = [[ClothViewController alloc] initWithNibName:@"ClothView" bundle:nil getVestito: [vestiti objectAtIndex:imageSelected]];
         
@@ -153,11 +171,13 @@
     
 }
 
+- (void)openFlowView:(AFOpenFlowView *)openFlowView touchImageCoverSelected:(int)index{
+   [self imageTap];
+}
+
 - (void)openFlowView:(AFOpenFlowView *)openFlowView requestImageForIndex:(int)index {
     
-    NSLog(@"%d",index);
-    
-	}
+}
 
 
 // setting the image 1 as the default pic
@@ -195,6 +215,39 @@
     
 }
 
+-(IBAction)changeStili:(id)sender{
+    
+    if(stili != nil){
+        [stili release];
+    }
+    
+    stili = [[NSMutableArray alloc] init];
+    if(casual.on){
+        [stili addObject:@"casual"];
+    }
+    if(sportivo.on){
+        [stili addObject:@"sportivo"]; 
+    }
+    if(elegante.on){
+        [stili addObject:@"elegante"]; 
+    } 
+
+    [self reloadVestiti:nil];
+
+}
+
+-(IBAction)changeStagione:(id)sender{
+    
+    UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
+    NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
+    
+    
+    ([CurrState shared]).currStagioneIndex = [NSNumber numberWithInteger:selectedSegment];
+    [self reloadVestiti:nil];
+    
+}
+
+
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     
@@ -229,7 +282,7 @@
 	[picker dismissModalViewControllerAnimated:NO];
     ClothViewController *addviewcontroller = [[ClothViewController alloc] initWithNibName:@"ClothView" bundle:nil setImage: image];
     
-    //addviewcontroller.tipologia = tipologia.tipologia;
+    addviewcontroller.currTipologia = tipologia;
     
     addviewcontroller.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     

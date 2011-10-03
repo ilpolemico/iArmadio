@@ -2,7 +2,7 @@
 //  Stagione.m
 //  iArmadio
 //
-//  Created by Casa Fortunato on 20/09/11.
+//  Created by Casa Fortunato on 02/10/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -12,11 +12,12 @@
 
 
 @implementation Stagione
-@dynamic temp_max;
-@dynamic temp_min;
-@dynamic stagione;
 @dynamic date_from;
 @dynamic date_to;
+@dynamic id;
+@dynamic stagione;
+@dynamic temp_max;
+@dynamic temp_min;
 @dynamic combinazione;
 @dynamic vestito;
 

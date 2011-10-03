@@ -24,8 +24,8 @@
 }
 
 
-- (Combinazione *)shake2style:(NSArray *)filterStili filterStagioni:(NSArray *)filterStagioni{
-    NSArray *combinazioni = [dao getCombinazioniEntities:0 filterStagioniKeys:filterStagioni filterStiliKeys:filterStili];
+- (Combinazione *)shake2style:(NSArray *)filterStili filterStagione:(NSString *)filterStagione{
+    NSArray *combinazioni = [dao getCombinazioniEntities:0 filterStagioneKey:filterStagione filterStiliKeys:filterStili];
     
     
     if([combinazioni count] == 0){ return nil;}

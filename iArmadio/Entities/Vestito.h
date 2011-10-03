@@ -2,7 +2,7 @@
 //  Vestito.h
 //  iArmadio
 //
-//  Created by Casa Fortunato on 20/09/11.
+//  Created by Casa Fortunato on 02/10/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -20,7 +20,7 @@
 @property (nonatomic, retain) NSSet *conProprieta;
 @property (nonatomic, retain) NSSet *conStile;
 @property (nonatomic, retain) NSSet *inCombinazioni;
-@property (nonatomic, retain) NSSet *perLaStagione;
+@property (nonatomic, retain) Stagione *perLaStagione;
 @property (nonatomic, retain) NSSet *tipi;
 @end
 
@@ -40,11 +40,6 @@
 - (void)removeInCombinazioniObject:(Combinazione *)value;
 - (void)addInCombinazioni:(NSSet *)values;
 - (void)removeInCombinazioni:(NSSet *)values;
-
-- (void)addPerLaStagioneObject:(Stagione *)value;
-- (void)removePerLaStagioneObject:(Stagione *)value;
-- (void)addPerLaStagione:(NSSet *)values;
-- (void)removePerLaStagione:(NSSet *)values;
 
 - (void)addTipiObject:(Tipologia *)value;
 - (void)removeTipiObject:(Tipologia *)value;

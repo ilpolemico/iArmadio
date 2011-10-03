@@ -34,11 +34,15 @@
     IBOutlet UIToolbar *toolbar;
     IBOutlet UIBarButtonItem *trash;
     
+    NSString *currTipologia;
+    NSString *currStile;
     NSArray *tipologie;
     BOOL addCloth;
       
 }
 
+@property (nonatomic, retain ) IBOutlet NSString *currStile;
+@property (nonatomic, retain ) IBOutlet NSString *currTipologia;
 @property (nonatomic, retain ) IBOutlet UIToolbar *toolbar;
 @property (nonatomic, retain ) IBOutlet UIBarButtonItem *trash;
 @property (nonatomic, retain) IBOutlet UIScrollView *scrollview;
@@ -67,7 +71,7 @@
 -(IBAction) deleteCloth:(id) sender;
 -(IBAction) undoCloth:(id) sender;
 -(IBAction) segmentSwitch:(id)sender;
--(void)initStagioniEntities:(NSArray *)_stagioni;
+-(void)initStagioniEntities:(NSNumber *)stagioneKey;
 
 
 

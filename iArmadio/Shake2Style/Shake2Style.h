@@ -17,6 +17,6 @@
 
 
 
-- (Combinazione *)shake2style:(NSArray *)filterStili filterStagioni:(NSArray *)filterStagioni;
+- (Combinazione *)shake2style:(NSArray *)filterStili filterStagione:(NSString *)filterStagione;
 
 @end

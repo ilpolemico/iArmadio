@@ -2,7 +2,7 @@
 //  Stagione.h
 //  iArmadio
 //
-//  Created by Casa Fortunato on 20/09/11.
+//  Created by Casa Fortunato on 02/10/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -14,25 +14,13 @@
 @interface Stagione : NSManagedObject {
 @private
 }
-@property (nonatomic, retain) NSNumber * temp_max;
-@property (nonatomic, retain) NSNumber * temp_min;
-@property (nonatomic, retain) NSString * stagione;
 @property (nonatomic, retain) NSString * date_from;
 @property (nonatomic, retain) NSString * date_to;
-@property (nonatomic, retain) NSSet *combinazione;
-@property (nonatomic, retain) NSSet *vestito;
-@end
-
-@interface Stagione (CoreDataGeneratedAccessors)
-
-- (void)addCombinazioneObject:(Combinazione *)value;
-- (void)removeCombinazioneObject:(Combinazione *)value;
-- (void)addCombinazione:(NSSet *)values;
-- (void)removeCombinazione:(NSSet *)values;
-
-- (void)addVestitoObject:(Vestito *)value;
-- (void)removeVestitoObject:(Vestito *)value;
-- (void)addVestito:(NSSet *)values;
-- (void)removeVestito:(NSSet *)values;
+@property (nonatomic, retain) NSNumber * id;
+@property (nonatomic, retain) NSString * stagione;
+@property (nonatomic, retain) NSNumber * temp_max;
+@property (nonatomic, retain) NSNumber * temp_min;
+@property (nonatomic, retain) Combinazione *combinazione;
+@property (nonatomic, retain) Vestito *vestito;
 
 @end

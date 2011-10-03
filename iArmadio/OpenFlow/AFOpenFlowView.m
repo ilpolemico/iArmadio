@@ -41,6 +41,8 @@
 
 @implementation AFOpenFlowView (hidden)
 
+
+
 const static CGFloat kReflectionFraction = 0.85;
 
 - (void)setUpInitialState {
@@ -173,7 +175,7 @@ const static CGFloat kReflectionFraction = 0.85;
 
 
 @implementation AFOpenFlowView
-@synthesize dataSource, viewDelegate, numberOfImages, defaultImage;
+@synthesize dataSource, viewDelegate, numberOfImages, defaultImage, selectedCoverView;
 
 #define COVER_BUFFER 6
 
@@ -270,6 +272,7 @@ const static CGFloat kReflectionFraction = 0.85;
 		isDoubleTap = YES;
 		
 	isSingleTap = ([touches count] == 1);
+    
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -301,8 +304,16 @@ const static CGFloat kReflectionFraction = 0.85;
 		CGPoint targetPoint = [[touches anyObject] locationInView:self];
 		CALayer *targetLayer = (CALayer *)[scrollView.layer hitTest:targetPoint];
 		AFItemView *targetCover = [self findCoverOnscreen:targetLayer];
-		if (targetCover && (targetCover.number != selectedCoverView.number))
+		if (targetCover && (targetCover.number != selectedCoverView.number)){
 			[self setSelectedCover:targetCover.number];
+        }
+        else{
+            if(
+               (targetPoint.x > 30 ) && (targetPoint.x < 300) &&
+               (targetPoint.y > 0  ) && (targetPoint.y < 250)
+              )  
+            [self.viewDelegate openFlowView:self touchImageCoverSelected:selectedCoverView.number];
+        }
 	}
 	[self centerOnSelectedCover:YES];
 	
@@ -310,6 +321,7 @@ const static CGFloat kReflectionFraction = 0.85;
 	if (beginningCover != selectedCoverView.number)
 		if ([self.viewDelegate respondsToSelector:@selector(openFlowView:selectionDidChange:)])
 			[self.viewDelegate openFlowView:self selectionDidChange:selectedCoverView.number];
+
 }
 
 - (void)centerOnSelectedCover:(BOOL)animated {

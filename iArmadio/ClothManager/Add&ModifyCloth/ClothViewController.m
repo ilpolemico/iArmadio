@@ -25,6 +25,8 @@
             sportivo,
             elegante,
             toolbar,
+            currTipologia,
+            currStile,
             trash;
  
 
@@ -34,6 +36,8 @@
     newimage = image;
     [newimage retain];
     addCloth = YES;
+    currTipologia = nil;
+    currStile = nil;
     return self;
 }
 
@@ -42,6 +46,8 @@
     vestito = _vestito;
     [vestito retain];
     addCloth = NO;
+    currTipologia = nil;
+    currStile = nil;
     return self;
 }
 
@@ -102,7 +108,7 @@
     self.scrollview.delegate = self;
     //self.scrollview.autoresizesSubviews = YES;
     self.scrollview.bounces = YES; 
-    [self.scrollview setContentSize:CGSizeMake(320,560)];
+    [self.scrollview setContentSize:CGSizeMake(320,734)];
     
     
     //self.scrollview.frame = CGRectMake(0,90, self.scrollview.frame.size.width, self.scrollview.frame.size.height);
@@ -110,8 +116,16 @@
     
     
     if(newimage != nil){
-        self.tipologia.selectedSegmentIndex = 0;
-        [self initStagioniEntities:[[[NSArray alloc] initWithObjects:[dao getStagioneEntity:dao.currStagioneKey], nil] autorelease]];
+        if(self.currTipologia){
+            self.tipologia.selectedSegmentIndex = [[indextipo objectForKey:self.currTipologia] intValue];
+        }
+        else{
+            self.tipologia.selectedSegmentIndex = 0;
+        }  
+        
+        if([[CurrState shared] currStagioneIndex] == nil){
+            ([CurrState shared]).currStagioneKey = dao.currStagioneKey;
+        }
     }
     else if(vestito != nil){
         
@@ -124,7 +138,16 @@
             gradimento.selectedSegmentIndex = grad.intValue;
         } 
         
-        [self initStagioniEntities:[vestito.perLaStagione allObjects]];
+        NSString *stagioneKey = vestito.perLaStagione.stagione;
+        
+        
+        
+        ([CurrState shared]).currStagioneKey = stagioneKey;
+        
+        //NSLog(@"%@", [[CurrState shared] currStagioneIndex]);
+       
+        
+        [self initStagioniEntities:[[CurrState shared] currStagioneIndex]];
         
         
         if([vestito.conStile count] > 0){
@@ -205,35 +228,20 @@
     } 
     
     
-    NSMutableArray *scelta_stagioni = [[NSMutableArray alloc] init];
     
-    if(stagione.selectedSegmentIndex == 0){
-        [scelta_stagioni addObject:@"estiva"];
-        [scelta_stagioni addObject:@"primaverile"];
-    }
-    
-    if(stagione.selectedSegmentIndex == 1){
-        [scelta_stagioni addObject:@"invernale"];
-        [scelta_stagioni addObject:@"autunnale"];
-    }
-    
-    if(stagione.selectedSegmentIndex == 2){
-        [scelta_stagioni addObject:@"invernale"];
-        [scelta_stagioni addObject:@"autunnale"];
-        [scelta_stagioni addObject:@"estiva"];
-        [scelta_stagioni addObject:@"primaverile"];
-    }
+    NSString *scelta_stagione = [[dao listStagioniKeys] objectAtIndex:stagione.selectedSegmentIndex] ;
     
     if(addCloth){ 
-        [dao addVestitoEntity:self.imageView.image.normal gradimento:gradimento.selectedSegmentIndex tipiKeys:tipi stagioniKeys:scelta_stagioni stiliKeys:stili];
+        [dao addVestitoEntity:self.imageView.image.normal gradimento:gradimento.selectedSegmentIndex tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili];
     }
     else{
-        [dao modifyVestitoEntity:vestito isNew:NO gradimento:gradimento.selectedSegmentIndex tipiKeys:tipi stagioniKeys:scelta_stagioni stiliKeys:stili];
+        [dao modifyVestitoEntity:vestito isNew:NO gradimento:gradimento.selectedSegmentIndex tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili];
     }
     
-    [scelta_stagioni release];
     [tipi release];
     [stili release];
+    CurrState *currstate = [CurrState shared];
+    currstate.currStagioneIndex = [NSNumber numberWithInteger:stagione.selectedSegmentIndex]; 
     [self dismissModalViewControllerAnimated:YES];
     
 }
@@ -245,24 +253,8 @@
 }
 
 
-- (void)initStagioniEntities:(NSArray *)_stagioni{
-    BOOL caldo = NO;
-    BOOL freddo = NO;
-    
-    for(Stagione *s in _stagioni){
-        if(([s.stagione caseInsensitiveCompare:@"primaverile"] == 0)||([s.stagione caseInsensitiveCompare:@"estiva"] == 0)){
-            caldo = YES; 
-            stagione.selectedSegmentIndex = 0;
-        }
-        else{
-            freddo = YES;
-            stagione.selectedSegmentIndex = 1;
-        }
-    }
-    
-    if(caldo&&freddo){
-        stagione.selectedSegmentIndex = 2;
-    } 
+- (void)initStagioniEntities:(NSNumber *)stagioneIndex{
+    stagione.selectedSegmentIndex = [stagioneIndex intValue];
 }
 
 - (IBAction)segmentSwitch:(id)sender {

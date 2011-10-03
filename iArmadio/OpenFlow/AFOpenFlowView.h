@@ -59,6 +59,7 @@
 	CGFloat startPosition;
 }
 
+@property (nonatomic, retain) AFItemView *selectedCoverView;;
 @property (nonatomic, assign) id <AFOpenFlowViewDataSource> dataSource;
 @property (nonatomic, assign) id <AFOpenFlowViewDelegate> viewDelegate;
 @property (nonatomic, retain) UIImage *defaultImage;
@@ -73,6 +74,7 @@
 @protocol AFOpenFlowViewDelegate <NSObject>
 @optional
 - (void)openFlowView:(AFOpenFlowView *)openFlowView selectionDidChange:(int)index;
+- (void)openFlowView:(AFOpenFlowView *)openFlowView touchImageCoverSelected:(int)index;
 @end
 
 @protocol AFOpenFlowViewDataSource <NSObject>

@@ -2,7 +2,7 @@
 //  Tipologia.h
 //  iArmadio
 //
-//  Created by Casa Fortunato on 20/09/11.
+//  Created by Casa Fortunato on 02/10/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -16,6 +16,8 @@
 }
 @property (nonatomic, retain) NSString * id;
 @property (nonatomic, retain) NSString * nome;
+@property (nonatomic, retain) NSNumber * order;
+@property (nonatomic, retain) NSString * plural;
 @property (nonatomic, retain) NSSet *allow;
 @property (nonatomic, retain) NSSet *vestiti;
 @end

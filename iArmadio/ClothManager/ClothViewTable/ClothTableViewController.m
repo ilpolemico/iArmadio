@@ -41,7 +41,7 @@
     
     for( NSString *tipo in dao.listTipiKeys){ 
         
-        NSArray *vestiti = [dao getVestitiEntities:[NSArray arrayWithObjects:tipo,nil] filterStagioniKeys:nil filterStiliKeys:nil filterGradimento:-1];
+        NSArray *vestiti = [dao getVestitiEntities:[NSArray arrayWithObjects:tipo,nil] filterStagioneKey:nil filterStiliKeys:nil filterGradimento:-1];
         
         [vestitiForType addObject:vestiti];
     }

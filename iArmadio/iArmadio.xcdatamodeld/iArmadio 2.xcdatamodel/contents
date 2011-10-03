@@ -5,7 +5,7 @@
         <attribute name="id" attributeType="String"/>
         <relationship name="conStile" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Stile" inverseName="combinazione" inverseEntity="Stile"/>
         <relationship name="fattaDi" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Vestito" inverseName="inCombinazioni" inverseEntity="Vestito"/>
-        <relationship name="perLaStagione" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Stagione" inverseName="combinazione" inverseEntity="Stagione"/>
+        <relationship name="perLaStagione" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stagione" inverseName="combinazione" inverseEntity="Stagione"/>
     </entity>
     <entity name="Proprieta" representedClassName="Proprieta">
         <attribute name="nome" attributeType="String"/>
@@ -22,11 +22,12 @@
     <entity name="Stagione" representedClassName="Stagione">
         <attribute name="date_from" optional="YES" attributeType="String"/>
         <attribute name="date_to" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="stagione" attributeType="String"/>
         <attribute name="temp_max" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="temp_min" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
-        <relationship name="combinazione" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Combinazione" inverseName="perLaStagione" inverseEntity="Combinazione"/>
-        <relationship name="vestito" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Vestito" inverseName="perLaStagione" inverseEntity="Vestito"/>
+        <relationship name="combinazione" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Combinazione" inverseName="perLaStagione" inverseEntity="Combinazione"/>
+        <relationship name="vestito" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Vestito" inverseName="perLaStagione" inverseEntity="Vestito"/>
     </entity>
     <entity name="Stile" representedClassName="Stile">
         <attribute name="id" attributeType="String"/>
@@ -37,6 +38,8 @@
     <entity name="Tipologia" representedClassName="Tipologia">
         <attribute name="id" attributeType="String"/>
         <attribute name="nome" attributeType="String"/>
+        <attribute name="order" attributeType="Integer 16" defaultValueString="0"/>
+        <attribute name="plural" optional="YES" attributeType="String"/>
         <relationship name="allow" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tipologia" inverseName="allow" inverseEntity="Tipologia"/>
         <relationship name="vestiti" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Vestito" inverseName="tipi" inverseEntity="Vestito"/>
     </entity>
@@ -47,7 +50,7 @@
         <relationship name="conProprieta" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ProprietaVestito" inverseName="delVestito" inverseEntity="ProprietaVestito"/>
         <relationship name="conStile" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Stile" inverseName="vestiti" inverseEntity="Stile"/>
         <relationship name="inCombinazioni" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Combinazione" inverseName="fattaDi" inverseEntity="Combinazione"/>
-        <relationship name="perLaStagione" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Stagione" inverseName="vestito" inverseEntity="Stagione"/>
+        <relationship name="perLaStagione" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stagione" inverseName="vestito" inverseEntity="Stagione"/>
         <relationship name="tipi" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tipologia" inverseName="vestiti" inverseEntity="Tipologia"/>
     </entity>
     <elements>
@@ -55,7 +58,7 @@
         <element name="Proprieta" positionX="513" positionY="-0" width="128" height="75"/>
         <element name="ProprietaCombinazione" positionX="736" positionY="117" width="128" height="60"/>
         <element name="ProprietaVestito" positionX="252" positionY="108" width="128" height="90"/>
-        <element name="Stagione" positionX="765" positionY="432" width="128" height="150"/>
+        <element name="Stagione" positionX="765" positionY="432" width="128" height="165"/>
         <element name="Stile" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Tipologia" positionX="243" positionY="351" width="128" height="105"/>
         <element name="Vestito" positionX="504" positionY="261" width="128" height="165"/>

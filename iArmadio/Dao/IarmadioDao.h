@@ -16,6 +16,7 @@
 #import "Stile.h"
 #import "Vestito.h"
 #import "ProprietaCombinazione.h"
+#import "CurrState.h"
 
 
 static NSString * const ADD_CLOTH_EVENT = @"add_cloth_event";
@@ -39,19 +40,20 @@ static NSString * const STILE_PLIST = @"stile";
     NSMutableDictionary *stagioniEntities;
     NSMutableDictionary *stiliEntities;
     NSMutableDictionary *tipiEntities;
-    NSArray *listTipiKeys;
-    NSArray *listStagioniKeys;
-    NSArray *listStiliKeys;
+    NSMutableArray *listTipiKeys;
+    NSMutableArray *listStagioniKeys;
+    NSMutableArray *listStiliKeys;
     NSString *currStagioneKey; 
 }
 
-@property (nonatomic,retain, readonly) NSString *currStagioneKey;
+
+@property (nonatomic,retain, readonly)  NSString *currStagioneKey;
 @property (nonatomic, retain, readonly) NSMutableDictionary *stagioniEntities;
 @property (nonatomic, retain, readonly) NSMutableDictionary *stiliEntities;
 @property (nonatomic, retain, readonly) NSMutableDictionary *tipiEntities;
-@property (nonatomic, retain, readonly) NSArray *listTipiKeys;
-@property (nonatomic, retain, readonly) NSArray *listStiliKeys;
-@property (nonatomic, retain, readonly) NSArray *listStagioniKeys;
+@property (nonatomic, retain, readonly) NSMutableArray *listTipiKeys;
+@property (nonatomic, retain, readonly) NSMutableArray *listStiliKeys;
+@property (nonatomic, retain, readonly) NSMutableArray *listStagioniKeys;
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
@@ -71,27 +73,27 @@ static NSString * const STILE_PLIST = @"stile";
 - (UIImage *)getImageFromFile:(NSString *)file;
 
 
-- (NSArray *)getVestitiEntities:(NSArray *)filterTipiKeys filterStagioniKeys:(NSArray *)filterStagioniKeys filterStiliKeys:(NSArray *)filterStiliKeys filterGradimento:(NSInteger)filterGradimento sortOnKeys:(NSArray *)keys;
+- (NSArray *)getVestitiEntities:(NSArray *)filterTipiKeys filterStagioneKey:(NSString *)filterStagioneKey filterStiliKeys:(NSArray *)filterStiliKeys filterGradimento:(NSInteger)filterGradimento sortOnKeys:(NSArray *)keys;
 
-- (NSArray *)getVestitiEntities:(NSArray *)filterTipiKeys filterStagioniKeys:(NSArray *)filterStagioniKeys filterStiliKeys:(NSArray*)filterStiliKeys filterGradimento:(NSInteger)filterGradimento;
+- (NSArray *)getVestitiEntities:(NSArray *)filterTipiKeys filterStagioneKey:(NSString *)filterStagioneKey filterStiliKeys:(NSArray*)filterStiliKeys filterGradimento:(NSInteger)filterGradimento;
 
-- (Vestito *)addVestitoEntity:(UIImage *)image gradimento:(NSInteger)gradimento  tipiKeys:(NSArray *)tipiKeys stagioniKeys:(NSArray *)stagioniKeys stiliKeys:(NSArray *)stiliKeys;
+- (Vestito *)addVestitoEntity:(UIImage *)image gradimento:(NSInteger)gradimento  tipiKeys:(NSArray *)tipiKeys stagioneKey:(NSString *)stagioneKey stiliKeys:(NSArray *)stiliKeys;
 
 
-- (Vestito *)modifyVestitoEntity:(Vestito *)vestito isNew:(BOOL)new gradimento:(NSInteger)gradimento  tipiKeys:(NSArray *)tipiKeys stagioniKeys:(NSArray *)stagioniKeys stiliKeys:(NSArray *)stiliKeys;
+- (Vestito *)modifyVestitoEntity:(Vestito *)vestito isNew:(BOOL)new gradimento:(NSInteger)gradimento  tipiKeys:(NSArray *)tipiKeys stagioneKey:(NSString *)stagioneKey stiliKeys:(NSArray *)stiliKeys;
 
 - (void)delVestitoEntity:(Vestito *)Vestito;
 
 
 
-- (NSArray *)getCombinazioniEntities:(NSInteger)filterGradimento filterStagioniKeys:(NSArray *)filterStagioniKeys filterStiliKeys:(NSArray *)filterStiliKeys sortOnKeys:(NSArray *)keys;
+- (NSArray *)getCombinazioniEntities:(NSInteger)filterGradimento filterStagioneKey:(NSString *)filterStagioneKey filterStiliKeys:(NSArray *)filterStiliKeys sortOnKeys:(NSArray *)keys;
 
-- (NSArray *)getCombinazioniEntities:(NSInteger)filterGradimento filterStagioniKeys:(NSArray *)filterStagioniKeys filterStiliKeys:(NSArray *)filterStiliKeys;
+- (NSArray *)getCombinazioniEntities:(NSInteger)filterGradimento filterStagioneKey:(NSString *)filterStagioneKey filterStiliKeys:(NSArray *)filterStiliKeys;
     
 
-- (Combinazione *)addCombinazioneEntity:(NSArray *)vestitiEntities gradimento:(NSInteger)gradimento stagioniKeys:(NSArray *)stagioniKeys stiliKeys:(NSArray *)stiliKeys;
+- (Combinazione *)addCombinazioneEntity:(NSArray *)vestitiEntities gradimento:(NSInteger)gradimento stagioneKey:(NSString *)stagioneKey stiliKeys:(NSArray *)stiliKeys;
 
-- (Combinazione *)modifyCombinazioneEntity:(Combinazione *)combinazione vestitiEntities:(NSArray *)vestitiEntities isNew:(BOOL)isnew gradimento:(NSInteger)gradimento  stagioniKeys:(NSArray *)stagioniKeys stiliKeys:(NSArray *)stiliKeys;
+- (Combinazione *)modifyCombinazioneEntity:(Combinazione *)combinazione vestitiEntities:(NSArray *)vestitiEntities isNew:(BOOL)isnew gradimento:(NSInteger)gradimento  stagioneKey:(NSString *)stagioneKey stiliKeys:(NSArray *)stiliKeys;
 
 
 

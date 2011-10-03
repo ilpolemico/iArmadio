@@ -122,7 +122,7 @@
     }
     
         
-    cell.textLabel.text = [tipologie objectAtIndex:indexPath.row];
+    cell.textLabel.text = [dao getTipoEntity:[tipologie objectAtIndex:indexPath.row]].plural;
     
     return cell;
 }
@@ -189,8 +189,9 @@
     
     CoverViewController *coverviewcontroller = [[CoverViewController alloc] initWithNibName:@"CoverViewController" bundle:nil getTipologia:[tipologie objectAtIndex:indexPath.row]];
    
+    
     [tableView  deselectRowAtIndexPath:indexPath animated:YES];
-    [self.navigationController pushViewController:coverviewcontroller animated:YES];
+    [self.navigationController pushViewController:coverviewcontroller animated:YES];;
     [coverviewcontroller release];
          
 }
