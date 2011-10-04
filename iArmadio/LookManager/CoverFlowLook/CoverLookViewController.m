@@ -57,10 +57,11 @@ static CGRect frameCover;
     
     //[self.openflow removeFromSuperview];
     //self.openflow = [[AFOpenFlowView alloc] initWithFrame:CGRectMake(0,-100,frameCover.size.width,frameCover.size.height)];
+    [self.openflow awakeFromNib];
     [self reloadVestiti];
-    [self.openflow setSelectedCover:[vestiti count]-1];
+    [self.openflow setSelectedCover:0];
      
-    imageSelected = [vestiti count]-1;
+    imageSelected = 0;
     [self.openflow centerOnSelectedCover:YES];
     //[self.coverView addSubview:self.openflow];
 }
@@ -70,6 +71,7 @@ static CGRect frameCover;
         [vestiti release];
     }
     
+   
     
     if(currstate.currStagioneIndex == nil){
         currstate.currStagioneIndex = [NSNumber numberWithInteger:0];

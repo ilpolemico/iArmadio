@@ -16,14 +16,13 @@
 @synthesize imageView, 
             undoButton, 
             saveButton, 
-            tipologia, 
+            tipologiaBtn, 
+            tipologiaLabel,
             stagione, 
             gradimento, 
             scrollview, 
             addNavigationBar,
-            casual,
-            sportivo,
-            elegante,
+            stile,
             toolbar,
             currTipologia,
             currStile,
@@ -38,6 +37,8 @@
     addCloth = YES;
     currTipologia = nil;
     currStile = nil;
+    currGradimento = nil;
+    currStagione = nil;
     return self;
 }
 
@@ -48,6 +49,8 @@
     addCloth = NO;
     currTipologia = nil;
     currStile = nil;
+    currGradimento = nil;
+    currStagione = nil;
     return self;
 }
 
@@ -105,48 +108,15 @@
     
     
     
-    UIImage *image = [UIImage imageNamed:@"02.png"];
-    
-    tipologie = dao.listTipiKeys;
     NSInteger cont;
     cont = 0;
     
-    
-    [self.tipologia removeSegmentAtIndex:0 animated:NO];
-    [self.tipologia removeSegmentAtIndex:0 animated:NO];
-    
-    NSMutableDictionary *indextipo =  [[NSMutableDictionary alloc] init];
-    
-    for(NSString *tipo in tipologie){
-        [self.tipologia insertSegmentWithImage:image atIndex:cont animated:YES];
-        [self.tipologia setEnabled: YES forSegmentAtIndex: cont];
-        [indextipo setObject:[NSString stringWithFormat:@"%d",cont]  forKey:tipo];
-        cont++;
-    }
-    
-    
-    self.scrollview.scrollEnabled = YES;
-    //self.scrollview.pagingEnabled = YES;
-    //self.scrollview.clipsToBounds = YES;
-    self.scrollview.directionalLockEnabled = YES;
-    self.scrollview.showsVerticalScrollIndicator = NO;
-    self.scrollview.showsHorizontalScrollIndicator = YES;
-    self.scrollview.delegate = self;
-    //self.scrollview.autoresizesSubviews = YES;
-    self.scrollview.bounces = YES; 
-    [self.scrollview setContentSize:CGSizeMake(320,734)];
-    
-    
-    //self.scrollview.frame = CGRectMake(0,90, self.scrollview.frame.size.width, self.scrollview.frame.size.height);
-    
-    
-    
     if(newimage != nil){
         if(self.currTipologia){
-            self.tipologia.selectedSegmentIndex = [[indextipo objectForKey:self.currTipologia] intValue];
+            self.tipologiaLabel.text = [dao getTipoEntity:self.currTipologia].nome;
         }
         else{
-            self.tipologia.selectedSegmentIndex = 0;
+            self.tipologiaLabel.text = [dao.listTipiKeys objectAtIndex:0];
         }  
         
         if([[CurrState shared] currStagioneIndex] == nil){
@@ -156,7 +126,7 @@
     else if(vestito != nil){
         
         Tipologia *tipo = [[vestito.tipi allObjects] objectAtIndex:0];
-        self.tipologia.selectedSegmentIndex = [[indextipo objectForKey:tipo.nome] intValue];
+         self.tipologiaLabel.text = tipo.nome;
         
         NSNumber *grad = vestito.gradimento;
         
@@ -165,7 +135,6 @@
         } 
         
         NSString *stagioneKey = vestito.perLaStagione.stagione;
-        
         
         
         ([CurrState shared]).currStagioneKey = stagioneKey;
@@ -181,22 +150,19 @@
             
             for(Stile *tmp in stili){
                 if([tmp.stile caseInsensitiveCompare:@"casual"] == 0){
-                    casual.on = YES; 
+                    stile.selectedSegmentIndex = 0;
                 }
                 if([tmp.stile caseInsensitiveCompare:@"sportivo"] == 0){
-                    sportivo.on = YES; 
+                    stile.selectedSegmentIndex = 1;
                 }
                 if([tmp.stile caseInsensitiveCompare:@"elegante"] == 0){
-                    elegante.on = YES; 
+                    stile.selectedSegmentIndex = 2;
                 }
-                
             }
         }
         
-        
-        
     }
-    [indextipo release];
+
     [super viewDidLoad];
    
 }
@@ -235,25 +201,21 @@
 }
 
 -(IBAction) saveCloth:(id) sender {
-	//NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(imageView.image)];
-   
-   
-    
-   NSString *nametipo = [tipologie objectAtIndex:self.tipologia.selectedSegmentIndex]; 
+	
+   NSString *nametipo = self.tipologiaLabel.text; 
    NSArray *tipi = [[NSArray alloc] initWithObjects:nametipo,nil];
    
     NSMutableArray *stili = [[NSMutableArray alloc] init];
-    if(casual.on){
+    if(stile.selectedSegmentIndex == 0){
         [stili addObject:@"casual"];
     }
-    if(sportivo.on){
+    else if(stile.selectedSegmentIndex == 1){
         [stili addObject:@"sportivo"]; 
     }
-    if(elegante.on){
-        [stili addObject:@"elegante"]; 
-    } 
-    
-    
+    else{
+        [stili addObject:@"elegante"];
+    }
+  
     
     NSString *scelta_stagione = [[dao listStagioniKeys] objectAtIndex:stagione.selectedSegmentIndex] ;
     
@@ -378,6 +340,25 @@
     if(sender.state == UIGestureRecognizerStateEnded){
         netRotation += rotation;
     }
+}
+
+-(IBAction) selectTipo:(id) sender{
+    
+    selectController = [[SelectTypeViewController alloc] initWithNibName:@"SelectTypeViewController" bundle:nil];
+    
+    [self presentModalViewController:selectController animated:YES];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    
+    if(selectController != nil){
+         self.tipologiaLabel.text = [dao getTipoEntity:[dao.listTipiKeys objectAtIndex:[selectController getIndex] ]].nome;
+        
+        [selectController release];
+        selectController = nil;    
+    }
+    [super viewWillAppear:animated];
 }
 
 

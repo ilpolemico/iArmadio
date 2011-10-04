@@ -197,7 +197,6 @@ static IarmadioDao *singleton;
         vestito.conStile = [NSSet setWithArray:tmp];
     }
     if(stagioneKey != nil){
-      
         vestito.perLaStagione = [self getStagioneEntity:stagioneKey];
     }
 
@@ -428,9 +427,8 @@ static IarmadioDao *singleton;
 
 - (NSMutableArray *)listStagioniKeys{
     if(listStagioniKeys == nil){
-        listStagioniKeys = [[NSMutableArray alloc] initWithArray:[self.stagioniEntities allKeys]]  ;
+        [self stagioniEntities]; 
     }
-    
     return listStagioniKeys;
 };
 
@@ -482,7 +480,17 @@ static IarmadioDao *singleton;
 - (NSMutableDictionary *)stagioniEntities{
 	if([stagioniEntities count] == 0){
 		NSFetchRequest *allItem = [[[NSFetchRequest alloc] init] autorelease];
-		[allItem setEntity:[NSEntityDescription entityForName:@"Stagione" inManagedObjectContext:self.managedObjectContext]];
+        [allItem setEntity:[NSEntityDescription entityForName:@"Stagione" inManagedObjectContext:self.managedObjectContext]];
+        
+        
+        NSMutableArray *sortDescriptors = [[[NSMutableArray alloc] init] autorelease];
+        
+        NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"id" ascending:YES] autorelease];
+        [sortDescriptors addObject:sortDescriptor];
+        
+        [allItem setSortDescriptors:sortDescriptors];
+
+        
 		NSError *error = nil;
 		NSArray *entities = [self.managedObjectContext executeFetchRequest:allItem error:&error];
         
@@ -492,8 +500,10 @@ static IarmadioDao *singleton;
         }
         
         stagioniEntities = [[NSMutableDictionary alloc] init];
+        listStagioniKeys = [[NSMutableArray alloc] init];
         for (Stagione *obj in entities) {
             [stagioniEntities setObject:obj forKey:obj.stagione];
+            [listStagioniKeys addObject:obj.stagione];
         }
 	}
 	return stagioniEntities;

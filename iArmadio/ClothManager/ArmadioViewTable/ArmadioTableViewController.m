@@ -13,6 +13,14 @@
 
 
 
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)bundle delegateController:(id)_delegateController{
+    [self initWithNibName:nibNameOrNil bundle:bundle];
+    delegateController = _delegateController;
+    return self;
+}
+
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -187,12 +195,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    CoverViewController *coverviewcontroller = [[CoverViewController alloc] initWithNibName:@"CoverViewController" bundle:nil getTipologia:[tipologie objectAtIndex:indexPath.row]];
-   
-    
-    [tableView  deselectRowAtIndexPath:indexPath animated:YES];
-    [self.navigationController pushViewController:coverviewcontroller animated:YES];;
-    [coverviewcontroller release];
+    if(delegateController != nil){
+        [(SelectTypeViewController *)delegateController selectedIndex:indexPath.row];
+    }
+    else{
+            CoverViewController *coverviewcontroller = [[CoverViewController alloc] initWithNibName:@"CoverViewController" bundle:nil getTipologia:[tipologie objectAtIndex:indexPath.row]];
+           
+            
+            [tableView  deselectRowAtIndexPath:indexPath animated:YES];
+            [self.navigationController pushViewController:coverviewcontroller animated:YES];
+            [coverviewcontroller release];
+    }
          
 }
 

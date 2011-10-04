@@ -86,7 +86,6 @@ static CurrState *singleton;
         [([IarmadioDao shared]).listStagioniKeys objectAtIndex:[index            intValue]
         ];
     }
-     NSLog(@"%@ - %@",currStagioneKey,currStagioneIndex);
     [currStagioneIndex retain];
     [currStagioneKey retain];
 }

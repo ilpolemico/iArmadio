@@ -9,12 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "NYXImagesUtilities.h"
 #import "iArmadioAppDelegate.h"
+#import "SelectTypeViewController.h"
 #import "IarmadioDao.h"
 #import "ClothTableViewController.h"
 #import "ImageItemViewController.h"
 
+@class SelectTypeViewController;
+
 @interface ClothViewController : UIViewController <UIScrollViewDelegate,UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     
+    SelectTypeViewController *selectController;
     UIImageView * imageView;
     IarmadioDao *dao;
     UIImage *newimage;
@@ -23,20 +27,22 @@
     IBOutlet UINavigationBar *addNavigationBar;
     IBOutlet UIBarButtonItem *saveButton;
     IBOutlet UIBarButtonItem *undoButton;
-    IBOutlet UISegmentedControl *tipologia;
+    IBOutlet UIButton *tipologiaBtn;
+    IBOutlet UILabel *tipologiaLabel;
+    
     IBOutlet UISegmentedControl *stagione;
     IBOutlet UISegmentedControl *gradimento;
-    IBOutlet UISwitch *casual;
-    IBOutlet UISwitch *sportivo;
-    IBOutlet UISwitch *elegante;
-    
+    IBOutlet UISegmentedControl *stile;
     
     IBOutlet UIToolbar *toolbar;
     IBOutlet UIBarButtonItem *trash;
     
     NSString *currTipologia;
     NSString *currStile;
-    NSArray *tipologie;
+    NSString *currGradimento;
+    NSString *currStagione;
+    
+    
     BOOL addCloth;
     int lastScaleFactor, netRotation;
       
@@ -51,13 +57,14 @@
 @property (nonatomic, retain) IBOutlet UIBarButtonItem * saveButton;
 @property (nonatomic, retain) IBOutlet UINavigationBar* addNavigationBar;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem * undoButton;
-@property (nonatomic, retain) IBOutlet UISegmentedControl *tipologia;
+
+
+@property (nonatomic, retain) IBOutlet IBOutlet UIButton *tipologiaBtn;
+@property (nonatomic, retain) IBOutlet IBOutlet UILabel  *tipologiaLabel;
 @property (nonatomic, retain) IBOutlet UISegmentedControl *stagione;
 @property (nonatomic, retain) IBOutlet UISegmentedControl *gradimento;
+@property (nonatomic, retain) IBOutlet UISegmentedControl *stile;
 
-@property (nonatomic, retain) IBOutlet UISwitch *casual;
-@property (nonatomic, retain) IBOutlet UISwitch *sportivo;
-@property (nonatomic, retain) IBOutlet UISwitch *elegante;
 
 
 
@@ -66,7 +73,7 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil getVestito:(Vestito *)vestito;
 
-
+-(IBAction) selectTipo:(id) sender;
 -(IBAction) selectImage:(id) sender;
 -(IBAction) saveCloth:(id) sender;
 -(IBAction) deleteCloth:(id) sender;

@@ -19,7 +19,7 @@
         <relationship name="delVestito" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Vestito" inverseName="conProprieta" inverseEntity="Vestito"/>
         <relationship name="haNome" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Proprieta" inverseName="isNome" inverseEntity="Proprieta"/>
     </entity>
-    <entity name="Stagione" representedClassName="Stagione">
+    <entity name="Stagione" representedClassName="Stagione" syncable="YES" dataClassName="">
         <attribute name="date_from" optional="YES" attributeType="String"/>
         <attribute name="date_to" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
@@ -27,7 +27,7 @@
         <attribute name="temp_max" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="temp_min" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <relationship name="combinazione" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Combinazione" inverseName="perLaStagione" inverseEntity="Combinazione"/>
-        <relationship name="vestito" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Vestito" inverseName="perLaStagione" inverseEntity="Vestito"/>
+        <relationship name="vestito" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Vestito" inverseName="perLaStagione" inverseEntity="Vestito"/>
     </entity>
     <entity name="Stile" representedClassName="Stile">
         <attribute name="id" attributeType="String"/>
@@ -43,7 +43,7 @@
         <relationship name="allow" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tipologia" inverseName="allow" inverseEntity="Tipologia"/>
         <relationship name="vestiti" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Vestito" inverseName="tipi" inverseEntity="Vestito"/>
     </entity>
-    <entity name="Vestito" representedClassName="Vestito">
+    <entity name="Vestito" representedClassName="Vestito" syncable="YES" dataClassName="">
         <attribute name="gradimento" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="id" attributeType="String"/>
         <attribute name="immagine" attributeType="String"/>

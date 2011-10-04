@@ -2,7 +2,7 @@
 //  Stagione.h
 //  iArmadio
 //
-//  Created by Casa Fortunato on 02/10/11.
+//  Created by Casa Fortunato on 03/10/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -21,6 +21,14 @@
 @property (nonatomic, retain) NSNumber * temp_max;
 @property (nonatomic, retain) NSNumber * temp_min;
 @property (nonatomic, retain) Combinazione *combinazione;
-@property (nonatomic, retain) Vestito *vestito;
+@property (nonatomic, retain) NSSet *vestito;
+@end
+
+@interface Stagione (CoreDataGeneratedAccessors)
+
+- (void)addVestitoObject:(Vestito *)value;
+- (void)removeVestitoObject:(Vestito *)value;
+- (void)addVestito:(NSSet *)values;
+- (void)removeVestito:(NSSet *)values;
 
 @end

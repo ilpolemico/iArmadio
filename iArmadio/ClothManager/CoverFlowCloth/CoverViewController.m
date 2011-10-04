@@ -55,14 +55,16 @@ static CGRect frameCover;
 
 - (void)reloadVestiti:(NSNotification *)pNotification{
     
-    //[self.openflow removeFromSuperview];
-    //self.openflow = [[AFOpenFlowView alloc] initWithFrame:CGRectMake(0,-100,frameCover.size.width,frameCover.size.height)];
+    [self.openflow removeFromSuperview];
+    self.openflow = [[[AFOpenFlowView alloc] initWithFrame:CGRectMake(0,-100,frameCover.size.width,frameCover.size.height)] autorelease];
+    
+    
     [self reloadVestiti];
     [self.openflow setSelectedCover:[vestiti count]-1];
      
     imageSelected = [vestiti count]-1;
     [self.openflow centerOnSelectedCover:YES];
-    //[self.coverView addSubview:self.openflow];
+    [self.coverView addSubview:self.openflow];
 }
 
 - (void)reloadVestiti{
@@ -86,23 +88,37 @@ static CGRect frameCover;
     [key setObject:@"YES" forKey:@"ascending"];
     [sort addObject:key];
     
+    [key setObject:@"immagine" forKey:@"field"];
+    [key setObject:@"YES" forKey:@"ascending"];
+    [sort addObject:key];
+    
     
     currstate.currStagioneIndex = [NSNumber numberWithInt:self.segmentcontrol.selectedSegmentIndex];
     vestiti = [dao getVestitiEntities:[NSArray arrayWithObjects:tipologia,nil] filterStagioneKey:currstate.currStagioneKey filterStiliKeys:stili filterGradimento:-1 sortOnKeys:sort];
 	[vestiti retain];
     
+    /*
+    for (int i=0; i < [vestiti count]; i++) {
+        UIImage *image = [dao getImageFromVestito:[vestiti objectAtIndex:i]];
+        [self.openflow setImage:image  forIndex:i];
+	}*/
     
-    //NSLog(@"%@ - %d",vestiti,[vestiti count]);
     
+    [self.openflow setNumberOfImages:0];
     for (int i=0; i < [vestiti count]; i++) {
         UIImage *image = [dao getImageFromVestito:[vestiti objectAtIndex:i]];
         [self.openflow setImage:image  forIndex:i];
 	}
     
-    
-    
-    
     [self.openflow setNumberOfImages:[vestiti count]];
+    
+    /*
+    if([vestiti count] == 1){
+         [self.openflow setSelectedCover:-1];
+         [self.openflow setSelectedCover:0];
+    }
+     */
+    
     
     if([vestiti count] == 0){
          UIImage *image = [UIImage imageWithContentsOfFile:
@@ -118,7 +134,6 @@ static CGRect frameCover;
     
 	    
     self.openflow.viewDelegate = self;
-    
     
     
 
