@@ -438,7 +438,7 @@ static IarmadioDao *singleton;
 - (NSMutableArray *)listStiliKeys{
  
     if(listStiliKeys == nil){
-        listStiliKeys = [[NSMutableArray alloc] initWithArray:[self.stiliEntities allKeys]]  ;
+        [self stiliEntities]; 
     }
     
     return listStiliKeys;
@@ -452,6 +452,15 @@ static IarmadioDao *singleton;
 	if([stiliEntities count] == 0){
         NSFetchRequest *allItem = [[[NSFetchRequest alloc] init] autorelease];
 		[allItem setEntity:[NSEntityDescription entityForName:@"Stile" inManagedObjectContext:self.managedObjectContext]];
+        
+        NSMutableArray *sortDescriptors = [[[NSMutableArray alloc] init] autorelease];
+        
+        NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"id" ascending:YES] autorelease];
+        [sortDescriptors addObject:sortDescriptor];
+        
+        [allItem setSortDescriptors:sortDescriptors];
+        
+        
 		NSError *error = nil;
 		NSArray *entities = [self.managedObjectContext executeFetchRequest:allItem error:&error];
         
@@ -461,8 +470,10 @@ static IarmadioDao *singleton;
         }
         
         stiliEntities = [[NSMutableDictionary alloc] init];
+        listStiliKeys = [[NSMutableArray alloc] init];
         for (Stile *obj in entities) {
             [stiliEntities setObject:obj forKey:obj.stile];
+            [listStiliKeys addObject:obj.stile]  ;
         }
         
         

@@ -19,6 +19,8 @@
             casual,
             sportivo,
             elegante,
+            segmentfiltroStile,
+            segmentOrderBy,
             coverView;
 
 static CGRect frameCover;
@@ -40,6 +42,40 @@ static CGRect frameCover;
     return self;
 }
 
+- (void)setLocalCurrStile :(NSString *) orderKey{
+    if(localCurrStile != nil){
+        [localCurrStile release];
+    }
+    localCurrStile = orderKey;  
+    
+}
+
+- (NSString *)localCurrStile{
+    return localCurrStile; 
+}
+
+
+- (void)addLocalCurrOrderBy:(NSString *) orderKey{
+    if(localCurrOrderBy == nil){
+        localCurrOrderBy = [[NSMutableArray alloc] init];
+    }
+    
+    NSMutableDictionary *key = [[[NSMutableDictionary alloc] init] autorelease];
+    if(orderKey != nil){
+        [key setObject:orderKey forKey:@"field"];
+        [key setObject:@"YES" forKey:@"ascending"];
+        [localCurrOrderBy addObject:key];
+    }
+}
+
+- (NSMutableArray *)localCurrOrderBy{
+    if(localCurrOrderBy == nil){
+        localCurrOrderBy = [[NSMutableArray alloc] init];
+    }
+    
+    return localCurrOrderBy; 
+    
+}
 
 
 
@@ -81,28 +117,13 @@ static CGRect frameCover;
         //self.segmentcontrol.selectedSegmentIndex = [currstate.currStagioneIndex integerValue];
     }
     
-    
-    NSMutableArray *sort = [[[NSMutableArray alloc] init] autorelease];
-    NSMutableDictionary *key = [[[NSMutableDictionary alloc] init] autorelease];
-    [key setObject:@"gradimento" forKey:@"field"];
-    [key setObject:@"YES" forKey:@"ascending"];
-    [sort addObject:key];
-    
-    [key setObject:@"immagine" forKey:@"field"];
-    [key setObject:@"YES" forKey:@"ascending"];
-    [sort addObject:key];
-    
-    
+   
+    [self addLocalCurrOrderBy:@"id"];
+        
     currstate.currStagioneIndex = [NSNumber numberWithInt:self.segmentcontrol.selectedSegmentIndex];
-    vestiti = [dao getVestitiEntities:[NSArray arrayWithObjects:tipologia,nil] filterStagioneKey:currstate.currStagioneKey filterStiliKeys:stili filterGradimento:-1 sortOnKeys:sort];
+    
+    vestiti = [dao getVestitiEntities:[NSArray arrayWithObjects:tipologia,nil] filterStagioneKey:currstate.currStagioneKey filterStiliKeys:[[NSArray alloc] initWithObjects:localCurrStile, nil] filterGradimento:-1 sortOnKeys:localCurrOrderBy];
 	[vestiti retain];
-    
-    /*
-    for (int i=0; i < [vestiti count]; i++) {
-        UIImage *image = [dao getImageFromVestito:[vestiti objectAtIndex:i]];
-        [self.openflow setImage:image  forIndex:i];
-	}*/
-    
     
     [self.openflow setNumberOfImages:0];
     for (int i=0; i < [vestiti count]; i++) {
@@ -111,14 +132,6 @@ static CGRect frameCover;
 	}
     
     [self.openflow setNumberOfImages:[vestiti count]];
-    
-    /*
-    if([vestiti count] == 1){
-         [self.openflow setSelectedCover:-1];
-         [self.openflow setSelectedCover:0];
-    }
-     */
-    
     
     if([vestiti count] == 0){
          UIImage *image = [UIImage imageWithContentsOfFile:
@@ -158,9 +171,18 @@ static CGRect frameCover;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadVestiti:) name:MOD_CLOTH_EVENT object:nil];
     
+    localCurrStile = nil;
+    localCurrOrderBy = nil;
+    
+    [self.view setUserInteractionEnabled:FALSE];
+    segmentOrderBy.selectedSegmentIndex = 0;
+    segmentfiltroStile.selectedSegmentIndex = 3;
+    segmentOrderBy.enabled = YES;
+    segmentfiltroStile.enabled = YES;
     [self reloadVestiti];
     
     imageSelected = 0;
+    [self.view setUserInteractionEnabled:TRUE];
 }
 
 - (void)imageTap{
@@ -229,26 +251,6 @@ static CGRect frameCover;
     
 }
 
--(IBAction)changeStili:(id)sender{
-    
-    if(stili != nil){
-        [stili release];
-    }
-    
-    stili = [[NSMutableArray alloc] init];
-    if(casual.on){
-        [stili addObject:@"casual"];
-    }
-    if(sportivo.on){
-        [stili addObject:@"sportivo"]; 
-    }
-    if(elegante.on){
-        [stili addObject:@"elegante"]; 
-    } 
-
-    [self reloadVestiti:nil];
-
-}
 
 -(IBAction)changeStagione:(id)sender{
     
@@ -259,6 +261,39 @@ static CGRect frameCover;
     ([CurrState shared]).currStagioneIndex = [NSNumber numberWithInteger:selectedSegment];
     [self reloadVestiti:nil];
     
+}
+
+
+-(IBAction)changeStile:(id)sender{
+    UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
+    NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
+
+    if(selectedSegment < [dao.listStiliKeys count]){
+        localCurrStile = [dao.listStiliKeys objectAtIndex:selectedSegment] ;
+    }
+    else{
+        localCurrStile = nil;
+    }
+        
+    [self reloadVestiti:nil];
+    
+    
+}
+
+-(IBAction)changeOrderBy:(id)sender{
+    
+    UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
+    NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
+    NSString *sortKey;
+    
+    [localCurrOrderBy release];
+    localCurrOrderBy = nil;
+    if(selectedSegment == 1){
+        sortKey = @"gradimento";
+        [self addLocalCurrOrderBy:sortKey];
+    }
+    
+    [self reloadVestiti:nil];
 }
 
 
@@ -307,6 +342,8 @@ static CGRect frameCover;
     [addviewcontroller release];
 	//imageView.image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
 }
+
+
 
 
 

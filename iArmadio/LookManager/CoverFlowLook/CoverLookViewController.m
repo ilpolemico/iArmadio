@@ -84,7 +84,7 @@ static CGRect frameCover;
     
     NSMutableArray *sort = [[[NSMutableArray alloc] init] autorelease];
     NSMutableDictionary *key = [[[NSMutableDictionary alloc] init] autorelease];
-    [key setObject:@"gradimento" forKey:@"field"];
+    [key setObject:@"id" forKey:@"field"];
     [key setObject:@"YES" forKey:@"ascending"];
     [sort addObject:key];
     

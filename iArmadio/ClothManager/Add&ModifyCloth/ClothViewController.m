@@ -147,18 +147,8 @@
         
         if([vestito.conStile count] > 0){
             NSArray *stili = [vestito.conStile allObjects];
-            
-            for(Stile *tmp in stili){
-                if([tmp.stile caseInsensitiveCompare:@"casual"] == 0){
-                    stile.selectedSegmentIndex = 0;
-                }
-                if([tmp.stile caseInsensitiveCompare:@"sportivo"] == 0){
-                    stile.selectedSegmentIndex = 1;
-                }
-                if([tmp.stile caseInsensitiveCompare:@"elegante"] == 0){
-                    stile.selectedSegmentIndex = 2;
-                }
-            }
+            Stile *tmp = [stili objectAtIndex:0];
+            stile.selectedSegmentIndex = [tmp.id intValue]-1;
         }
         
     }

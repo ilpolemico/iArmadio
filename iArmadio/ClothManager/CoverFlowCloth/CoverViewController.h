@@ -25,6 +25,8 @@
     NSMutableArray *stili;
     IBOutlet UIBarButtonItem *addButton;
     IBOutlet UISegmentedControl *segmentcontrol;
+    IBOutlet UISegmentedControl *segmentOrderBy;
+    IBOutlet UISegmentedControl *segmentfiltroStile;
     int imageSelected;
     NSArray *vestiti;
     IBOutlet AFOpenFlowView *openflow;  
@@ -32,6 +34,8 @@
     IBOutlet UISwitch *casual;
     IBOutlet UISwitch *sportivo;
     IBOutlet UISwitch *elegante;
+    NSString *localCurrStile;  
+    NSMutableArray *localCurrOrderBy; 
         
     CurrState *currstate;
 }
@@ -39,10 +43,15 @@
 @property (retain, nonatomic) IBOutlet AFOpenFlowView *openflow;
 @property (retain, nonatomic) IBOutlet UIBarButtonItem *addButton;
 @property (retain, nonatomic) IBOutlet UISegmentedControl *segmentcontrol;
+@property (retain, nonatomic) IBOutlet UISegmentedControl *segmentOrderBy;
+@property (retain, nonatomic) IBOutlet UISegmentedControl *segmentfiltroStile;
 @property (nonatomic, retain) IBOutlet UISwitch *casual;
 @property (nonatomic, retain) IBOutlet UISwitch *sportivo;
 @property (nonatomic, retain) IBOutlet UISwitch *elegante;
 @property (nonatomic, retain) IBOutlet UIView *coverView;
+
+@property (nonatomic, retain) IBOutlet NSString *localCurrStile;
+@property (nonatomic, retain, readonly) IBOutlet NSMutableArray *localCurrOrderBy;
 
 
 
@@ -54,6 +63,7 @@
 
 - (IBAction) addItem:(id) sender;
 - (IBAction) changeStagione:(id) sender;
-- (IBAction) changeStili:(id) sender;
+- (IBAction) changeStile:(id) sender;
+- (IBAction) changeOrderBy:(id) sender;
 
 @end

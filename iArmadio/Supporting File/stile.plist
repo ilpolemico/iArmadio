@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>casual</key>
-	<string>1</string>
-	<key>sportivo</key>
 	<string>2</string>
+	<key>sportivo</key>
+	<string>1</string>
 	<key>elegante</key>
 	<string>3</string>
 </dict>
