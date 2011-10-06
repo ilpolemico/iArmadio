@@ -9,7 +9,7 @@
 #import "CurrState.h"
 
 @implementation CurrState
-@synthesize currStagioneKey,currStagioneIndex,currStili,currEventi,currTipologia,currGradimento;
+@synthesize currStagioneKey,currStagioneIndex,currStili,currEventi,currTipologia,currGradimento, currSection;
 
 
 static CurrState *singleton;

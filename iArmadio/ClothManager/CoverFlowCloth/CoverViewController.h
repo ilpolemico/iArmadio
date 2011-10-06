@@ -34,8 +34,6 @@
     IBOutlet UIButton *coverBtn;
     NSString *localCurrStile;  
     NSMutableArray *localCurrOrderBy; 
-    BOOL addIterator;    
-        
     CurrState *currstate;
 }
 

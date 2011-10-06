@@ -21,7 +21,7 @@
 }
 
 -(IBAction)addItem:(id)sender{
-    
+    currstate.currSection = @"ARMADIO";
     UIActionSheet *popupAddItem = [[UIActionSheet alloc] initWithTitle:@"Aggiungi vestito" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Fotocamera", @"Album", nil];
   
     popupAddItem.actionSheetStyle = UIActionSheetStyleBlackOpaque;
@@ -35,7 +35,7 @@
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
 
-    
+        
     if (buttonIndex == 0) {
             #if !(TARGET_IPHONE_SIMULATOR)
                     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -74,6 +74,8 @@
 {
     [super viewDidLoad];
     dao = [IarmadioDao shared];
+    currstate = [CurrState shared];
+    currstate.currSection = @"ARMADIO";
     [self.view addSubview:navcontroler.view];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addIterator:) name:ADD_CLOTH_EVENT object:nil];
     
@@ -101,16 +103,17 @@
 }
 
 
+
 - (void)addIterator:(NSNotification *)notification
 {
-    
-    
-    UIActionSheet *popupAddItem = [[UIActionSheet alloc] initWithTitle:@"Aggiungi altro vestito" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Fotocamera", @"Album", nil];
-    
-    popupAddItem.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-    [popupAddItem showInView:self.view];
-    [popupAddItem release];
-    
+    if([currstate.currSection isEqualToString:@"ARMADIO"]){ 
+        UIActionSheet *popupAddItem = [[UIActionSheet alloc] initWithTitle:@"Aggiungi altro vestito" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Fotocamera", @"Album", nil];
+        
+        popupAddItem.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+        [popupAddItem showInView:self.tabBarController.view];
+        [popupAddItem release];
+    }    
+      
 }
 
 - (void)viewDidUnload

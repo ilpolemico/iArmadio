@@ -16,10 +16,12 @@
     NSString *currEventi;
     NSString *currTipologia;
     NSNumber *currGradimento; 
+    NSString *currSection;
 
 }
 
 @property (nonatomic,retain)  NSString *currStagioneKey;
+@property (nonatomic,retain)  NSString *currSection;
 @property (nonatomic,retain)  NSNumber *currStagioneIndex;
 @property (nonatomic, retain) NSString *currStili;
 @property (nonatomic, retain) NSString *currEventi;

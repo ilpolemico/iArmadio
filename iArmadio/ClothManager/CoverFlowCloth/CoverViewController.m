@@ -23,6 +23,8 @@
 
 static CGRect frameCover;
 
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -101,8 +103,9 @@ static CGRect frameCover;
     [self.openflow centerOnSelectedCover:YES];
     [self.coverView addSubview:self.openflow];
     
-    
-    if(addIterator)[self addIterator];
+    if([pNotification.name isEqualToString:ADD_CLOTH_EVENT]){
+        [self addIterator];
+    }
     
 }
 
@@ -165,7 +168,6 @@ static CGRect frameCover;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    addIterator = NO;
     dao = [IarmadioDao shared];
     currstate = [CurrState shared];
     self.navigationItem.titleView = segmentcontrol;
@@ -191,6 +193,7 @@ static CGRect frameCover;
     [self.view setUserInteractionEnabled:TRUE];
     [self reloadVestiti:[[NSNotification alloc] autorelease]];
     [self.openflow centerOnSelectedCover:YES];
+    currstate.currSection = @"COVERCLOTH";
 }
 
 - (void)imageTap{
@@ -259,9 +262,6 @@ static CGRect frameCover;
     
     [popupAddItem showInView:appDelegate.window.rootViewController.view];
     [popupAddItem release];
-    
-    addIterator = YES;
-    
     
 }
 
@@ -336,10 +336,7 @@ static CGRect frameCover;
         [appDelegate.window.rootViewController presentModalViewController:picker animated:YES];
         [picker release];
     } 
-    else{
-        addIterator = NO;
-    }
-
+   
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo{
@@ -362,12 +359,14 @@ static CGRect frameCover;
 
 - (void)addIterator
 {
+        
+         iArmadioAppDelegate *appDelegate = (iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate];
     
     
         UIActionSheet *popupAddItem = [[UIActionSheet alloc] initWithTitle:@"Aggiungi altro vestito" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Fotocamera", @"Album", nil];
         
         popupAddItem.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-        [popupAddItem showInView:self.view];
+        [popupAddItem showInView:appDelegate.window.rootViewController.view];
         [popupAddItem release];
     
 }

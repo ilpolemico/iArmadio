@@ -22,7 +22,7 @@
     IBOutlet UIBarButtonItem *addItemBtn;
     IBOutlet UIBarButtonItem *modifyBtn;
     Tipologia *tipologia;
-
+    CurrState *currstate;
   
 }
 
