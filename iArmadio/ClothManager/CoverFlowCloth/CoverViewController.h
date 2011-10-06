@@ -34,6 +34,7 @@
     IBOutlet UIButton *coverBtn;
     NSString *localCurrStile;  
     NSMutableArray *localCurrOrderBy; 
+    BOOL addIterator;    
         
     CurrState *currstate;
 }
@@ -56,6 +57,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil getTipologia:(NSString *)_tipologia;
 
 - (void)reloadVestiti; 
+- (void)addIterator; 
 
 - (IBAction) addItem:(id) sender;
 - (IBAction) changeStagione:(id) sender;

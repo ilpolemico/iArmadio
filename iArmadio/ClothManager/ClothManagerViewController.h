@@ -33,7 +33,7 @@
 
 
 
-
+- (void)addIterator:(NSNotification *)notification;
 - (IBAction) addItem:(id) sender;
 - (IBAction) modify:(id) sender;
 

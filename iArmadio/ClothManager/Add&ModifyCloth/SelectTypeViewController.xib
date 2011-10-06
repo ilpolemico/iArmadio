@@ -52,6 +52,7 @@
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:240</string>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<int key="IBUIBarStyle">2</int>
 						<object class="NSArray" key="IBUIItems">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBUINavigationItem" id="74003909">

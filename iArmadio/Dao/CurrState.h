@@ -16,6 +16,7 @@
     NSString *currEventi;
     NSString *currTipologia;
     NSNumber *currGradimento; 
+
 }
 
 @property (nonatomic,retain)  NSString *currStagioneKey;

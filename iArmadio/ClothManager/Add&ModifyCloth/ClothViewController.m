@@ -209,6 +209,7 @@
     
     if(addCloth){ 
         [dao addVestitoEntity:self.imageView.image.normal gradimento:gradimento.selectedSegmentIndex tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili];
+       
     }
     else{
         
@@ -337,16 +338,21 @@
     [self presentModalViewController:selectController animated:YES];
 }
 
+
 - (void)viewWillAppear:(BOOL)animated
 {
     
-    if(selectController != nil){
+    if((selectController != nil)&&([selectController getIndex] != -1)){
          self.tipologiaLabel.text = [dao getTipoEntity:[dao.listTipiKeys objectAtIndex:[selectController getIndex] ]].nome;
         
         [selectController release];
         selectController = nil;    
     }
     [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
 }
 
 

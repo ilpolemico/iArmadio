@@ -1,14 +1,14 @@
 //
-//  SelectTypeViewController.m
+//  FavoritesViewController.m
 //  iArmadio
 //
-//  Created by Casa Fortunato on 04/10/11.
+//  Created by Casa Fortunato on 06/10/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "SelectTypeViewController.h"
+#import "FavoritesViewController.h"
 
-@implementation SelectTypeViewController
+@implementation FavoritesViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -17,20 +17,6 @@
         // Custom initialization
     }
     return self;
-}
-
--(IBAction)undo:(id)sender{
-   [self dismissModalViewControllerAnimated:YES];
-}
-
-
-- (NSInteger) getIndex{
-    return selectedIndex;
-}
-
-- (void) selectedIndex:(NSInteger )index{
-    selectedIndex = index;
-    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,15 +32,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    selectedIndex = -1;
-    
-    armadio = [[ArmadioTableViewController alloc] initWithNibName:@"ArmadioViewTable" bundle:nil delegateController:self];
-    
-    armadio.view.frame = CGRectMake(0,44,320,420);
-    [self.view addSubview:armadio.view];
-    //[armadio release];
-    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -70,13 +47,5 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-
-- (void) dealloc{
-    [armadio release];
-    [super dealloc];
-
-}
-
-
 
 @end

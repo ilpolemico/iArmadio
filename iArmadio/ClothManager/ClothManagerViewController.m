@@ -16,7 +16,7 @@
 
 
 - (IBAction) modify:(id) sender{
-    NSLog(@"modifica!");
+   
 
 }
 
@@ -27,33 +27,6 @@
     popupAddItem.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [popupAddItem showInView:self.tabBarController.view];
     [popupAddItem release];
-
-    
-    /*
-    AddDressViewController *addItemController = [[AddDressViewController alloc ]initWithNibName:@"AddDressView" bundle:nil ];
-    
-    
-    
-    CGFloat start_y_view = self.view.frame.size.height+addItemController.view.frame.size.height;
-    CGFloat start_x_view = 0;
-    
-    CGFloat end_y_view = 0;    
-    CGFloat end_x_view = 0;
-    
-    
-    addItemController.view.frame = CGRectMake(start_x_view,start_y_view, addItemController.view.frame.size.width , addItemController.view.frame.size.height);
-    
-    
-    [self.view addSubview:addItemController.view];
-    
-    [UIView animateWithDuration:1.0 animations:^{
-		addItemController.view.frame = CGRectMake(end_x_view,end_y_view, addItemController.view.frame.size.width , addItemController.view.frame.size.height);
-		addItemController.view.alpha = 1;
-	}];
-    */ 
-     
-    //[addItemController autorelease]; 
-    
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -62,6 +35,7 @@
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
 
+    
     if (buttonIndex == 0) {
             #if !(TARGET_IPHONE_SIMULATOR)
                     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -76,11 +50,9 @@
         //picker.allowsEditing = YES;
         [self presentModalViewController:picker animated:YES];
         [picker release];
+        
     } 
-    
-
-  
-}
+  }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image
                   editingInfo:(NSDictionary *)editingInfo 
@@ -92,6 +64,8 @@
     //addviewcontroller.currTipologia = tipologia;
     [self presentModalViewController:addviewcontroller animated:YES];
     [addviewcontroller release];
+       
+        
 	//imageView.image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
 }
 
@@ -101,7 +75,12 @@
     [super viewDidLoad];
     dao = [IarmadioDao shared];
     [self.view addSubview:navcontroler.view];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addIterator:) name:ADD_CLOTH_EVENT object:nil];
     
+}
+
+
+- (void)viewWillAppear:(BOOL)animated{
 }
 
 
@@ -119,6 +98,19 @@
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc. that aren't in use.
+}
+
+
+- (void)addIterator:(NSNotification *)notification
+{
+    
+    
+    UIActionSheet *popupAddItem = [[UIActionSheet alloc] initWithTitle:@"Aggiungi altro vestito" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Fotocamera", @"Album", nil];
+    
+    popupAddItem.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [popupAddItem showInView:self.view];
+    [popupAddItem release];
+    
 }
 
 - (void)viewDidUnload

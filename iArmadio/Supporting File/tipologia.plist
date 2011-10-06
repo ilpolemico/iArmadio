@@ -167,5 +167,27 @@
 		<key>icon</key>
 		<string>02.png</string>
 	</dict>
+	<key>16</key>
+	<dict>
+		<key>name</key>
+		<string>vestito intero (donna) - vestiti interi (donna)</string>
+		<key>allow</key>
+		<string></string>
+		<key>order</key>
+		<string>16</string>
+		<key>icon</key>
+		<string>02.png</string>
+	</dict>
+	<key>17</key>
+	<dict>
+		<key>name</key>
+		<string>vestito intero (uomo) - vestiti interi (uomo)</string>
+		<key>allow</key>
+		<string></string>
+		<key>order</key>
+		<string>17</string>
+		<key>icon</key>
+		<string>02.png</string>
+	</dict>
 </dict>
 </plist>

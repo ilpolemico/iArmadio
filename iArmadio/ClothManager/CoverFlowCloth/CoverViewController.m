@@ -97,9 +97,13 @@ static CGRect frameCover;
     [self reloadVestiti];
     
      
-    imageSelected = [vestiti count]-1;
+    
     [self.openflow centerOnSelectedCover:YES];
     [self.coverView addSubview:self.openflow];
+    
+    
+    if(addIterator)[self addIterator];
+    
 }
 
 - (void)reloadVestiti{
@@ -148,6 +152,7 @@ static CGRect frameCover;
     }
     else{
         [self.openflow setSelectedCover:[vestiti count]-1];
+        imageSelected = [vestiti count]-1;
     }
     
 	    
@@ -160,7 +165,7 @@ static CGRect frameCover;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    addIterator = NO;
     dao = [IarmadioDao shared];
     currstate = [CurrState shared];
     self.navigationItem.titleView = segmentcontrol;
@@ -183,10 +188,9 @@ static CGRect frameCover;
     segmentfiltroStile.selectedSegmentIndex = 3;
     segmentOrderBy.enabled = YES;
     segmentfiltroStile.enabled = YES;
-    [self reloadVestiti];
-    
-    imageSelected = 0;
     [self.view setUserInteractionEnabled:TRUE];
+    [self reloadVestiti:[[NSNotification alloc] autorelease]];
+    [self.openflow centerOnSelectedCover:YES];
 }
 
 - (void)imageTap{
@@ -256,7 +260,7 @@ static CGRect frameCover;
     [popupAddItem showInView:appDelegate.window.rootViewController.view];
     [popupAddItem release];
     
-    
+    addIterator = YES;
     
     
 }
@@ -332,9 +336,10 @@ static CGRect frameCover;
         [appDelegate.window.rootViewController presentModalViewController:picker animated:YES];
         [picker release];
     } 
-    
-    
-    
+    else{
+        addIterator = NO;
+    }
+
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo{
@@ -354,6 +359,18 @@ static CGRect frameCover;
 }
 
 
+
+- (void)addIterator
+{
+    
+    
+        UIActionSheet *popupAddItem = [[UIActionSheet alloc] initWithTitle:@"Aggiungi altro vestito" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Fotocamera", @"Album", nil];
+        
+        popupAddItem.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+        [popupAddItem showInView:self.view];
+        [popupAddItem release];
+    
+}
 
 
 

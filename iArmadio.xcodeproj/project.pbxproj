@@ -17,17 +17,19 @@
 		A30A332614308E3100D44356 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A30A32EC14308E3100D44356 /* InfoPlist.strings */; };
 		A30A332714308E3100D44356 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A30A32EE14308E3100D44356 /* Localizable.strings */; };
 		A30A333414308E3100D44356 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30A330D14308E3100D44356 /* MainWindow.xib */; };
-		A30A333814308E3100D44356 /* 02.png in Resources */ = {isa = PBXBuildFile; fileRef = A30A331614308E3100D44356 /* 02.png */; };
-		A30A333914308E3100D44356 /* 2011-09-09-04-01-11.png in Resources */ = {isa = PBXBuildFile; fileRef = A30A331714308E3100D44356 /* 2011-09-09-04-01-11.png */; };
+		A30A333814308E3100D44356 /* 02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A30A331614308E3100D44356 /* 02@2x.png */; };
 		A30A333B14308E3100D44356 /* stagione.plist in Resources */ = {isa = PBXBuildFile; fileRef = A30A331914308E3100D44356 /* stagione.plist */; };
 		A30A333C14308E3100D44356 /* stile.plist in Resources */ = {isa = PBXBuildFile; fileRef = A30A331A14308E3100D44356 /* stile.plist */; };
 		A30A333E14308E3100D44356 /* tipologia.plist in Resources */ = {isa = PBXBuildFile; fileRef = A30A331C14308E3100D44356 /* tipologia.plist */; };
-		A31729F414327C09005E1A03 /* sfondo.png in Resources */ = {isa = PBXBuildFile; fileRef = A31729F214327C09005E1A03 /* sfondo.png */; };
-		A31729F514327C09005E1A03 /* completa.png in Resources */ = {isa = PBXBuildFile; fileRef = A31729F314327C09005E1A03 /* completa.png */; };
 		A32294861431BE12001A8A36 /* ImageItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A32294841431BE11001A8A36 /* ImageItemViewController.xib */; };
 		A3297D67143DAA8900EBF25A /* Tipologia.m in Sources */ = {isa = PBXBuildFile; fileRef = A3297D66143DAA8900EBF25A /* Tipologia.m */; };
 		A3297D6B143DC37100EBF25A /* Stile.m in Sources */ = {isa = PBXBuildFile; fileRef = A3297D6A143DC37100EBF25A /* Stile.m */; };
 		A3297D6E143DC37100EBF25A /* Stagione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3297D6D143DC37100EBF25A /* Stagione.m */; };
+		A3297D7C143DE2C000EBF25A /* 02.png in Resources */ = {isa = PBXBuildFile; fileRef = A3297D7B143DE2C000EBF25A /* 02.png */; };
+		A3297D85143DE31300EBF25A /* SetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3297D7F143DE31300EBF25A /* SetupViewController.m */; };
+		A3297D86143DE31300EBF25A /* SetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3297D80143DE31300EBF25A /* SetupViewController.xib */; };
+		A3297D87143DE31300EBF25A /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3297D83143DE31300EBF25A /* FavoritesViewController.m */; };
+		A3297D88143DE31300EBF25A /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3297D84143DE31300EBF25A /* FavoritesViewController.xib */; };
 		A32BA5371433117B0019979B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A32BA5361433117B0019979B /* QuartzCore.framework */; };
 		A32BA5A2143357050019979B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A32BA5A1143357050019979B /* MobileCoreServices.framework */; };
 		A32BA5A4143357370019979B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A32BA5A3143357370019979B /* ImageIO.framework */; };
@@ -70,14 +72,6 @@
 		A3645B8D143A4B2C00A13FB5 /* Proprieta.m in Sources */ = {isa = PBXBuildFile; fileRef = A3645B8C143A4B2C00A13FB5 /* Proprieta.m */; };
 		A3816AEB143B5E57009643B4 /* SelectTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3816AE9143B5E57009643B4 /* SelectTypeViewController.m */; };
 		A3816AEC143B5E57009643B4 /* SelectTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3816AEA143B5E57009643B4 /* SelectTypeViewController.xib */; };
-		A3B89A2A1437C4E900AD0F64 /* camicia1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3B89A221437C4E900AD0F64 /* camicia1.jpg */; };
-		A3B89A2B1437C4E900AD0F64 /* camicia2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3B89A231437C4E900AD0F64 /* camicia2.jpg */; };
-		A3B89A2C1437C4E900AD0F64 /* camicia3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3B89A241437C4E900AD0F64 /* camicia3.jpg */; };
-		A3B89A2D1437C4E900AD0F64 /* camicia4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3B89A251437C4E900AD0F64 /* camicia4.jpg */; };
-		A3B89A2E1437C4E900AD0F64 /* pantalone1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3B89A261437C4E900AD0F64 /* pantalone1.jpg */; };
-		A3B89A2F1437C4E900AD0F64 /* pantalone2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3B89A271437C4E900AD0F64 /* pantalone2.jpg */; };
-		A3B89A301437C4E900AD0F64 /* pantalone3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3B89A281437C4E900AD0F64 /* pantalone3.jpg */; };
-		A3B89A311437C4E900AD0F64 /* pantalone4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A3B89A291437C4E900AD0F64 /* pantalone4.jpg */; };
 		A3FB91D41438FF8F009AF9B4 /* ArmadioViewTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3FB91D31438FF8E009AF9B4 /* ArmadioViewTable.xib */; };
 /* End PBXBuildFile section */
 
@@ -113,13 +107,10 @@
 		A30A330D14308E3100D44356 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		A30A331314308E3100D44356 /* Shake2Style.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shake2Style.h; sourceTree = "<group>"; };
 		A30A331414308E3100D44356 /* Shake2Style.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shake2Style.m; sourceTree = "<group>"; };
-		A30A331614308E3100D44356 /* 02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 02.png; sourceTree = "<group>"; };
-		A30A331714308E3100D44356 /* 2011-09-09-04-01-11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2011-09-09-04-01-11.png"; sourceTree = "<group>"; };
+		A30A331614308E3100D44356 /* 02@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "02@2x.png"; sourceTree = "<group>"; };
 		A30A331914308E3100D44356 /* stagione.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = stagione.plist; sourceTree = "<group>"; };
 		A30A331A14308E3100D44356 /* stile.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = stile.plist; sourceTree = "<group>"; };
 		A30A331C14308E3100D44356 /* tipologia.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tipologia.plist; sourceTree = "<group>"; };
-		A31729F214327C09005E1A03 /* sfondo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sfondo.png; sourceTree = "<group>"; };
-		A31729F314327C09005E1A03 /* completa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = completa.png; sourceTree = "<group>"; };
 		A32294821431BE11001A8A36 /* ImageItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageItemViewController.h; sourceTree = "<group>"; };
 		A32294831431BE11001A8A36 /* ImageItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageItemViewController.m; sourceTree = "<group>"; };
 		A32294841431BE11001A8A36 /* ImageItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageItemViewController.xib; sourceTree = "<group>"; };
@@ -129,6 +120,13 @@
 		A3297D6A143DC37100EBF25A /* Stile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stile.m; sourceTree = "<group>"; };
 		A3297D6C143DC37100EBF25A /* Stagione.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stagione.h; sourceTree = "<group>"; };
 		A3297D6D143DC37100EBF25A /* Stagione.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stagione.m; sourceTree = "<group>"; };
+		A3297D7B143DE2C000EBF25A /* 02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 02.png; sourceTree = "<group>"; };
+		A3297D7E143DE31300EBF25A /* SetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupViewController.h; sourceTree = "<group>"; };
+		A3297D7F143DE31300EBF25A /* SetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupViewController.m; sourceTree = "<group>"; };
+		A3297D80143DE31300EBF25A /* SetupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetupViewController.xib; sourceTree = "<group>"; };
+		A3297D82143DE31300EBF25A /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
+		A3297D83143DE31300EBF25A /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
+		A3297D84143DE31300EBF25A /* FavoritesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
 		A32BA52A143310530019979B /* AFItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFItemView.h; sourceTree = "<group>"; };
 		A32BA52B143310530019979B /* AFItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFItemView.m; sourceTree = "<group>"; };
 		A32BA52C143310530019979B /* AFOpenFlowConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFOpenFlowConstants.h; sourceTree = "<group>"; };
@@ -188,14 +186,6 @@
 		A3816AE8143B5E57009643B4 /* SelectTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectTypeViewController.h; sourceTree = "<group>"; };
 		A3816AE9143B5E57009643B4 /* SelectTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectTypeViewController.m; sourceTree = "<group>"; };
 		A3816AEA143B5E57009643B4 /* SelectTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectTypeViewController.xib; sourceTree = "<group>"; };
-		A3B89A221437C4E900AD0F64 /* camicia1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = camicia1.jpg; sourceTree = "<group>"; };
-		A3B89A231437C4E900AD0F64 /* camicia2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = camicia2.jpg; sourceTree = "<group>"; };
-		A3B89A241437C4E900AD0F64 /* camicia3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = camicia3.jpg; sourceTree = "<group>"; };
-		A3B89A251437C4E900AD0F64 /* camicia4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = camicia4.jpg; sourceTree = "<group>"; };
-		A3B89A261437C4E900AD0F64 /* pantalone1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pantalone1.jpg; sourceTree = "<group>"; };
-		A3B89A271437C4E900AD0F64 /* pantalone2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pantalone2.jpg; sourceTree = "<group>"; };
-		A3B89A281437C4E900AD0F64 /* pantalone3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pantalone3.jpg; sourceTree = "<group>"; };
-		A3B89A291437C4E900AD0F64 /* pantalone4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pantalone4.jpg; sourceTree = "<group>"; };
 		A3FB91D31438FF8E009AF9B4 /* ArmadioViewTable.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArmadioViewTable.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -259,10 +249,13 @@
 		A30A32D814308E3100D44356 /* iArmadio */ = {
 			isa = PBXGroup;
 			children = (
+				A3297D7D143DE31200EBF25A /* Setup */,
+				A3297D81143DE31300EBF25A /* Preferiti */,
 				A30A330114308E3100D44356 /* GeoLocal */,
 				A30A32E714308E3100D44356 /* Dao */,
 				A3645A7B1439C7AA00A13FB5 /* LookManager */,
 				A30A32D914308E3100D44356 /* ClothManager */,
+				A30A331214308E3100D44356 /* Shake2Style */,
 				A30A32EC14308E3100D44356 /* InfoPlist.strings */,
 				A30A32EE14308E3100D44356 /* Localizable.strings */,
 				A30A330414308E3100D44356 /* iArmadio-Prefix.pch */,
@@ -271,7 +264,6 @@
 				A30A330914308E3100D44356 /* iArmadioAppDelegate.m */,
 				A30A330C14308E3100D44356 /* main.m */,
 				A30A330D14308E3100D44356 /* MainWindow.xib */,
-				A30A331214308E3100D44356 /* Shake2Style */,
 				A30A331514308E3100D44356 /* Supporting File */,
 			);
 			path = iArmadio;
@@ -372,12 +364,9 @@
 		A30A331514308E3100D44356 /* Supporting File */ = {
 			isa = PBXGroup;
 			children = (
-				A3B89A211437C4D400AD0F64 /* images */,
-				A31729F214327C09005E1A03 /* sfondo.png */,
-				A31729F314327C09005E1A03 /* completa.png */,
+				A3297D7B143DE2C000EBF25A /* 02.png */,
 				A36A7A311430B91C00BB8EB7 /* iArmadio-Info.plist */,
-				A30A331614308E3100D44356 /* 02.png */,
-				A30A331714308E3100D44356 /* 2011-09-09-04-01-11.png */,
+				A30A331614308E3100D44356 /* 02@2x.png */,
 				A30A331914308E3100D44356 /* stagione.plist */,
 				A30A331A14308E3100D44356 /* stile.plist */,
 				A30A331C14308E3100D44356 /* tipologia.plist */,
@@ -393,6 +382,26 @@
 				A32294841431BE11001A8A36 /* ImageItemViewController.xib */,
 			);
 			path = ManageImage;
+			sourceTree = "<group>";
+		};
+		A3297D7D143DE31200EBF25A /* Setup */ = {
+			isa = PBXGroup;
+			children = (
+				A3297D7E143DE31300EBF25A /* SetupViewController.h */,
+				A3297D7F143DE31300EBF25A /* SetupViewController.m */,
+				A3297D80143DE31300EBF25A /* SetupViewController.xib */,
+			);
+			path = Setup;
+			sourceTree = "<group>";
+		};
+		A3297D81143DE31300EBF25A /* Preferiti */ = {
+			isa = PBXGroup;
+			children = (
+				A3297D82143DE31300EBF25A /* FavoritesViewController.h */,
+				A3297D83143DE31300EBF25A /* FavoritesViewController.m */,
+				A3297D84143DE31300EBF25A /* FavoritesViewController.xib */,
+			);
+			path = Preferiti;
 			sourceTree = "<group>";
 		};
 		A32BA529143310530019979B /* OpenFlow */ = {
@@ -494,21 +503,6 @@
 			path = CoverFlowLook;
 			sourceTree = "<group>";
 		};
-		A3B89A211437C4D400AD0F64 /* images */ = {
-			isa = PBXGroup;
-			children = (
-				A3B89A221437C4E900AD0F64 /* camicia1.jpg */,
-				A3B89A231437C4E900AD0F64 /* camicia2.jpg */,
-				A3B89A241437C4E900AD0F64 /* camicia3.jpg */,
-				A3B89A251437C4E900AD0F64 /* camicia4.jpg */,
-				A3B89A261437C4E900AD0F64 /* pantalone1.jpg */,
-				A3B89A271437C4E900AD0F64 /* pantalone2.jpg */,
-				A3B89A281437C4E900AD0F64 /* pantalone3.jpg */,
-				A3B89A291437C4E900AD0F64 /* pantalone4.jpg */,
-			);
-			name = images;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -564,27 +558,19 @@
 				A30A332614308E3100D44356 /* InfoPlist.strings in Resources */,
 				A30A332714308E3100D44356 /* Localizable.strings in Resources */,
 				A30A333414308E3100D44356 /* MainWindow.xib in Resources */,
-				A30A333814308E3100D44356 /* 02.png in Resources */,
-				A30A333914308E3100D44356 /* 2011-09-09-04-01-11.png in Resources */,
+				A30A333814308E3100D44356 /* 02@2x.png in Resources */,
 				A30A333B14308E3100D44356 /* stagione.plist in Resources */,
 				A30A333C14308E3100D44356 /* stile.plist in Resources */,
 				A30A333E14308E3100D44356 /* tipologia.plist in Resources */,
 				A32294861431BE12001A8A36 /* ImageItemViewController.xib in Resources */,
-				A31729F414327C09005E1A03 /* sfondo.png in Resources */,
-				A31729F514327C09005E1A03 /* completa.png in Resources */,
 				A32BA5B0143375530019979B /* CoverViewController.xib in Resources */,
-				A3B89A2A1437C4E900AD0F64 /* camicia1.jpg in Resources */,
-				A3B89A2B1437C4E900AD0F64 /* camicia2.jpg in Resources */,
-				A3B89A2C1437C4E900AD0F64 /* camicia3.jpg in Resources */,
-				A3B89A2D1437C4E900AD0F64 /* camicia4.jpg in Resources */,
-				A3B89A2E1437C4E900AD0F64 /* pantalone1.jpg in Resources */,
-				A3B89A2F1437C4E900AD0F64 /* pantalone2.jpg in Resources */,
-				A3B89A301437C4E900AD0F64 /* pantalone3.jpg in Resources */,
-				A3B89A311437C4E900AD0F64 /* pantalone4.jpg in Resources */,
 				A3FB91D41438FF8F009AF9B4 /* ArmadioViewTable.xib in Resources */,
 				A3645A851439C7AA00A13FB5 /* CoverLookViewController.xib in Resources */,
 				A3645A861439C7AA00A13FB5 /* LookManagerView.xib in Resources */,
 				A3816AEC143B5E57009643B4 /* SelectTypeViewController.xib in Resources */,
+				A3297D7C143DE2C000EBF25A /* 02.png in Resources */,
+				A3297D86143DE31300EBF25A /* SetupViewController.xib in Resources */,
+				A3297D88143DE31300EBF25A /* FavoritesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -630,6 +616,8 @@
 				A3297D67143DAA8900EBF25A /* Tipologia.m in Sources */,
 				A3297D6B143DC37100EBF25A /* Stile.m in Sources */,
 				A3297D6E143DC37100EBF25A /* Stagione.m in Sources */,
+				A3297D85143DE31300EBF25A /* SetupViewController.m in Sources */,
+				A3297D87143DE31300EBF25A /* FavoritesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
