@@ -26,6 +26,8 @@
 		A31729F514327C09005E1A03 /* completa.png in Resources */ = {isa = PBXBuildFile; fileRef = A31729F314327C09005E1A03 /* completa.png */; };
 		A32294861431BE12001A8A36 /* ImageItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A32294841431BE11001A8A36 /* ImageItemViewController.xib */; };
 		A3297D67143DAA8900EBF25A /* Tipologia.m in Sources */ = {isa = PBXBuildFile; fileRef = A3297D66143DAA8900EBF25A /* Tipologia.m */; };
+		A3297D6B143DC37100EBF25A /* Stile.m in Sources */ = {isa = PBXBuildFile; fileRef = A3297D6A143DC37100EBF25A /* Stile.m */; };
+		A3297D6E143DC37100EBF25A /* Stagione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3297D6D143DC37100EBF25A /* Stagione.m */; };
 		A32BA5371433117B0019979B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A32BA5361433117B0019979B /* QuartzCore.framework */; };
 		A32BA5A2143357050019979B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A32BA5A1143357050019979B /* MobileCoreServices.framework */; };
 		A32BA5A4143357370019979B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A32BA5A3143357370019979B /* ImageIO.framework */; };
@@ -61,11 +63,9 @@
 		A3645B3C1439ECD200A13FB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A330C14308E3100D44356 /* main.m */; };
 		A3645B3D1439ECD200A13FB5 /* Shake2Style.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A331414308E3100D44356 /* Shake2Style.m */; };
 		A3645B75143A27CA00A13FB5 /* iArmadio.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = A30A330514308E3100D44356 /* iArmadio.xcdatamodeld */; };
-		A3645B78143A4B2800A13FB5 /* Stagione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3645B77143A4B2800A13FB5 /* Stagione.m */; };
 		A3645B7B143A4B2900A13FB5 /* Combinazione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3645B7A143A4B2900A13FB5 /* Combinazione.m */; };
 		A3645B81143A4B2B00A13FB5 /* ProprietaCombinazione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3645B80143A4B2A00A13FB5 /* ProprietaCombinazione.m */; };
 		A3645B84143A4B2B00A13FB5 /* ProprietaVestito.m in Sources */ = {isa = PBXBuildFile; fileRef = A3645B83143A4B2B00A13FB5 /* ProprietaVestito.m */; };
-		A3645B87143A4B2C00A13FB5 /* Stile.m in Sources */ = {isa = PBXBuildFile; fileRef = A3645B86143A4B2C00A13FB5 /* Stile.m */; };
 		A3645B8A143A4B2C00A13FB5 /* Vestito.m in Sources */ = {isa = PBXBuildFile; fileRef = A3645B89143A4B2C00A13FB5 /* Vestito.m */; };
 		A3645B8D143A4B2C00A13FB5 /* Proprieta.m in Sources */ = {isa = PBXBuildFile; fileRef = A3645B8C143A4B2C00A13FB5 /* Proprieta.m */; };
 		A3816AEB143B5E57009643B4 /* SelectTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3816AE9143B5E57009643B4 /* SelectTypeViewController.m */; };
@@ -125,6 +125,10 @@
 		A32294841431BE11001A8A36 /* ImageItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageItemViewController.xib; sourceTree = "<group>"; };
 		A3297D65143DAA8900EBF25A /* Tipologia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tipologia.h; sourceTree = "<group>"; };
 		A3297D66143DAA8900EBF25A /* Tipologia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tipologia.m; sourceTree = "<group>"; };
+		A3297D69143DC37100EBF25A /* Stile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stile.h; sourceTree = "<group>"; };
+		A3297D6A143DC37100EBF25A /* Stile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stile.m; sourceTree = "<group>"; };
+		A3297D6C143DC37100EBF25A /* Stagione.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stagione.h; sourceTree = "<group>"; };
+		A3297D6D143DC37100EBF25A /* Stagione.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stagione.m; sourceTree = "<group>"; };
 		A32BA52A143310530019979B /* AFItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFItemView.h; sourceTree = "<group>"; };
 		A32BA52B143310530019979B /* AFItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFItemView.m; sourceTree = "<group>"; };
 		A32BA52C143310530019979B /* AFOpenFlowConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFOpenFlowConstants.h; sourceTree = "<group>"; };
@@ -170,16 +174,12 @@
 		A3645A811439C7AA00A13FB5 /* LookManagerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LookManagerView.xib; sourceTree = "<group>"; };
 		A3645A821439C7AA00A13FB5 /* LookManagerVIewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookManagerVIewController.h; sourceTree = "<group>"; };
 		A3645A831439C7AA00A13FB5 /* LookManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookManagerViewController.m; sourceTree = "<group>"; };
-		A3645B76143A4B2600A13FB5 /* Stagione.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stagione.h; sourceTree = "<group>"; };
-		A3645B77143A4B2800A13FB5 /* Stagione.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stagione.m; sourceTree = "<group>"; };
 		A3645B79143A4B2900A13FB5 /* Combinazione.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Combinazione.h; sourceTree = "<group>"; };
 		A3645B7A143A4B2900A13FB5 /* Combinazione.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Combinazione.m; sourceTree = "<group>"; };
 		A3645B7F143A4B2A00A13FB5 /* ProprietaCombinazione.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProprietaCombinazione.h; sourceTree = "<group>"; };
 		A3645B80143A4B2A00A13FB5 /* ProprietaCombinazione.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProprietaCombinazione.m; sourceTree = "<group>"; };
 		A3645B82143A4B2B00A13FB5 /* ProprietaVestito.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProprietaVestito.h; sourceTree = "<group>"; };
 		A3645B83143A4B2B00A13FB5 /* ProprietaVestito.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProprietaVestito.m; sourceTree = "<group>"; };
-		A3645B85143A4B2B00A13FB5 /* Stile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stile.h; sourceTree = "<group>"; };
-		A3645B86143A4B2C00A13FB5 /* Stile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stile.m; sourceTree = "<group>"; };
 		A3645B88143A4B2C00A13FB5 /* Vestito.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vestito.h; sourceTree = "<group>"; };
 		A3645B89143A4B2C00A13FB5 /* Vestito.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vestito.m; sourceTree = "<group>"; };
 		A3645B8B143A4B2C00A13FB5 /* Proprieta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Proprieta.h; sourceTree = "<group>"; };
@@ -330,22 +330,22 @@
 		A30A32F014308E3100D44356 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				A3297D6C143DC37100EBF25A /* Stagione.h */,
+				A3297D6D143DC37100EBF25A /* Stagione.m */,
+				A3297D69143DC37100EBF25A /* Stile.h */,
+				A3297D6A143DC37100EBF25A /* Stile.m */,
 				A3297D65143DAA8900EBF25A /* Tipologia.h */,
 				A3297D66143DAA8900EBF25A /* Tipologia.m */,
 				A3645B8B143A4B2C00A13FB5 /* Proprieta.h */,
 				A3645B8C143A4B2C00A13FB5 /* Proprieta.m */,
 				A3645B88143A4B2C00A13FB5 /* Vestito.h */,
 				A3645B89143A4B2C00A13FB5 /* Vestito.m */,
-				A3645B85143A4B2B00A13FB5 /* Stile.h */,
-				A3645B86143A4B2C00A13FB5 /* Stile.m */,
 				A3645B82143A4B2B00A13FB5 /* ProprietaVestito.h */,
 				A3645B83143A4B2B00A13FB5 /* ProprietaVestito.m */,
 				A3645B7F143A4B2A00A13FB5 /* ProprietaCombinazione.h */,
 				A3645B80143A4B2A00A13FB5 /* ProprietaCombinazione.m */,
 				A3645B79143A4B2900A13FB5 /* Combinazione.h */,
 				A3645B7A143A4B2900A13FB5 /* Combinazione.m */,
-				A3645B76143A4B2600A13FB5 /* Stagione.h */,
-				A3645B77143A4B2800A13FB5 /* Stagione.m */,
 			);
 			name = Entities;
 			path = ../Entities;
@@ -621,15 +621,15 @@
 				A3645B1F1439EBC800A13FB5 /* UIImage+Rotating.m in Sources */,
 				A3645B211439EBC800A13FB5 /* UIImage+Saving.m in Sources */,
 				A3645B231439EBC800A13FB5 /* FileSystem.m in Sources */,
-				A3645B78143A4B2800A13FB5 /* Stagione.m in Sources */,
 				A3645B7B143A4B2900A13FB5 /* Combinazione.m in Sources */,
 				A3645B81143A4B2B00A13FB5 /* ProprietaCombinazione.m in Sources */,
 				A3645B84143A4B2B00A13FB5 /* ProprietaVestito.m in Sources */,
-				A3645B87143A4B2C00A13FB5 /* Stile.m in Sources */,
 				A3645B8A143A4B2C00A13FB5 /* Vestito.m in Sources */,
 				A3645B8D143A4B2C00A13FB5 /* Proprieta.m in Sources */,
 				A3816AEB143B5E57009643B4 /* SelectTypeViewController.m in Sources */,
 				A3297D67143DAA8900EBF25A /* Tipologia.m in Sources */,
+				A3297D6B143DC37100EBF25A /* Stile.m in Sources */,
+				A3297D6E143DC37100EBF25A /* Stagione.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

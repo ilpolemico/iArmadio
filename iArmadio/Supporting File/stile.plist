@@ -3,10 +3,25 @@
 <plist version="1.0">
 <dict>
 	<key>casual</key>
-	<string>2</string>
+	<dict>
+		<key>id</key>
+		<string>2</string>
+		<key>icon</key>
+		<string>02.png</string>
+	</dict>
 	<key>sportivo</key>
-	<string>1</string>
+	<dict>
+		<key>id</key>
+		<string>1</string>
+		<key>icon</key>
+		<string>02.png</string>
+	</dict>
 	<key>elegante</key>
-	<string>3</string>
+	<dict>
+		<key>id</key>
+		<string>3</string>
+		<key>icon</key>
+		<string>02.png</string>
+	</dict>
 </dict>
 </plist>

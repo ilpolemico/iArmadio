@@ -2,7 +2,7 @@
 //  Stile.h
 //  iArmadio
 //
-//  Created by Casa Fortunato on 03/10/11.
+//  Created by Casa Fortunato on 06/10/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -16,6 +16,7 @@
 }
 @property (nonatomic, retain) NSString * id;
 @property (nonatomic, retain) NSString * stile;
+@property (nonatomic, retain) NSString * icon;
 @property (nonatomic, retain) Combinazione *combinazione;
 @property (nonatomic, retain) NSSet *vestiti;
 @end

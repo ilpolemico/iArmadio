@@ -38,6 +38,15 @@ static IarmadioDao *singleton;
     return [self getImageBundleFromFile:tipologiaEntity.icon];
 }
 
+- (UIImage *)getImageFromStile:(Stile *)stileEntity{
+    return [self getImageDocumentFromFile:stileEntity.icon];
+}
+
+- (UIImage *)getImageFromStagione:(Stagione *)stagioneEntity{
+    return [self getImageBundleFromFile:stagioneEntity.icon];
+}
+
+
 - (UIImage *)getImageBundleFromFile:(NSString *)file{
     NSString *filename = [self filePathBundle:file];
     return [UIImage imageWithContentsOfFile:filename];
@@ -635,10 +644,13 @@ static IarmadioDao *singleton;
         NSEnumerator *keys = [dict keyEnumerator];
         NSString *key;
         while ((key = [keys nextObject])) {
-            NSString *value = (NSString *)[dict objectForKey:key];
+            NSDictionary *prop = [dict objectForKey:key];
+            NSString *value = [prop objectForKey:@"id"]; 
+            NSString *icon = [prop objectForKey:@"icon"];
             Stile *stile = [NSEntityDescription insertNewObjectForEntityForName:@"Stile" inManagedObjectContext:self.managedObjectContext];
             [stile setValue:key forKey:@"stile"];
-            [stile setValue:value forKey:@"id"]; ;
+            [stile setValue:value forKey:@"id"]; 
+            [stile setValue:icon forKey:@"icon"]; 
             
         }
         
@@ -671,6 +683,7 @@ static IarmadioDao *singleton;
             Stagione *stagione = [NSEntityDescription insertNewObjectForEntityForName:@"Stagione" inManagedObjectContext:self.managedObjectContext];
             
             [stagione setValue:(NSNumber *)[prop objectForKey:@"id"] forKey:@"id"];
+            [stagione setValue:[prop objectForKey:@"icon"] forKey:@"icon"];
             [stagione setValue:[prop objectForKey:@"temp_min"] forKey:@"temp_min"];
             [stagione setValue:[prop objectForKey:@"temp_max"] forKey:@"temp_max"];
             [stagione setValue:[prop objectForKey:@"date_from"] forKey:@"date_from"];

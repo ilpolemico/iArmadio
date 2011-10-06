@@ -22,6 +22,7 @@
     <entity name="Stagione" representedClassName="Stagione" syncable="YES" dataClassName="">
         <attribute name="date_from" optional="YES" attributeType="String"/>
         <attribute name="date_to" optional="YES" attributeType="String"/>
+        <attribute name="icon" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="stagione" attributeType="String"/>
         <attribute name="temp_max" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
@@ -30,6 +31,7 @@
         <relationship name="vestito" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Vestito" inverseName="perLaStagione" inverseEntity="Vestito"/>
     </entity>
     <entity name="Stile" representedClassName="Stile">
+        <attribute name="icon" optional="YES" attributeType="String"/>
         <attribute name="id" attributeType="String"/>
         <attribute name="stile" attributeType="String"/>
         <relationship name="combinazione" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Combinazione" inverseName="conStile" inverseEntity="Combinazione"/>
@@ -59,9 +61,9 @@
         <element name="Proprieta" positionX="513" positionY="-0" width="128" height="75"/>
         <element name="ProprietaCombinazione" positionX="736" positionY="117" width="128" height="60"/>
         <element name="ProprietaVestito" positionX="252" positionY="108" width="128" height="90"/>
-        <element name="Stagione" positionX="765" positionY="432" width="128" height="165"/>
-        <element name="Stile" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="Tipologia" positionX="243" positionY="351" width="128" height="150"/>
+        <element name="Stagione" positionX="765" positionY="432" width="128" height="180"/>
+        <element name="Stile" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="Tipologia" positionX="243" positionY="351" width="128" height="105"/>
         <element name="Vestito" positionX="504" positionY="261" width="128" height="165"/>
     </elements>
 </model>

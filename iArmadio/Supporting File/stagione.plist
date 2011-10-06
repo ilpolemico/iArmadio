@@ -4,6 +4,8 @@
 <dict>
 	<key>calda</key>
 	<dict>
+		<key>icon</key>
+		<string>02.png</string>
 		<key>id</key>
 		<integer>0</integer>
 		<key>temp_min</key>
@@ -17,6 +19,8 @@
 	</dict>
 	<key>fredda</key>
 	<dict>
+		<key>icon</key>
+		<string>02.png</string>
 		<key>id</key>
 		<integer>1</integer>
 		<key>temp_min</key>
@@ -30,6 +34,8 @@
 	</dict>
 	<key>calda-fredda</key>
 	<dict>
+		<key>icon</key>
+		<string>02.png</string>
 		<key>id</key>
 		<integer>2</integer>
 		<key>temp_min</key>
