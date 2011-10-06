@@ -309,7 +309,7 @@ const static CGFloat kReflectionFraction = 0.85;
         }
         else{
             if(
-               (targetPoint.x > 30 ) && (targetPoint.x < 300) &&
+               (targetPoint.x > 78 ) && (targetPoint.x < 260) &&
                (targetPoint.y > 0  ) && (targetPoint.y < 250)
               )  
             [self.viewDelegate openFlowView:self touchImageCoverSelected:selectedCoverView.number];

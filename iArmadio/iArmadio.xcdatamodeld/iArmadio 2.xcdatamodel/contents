@@ -36,6 +36,7 @@
         <relationship name="vestiti" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Vestito" inverseName="conStile" inverseEntity="Vestito"/>
     </entity>
     <entity name="Tipologia" representedClassName="Tipologia">
+        <attribute name="icon" optional="YES" attributeType="String"/>
         <attribute name="id" attributeType="String"/>
         <attribute name="nome" attributeType="String"/>
         <attribute name="order" attributeType="Integer 16" defaultValueString="0"/>
@@ -60,7 +61,7 @@
         <element name="ProprietaVestito" positionX="252" positionY="108" width="128" height="90"/>
         <element name="Stagione" positionX="765" positionY="432" width="128" height="165"/>
         <element name="Stile" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="Tipologia" positionX="243" positionY="351" width="128" height="105"/>
+        <element name="Tipologia" positionX="243" positionY="351" width="128" height="150"/>
         <element name="Vestito" positionX="504" positionY="261" width="128" height="165"/>
     </elements>
 </model>

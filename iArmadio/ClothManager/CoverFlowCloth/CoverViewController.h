@@ -31,23 +31,19 @@
     NSArray *vestiti;
     IBOutlet AFOpenFlowView *openflow;  
     IBOutlet UIView *coverView;
-    IBOutlet UISwitch *casual;
-    IBOutlet UISwitch *sportivo;
-    IBOutlet UISwitch *elegante;
+    IBOutlet UIButton *coverBtn;
     NSString *localCurrStile;  
     NSMutableArray *localCurrOrderBy; 
         
     CurrState *currstate;
 }
 
+@property (retain, nonatomic) IBOutlet UIButton *coverBtn;
 @property (retain, nonatomic) IBOutlet AFOpenFlowView *openflow;
 @property (retain, nonatomic) IBOutlet UIBarButtonItem *addButton;
 @property (retain, nonatomic) IBOutlet UISegmentedControl *segmentcontrol;
 @property (retain, nonatomic) IBOutlet UISegmentedControl *segmentOrderBy;
 @property (retain, nonatomic) IBOutlet UISegmentedControl *segmentfiltroStile;
-@property (nonatomic, retain) IBOutlet UISwitch *casual;
-@property (nonatomic, retain) IBOutlet UISwitch *sportivo;
-@property (nonatomic, retain) IBOutlet UISwitch *elegante;
 @property (nonatomic, retain) IBOutlet UIView *coverView;
 
 @property (nonatomic, retain) IBOutlet NSString *localCurrStile;

@@ -31,11 +31,19 @@ static IarmadioDao *singleton;
 
 
 - (UIImage *)getImageFromVestito:(Vestito *)vestitoEntity{
-    return [self getImageFromFile:vestitoEntity.immagine];
+    return [self getImageDocumentFromFile:vestitoEntity.immagine];
 }
 
+- (UIImage *)getImageFromTipo:(Tipologia *)tipologiaEntity{
+    return [self getImageBundleFromFile:tipologiaEntity.icon];
+}
 
-- (UIImage *)getImageFromFile:(NSString *)file{
+- (UIImage *)getImageBundleFromFile:(NSString *)file{
+    NSString *filename = [self filePathBundle:file];
+    return [UIImage imageWithContentsOfFile:filename];
+}
+
+- (UIImage *)getImageDocumentFromFile:(NSString *)file{
     NSString *filename = [self filePathDocuments:file];
     return [UIImage imageWithContentsOfFile:filename];
 }
@@ -570,11 +578,13 @@ static IarmadioDao *singleton;
             else{
               plural = single;
             }
+            NSString *icon = (NSString *)[type objectForKey:@"icon"];
             NSString *order = (NSString *)[type objectForKey:@"order"];
             NSManagedObject *tipologia = [NSEntityDescription insertNewObjectForEntityForName:@"Tipologia" inManagedObjectContext:self.managedObjectContext];
             [tipologia setValue:key forKey:@"id"];
             [tipologia setValue:single forKey:@"nome"];
             [tipologia setValue:plural forKey:@"plural"];
+            [tipologia setValue:icon forKey:@"icon"];
             [tipologia setValue:[NSNumber numberWithInteger:[order integerValue]] forKey:@"order"];
             
             

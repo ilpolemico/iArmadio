@@ -16,11 +16,9 @@
 @synthesize addButton,
             openflow,
             segmentcontrol,
-            casual,
-            sportivo,
-            elegante,
             segmentfiltroStile,
             segmentOrderBy,
+            coverBtn,
             coverView;
 
 static CGRect frameCover;
@@ -92,11 +90,12 @@ static CGRect frameCover;
 - (void)reloadVestiti:(NSNotification *)pNotification{
     
     [self.openflow removeFromSuperview];
-    self.openflow = [[[AFOpenFlowView alloc] initWithFrame:CGRectMake(0,-100,frameCover.size.width,frameCover.size.height)] autorelease];
+    [openflow release];
+    openflow = [[AFOpenFlowView alloc] initWithFrame:CGRectMake(0,-100,frameCover.size.width,frameCover.size.height)];
     
     
     [self reloadVestiti];
-    [self.openflow setSelectedCover:[vestiti count]-1];
+    
      
     imageSelected = [vestiti count]-1;
     [self.openflow centerOnSelectedCover:YES];
@@ -104,9 +103,7 @@ static CGRect frameCover;
 }
 
 - (void)reloadVestiti{
-    if(vestiti != nil){
-        [vestiti release];
-    }
+    
     
     
     if(currstate.currStagioneIndex == nil){
@@ -122,9 +119,14 @@ static CGRect frameCover;
         
     currstate.currStagioneIndex = [NSNumber numberWithInt:self.segmentcontrol.selectedSegmentIndex];
     
-    vestiti = [dao getVestitiEntities:[NSArray arrayWithObjects:tipologia,nil] filterStagioneKey:currstate.currStagioneKey filterStiliKeys:[[NSArray alloc] initWithObjects:localCurrStile, nil] filterGradimento:-1 sortOnKeys:localCurrOrderBy];
-	[vestiti retain];
     
+    if(vestiti != nil){
+        [vestiti release];
+    }
+    
+    vestiti = [dao getVestitiEntities:[NSArray arrayWithObjects:tipologia,nil] filterStagioneKey:currstate.currStagioneKey filterStiliKeys:[[[NSArray alloc] initWithObjects:localCurrStile, nil] autorelease] filterGradimento:-1 sortOnKeys:localCurrOrderBy];
+
+    [vestiti retain];
     [self.openflow setNumberOfImages:0];
     for (int i=0; i < [vestiti count]; i++) {
         UIImage *image = [dao getImageFromVestito:[vestiti objectAtIndex:i]];
@@ -144,6 +146,9 @@ static CGRect frameCover;
         imageSelected = -1;
         [self.openflow setNumberOfImages:1];
     }
+    else{
+        [self.openflow setSelectedCover:[vestiti count]-1];
+    }
     
 	    
     self.openflow.viewDelegate = self;
@@ -159,7 +164,6 @@ static CGRect frameCover;
     dao = [IarmadioDao shared];
     currstate = [CurrState shared];
     self.navigationItem.titleView = segmentcontrol;
-    
     frameCover = self.openflow.frame;
     
     self.navigationItem.rightBarButtonItem = self.addButton;
@@ -208,7 +212,13 @@ static CGRect frameCover;
 }
 
 - (void)openFlowView:(AFOpenFlowView *)openFlowView touchImageCoverSelected:(int)index{
+   [coverBtn setHidden:NO];
+   coverBtn.enabled = YES; 
+   coverBtn.selected = YES; 
    [self imageTap];
+   coverBtn.enabled = NO; 
+   coverBtn.selected = NO;
+   [coverBtn setHidden:YES];
 }
 
 - (void)openFlowView:(AFOpenFlowView *)openFlowView requestImageForIndex:(int)index {
@@ -350,6 +360,8 @@ static CGRect frameCover;
 
 
 -(void) dealloc{
+    [openflow release];
+    [vestiti release];
     [super dealloc]; 
 
 }

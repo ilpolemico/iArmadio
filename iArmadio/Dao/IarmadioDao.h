@@ -70,7 +70,9 @@ static NSString * const STILE_PLIST = @"stile";
 - (Stile *)getStileEntity:(NSString *)stileKeys;
 - (Stagione *)getStagioneEntity:(NSString *)stagioneKeys;
 - (UIImage *)getImageFromVestito:(Vestito *)vestitoEntity;
-- (UIImage *)getImageFromFile:(NSString *)file;
+- (UIImage *)getImageFromTipo:(Tipologia *)tipologiaEntity;
+- (UIImage *)getImageBundleFromFile:(NSString *)file;
+- (UIImage *)getImageDocumentFromFile:(NSString *)file;
 
 
 - (NSArray *)getVestitiEntities:(NSArray *)filterTipiKeys filterStagioneKey:(NSString *)filterStagioneKey filterStiliKeys:(NSArray *)filterStiliKeys filterGradimento:(NSInteger)filterGradimento sortOnKeys:(NSArray *)keys;

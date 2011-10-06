@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "ArmadioTableViewController.h"
 
+@class ArmadioTableViewController;
+
 @interface SelectTypeViewController : UIViewController{
     NSInteger selectedIndex;
+    ArmadioTableViewController *armadio;
 }
 
 -(IBAction)undo:(id)sender;

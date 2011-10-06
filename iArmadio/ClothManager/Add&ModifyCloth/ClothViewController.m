@@ -108,14 +108,17 @@
     
     
     
-    NSInteger cont;
-    cont = 0;
+
     
     if(newimage != nil){
         if(self.currTipologia){
-            self.tipologiaLabel.text = [dao getTipoEntity:self.currTipologia].nome;
+            Tipologia *tipologiaEntity = [dao getTipoEntity:self.currTipologia];
+            [self.tipologiaBtn setImage:[dao getImageFromTipo:tipologiaEntity] forState:UIControlStateNormal];
+            self.tipologiaLabel.text = tipologiaEntity.nome;
         }
         else{
+            Tipologia *tipologiaEntity = [dao getTipoEntity:[dao.listTipiKeys objectAtIndex:0]];
+            [self.tipologiaBtn setImage:[dao getImageFromTipo:tipologiaEntity] forState:UIControlStateNormal];
             self.tipologiaLabel.text = [dao.listTipiKeys objectAtIndex:0];
         }  
         
@@ -126,6 +129,7 @@
     else if(vestito != nil){
         
         Tipologia *tipo = [[vestito.tipi allObjects] objectAtIndex:0];
+        [self.tipologiaBtn setImage:[dao getImageFromTipo:tipo] forState:UIControlStateNormal];
          self.tipologiaLabel.text = tipo.nome;
         
         NSNumber *grad = vestito.gradimento;
@@ -195,17 +199,11 @@
    NSString *nametipo = self.tipologiaLabel.text; 
    NSArray *tipi = [[NSArray alloc] initWithObjects:nametipo,nil];
    
-    NSMutableArray *stili = [[NSMutableArray alloc] init];
-    if(stile.selectedSegmentIndex == 0){
-        [stili addObject:@"casual"];
-    }
-    else if(stile.selectedSegmentIndex == 1){
-        [stili addObject:@"sportivo"]; 
-    }
-    else{
-        [stili addObject:@"elegante"];
-    }
-  
+   NSMutableArray *stili = [[NSMutableArray alloc] init];
+   if(stile.selectedSegmentIndex < [dao.listStiliKeys count]){
+       [stili addObject:[dao.listStiliKeys objectAtIndex:stile.selectedSegmentIndex]];
+   }
+   
     
     NSString *scelta_stagione = [[dao listStagioniKeys] objectAtIndex:stagione.selectedSegmentIndex] ;
     

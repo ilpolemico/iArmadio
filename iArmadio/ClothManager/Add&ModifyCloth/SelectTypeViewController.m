@@ -48,7 +48,7 @@
     [super viewDidLoad];
     
     
-    ArmadioTableViewController *armadio = [[ArmadioTableViewController alloc] initWithNibName:@"ArmadioViewTable" bundle:nil delegateController:self];
+    armadio = [[ArmadioTableViewController alloc] initWithNibName:@"ArmadioViewTable" bundle:nil delegateController:self];
     
     armadio.view.frame = CGRectMake(0,44,320,460);
     [self.view addSubview:armadio.view];
@@ -68,6 +68,12 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void) dealloc{
+    [armadio release];
+    [super dealloc];
+
 }
 
 
