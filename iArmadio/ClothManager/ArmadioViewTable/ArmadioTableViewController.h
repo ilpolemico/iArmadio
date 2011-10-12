@@ -13,13 +13,14 @@
 #import "SelectTypeViewController.h"
 
 
-@class ClothViewController;
+@class CoverViewController;
 @class SelectTypeViewController;
 
 @interface ArmadioTableViewController : UITableViewController{
     IarmadioDao *dao;
     SelectTypeViewController *delegateController;
     NSMutableArray *tipologie;
+    CoverViewController *coverviewcontroller;
 }
 
 - initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)bundle delegateController:(id)delegateController;

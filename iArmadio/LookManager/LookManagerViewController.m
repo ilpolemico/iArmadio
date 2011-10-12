@@ -32,6 +32,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    dao = [IarmadioDao shared]; 
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:@"LookManagerView" type:@"background"]];
+    
     // Do any additional setup after loading the view from its nib.
 }
 

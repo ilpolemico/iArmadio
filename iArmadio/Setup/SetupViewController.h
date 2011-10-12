@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IarmadioDao.h"
 
-@interface SetupViewController : UIViewController
-
+@interface SetupViewController : UIViewController{
+    IarmadioDao *dao;
+}
 @end

@@ -10,8 +10,8 @@
 #import <CoreData/CoreData.h>
 #import "IarmadioDao.h"
 #import "GeoLocal.h"
-#import "Vestito.h"
-#import "Tipologia.h"
+
+
 
 
 @interface iArmadioAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate>{

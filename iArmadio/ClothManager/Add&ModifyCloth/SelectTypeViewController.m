@@ -47,15 +47,17 @@
 {
     [super viewDidLoad];
     
+    IarmadioDao *dao = [IarmadioDao shared];
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:@"SelectTypeView" type:@"background"]];
+    
+    
     selectedIndex = -1;
     
     armadio = [[ArmadioTableViewController alloc] initWithNibName:@"ArmadioViewTable" bundle:nil delegateController:self];
     
     armadio.view.frame = CGRectMake(0,44,320,420);
     [self.view addSubview:armadio.view];
-    //[armadio release];
-    
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewDidUnload

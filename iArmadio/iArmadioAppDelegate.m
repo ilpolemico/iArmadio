@@ -24,6 +24,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //[NSThread sleepForTimeInterval:5.0];
     // Override point for customization after application launch.
     // Add the tab bar controller's current view as a subview of the window
     geolocal = [GeoLocal shared];

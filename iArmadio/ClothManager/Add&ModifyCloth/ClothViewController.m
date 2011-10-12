@@ -34,8 +34,9 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     newimage = image;
     [newimage retain];
+    
     addCloth = YES;
-    currTipologia = nil;
+    currTipologia = [CurrState shared].currTipologia;
     currStile = nil;
     currGradimento = nil;
     currStagione = nil;
@@ -47,7 +48,7 @@
     vestito = _vestito;
     [vestito retain];
     addCloth = NO;
-    currTipologia = nil;
+    currTipologia = [CurrState shared].currTipologia;
     currStile = nil;
     currGradimento = nil;
     currStagione = nil;
@@ -60,8 +61,13 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
-    lastScaleFactor = 0;
     dao = [IarmadioDao shared];
+    [self initInputType];
+    lastScaleFactor = 0;
+    
+    
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:@"ClothView" type:@"background"]];
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     
     //Edit image
@@ -125,6 +131,13 @@
         if([[CurrState shared] currStagioneIndex] == nil){
             ([CurrState shared]).currStagioneKey = dao.currStagioneKey;
         }
+        
+        if([[[CurrState shared] currStagioneIndex] intValue] == 3){
+            [self initStagioniEntities:[NSNumber numberWithInt:1]];
+        }
+        else{
+            [self initStagioniEntities:[[CurrState shared] currStagioneIndex]];
+        }    
     }
     else if(vestito != nil){
         
@@ -143,9 +156,6 @@
         
         ([CurrState shared]).currStagioneKey = stagioneKey;
         
-        //NSLog(@"%@", [[CurrState shared] currStagioneIndex]);
-       
-        
         [self initStagioniEntities:[[CurrState shared] currStagioneIndex]];
         
         
@@ -161,9 +171,28 @@
    
 }
 
-- (void) scrollViewDidScroll:(UIScrollView *) scrollView
-{	
+- (void)initInputType{
+    for(NSString *stileKey in [dao listStiliKeys]){
+        Stile *_stile = [dao getStileEntity:stileKey];
+        [stile setImage:[dao getImageFromStile:_stile] forSegmentAtIndex:[_stile.id intValue]-1];
+        
+    }
+    
+    for(NSString *currStagioneKey in [dao listStagioniKeys]){
+        Stagione *_stagione = [dao getStagioneEntity:currStagioneKey];
+        [stagione setImage:[dao getImageFromStagione:_stagione] forSegmentAtIndex:[_stagione.id intValue]];
+        
+    }
+    
+    for(int i=0;i<3;i++){
+        NSString *type = [@"icona_gradimento_" stringByAppendingString:[NSString stringWithFormat:@"%d",i+1]];
+        NSLog(@"%@",type);
+        [gradimento setImage:[dao getImageFromSection:@"ClothView" type:type] forSegmentAtIndex:i];
+    }
+
+    
 }
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -189,9 +218,24 @@
 
 -(IBAction) deleteCloth:(id) sender {
     
-    [dao delVestitoEntity:vestito];
-    [self dismissModalViewControllerAnimated:YES];    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cancella" message:@"Vuoi cancellare il vestito" delegate:self cancelButtonTitle:@"Annulla" otherButtonTitles:@"Cancella", nil];
+    
+    [alert show];
+    [alert release];
+    
+}
 
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(buttonIndex != 0){
+        [dao delVestitoEntity:vestito];
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+        [UIView setAnimationDuration:1];
+        [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.view.superview cache:YES];
+        [self dismissModalViewControllerAnimated:NO];
+        [UIView commitAnimations];
+    }
+     
 }
 
 -(IBAction) saveCloth:(id) sender {
@@ -208,17 +252,16 @@
     NSString *scelta_stagione = [[dao listStagioniKeys] objectAtIndex:stagione.selectedSegmentIndex] ;
     
     if(addCloth){ 
-        [dao addVestitoEntity:self.imageView.image.normal gradimento:gradimento.selectedSegmentIndex tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili];
-       
+        [dao addVestitoEntity:[self.imageView.image normal] gradimento:gradimento.selectedSegmentIndex tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili];
     }
     else{
+        UIImage *tmp = nil;
+        if(modifyImageCloth){
+            tmp = [self.imageView.image normal];
+        }    
         
-        NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(self.imageView.image)];
-        NSString *imageFilename; 
-        imageFilename = vestito.immagine;
-        [imageData writeToFile:[self filePathDocuments:imageFilename] atomically:YES];
-        
-        [dao modifyVestitoEntity:vestito isNew:NO gradimento:gradimento.selectedSegmentIndex tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili];
+        [dao modifyVestitoEntity:vestito image:tmp  isNew:NO gradimento:gradimento.selectedSegmentIndex tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili];
+            modifyImageCloth = NO;
     }
     
     [tipi release];
@@ -250,7 +293,7 @@
 -(IBAction) selectImage:(id) sender{
         UIActionSheet *popupAddItem = [[UIActionSheet alloc] initWithTitle:@"Cambia Immagine Vestito" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Fotocamera", @"Album", nil];
         
-        popupAddItem.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+        popupAddItem.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
         [popupAddItem showInView:self.view];
         [popupAddItem release];
 }
@@ -262,10 +305,12 @@
 
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    UIImagePickerController *picker = nil;
     
-    
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
+    if (buttonIndex != 2) {
+        picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+    }   
     
     if (buttonIndex == 0) {
 #if !(TARGET_IPHONE_SIMULATOR)
@@ -288,8 +333,8 @@
                   editingInfo:(NSDictionary *)editingInfo 
 {
 	[picker dismissModalViewControllerAnimated:NO];
-    
     [self.imageView setImage:image];
+    modifyImageCloth = YES;
 }
 
 
@@ -341,7 +386,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    
+    modifyImageCloth = NO;
     if((selectController != nil)&&([selectController getIndex] != -1)){
          self.tipologiaLabel.text = [dao getTipoEntity:[dao.listTipiKeys objectAtIndex:[selectController getIndex] ]].nome;
         

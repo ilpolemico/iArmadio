@@ -12,7 +12,7 @@
 @interface CurrState : NSObject{
     NSString *currStagioneKey;
     NSNumber *currStagioneIndex;
-    NSString *currStili;
+    NSString *currStile;
     NSString *currEventi;
     NSString *currTipologia;
     NSNumber *currGradimento; 
@@ -23,7 +23,7 @@
 @property (nonatomic,retain)  NSString *currStagioneKey;
 @property (nonatomic,retain)  NSString *currSection;
 @property (nonatomic,retain)  NSNumber *currStagioneIndex;
-@property (nonatomic, retain) NSString *currStili;
+@property (nonatomic, retain) NSString *currStile;
 @property (nonatomic, retain) NSString *currEventi;
 @property (nonatomic, retain) NSString *currTipologia;
 @property (nonatomic, retain) NSNumber *currGradimento; 

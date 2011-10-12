@@ -12,6 +12,8 @@
 
 @interface UIImage (NYX_Rotating)
 
+-(UIImage *)checkRotation;
+
 #ifdef kNYXReturnRetainedObjects
 
 -(UIImage*)rotateInDegrees:(CGFloat)degrees NS_RETURNS_RETAINED;

@@ -7,6 +7,7 @@
 //  Copyright 2011 Benjamin Godard. All rights reserved.
 //
 
+#import "Configuration.h"
 
 /* If defined, categories methods will return object with a +1 retain count, so you have to release them manually */
 //#define kNYXReturnRetainedObjects

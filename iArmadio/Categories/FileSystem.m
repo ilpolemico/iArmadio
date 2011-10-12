@@ -13,6 +13,7 @@
 - (NSString *) filePathDocuments: (NSString *) fileName { 
 	NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *documentsDir = [paths objectAtIndex:0]; 
+    fileName = [NSString stringWithString:fileName];
 	return [documentsDir stringByAppendingPathComponent:fileName];	
 }
 

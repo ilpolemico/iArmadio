@@ -17,6 +17,7 @@
 #import "Vestito.h"
 #import "ProprietaCombinazione.h"
 #import "CurrState.h"
+#import "NYXImagesUtilities.h"
 
 
 static NSString * const ADD_CLOTH_EVENT = @"add_cloth_event";
@@ -30,6 +31,7 @@ static NSString * const DEL_LOOK_EVENT = @"del_look_event";
 static NSString * const TIPOLOGIA_PLIST = @"tipologia";
 static NSString * const STAGIONE_PLIST = @"stagione";
 static NSString * const STILE_PLIST = @"stile";
+static NSString * const IMAGES_PLIST = @"images";
 
 @class iArmadioAppDelegate;
 
@@ -44,10 +46,12 @@ static NSString * const STILE_PLIST = @"stile";
     NSMutableArray *listStagioniKeys;
     NSMutableArray *listStiliKeys;
     NSString *currStagioneKey; 
+    NSDictionary *imagesDictionary;
 }
 
 
 @property (nonatomic,retain, readonly)  NSString *currStagioneKey;
+@property (nonatomic, retain, readonly) NSDictionary *imagesDictionary;
 @property (nonatomic, retain, readonly) NSMutableDictionary *stagioniEntities;
 @property (nonatomic, retain, readonly) NSMutableDictionary *stiliEntities;
 @property (nonatomic, retain, readonly) NSMutableDictionary *tipiEntities;
@@ -70,11 +74,15 @@ static NSString * const STILE_PLIST = @"stile";
 - (Stile *)getStileEntity:(NSString *)stileKeys;
 - (Stagione *)getStagioneEntity:(NSString *)stagioneKeys;
 - (UIImage *)getImageFromVestito:(Vestito *)vestitoEntity;
+- (UIImage *)getThumbnailFromVestito:(Vestito *)vestitoEntity;
 - (UIImage *)getImageFromTipo:(Tipologia *)tipologiaEntity;
 - (UIImage *)getImageFromStile:(Stile *)stileEntity;
 - (UIImage *)getImageFromStagione:(Stagione *)stagioneEntity;
 - (UIImage *)getImageBundleFromFile:(NSString *)file;
 - (UIImage *)getImageDocumentFromFile:(NSString *)file;
+- (UIImage *)getImageFromSection:(NSString *)section type:(NSString *)type;
+
+
 
 
 - (NSArray *)getVestitiEntities:(NSArray *)filterTipiKeys filterStagioneKey:(NSString *)filterStagioneKey filterStiliKeys:(NSArray *)filterStiliKeys filterGradimento:(NSInteger)filterGradimento sortOnKeys:(NSArray *)keys;
@@ -84,7 +92,7 @@ static NSString * const STILE_PLIST = @"stile";
 - (Vestito *)addVestitoEntity:(UIImage *)image gradimento:(NSInteger)gradimento  tipiKeys:(NSArray *)tipiKeys stagioneKey:(NSString *)stagioneKey stiliKeys:(NSArray *)stiliKeys;
 
 
-- (Vestito *)modifyVestitoEntity:(Vestito *)vestito isNew:(BOOL)new gradimento:(NSInteger)gradimento  tipiKeys:(NSArray *)tipiKeys stagioneKey:(NSString *)stagioneKey stiliKeys:(NSArray *)stiliKeys;
+- (Vestito *)modifyVestitoEntity:(Vestito *)vestito image:(UIImage *)image isNew:(BOOL)new gradimento:(NSInteger)gradimento  tipiKeys:(NSArray *)tipiKeys stagioneKey:(NSString *)stagioneKey stiliKeys:(NSArray *)stiliKeys;
 
 - (void)delVestitoEntity:(Vestito *)Vestito;
 

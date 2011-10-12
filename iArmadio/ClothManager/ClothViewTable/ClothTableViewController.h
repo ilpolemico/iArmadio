@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "iArmadioAppDelegate.h"
+#import "IarmadioDao.h"
 #import "ClothViewController.h"
 
 
@@ -16,6 +16,7 @@
 @interface ClothTableViewController : UITableViewController{
     IarmadioDao *dao;
     NSMutableArray *vestitiForType;
+    ClothViewController *getviewcontroller;
 }
 
 - (void)reloadVestiti;     

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ArmadioTableView</key>
+	<dict>
+		<key>background</key>
+		<string>Default.png</string>
+	</dict>
+	<key>ClothManagerView</key>
+	<dict>
+		<key>background</key>
+		<string>Default.png</string>
+	</dict>
+	<key>CoverView</key>
+	<dict>
+		<key>icona_stagione_all</key>
+		<string>02.png</string>
+		<key>icona_stile_all</key>
+		<string>02.png</string>
+		<key>background</key>
+		<string>Default.png</string>
+		<key>icona_ordina_data</key>
+		<string>02.png</string>
+		<key>icona_ordina_gradimento</key>
+		<string>02.png</string>
+	</dict>
+	<key>ClothView</key>
+	<dict>
+		<key>background</key>
+		<string>Default.png</string>
+		<key>icona_gradimento_1</key>
+		<string>02.png</string>
+		<key>icona_gradimento_2</key>
+		<string>02.png</string>
+		<key>icona_gradimento_3</key>
+		<string>02.png</string>
+	</dict>
+	<key>LookManagerView</key>
+	<dict>
+		<key>background</key>
+		<string>Default.png</string>
+	</dict>
+	<key>SetupView</key>
+	<dict>
+		<key>background</key>
+		<string>Default.png</string>
+	</dict>
+	<key>FavoritesView</key>
+	<dict>
+		<key>background</key>
+		<string>Default.png</string>
+	</dict>
+	<key>SelectTypeView</key>
+	<dict>
+		<key>background</key>
+		<string>Default.png</string>
+	</dict>
+</dict>
+</plist>

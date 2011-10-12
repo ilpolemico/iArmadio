@@ -12,7 +12,11 @@
 @synthesize navcontroler,addItemBtn, modifyBtn, tipologia;
 
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
 
+    
+    return self;
+}
 
 
 - (IBAction) modify:(id) sender{
@@ -21,65 +25,56 @@
 }
 
 -(IBAction)addItem:(id)sender{
-    currstate.currSection = @"ARMADIO";
-    UIActionSheet *popupAddItem = [[UIActionSheet alloc] initWithTitle:@"Aggiungi vestito" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Fotocamera", @"Album", nil];
-  
-    popupAddItem.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-    [popupAddItem showInView:self.tabBarController.view];
-    [popupAddItem release];
-}
-
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-       
-    
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
-
+    if(captureClothController != nil){
+        [captureClothController.view removeFromSuperview];
+        [captureClothController release];
+        captureClothController = nil;
         
-    if (buttonIndex == 0) {
-            #if !(TARGET_IPHONE_SIMULATOR)
-                    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-            #else
-                    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-            #endif
-          [self presentModalViewController:picker animated:YES];
-          [picker release];
     }
-    else if (buttonIndex == 1) {
-        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        //picker.allowsEditing = YES;
-        [self presentModalViewController:picker animated:YES];
-        [picker release];
-        
-    } 
-  }
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image
-                  editingInfo:(NSDictionary *)editingInfo 
-    {
-	[picker dismissModalViewControllerAnimated:NO];
-    
-    ClothViewController *addviewcontroller = [[ClothViewController alloc] initWithNibName:@"ClothView" bundle:nil setImage: image];
-    
-    //addviewcontroller.currTipologia = tipologia;
-    [self presentModalViewController:addviewcontroller animated:YES];
-    [addviewcontroller release];
-       
-        
-	//imageView.image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
+    currstate.currSection = @"ARMADIO";
+    captureClothController = [[CaptureClothController alloc] initWithNibName:@"CaptureClothController" bundle:nil parentController:self  iterator:NO];
+    [self.view addSubview:captureClothController.view];
 }
+
+
+- (void)addIterator:(NSNotification *)notification
+{
+   
+    if([currstate.currSection isEqualToString:@"ARMADIO"]){
+        if(captureClothController != nil){
+            [captureClothController.view removeFromSuperview];
+            [captureClothController release];
+            captureClothController = nil;
+        }
+        captureClothController = [[CaptureClothController alloc] initWithNibName:@"CaptureClothController" bundle:nil parentController:self  iterator:YES];
+        [self.view addSubview:captureClothController.view];
+    }
+    
+}
+
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    navcontroler.delegate = self; 
     dao = [IarmadioDao shared];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:@"ClothManagerView" type:@"background"]];
     currstate = [CurrState shared];
     currstate.currSection = @"ARMADIO";
     [self.view addSubview:navcontroler.view];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addIterator:) name:ADD_CLOTH_EVENT object:nil];
     
 }
+
+- (void)navigationController:(UINavigationController *)navigationController   
+      willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {  
+    [viewController viewWillAppear:animated];  
+}  
+- (void)navigationController:(UINavigationController *)navigationController   
+       didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {  
+    [viewController viewDidAppear:animated];  
+}  
 
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -104,17 +99,7 @@
 
 
 
-- (void)addIterator:(NSNotification *)notification
-{
-    if([currstate.currSection isEqualToString:@"ARMADIO"]){ 
-        UIActionSheet *popupAddItem = [[UIActionSheet alloc] initWithTitle:@"Aggiungi altro vestito" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Fotocamera", @"Album", nil];
-        
-        popupAddItem.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-        [popupAddItem showInView:self.tabBarController.view];
-        [popupAddItem release];
-    }    
-      
-}
+
 
 - (void)viewDidUnload
 {
@@ -126,7 +111,7 @@
 }
 
 - (void)dealloc {
-   
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super dealloc];
 }
 @end

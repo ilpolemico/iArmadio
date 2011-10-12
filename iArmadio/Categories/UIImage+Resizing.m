@@ -8,17 +8,25 @@
 
 
 #import "UIImage+Resizing.h"
+#import "UIImage+Rotating.h"
 
 
 @implementation UIImage (NYX_Resizing)
 
+
+
+
 -(UIImage *)thumbnail{
-    return [self scaleToFitSize:CGSizeMake(10,10) ]; 
+    UIImage *tmp = [self checkRotation];
+    [[tmp retain] autorelease];
+    return [tmp scaleToFitSize:CGSizeMake(CLOTH_THUMBNAIL_SIZE_X,CLOTH_THUMBNAIL_SIZE_Y)]; 
 }
 
 
 -(UIImage *)normal{
-    return [self scaleToFitSize:CGSizeMake(200,200)]; 
+    UIImage *tmp = [self checkRotation];
+    [[tmp retain] autorelease];
+    return [tmp scaleToFitSize:CGSizeMake(CLOTH_NORMAL_SIZE_X,CLOTH_NORMAL_SIZE_Y)];
 }
 
 
@@ -102,6 +110,7 @@
 		return nil;
 	
 	/// Handle orientation
+        
 	if (UIImageOrientationLeft == self.imageOrientation)
 	{
 		CGContextRotateCTM(bmContext, M_PI_2);
@@ -109,15 +118,13 @@
 	}
 	else if (UIImageOrientationRight == self.imageOrientation)
 	{
-		CGContextRotateCTM(bmContext, -M_PI_2);
-		CGContextTranslateCTM(bmContext, -originalWidth, 0);
-	}
+			}
 	else if (UIImageOrientationDown == self.imageOrientation)
 	{
 		CGContextTranslateCTM(bmContext, originalWidth, originalHeight);
 		CGContextRotateCTM(bmContext, -M_PI);
 	}
-
+    
 	/// Image quality
 	CGContextSetShouldAntialias(bmContext, true);
 	CGContextSetAllowsAntialiasing(bmContext, true);
@@ -176,22 +183,26 @@
 		return nil;
 
 	/// Handle orientation
+    
+    
+    
 	if (UIImageOrientationLeft == self.imageOrientation)
 	{
-		CGContextRotateCTM(bmContext, M_PI_2);
-		CGContextTranslateCTM(bmContext, 0, -destHeight);
+        self = [self rotateInRadians:M_PI_2];
 	}
 	else if (UIImageOrientationRight == self.imageOrientation)
 	{
-		CGContextRotateCTM(bmContext, -M_PI_2);
-		CGContextTranslateCTM(bmContext, -destWidth, 0);
+        
+        CGContextRotateCTM(bmContext, -M_PI_2);
+        CGContextTranslateCTM(bmContext, -destWidth, 0);
+		
 	}
 	else if (UIImageOrientationDown == self.imageOrientation)
 	{
 		CGContextTranslateCTM(bmContext, destWidth, destHeight);
 		CGContextRotateCTM(bmContext, -M_PI);
 	}
-
+     
 	/// Image quality
 	CGContextSetShouldAntialias(bmContext, true);
 	CGContextSetAllowsAntialiasing(bmContext, true);

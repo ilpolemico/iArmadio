@@ -7,16 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NYXImagesHelper.h"
 #import "NYXImagesUtilities.h"
-#import "iArmadioAppDelegate.h"
 #import "SelectTypeViewController.h"
 #import "IarmadioDao.h"
 #import "ClothTableViewController.h"
-#import "ImageItemViewController.h"
+
 
 @class SelectTypeViewController;
 
-@interface ClothViewController : UIViewController <UIScrollViewDelegate,UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
+@interface ClothViewController : UIViewController <UIScrollViewDelegate,UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate> {
     
     SelectTypeViewController *selectController;
     UIImageView * imageView;
@@ -44,6 +44,7 @@
     
     
     BOOL addCloth;
+    BOOL modifyImageCloth;
     int lastScaleFactor, netRotation;
       
 }
@@ -80,6 +81,7 @@
 -(IBAction) undoCloth:(id) sender;
 -(IBAction) segmentSwitch:(id)sender;
 -(void)initStagioniEntities:(NSNumber *)stagioneKey;
+-(void) initInputType;
 
 
 

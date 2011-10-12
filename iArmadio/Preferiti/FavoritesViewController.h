@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IarmadioDao.h"
 
-@interface FavoritesViewController : UIViewController
+@interface FavoritesViewController : UIViewController{
+    IarmadioDao *dao;
+}
 
 @end

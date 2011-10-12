@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IarmadioDao.h"
 
-@interface LookManagerViewController : UIViewController
+@interface LookManagerViewController : UIViewController{
+
+    IarmadioDao *dao;
+}
 
 @end

@@ -15,7 +15,6 @@
 
 static IarmadioDao *singleton;
 
-
 + (IarmadioDao *)shared{
     if(singleton == nil){
         singleton = [[IarmadioDao alloc] initDao];
@@ -30,20 +29,40 @@ static IarmadioDao *singleton;
 }
 
 
+- (NSDictionary *)imagesDictionary{
+    if(imagesDictionary == nil){
+        NSString *path=[[NSBundle mainBundle] pathForResource:IMAGES_PLIST ofType:@"plist"];
+        imagesDictionary=[NSDictionary dictionaryWithContentsOfFile:path];
+        [imagesDictionary retain];
+    }
+
+    return imagesDictionary;
+}
+
+
+- (UIImage *)getImageFromSection:(NSString *)section type:(NSString *)type{
+    NSString *filename =  [[self.imagesDictionary objectForKey:section] objectForKey:type];
+    return [[[self getImageBundleFromFile:filename] retain] autorelease];
+}
+
 - (UIImage *)getImageFromVestito:(Vestito *)vestitoEntity{
-    return [self getImageDocumentFromFile:vestitoEntity.immagine];
+    return [[[self getImageDocumentFromFile:vestitoEntity.immagine] retain] autorelease];
+}
+
+- (UIImage *)getThumbnailFromVestito:(Vestito *)vestitoEntity{
+      return [[[self getImageDocumentFromFile:vestitoEntity.thumbnail] retain] autorelease];
 }
 
 - (UIImage *)getImageFromTipo:(Tipologia *)tipologiaEntity{
-    return [self getImageBundleFromFile:tipologiaEntity.icon];
+    return [[[self getImageBundleFromFile:tipologiaEntity.icon] retain] autorelease];
 }
 
 - (UIImage *)getImageFromStile:(Stile *)stileEntity{
-    return [self getImageDocumentFromFile:stileEntity.icon];
+    return [[[self getImageBundleFromFile:stileEntity.icon] retain] autorelease];
 }
 
 - (UIImage *)getImageFromStagione:(Stagione *)stagioneEntity{
-    return [self getImageBundleFromFile:stagioneEntity.icon];
+    return [[[self getImageBundleFromFile:stagioneEntity.icon] retain] autorelease];
 }
 
 
@@ -71,7 +90,7 @@ static IarmadioDao *singleton;
     NSString *tail_casual = [NSString stringWithFormat:@"_%d%d%d%d%d",timePassed_ms,d1,d2,d3,d4];
     
     return  [str stringByAppendingString:tail_casual];
-}
+ }
 
 
 - (NSArray *)getVestitiEntities:(NSArray *)filterTipiKeys filterStagioneKey:(NSString *)filterStagioneKey filterStiliKeys:(NSArray *)filterStiliKeys filterGradimento:(NSInteger)filterGradimento{
@@ -166,21 +185,20 @@ static IarmadioDao *singleton;
 
 
 - (Vestito *)addVestitoEntity:(UIImage *)image gradimento:(NSInteger)gradimento  tipiKeys:(NSArray *)tipiKeys stagioneKey:(NSString *)stagioneKey stiliKeys:(NSArray *)stiliKeys; {
-    
-    NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(image)];
     NSString *imageFilename; 
-    NSString *id = [self getNewID];
-    imageFilename = [id stringByAppendingString:@".png"];
-    [imageData writeToFile:[self filePathDocuments:imageFilename] atomically:YES];
+    NSString *thumbnailFilename; 
     
     Vestito *vestito = [NSEntityDescription insertNewObjectForEntityForName:@"Vestito" inManagedObjectContext:self.managedObjectContext];
     
-    
+    NSString *id = [self getNewID];
+    imageFilename = [id stringByAppendingString:@".png"];
+    thumbnailFilename = [@"thumbnail_" stringByAppendingString:imageFilename];
     
     [vestito setValue:id forKey:@"id"];
     [vestito setValue:imageFilename forKey:@"immagine"];
+    [vestito setValue:thumbnailFilename forKey:@"thumbnail"];
     
-    vestito = [self modifyVestitoEntity:vestito isNew:YES gradimento:gradimento  tipiKeys:tipiKeys stagioneKey:stagioneKey stiliKeys:stiliKeys];
+    vestito = [self modifyVestitoEntity:vestito image:image isNew:YES gradimento:gradimento  tipiKeys:tipiKeys stagioneKey:stagioneKey stiliKeys:stiliKeys];
     
     [self saveContext];
     
@@ -190,12 +208,28 @@ static IarmadioDao *singleton;
     [[NSNotificationCenter defaultCenter]
      postNotificationName:ADD_CLOTH_EVENT
      object:self];
+    
+    NSLog(@"NEW");
+    
     return vestito;
     
 
 }
 
-- (Vestito *)modifyVestitoEntity:(Vestito *)vestito isNew:(BOOL)new gradimento:(NSInteger)gradimento  tipiKeys:(NSArray *)tipiKeys stagioneKey:(NSString *)stagioneKey stiliKeys:(NSArray *)stiliKeys{
+- (Vestito *)modifyVestitoEntity:(Vestito *)vestito image:(UIImage *)image  isNew:(BOOL)new gradimento:(NSInteger)gradimento  tipiKeys:(NSArray *)tipiKeys stagioneKey:(NSString *)stagioneKey stiliKeys:(NSArray *)stiliKeys{
+    
+    if(image != nil){
+        NSData *imageData = UIImagePNGRepresentation(image);
+        [imageData writeToFile:[self filePathDocuments:vestito.immagine] atomically:YES];
+        
+        NSData *thumbnailData = UIImagePNGRepresentation([image thumbnail]);
+        [thumbnailData writeToFile:[self filePathDocuments:vestito.thumbnail] atomically:YES];
+    
+    }
+    
+  
+    
+    
 
     [vestito setValue:[NSNumber numberWithInteger:gradimento] forKey:@"gradimento"];
     
@@ -223,6 +257,7 @@ static IarmadioDao *singleton;
         [[NSNotificationCenter defaultCenter]
          postNotificationName:MOD_CLOTH_EVENT
          object:self];
+         NSLog(@"MOD");
     }
     
     return vestito;
@@ -870,6 +905,7 @@ static IarmadioDao *singleton;
     [stagioniEntities release];
     [currStagioneKey release];
     [singleton release];
+    [imagesDictionary release];
 	[super dealloc];
 }
 

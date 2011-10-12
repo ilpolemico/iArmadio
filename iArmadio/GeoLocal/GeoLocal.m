@@ -8,22 +8,6 @@
 
 #import "GeoLocal.h"
 
-@implementation CLLocationManager (TemporaryHackForSimulator)
-
-- (void)hackLocationFix
-{
-    CLLocation *location = [[CLLocation alloc] initWithLatitude:44.411246 longitude:11.349129];
-    [[self delegate] locationManager:self didUpdateToLocation:location fromLocation:nil];     
-}
-
-- (void)startUpdatingLocation
-{
-    
-    [self performSelector:@selector(hackLocationFix) withObject:nil afterDelay:0.1];
-}
-
-@end
-
 @implementation GeoLocal
 static GeoLocal *singleton;
 BOOL currentConditions;
@@ -115,6 +99,7 @@ int curr_temp;
     
     [currLocation release];
     currLocation = placemark.locality;
+    NSLog(@"%@",currLocation);
     [self setTemperatura];
     [currLocation retain];
     [geoCoder release];
@@ -138,6 +123,7 @@ int curr_temp;
 {
     
     if(!geoCoder){
+        NSLog(@"%@",newLocation);
         geoCoder = [[MKReverseGeocoder alloc] initWithCoordinate:newLocation.coordinate];
         [geoCoder setDelegate:self];
         [geoCoder start];

@@ -11,10 +11,11 @@
 #import "iArmadioAppDelegate.h"
 #import "ClothViewController.h"
 #import "ClothTableViewController.h"
+#import "CaptureClothController.h"
 
 
 
-@interface ClothManagerViewController : UIViewController <UIScrollViewDelegate, UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>{
+@interface ClothManagerViewController : UIViewController<UINavigationControllerDelegate>{
 
     
     IarmadioDao *dao;
@@ -23,6 +24,7 @@
     IBOutlet UIBarButtonItem *modifyBtn;
     Tipologia *tipologia;
     CurrState *currstate;
+    CaptureClothController *captureClothController;
   
 }
 

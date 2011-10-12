@@ -50,6 +50,7 @@
         <attribute name="gradimento" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="id" attributeType="String"/>
         <attribute name="immagine" attributeType="String"/>
+        <attribute name="thumbnail" optional="YES" attributeType="String"/>
         <relationship name="conProprieta" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ProprietaVestito" inverseName="delVestito" inverseEntity="ProprietaVestito"/>
         <relationship name="conStile" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Stile" inverseName="vestiti" inverseEntity="Stile"/>
         <relationship name="inCombinazioni" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Combinazione" inverseName="fattaDi" inverseEntity="Combinazione"/>
@@ -64,6 +65,6 @@
         <element name="Stagione" positionX="765" positionY="432" width="128" height="180"/>
         <element name="Stile" positionX="160" positionY="192" width="128" height="120"/>
         <element name="Tipologia" positionX="243" positionY="351" width="128" height="105"/>
-        <element name="Vestito" positionX="504" positionY="261" width="128" height="165"/>
+        <element name="Vestito" positionX="504" positionY="261" width="128" height="180"/>
     </elements>
 </model>

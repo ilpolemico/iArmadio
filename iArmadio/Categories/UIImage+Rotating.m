@@ -20,6 +20,28 @@
 
 @implementation UIImage (NYX_Rotating)
 
+-(UIImage *)checkRotation{
+    UIImage *tmp = self;
+    if (UIImageOrientationLeft == self.imageOrientation)
+	{
+        tmp = [self rotateInRadians:M_PI_2];
+	}
+	else if (UIImageOrientationRight == self.imageOrientation)
+	{
+        
+        tmp = [self rotateInRadians:-M_PI_2];
+		
+	}
+	else if (UIImageOrientationDown == self.imageOrientation)
+	{
+		tmp = [self rotateInRadians:-M_PI];
+	}
+    [tmp retain];
+    [tmp autorelease];
+    return tmp;
+}
+
+
 -(UIImage*)rotateInRadians:(CGFloat)radians
 {
 	CGImageRef cgImage = self.CGImage;

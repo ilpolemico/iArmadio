@@ -7,18 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AFOpenFlowView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "FlowCoverView.h"
+
 #import "IarmadioDao.h"
 #import "ClothViewController.h"
 #import "iArmadioAppDelegate.h"
 #import "FileSystem.h"
+#import "CaptureClothController.h"
+#import "NYXImagesUtilities.h"
 
-@interface CoverViewController : UIViewController<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate,
-    AFOpenFlowViewDataSource, AFOpenFlowViewDelegate>{
+@class CaptureClothController;
 
-        
-    NSOperationQueue *loadImagesOperationQueue;
+@interface CoverViewController : UIViewController<FlowCoverViewDelegate>{
     IarmadioDao *dao;
     NSString *tipologia;
     NSString *stagioneKey;
@@ -29,16 +30,17 @@
     IBOutlet UISegmentedControl *segmentfiltroStile;
     int imageSelected;
     NSArray *vestiti;
-    IBOutlet AFOpenFlowView *openflow;  
+    IBOutlet FlowCoverView *openflow;    
     IBOutlet UIView *coverView;
     IBOutlet UIButton *coverBtn;
     NSString *localCurrStile;  
     NSMutableArray *localCurrOrderBy; 
     CurrState *currstate;
+    CaptureClothController *captureClothController;
 }
 
 @property (retain, nonatomic) IBOutlet UIButton *coverBtn;
-@property (retain, nonatomic) IBOutlet AFOpenFlowView *openflow;
+@property (retain, nonatomic) IBOutlet FlowCoverView *openflow;
 @property (retain, nonatomic) IBOutlet UIBarButtonItem *addButton;
 @property (retain, nonatomic) IBOutlet UISegmentedControl *segmentcontrol;
 @property (retain, nonatomic) IBOutlet UISegmentedControl *segmentOrderBy;
@@ -51,7 +53,7 @@
 
 
 
-
+- (void)initInputType;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil getTipologia:(NSString *)_tipologia;
 
 - (void)reloadVestiti; 
@@ -61,5 +63,7 @@
 - (IBAction) changeStagione:(id) sender;
 - (IBAction) changeStile:(id) sender;
 - (IBAction) changeOrderBy:(id) sender;
+-(void)removeNotification;
+
 
 @end
