@@ -9,13 +9,13 @@
 #import "ButtonSegmentControl.h"
 
 @implementation ButtonSegmentControl
-@synthesize delegate, selectedIndex;
+@synthesize delegate, selectedIndex, currSelectedIndex, tag;
 
-- (id)init
+- (id)init:(NSString *)_tag
 {
     self = [super init];
     if (self) {
-       
+        tag = _tag;
     }
     
     return self;
@@ -23,17 +23,26 @@
 
 
 - (void)setSelectedIndex:(NSInteger)_selectedIndex{
+    selectedIndex = _selectedIndex;
+    [self performSelector:@selector(keepHighlightButton) withObject:nil afterDelay:0.0];
+}
+
+
+- (void) keepHighlightButton{
     for (int i = 0; i < [buttons count]; i++) {
         UIButton *button = [buttons objectAtIndex:i];
         if (i == selectedIndex) {
             [button setSelected:YES];
+            [button setHighlighted:YES];
         } else {
+            [button setHighlighted:NO];
             [button setSelected:NO];
         }
     }
+
 }
 
-- (void) delegate:(id <ButtonSegmentDelegate>) _delegate{
+- (void) setDelegate:(id <ButtonSegmentDelegate>) _delegate{
     delegate = _delegate;
     buttons = [delegate buttons:self];
     
@@ -42,18 +51,21 @@
         [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [button setTag:i];
     }
+    self.currSelectedIndex = -1;
 }
 
 
 - (IBAction)buttonPressed:(id)sender {
-    self.selectedIndex = [sender tag];
-    [delegate selectedButton:[buttons objectAtIndex:self.selectedIndex] selectedIndex:self.selectedIndex];
+    if(self.currSelectedIndex != self.selectedIndex){
+        self.currSelectedIndex = self.currSelectedIndex;
+        self.selectedIndex = [sender tag];
+        [delegate buttonSegmentControl:self selectedButton:[buttons objectAtIndex:self.selectedIndex] selectedIndex:self.selectedIndex];
+    }    
     
 }
 
 - (void) dealloc{
     [buttons release];
-    [delegate release];
     [super dealloc];
 }
 

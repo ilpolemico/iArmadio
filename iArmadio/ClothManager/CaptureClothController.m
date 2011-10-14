@@ -34,7 +34,7 @@
 {
     [super viewDidLoad];
     
-  
+    
     NSString *title = @"Aggiungi vestito";
     if(iterator){title = @"Aggiungi un altro vestito";}
     
@@ -102,8 +102,8 @@
     [((iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate]).tabBarController presentModalViewController:addviewcontroller animated:YES];
     [addviewcontroller release];
     
-    
 }
+
 
 -(void)dealloc{
     [super dealloc];

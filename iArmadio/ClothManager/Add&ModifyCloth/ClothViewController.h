@@ -46,6 +46,8 @@
     BOOL addCloth;
     BOOL modifyImageCloth;
     int lastScaleFactor, netRotation;
+    
+    
       
 }
 

@@ -16,17 +16,18 @@
 #import "FileSystem.h"
 #import "CaptureClothController.h"
 #import "NYXImagesUtilities.h"
+#import "ButtonSegmentControl.h"
 
 @class CaptureClothController;
 
-@interface CoverViewController : UIViewController<FlowCoverViewDelegate>{
+@interface CoverViewController : UIViewController<FlowCoverViewDelegate, ButtonSegmentDelegate>{
     IarmadioDao *dao;
     NSString *tipologia;
     NSString *stagioneKey;
     NSMutableArray *stili;
     IBOutlet UIBarButtonItem *addButton;
-    IBOutlet UISegmentedControl *segmentcontrol;
-    IBOutlet UISegmentedControl *segmentOrderBy;
+
+    IBOutlet UISegmentedControl *segmentControl;
     IBOutlet UISegmentedControl *segmentfiltroStile;
     int imageSelected;
     NSArray *vestiti;
@@ -37,13 +38,42 @@
     NSMutableArray *localCurrOrderBy; 
     CurrState *currstate;
     CaptureClothController *captureClothController;
+    
+    
+    //Ordinamento
+    ButtonSegmentControl *orderBy;
+    NSArray *segmentOrderBy;
+    IBOutlet UIButton *orderBy_data;
+    IBOutlet UIButton *orderBy_gradimento;
+    
+    
+    //Stili
+    ButtonSegmentControl *filterStili;
+    NSArray *segmentStili;
+    IBOutlet UIButton *stile_1;
+    IBOutlet UIButton *stile_2;
+    IBOutlet UIButton *stile_3;
+    IBOutlet UIButton *stile_4;
+    
+    
+    
+    
 }
+
+
+@property (retain, nonatomic) IBOutlet UIButton *orderBy_data;
+@property (retain, nonatomic) IBOutlet UIButton *orderBy_gradimento;
+
+@property (retain, nonatomic) IBOutlet UIButton *stile_1;
+@property (retain, nonatomic) IBOutlet UIButton *stile_2;
+@property (retain, nonatomic) IBOutlet UIButton *stile_3;
+@property (retain, nonatomic) IBOutlet UIButton *stile_4;
 
 @property (retain, nonatomic) IBOutlet UIButton *coverBtn;
 @property (retain, nonatomic) IBOutlet FlowCoverView *openflow;
 @property (retain, nonatomic) IBOutlet UIBarButtonItem *addButton;
 @property (retain, nonatomic) IBOutlet UISegmentedControl *segmentcontrol;
-@property (retain, nonatomic) IBOutlet UISegmentedControl *segmentOrderBy;
+
 @property (retain, nonatomic) IBOutlet UISegmentedControl *segmentfiltroStile;
 @property (nonatomic, retain) IBOutlet UIView *coverView;
 
@@ -60,9 +90,9 @@
 - (void)addIterator; 
 
 - (IBAction) addItem:(id) sender;
-- (IBAction) changeStagione:(id) sender;
-- (IBAction) changeStile:(id) sender;
-- (IBAction) changeOrderBy:(id) sender;
+- (IBAction) changeStagione:(id)sender;
+- (void) changeStile:(NSInteger) selectedIndex;
+- (void) changeOrderBy:(NSInteger) selectedIndex;
 -(void)removeNotification;
 
 

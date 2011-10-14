@@ -17,7 +17,12 @@
             openflow,
             segmentcontrol,
             segmentfiltroStile,
-            segmentOrderBy,
+            orderBy_data,
+            orderBy_gradimento,
+            stile_1,
+            stile_2,
+            stile_3,
+            stile_4,
             coverBtn,
             coverView;
 
@@ -150,10 +155,8 @@ static CGRect frameCover;
     localCurrOrderBy = nil;
     
     [self.view setUserInteractionEnabled:FALSE];
-    segmentOrderBy.selectedSegmentIndex = 0;
     segmentfiltroStile.selectedSegmentIndex = 0;
     segmentcontrol.selectedSegmentIndex = [currstate.currStagioneIndex intValue];
-    segmentOrderBy.enabled = YES;
     segmentfiltroStile.enabled = YES;
     currstate.currSection = @"COVERFLOW";
     [self.view setUserInteractionEnabled:TRUE];
@@ -166,18 +169,61 @@ static CGRect frameCover;
 }
 
 
-- (void)initInputType{
-    [segmentOrderBy setImage:[dao getImageFromSection:@"CoverView" type:@"icona_ordina_data"] forSegmentAtIndex:0];
-    [segmentOrderBy setImage:[dao getImageFromSection:@"CoverView" type:@"icona_ordina_gradimento"] forSegmentAtIndex:1];
-    
-    
-    for(NSString *stileKey in [dao listStiliKeys]){
-        Stile *stile = [dao getStileEntity:stileKey];
-        [segmentfiltroStile setImage:[dao getImageFromStile:stile] forSegmentAtIndex:[stile.id intValue]-1];
+- (NSArray *)buttons:(ButtonSegmentControl *)buttonSegmentControl{
+    if([buttonSegmentControl.tag isEqualToString:@"orderBy"]){
+        return segmentOrderBy;
     }
+    else if([buttonSegmentControl.tag isEqualToString:@"stili"]){
+        return segmentStili;
+    }
+    return nil;
+}
+
+
+- (void)buttonSegmentControl:(ButtonSegmentControl *)buttonControl  selectedButton:(UIButton *)button selectedIndex:(NSInteger)selectedIndex{
     
-    [segmentfiltroStile setImage:
-     [dao getImageFromSection:@"CoverView" type:@"icona_stile_all"] forSegmentAtIndex:[[dao listStiliKeys] count]];
+    if([buttonControl.tag isEqualToString:@"orderBy"]){
+        [self changeOrderBy:selectedIndex];
+    }
+    else if([buttonControl.tag isEqualToString:@"stili"]){
+        [self changeStile:selectedIndex];
+    }
+}
+
+- (void)initInputType{
+    
+    //Seleziona ordinamento
+    [self.orderBy_gradimento setImage:[dao getImageFromSection:@"CoverView" type:@"icona_ordina_data"] forState: UIControlStateNormal];
+    [self.orderBy_data setImage:[dao getImageFromSection:@"CoverView" type:@"icona_ordina_gradimento"] forState: UIControlStateNormal];
+    
+    segmentOrderBy = [[NSArray alloc] initWithObjects:self.orderBy_data,self.orderBy_gradimento, nil];
+    orderBy = [[ButtonSegmentControl alloc] init:@"orderBy"];
+    orderBy.delegate = self;
+    orderBy.selectedIndex = 0;
+    
+    
+    
+    //Seleziona Stili
+    NSArray *stiliKeys = [dao listStiliKeys];
+    Stile *stile;
+    stile = [dao getStileEntity:[stiliKeys objectAtIndex:0]];
+    [self.stile_1 setImage:[dao getImageFromStile:stile] forState: UIControlStateNormal];
+    stile = [dao getStileEntity:[stiliKeys objectAtIndex:1]];
+    [self.stile_2 setImage:[dao getImageFromStile:stile] forState: UIControlStateNormal];
+    stile = [dao getStileEntity:[stiliKeys objectAtIndex:2]];
+    [self.stile_3 setImage:[dao getImageFromStile:stile] forState: UIControlStateNormal]; 
+
+    [self.stile_4 setImage:[dao getImageFromSection:@"CoverView" type:@"icona_stile_all"] forState: UIControlStateNormal];
+    
+    segmentStili = [[NSArray alloc] initWithObjects:self.stile_1,self.stile_2,self.stile_3, self.stile_4, nil];
+    filterStili = [[ButtonSegmentControl alloc] init:@"stili"];
+    filterStili.delegate = self;
+    filterStili.selectedIndex = 0;
+    
+    
+    
+    
+    
     
     
     for(NSString *currStagioneKey in [dao listStagioniKeys]){
@@ -231,12 +277,10 @@ static CGRect frameCover;
 }
 
 
--(IBAction)changeStile:(id)sender{
-    UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
-    NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
-
-    if(selectedSegment < [dao.listStiliKeys count]){
-        localCurrStile = [dao.listStiliKeys objectAtIndex:selectedSegment] ;
+-(void)changeStile:(NSInteger)selectedIndex{
+   
+    if(selectedIndex < [dao.listStiliKeys count]){
+        localCurrStile = [dao.listStiliKeys objectAtIndex:selectedIndex] ;
     }
     else{
         localCurrStile = nil;
@@ -246,15 +290,13 @@ static CGRect frameCover;
     [self reloadVestiti:nil];
 }
 
--(IBAction)changeOrderBy:(id)sender{
+-(void)changeOrderBy:(NSInteger)selectedIndex{
     
-    UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
-    NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
     NSString *sortKey;
     
     [localCurrOrderBy release];
     localCurrOrderBy = nil;
-    if(selectedSegment == 1){
+    if(selectedIndex == 1){
         sortKey = @"gradimento";
         [self addLocalCurrOrderBy:sortKey];
     }
@@ -336,6 +378,8 @@ static CGRect frameCover;
     [segmentcontrol release];
     [segmentfiltroStile release];
     [segmentOrderBy release];
+    [orderBy_data release];
+    [orderBy_gradimento release];
     [coverBtn release];
     [coverView release];
     [currstate release];
