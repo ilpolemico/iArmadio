@@ -388,7 +388,13 @@
 {
     modifyImageCloth = NO;
     if((selectController != nil)&&([selectController getIndex] != -1)){
-         self.tipologiaLabel.text = [dao getTipoEntity:[dao.listTipiKeys objectAtIndex:[selectController getIndex] ]].nome;
+        
+        Tipologia *entity =  [dao getTipoEntity:[dao.listTipiKeys objectAtIndex:[selectController getIndex] ]];
+        
+         self.tipologiaLabel.text = entity.nome;
+        
+        [self.tipologiaBtn setImage:[dao getImageFromTipo:entity] forState:UIControlStateNormal];
+ 
         
         [selectController release];
         selectController = nil;    
