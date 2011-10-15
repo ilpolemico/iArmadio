@@ -21,6 +21,19 @@
 }
 
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+}
+
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -40,35 +53,18 @@
 
 #pragma mark - View lifecycle
 
-- (void)reloadCassetti{
-    if(tipologie != nil){
-        [tipologie release];
-    }
-    
-    tipologie = [NSMutableArray arrayWithArray:dao.listTipiKeys];
-    [tipologie retain];             
-}
 
 - (void)reloadCassetti:(NSNotification *)pNotification{
-    [self reloadCassetti];
     [(UITableView *)self.view reloadData];
 }
 
-- (void)correctFrame:(UIView *)viewWithWrongFrame {
-    CGRect correctedFrame = [[viewWithWrongFrame superview] frame];
-    correctedFrame.size.height = correctedFrame.size.height - self.navigationController.navigationBar.frame.size.height; /* Height without Navigation Bar */
-    correctedFrame.origin.y = correctedFrame.origin.y + self.navigationController.navigationBar.frame.size.height; /* Origin below Navigation Bar */
-    [viewWithWrongFrame setFrame:correctedFrame];
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     dao = [IarmadioDao shared]; 
-    //[self correctFrame:[self.navigationController.view.subviews objectAtIndex:0]];
-    //[self.tableView setContentInset:UIEdgeInsetsMake(-self.navigationController.navigationBar.frame.size.height, 0, 0, 0)];
-    
-    self.view.backgroundColor = [UIColor clearColor];;
+    [CurrState shared].currSection = SECTION_ARMADIO;
+    self.view.backgroundColor = [UIColor clearColor];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadCassetti:) name:ADD_CLOTH_EVENT object:nil];
     
@@ -76,16 +72,8 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadCassetti:) name:DEL_CLOTH_EVENT object:nil];
     
-    [self reloadCassetti];
+    //[self reloadCassetti];
     
-    //self.navigationItem.rightBarButtonItem = self.add;
-    
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
@@ -95,45 +83,19 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-}
-- (void)viewWillAppear:(BOOL)animated {
-    //[self performSelectorOnMainThread:@selector(cleanDisplay) withObject:nil waitUntilDone:NO];
-    
-}
 
 
-
-- (void)viewDidAppear:(BOOL)animated
-{
-   [super viewDidAppear:animated];
-}
-
-
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    
     return [dao.category count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"Category: %@ numelement: %d",[dao.listCategoryKeys objectAtIndex:section],[[dao.category objectForKey:[dao.listCategoryKeys objectAtIndex:section]] count]);
     return [[dao.category objectForKey:[dao.listCategoryKeys objectAtIndex:section]] count];
 }
 
@@ -148,7 +110,7 @@
     NSString *category = [dao.listCategoryKeys objectAtIndex:indexPath.section];
     
     
-    tipologie = [dao.category objectForKey:category];
+    NSMutableArray *tipologie = [dao.category objectForKey:category];
     
     NSArray *tmp = [[[NSArray alloc] initWithObjects:[tipologie objectAtIndex:indexPath.row],nil] autorelease];
     
@@ -178,7 +140,7 @@
     
     
     NSString *category = [dao.listCategoryKeys objectAtIndex:indexPath.section];
-    tipologie = [dao.category objectForKey:category];
+    NSMutableArray *tipologie = [dao.category objectForKey:category];
 
     
     if(delegateController != nil){
@@ -202,18 +164,6 @@
     }
          
 }
-
-
-- (void)cleanDisplay {
-    //[self.tableView setContentInset:UIEdgeInsetsZero]; /* Fix difference between horizontal and vertical orientation. */
-}
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration {
-    [self correctFrame:[self.navigationController.view.subviews objectAtIndex:0]]; /* Correct the frame so it is after the Navigation Bar */
-    
-    /* Clean the display after turning... */
-    [self performSelectorOnMainThread:@selector(cleanDisplay) withObject:nil waitUntilDone:NO];
-}
-
 
 
 

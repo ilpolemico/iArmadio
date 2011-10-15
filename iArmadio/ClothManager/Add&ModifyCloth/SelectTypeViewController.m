@@ -49,7 +49,7 @@
     
     IarmadioDao *dao = [IarmadioDao shared];
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:@"SelectTypeView" type:@"background"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
     
     
     selectedIndexPath = nil;

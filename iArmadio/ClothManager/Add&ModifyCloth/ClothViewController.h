@@ -12,11 +12,12 @@
 #import "SelectTypeViewController.h"
 #import "IarmadioDao.h"
 #import "ClothTableViewController.h"
+#import "ButtonSegmentControl.h"
 
 
 @class SelectTypeViewController;
 
-@interface ClothViewController : UIViewController <UIScrollViewDelegate,UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate> {
+@interface ClothViewController : UIViewController <UIScrollViewDelegate,UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, ButtonSegmentDelegate> {
     
     SelectTypeViewController *selectController;
     UIImageView * imageView;
@@ -29,10 +30,6 @@
     IBOutlet UIBarButtonItem *undoButton;
     IBOutlet UIButton *tipologiaBtn;
     IBOutlet UILabel *tipologiaLabel;
-    
-    IBOutlet UISegmentedControl *stagione;
-    IBOutlet UISegmentedControl *gradimento;
-    IBOutlet UISegmentedControl *stile;
     
     IBOutlet UIToolbar *toolbar;
     IBOutlet UIBarButtonItem *trash;
@@ -48,8 +45,40 @@
     int lastScaleFactor, netRotation;
     
     
+    //Stili
+    ButtonSegmentControl *choiceStile;
+    NSArray *segmentStile;
+    IBOutlet UIButton *stile_1;
+    IBOutlet UIButton *stile_2;
+    IBOutlet UIButton *stile_3;
+    
+    //Stagioni
+    ButtonSegmentControl *choiceStagione;
+    NSArray *segmentStagione;
+    IBOutlet UIButton *stagione_1;
+    IBOutlet UIButton *stagione_2;
+    IBOutlet UIButton *stagione_3;
+    
+    //Gradimento
+    ButtonSegmentControl *choiceGradimento;
+    NSArray *segmentGradimento;
+    IBOutlet UIButton *gradimento_1;
+    IBOutlet UIButton *gradimento_2;
+    IBOutlet UIButton *gradimento_3;
+
       
 }
+
+@property (nonatomic, retain )IBOutlet UIButton *stile_1;
+@property (nonatomic, retain )IBOutlet UIButton *stile_2;
+@property (nonatomic, retain )IBOutlet UIButton *stile_3;
+@property (nonatomic, retain )IBOutlet UIButton *stagione_1;
+@property (nonatomic, retain )IBOutlet UIButton *stagione_2;
+@property (nonatomic, retain )IBOutlet UIButton *stagione_3;
+@property (nonatomic, retain )IBOutlet UIButton *gradimento_1;
+@property (nonatomic, retain )IBOutlet UIButton *gradimento_2;
+@property (nonatomic, retain )IBOutlet UIButton *gradimento_3;
+
 
 @property (nonatomic, retain ) IBOutlet NSString *currStile;
 @property (nonatomic, retain ) IBOutlet NSString *currTipologia;
@@ -64,9 +93,7 @@
 
 @property (nonatomic, retain) IBOutlet IBOutlet UIButton *tipologiaBtn;
 @property (nonatomic, retain) IBOutlet IBOutlet UILabel  *tipologiaLabel;
-@property (nonatomic, retain) IBOutlet UISegmentedControl *stagione;
-@property (nonatomic, retain) IBOutlet UISegmentedControl *gradimento;
-@property (nonatomic, retain) IBOutlet UISegmentedControl *stile;
+
 
 
 

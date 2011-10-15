@@ -10,6 +10,8 @@
 #import <CoreData/CoreData.h>
 #import "IarmadioDao.h"
 #import "GeoLocal.h"
+#import "Configuration.h"
+#import "ExtendTabBarController.h"
 
 
 

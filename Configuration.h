@@ -18,8 +18,18 @@
 #define MAX_CLOTH 100
 
 
-#define SECTION_COVERFLOW "COVERFLOW"
-#define SECTION_ARMADIO "ARMADIO"
+
+#define SECTION_ARMADIO   @"ArmadioTableView"
+#define SECTION_COVERFLOW @"CoverView"
+#define SECTION_CLOTHVIEW @"ClothView"
+#define SECTION_CLOTHMANAGERVIEW @"ClothManagerView"
+
+#define SECTION_LOOKVIEW @"LookView"
+#define SECTION_LOOKMANAGERVIEW @"LookManagerView"
+
+#define SECTION_FAVORITES @"FavoritesView"
+#define SECTION_PREFERENCE @"PreferenceView"
+
 
 @interface Configuration : NSObject
 

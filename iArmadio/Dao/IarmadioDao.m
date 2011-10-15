@@ -766,7 +766,9 @@ static IarmadioDao *singleton;
     [self loadTipologie:TIPOLOGIA_PLIST];
     [self loadStagioni:STAGIONE_PLIST];
     [self loadStili:STILE_PLIST];
-    //[self debugDB];
+    [self tipiEntities];
+    [self stiliEntities];
+    [self stagioniEntities];
 }
 
 

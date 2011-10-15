@@ -15,7 +15,7 @@
 @implementation iArmadioAppDelegate
 
 
-@synthesize window = _window;
+@synthesize window;
 @synthesize tabBarController;
 @synthesize tabBarArrow;
 
@@ -121,7 +121,7 @@
 }
 - (void)dealloc
 {
-    [_window release];
+    [window release];
     [dao release];
     [geolocal release];
     [tabBarController release];

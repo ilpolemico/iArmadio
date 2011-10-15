@@ -86,17 +86,18 @@
     else if (buttonIndex == 1) {
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         picker.allowsEditing = YES;
-        [((iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate]).tabBarController presentModalViewController:picker animated:YES];
+        [((iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate]). tabBarController presentModalViewController:picker animated:YES];
         [picker release];
     } 
-    [self dismissModalViewControllerAnimated:YES];
+    else{
+        [self dismissModalViewControllerAnimated:YES];
+    }    
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image
                   editingInfo:(NSDictionary *)editingInfo 
 {
 	[picker dismissModalViewControllerAnimated:NO];
-    
     ClothViewController *addviewcontroller = [[ClothViewController alloc] initWithNibName:@"ClothView" bundle:nil setImage: image];
     
     [((iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate]).tabBarController presentModalViewController:addviewcontroller animated:YES];

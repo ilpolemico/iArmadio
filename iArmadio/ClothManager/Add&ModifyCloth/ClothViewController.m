@@ -14,15 +14,21 @@
 
 
 @synthesize imageView, 
+            stile_1,
+            stile_2,
+            stile_3,
+            stagione_1,
+            stagione_2,
+            stagione_3,
+            gradimento_1,
+            gradimento_2,
+            gradimento_3,
             undoButton, 
             saveButton, 
             tipologiaBtn, 
             tipologiaLabel,
-            stagione, 
-            gradimento, 
             scrollview, 
             addNavigationBar,
-            stile,
             toolbar,
             currTipologia,
             currStile,
@@ -61,13 +67,20 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
+    
     dao = [IarmadioDao shared];
+    
+    [CurrState shared].currSection = SECTION_CLOTHVIEW;
+    NSLog(@"%@",[CurrState shared].currSection);
+    
     [self initInputType];
     lastScaleFactor = 0;
     
     
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:@"ClothView" type:@"background"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     
     //Edit image
@@ -148,7 +161,7 @@
         NSNumber *grad = vestito.gradimento;
         
         if(grad != nil){
-            gradimento.selectedSegmentIndex = grad.intValue;
+            choiceGradimento.selectedIndex = grad.intValue;
         } 
         
         NSString *stagioneKey = vestito.perLaStagione.stagione;
@@ -162,34 +175,56 @@
         if([vestito.conStile count] > 0){
             NSArray *stili = [vestito.conStile allObjects];
             Stile *tmp = [stili objectAtIndex:0];
-            stile.selectedSegmentIndex = [tmp.id intValue]-1;
+            choiceStile.selectedIndex = [tmp.id intValue]-1;
         }
         
     }
 
-    [super viewDidLoad];
+   
    
 }
 
 - (void)initInputType{
-    for(NSString *stileKey in [dao listStiliKeys]){
-        Stile *_stile = [dao getStileEntity:stileKey];
-        [stile setImage:[dao getImageFromStile:_stile] forSegmentAtIndex:[_stile.id intValue]-1];
-        
-    }
+    //Seleziona Stili
+    NSArray *stiliKeys = [dao listStiliKeys];
+    Stile *stile;
+    stile = [dao getStileEntity:[stiliKeys objectAtIndex:0]];
+    [self.stile_1 setImage:[dao getImageFromStile:stile] forState: UIControlStateNormal];
+    stile = [dao getStileEntity:[stiliKeys objectAtIndex:1]];
+    [self.stile_2 setImage:[dao getImageFromStile:stile] forState: UIControlStateNormal];
+    stile = [dao getStileEntity:[stiliKeys objectAtIndex:2]];
+    [self.stile_3 setImage:[dao getImageFromStile:stile] forState: UIControlStateNormal]; 
     
-    for(NSString *currStagioneKey in [dao listStagioniKeys]){
-        Stagione *_stagione = [dao getStagioneEntity:currStagioneKey];
-        [stagione setImage:[dao getImageFromStagione:_stagione] forSegmentAtIndex:[_stagione.id intValue]];
-        
-    }
+    segmentStile = [[NSArray alloc] initWithObjects:self.stile_1,self.stile_2,self.stile_3, nil];
+    choiceStile = [[ButtonSegmentControl alloc] init:@"stili"];
+    choiceStile.delegate = self;
+    choiceStile.selectedIndex = 0;
     
-    for(int i=0;i<3;i++){
-        NSString *type = [@"icona_gradimento_" stringByAppendingString:[NSString stringWithFormat:@"%d",i+1]];
-        NSLog(@"%@",type);
-        [gradimento setImage:[dao getImageFromSection:@"ClothView" type:type] forSegmentAtIndex:i];
-    }
-
+    
+    NSArray *stagioniKeys = [dao listStagioniKeys];
+    Stagione *stagione;
+    stagione = [dao getStagioneEntity:[stagioniKeys objectAtIndex:0]];
+    [self.stagione_1 setImage:[dao getImageFromStagione:stagione] forState: UIControlStateNormal];
+    stagione = [dao getStagioneEntity:[stagioniKeys objectAtIndex:1]];
+    [self.stagione_2 setImage:[dao getImageFromStagione:stagione] forState: UIControlStateNormal];
+    stagione = [dao getStagioneEntity:[stagioniKeys objectAtIndex:2]];
+    [self.stagione_3 setImage:[dao getImageFromStagione:stagione] forState: UIControlStateNormal]; 
+    
+    segmentStagione = [[NSArray alloc] initWithObjects:self.stagione_1,self.stagione_2,self.stagione_3, nil];
+    choiceStagione = [[ButtonSegmentControl alloc] init:@"stagioni"];
+    choiceStagione.delegate = self;
+    choiceStagione.selectedIndex = 0;
+    
+    
+    [self.gradimento_1 setImage:[dao getImageFromSection:[CurrState shared].currSection type:@"icona_gradimento_1"] forState: UIControlStateNormal];
+    [self.gradimento_2 setImage:[dao getImageFromSection:[CurrState shared].currSection type:@"icona_gradimento_2"] forState: UIControlStateNormal];
+    [self.gradimento_3 setImage:[dao getImageFromSection:[CurrState shared].currSection type:@"icona_gradimento_3"] forState: UIControlStateNormal]; 
+    
+    segmentGradimento = [[NSArray alloc] initWithObjects:self.gradimento_1,self.gradimento_2,self.gradimento_3, nil];
+    choiceGradimento = [[ButtonSegmentControl alloc] init:@"gradimento"];
+    choiceGradimento.delegate = self;
+    choiceGradimento.selectedIndex = 0;
+    
     
 }
 
@@ -227,6 +262,7 @@
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if(buttonIndex != 0){
+        [CurrState shared].currSection = [CurrState shared].oldCurrSection;
         [dao delVestitoEntity:vestito];
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
@@ -242,17 +278,18 @@
 	
    NSString *nametipo = self.tipologiaLabel.text; 
    NSArray *tipi = [[NSArray alloc] initWithObjects:nametipo,nil];
+   [CurrState shared].currSection = [CurrState shared].oldCurrSection;
    
    NSMutableArray *stili = [[NSMutableArray alloc] init];
-   if(stile.selectedSegmentIndex < [dao.listStiliKeys count]){
-       [stili addObject:[dao.listStiliKeys objectAtIndex:stile.selectedSegmentIndex]];
+   if(choiceStile.selectedIndex < [dao.listStiliKeys count]){
+       [stili addObject:[dao.listStiliKeys objectAtIndex:choiceStile.selectedIndex]];
    }
    
     
-    NSString *scelta_stagione = [[dao listStagioniKeys] objectAtIndex:stagione.selectedSegmentIndex] ;
+    NSString *scelta_stagione = [[dao listStagioniKeys] objectAtIndex:choiceStagione.selectedIndex] ;
     
     if(addCloth){ 
-        [dao addVestitoEntity:[self.imageView.image normal] gradimento:gradimento.selectedSegmentIndex tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili];
+        [dao addVestitoEntity:[self.imageView.image normal] gradimento:choiceGradimento.selectedIndex tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili];
     }
     else{
         UIImage *tmp = nil;
@@ -260,14 +297,15 @@
             tmp = [self.imageView.image normal];
         }    
         
-        [dao modifyVestitoEntity:vestito image:tmp  isNew:NO gradimento:gradimento.selectedSegmentIndex tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili];
+        [dao modifyVestitoEntity:vestito image:tmp  isNew:NO gradimento:choiceGradimento.selectedIndex tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili];
             modifyImageCloth = NO;
     }
     
     [tipi release];
     [stili release];
     CurrState *currstate = [CurrState shared];
-    currstate.currStagioneIndex = [NSNumber numberWithInteger:stagione.selectedSegmentIndex]; 
+    currstate.currStagioneIndex = [NSNumber numberWithInteger:choiceStagione.selectedIndex]; 
+    
     [self dismissModalViewControllerAnimated:YES];
     
 }
@@ -275,12 +313,13 @@
 
 
 -(IBAction) undoCloth:(id) sender{
+   [CurrState shared].currSection = [CurrState shared].oldCurrSection;
    [self dismissModalViewControllerAnimated:YES];
 }
 
 
 - (void)initStagioniEntities:(NSNumber *)stagioneIndex{
-    stagione.selectedSegmentIndex = [stagioneIndex intValue];
+    choiceStagione.selectedIndex = [stagioneIndex intValue];
 }
 
 - (IBAction)segmentSwitch:(id)sender {
@@ -387,6 +426,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     modifyImageCloth = NO;
+    
+    
     if((selectController != nil)&&([selectController getIndexPath] != nil)){
         NSString *category = [dao.listCategoryKeys objectAtIndex:[selectController getIndexPath].section];
         
@@ -409,6 +450,34 @@
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
+}
+
+- (NSArray *)buttons:(ButtonSegmentControl *)buttonSegmentControl{
+    if([buttonSegmentControl.tag isEqualToString:@"stili"]){
+        return segmentStile;
+    }
+    else if([buttonSegmentControl.tag isEqualToString:@"stagioni"]){
+        return segmentStagione;
+    }
+    else if([buttonSegmentControl.tag isEqualToString:@"gradimento"]){
+        return segmentGradimento;
+    }
+    return nil;
+}
+
+
+- (void)buttonSegmentControl:(ButtonSegmentControl *)buttonControl  selectedButton:(UIButton *)button selectedIndex:(NSInteger)selectedIndex{
+    
+    if([buttonControl.tag isEqualToString:@"stili"]){
+        choiceStile.selectedIndex = selectedIndex;
+    }
+    else if([buttonControl.tag isEqualToString:@"stagioni"]){
+        choiceStagione.selectedIndex = selectedIndex;
+    }
+    else if([buttonControl.tag isEqualToString:@"gradimento"]){
+        choiceGradimento.selectedIndex = selectedIndex;
+    }
+    
 }
 
 

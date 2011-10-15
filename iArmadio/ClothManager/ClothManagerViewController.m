@@ -31,7 +31,7 @@
         captureClothController = nil;
         
     }
-    currstate.currSection = @"ARMADIO";
+    [CurrState shared].currSection = SECTION_ARMADIO;
     captureClothController = [[CaptureClothController alloc] initWithNibName:@"CaptureClothController" bundle:nil parentController:self  iterator:NO];
     [self.view addSubview:captureClothController.view];
 }
@@ -40,7 +40,11 @@
 - (void)addIterator:(NSNotification *)notification
 {
    
-    if([currstate.currSection isEqualToString:@"ARMADIO"]){
+    if
+       ([currstate.currSection isEqualToString:SECTION_ARMADIO])
+        
+    {
+        
         if(captureClothController != nil){
             [captureClothController.view removeFromSuperview];
             [captureClothController release];
@@ -59,11 +63,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [CurrState shared].currSection = SECTION_CLOTHMANAGERVIEW;
     navcontroler.delegate = self; 
     dao = [IarmadioDao shared];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:@"ClothManagerView" type:@"background"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
     currstate = [CurrState shared];
-    currstate.currSection = @"ARMADIO";
+    currstate.currSection = SECTION_ARMADIO;
     [self.view addSubview:navcontroler.view];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addIterator:) name:ADD_CLOTH_EVENT object:nil];
     
@@ -71,6 +76,8 @@
 
 
 - (void)viewWillAppear:(BOOL)animated{
+    
+    [CurrState shared].currSection = SECTION_CLOTHMANAGERVIEW;
 }
 
 

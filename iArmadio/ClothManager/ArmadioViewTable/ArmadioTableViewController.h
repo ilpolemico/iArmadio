@@ -16,14 +16,12 @@
 @class CoverViewController;
 @class SelectTypeViewController;
 
-@interface ArmadioTableViewController : UITableViewController{
+@interface ArmadioTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>{
     IarmadioDao *dao;
     SelectTypeViewController *delegateController;
-    NSMutableArray *tipologie;
     CoverViewController *coverviewcontroller;
 }
 
 - initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)bundle delegateController:(id)delegateController;
-- (void)reloadCassetti; 
 - (void)reloadCassetti:(NSNotification *)pNotification;  
 @end

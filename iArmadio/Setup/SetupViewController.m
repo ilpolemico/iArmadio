@@ -33,7 +33,7 @@
 {
     [super viewDidLoad];
     dao = [IarmadioDao shared]; 
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:@"SetupView" type:@"background"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
     // Do any additional setup after loading the view from its nib.
 }
 

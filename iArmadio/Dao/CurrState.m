@@ -9,7 +9,7 @@
 #import "CurrState.h"
 
 @implementation CurrState
-@synthesize currStagioneKey,currStagioneIndex,currStile,currEventi,currTipologia,currGradimento, currSection;
+@synthesize currStagioneKey,currStagioneIndex,currStile,currEventi,currTipologia,currGradimento, currSection, oldCurrSection;
 
 
 static CurrState *singleton;
@@ -107,6 +107,11 @@ static CurrState *singleton;
 }
 -(NSNumber *)currGradimento{
     return currGradimento;
+}
+
+-(void)setCurrSection:(NSString *)section{
+    oldCurrSection = currSection;
+    currSection = section;
 }
 
 @end

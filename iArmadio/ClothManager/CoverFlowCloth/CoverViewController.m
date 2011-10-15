@@ -104,7 +104,12 @@ static CGRect frameCover;
 #pragma mark - View lifecycle
 
 - (void)reloadVestiti:(NSNotification *)pNotification{
-   if([currstate.currSection isEqualToString:@"COVERFLOW"]){
+   if(
+      ([currstate.currSection isEqualToString:SECTION_COVERFLOW])
+       ||
+      ([currstate.oldCurrSection isEqualToString:SECTION_COVERFLOW]) 
+     ) 
+    {
         [self reloadVestiti];
         if([pNotification.name isEqualToString:ADD_CLOTH_EVENT]){
             [self addIterator];
@@ -139,6 +144,7 @@ static CGRect frameCover;
     
     dao = [IarmadioDao shared];
     currstate = [CurrState shared];
+    currstate.currSection = SECTION_COVERFLOW;
     [self initInputType];
     
     
@@ -158,7 +164,7 @@ static CGRect frameCover;
     segmentfiltroStile.selectedSegmentIndex = 0;
     segmentcontrol.selectedSegmentIndex = [currstate.currStagioneIndex intValue];
     segmentfiltroStile.enabled = YES;
-    currstate.currSection = @"COVERFLOW";
+    currstate.currSection = SECTION_COVERFLOW;
     [self.view setUserInteractionEnabled:TRUE];
     [self reloadVestiti:nil];
     
@@ -193,8 +199,8 @@ static CGRect frameCover;
 - (void)initInputType{
     
     //Seleziona ordinamento
-    [self.orderBy_gradimento setImage:[dao getImageFromSection:@"CoverView" type:@"icona_ordina_data"] forState: UIControlStateNormal];
-    [self.orderBy_data setImage:[dao getImageFromSection:@"CoverView" type:@"icona_ordina_gradimento"] forState: UIControlStateNormal];
+    [self.orderBy_gradimento setImage:[dao getImageFromSection:[CurrState shared].currSection type:@"icona_ordina_data"] forState: UIControlStateNormal];
+    [self.orderBy_data setImage:[dao getImageFromSection:[CurrState shared].currSection type:@"icona_ordina_gradimento"] forState: UIControlStateNormal];
     
     segmentOrderBy = [[NSArray alloc] initWithObjects:self.orderBy_data,self.orderBy_gradimento, nil];
     orderBy = [[ButtonSegmentControl alloc] init:@"orderBy"];
@@ -213,7 +219,7 @@ static CGRect frameCover;
     stile = [dao getStileEntity:[stiliKeys objectAtIndex:2]];
     [self.stile_3 setImage:[dao getImageFromStile:stile] forState: UIControlStateNormal]; 
 
-    [self.stile_4 setImage:[dao getImageFromSection:@"CoverView" type:@"icona_stile_all"] forState: UIControlStateNormal];
+    [self.stile_4 setImage:[dao getImageFromSection:[CurrState shared].currSection type:@"icona_stile_all"] forState: UIControlStateNormal];
     
     segmentStili = [[NSArray alloc] initWithObjects:self.stile_1,self.stile_2,self.stile_3, self.stile_4, nil];
     filterStili = [[ButtonSegmentControl alloc] init:@"stili"];
@@ -232,7 +238,7 @@ static CGRect frameCover;
     }
     
     [segmentcontrol setImage:
-     [dao getImageFromSection:@"CoverView" type:@"icona_stagione_all"] forSegmentAtIndex:[[dao listStagioniKeys] count]];
+     [dao getImageFromSection:[CurrState shared].currSection type:@"icona_stagione_all"] forSegmentAtIndex:[[dao listStagioniKeys] count]];
 
 
 }
@@ -258,7 +264,7 @@ static CGRect frameCover;
         captureClothController = nil;
         
     }
-    currstate.currSection = @"COVERFLOW";
+    currstate.currSection = SECTION_COVERFLOW;
     
     captureClothController = [[CaptureClothController alloc] initWithNibName:@"CaptureClothController" bundle:nil parentController:self  iterator:NO];
     [self.view addSubview:captureClothController.view];
@@ -310,7 +316,7 @@ static CGRect frameCover;
 - (void)addIterator
 {
     
-    if([currstate.currSection isEqualToString:@"COVERFLOW"]){
+    if([currstate.currSection isEqualToString:SECTION_COVERFLOW]){
         if(captureClothController != nil){
             [captureClothController.view removeFromSuperview];
             [captureClothController release];
@@ -339,6 +345,7 @@ static CGRect frameCover;
 
 - (void)flowCover:(FlowCoverView *)view didSelect:(int)image
 {
+    NSLog(@"new:%@ - old:%@",currstate.currSection, currstate.oldCurrSection);
 	if([vestiti count] > image){
         ClothViewController *getviewcontroller = [[ClothViewController alloc] initWithNibName:@"ClothView" bundle:nil getVestito: [vestiti objectAtIndex:image]];
         
@@ -364,6 +371,7 @@ static CGRect frameCover;
 }
 
 -(void) viewWillAppear:(BOOL)animated{
+    [CurrState shared].currSection = SECTION_COVERFLOW;
 }
 
 
