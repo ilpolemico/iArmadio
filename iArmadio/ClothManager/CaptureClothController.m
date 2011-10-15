@@ -97,11 +97,16 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image
                   editingInfo:(NSDictionary *)editingInfo 
 {
+    [CurrState shared].currSection = SECTION_TRANSIENT;
 	[picker dismissModalViewControllerAnimated:NO];
-    ClothViewController *addviewcontroller = [[ClothViewController alloc] initWithNibName:@"ClothView" bundle:nil setImage: image];
     
+    [CurrState shared].currSection = [CurrState shared].oldCurrSection;
+    ClothViewController *addviewcontroller = [[ClothViewController alloc] initWithNibName:@"ClothView" bundle:nil setImage: image];
+  
+
     [((iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate]).tabBarController presentModalViewController:addviewcontroller animated:YES];
     [addviewcontroller release];
+     
     
 }
 

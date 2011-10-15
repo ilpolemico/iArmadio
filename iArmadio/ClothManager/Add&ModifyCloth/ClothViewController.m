@@ -422,12 +422,15 @@
     [self presentModalViewController:selectController animated:YES];
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [((iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate]).tabBarArrow setHidden:YES];
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
     modifyImageCloth = NO;
     
-    
+     
     if((selectController != nil)&&([selectController getIndexPath] != nil)){
         NSString *category = [dao.listCategoryKeys objectAtIndex:[selectController getIndexPath].section];
         

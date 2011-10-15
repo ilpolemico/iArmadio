@@ -31,7 +31,7 @@
         captureClothController = nil;
         
     }
-    [CurrState shared].currSection = SECTION_ARMADIO;
+    [CurrState shared].currSection = SECTION_CLOTHMANAGERVIEW;
     captureClothController = [[CaptureClothController alloc] initWithNibName:@"CaptureClothController" bundle:nil parentController:self  iterator:NO];
     [self.view addSubview:captureClothController.view];
 }
@@ -41,7 +41,7 @@
 {
    
     if
-       ([currstate.currSection isEqualToString:SECTION_ARMADIO])
+       ([currstate.currSection isEqualToString:SECTION_CLOTHMANAGERVIEW])
         
     {
         
@@ -68,7 +68,6 @@
     dao = [IarmadioDao shared];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
     currstate = [CurrState shared];
-    currstate.currSection = SECTION_ARMADIO;
     [self.view addSubview:navcontroler.view];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addIterator:) name:ADD_CLOTH_EVENT object:nil];
     

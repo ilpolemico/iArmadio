@@ -63,7 +63,6 @@
 {
     [super viewDidLoad];
     dao = [IarmadioDao shared]; 
-    [CurrState shared].currSection = SECTION_ARMADIO;
     self.view.backgroundColor = [UIColor clearColor];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadCassetti:) name:ADD_CLOTH_EVENT object:nil];

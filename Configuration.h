@@ -30,6 +30,8 @@
 #define SECTION_FAVORITES @"FavoritesView"
 #define SECTION_PREFERENCE @"PreferenceView"
 
+#define SECTION_TRANSIENT @"TransientView"
+
 
 @interface Configuration : NSObject
 

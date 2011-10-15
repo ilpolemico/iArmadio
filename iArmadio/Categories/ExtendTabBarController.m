@@ -30,13 +30,13 @@
     
     
     [super viewWillAppear:animated];
+
     
     if(
-        (![[CurrState shared].currSection isEqualToString:SECTION_CLOTHVIEW])
-        ||
-        (![[CurrState shared].oldCurrSection isEqualToString:SECTION_CLOTHVIEW])
+        (![[CurrState shared].currSection isEqualToString:SECTION_TRANSIENT])
       ) 
        {
+        NSLog(@"%@",[CurrState shared].currSection);   
         [[NSRunLoop currentRunLoop] addTimer: 
          [NSTimer timerWithTimeInterval:0.5 target:self selector:@selector(showArrow:) userInfo:nil repeats:NO] forMode:NSDefaultRunLoopMode];
     }    
