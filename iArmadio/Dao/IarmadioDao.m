@@ -13,6 +13,8 @@
 
 @implementation IarmadioDao
 
+@synthesize category,listCategoryKeys;
+
 static IarmadioDao *singleton;
 
 + (IarmadioDao *)shared{
@@ -442,7 +444,13 @@ static IarmadioDao *singleton;
         
         NSMutableArray *sortDescriptors = [[[NSMutableArray alloc] init] autorelease];
         
-        NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"order" ascending:YES] autorelease];
+        NSSortDescriptor * sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"category" ascending:YES] autorelease];
+        [sortDescriptors addObject:sortDescriptor];
+        
+        sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"order" ascending:YES] autorelease];
+        [sortDescriptors addObject:sortDescriptor];
+        
+        sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"category" ascending:YES] autorelease];
         [sortDescriptors addObject:sortDescriptor];
         
 		[allItem setEntity:[NSEntityDescription entityForName:@"Tipologia" inManagedObjectContext:self.managedObjectContext]];
@@ -461,9 +469,23 @@ static IarmadioDao *singleton;
         
         tipiEntities = [[NSMutableDictionary alloc] init];
         listTipiKeys = [[NSMutableArray alloc] init];
+        category = [[NSMutableDictionary alloc] init];
+        listCategoryKeys = [[NSMutableArray alloc] init];
+        NSString *currCategory = @"";
         for (Tipologia *obj in entities) {
             [tipiEntities setObject:obj forKey:obj.nome];
             [listTipiKeys addObject:obj.nome];
+            NSMutableArray *tmp = [category objectForKey:obj.category];
+            if(tmp == nil){
+                tmp = [[[NSMutableArray alloc] init] autorelease];
+            }
+            [tmp addObject:obj.nome];
+            [category setValue:tmp forKey:obj.category];
+            NSLog(@"%@",obj.category);
+            if(![currCategory isEqualToString:obj.category]){
+                currCategory = obj.category;
+                [listCategoryKeys addObject:obj.category];
+            }    
         }
 	}
 	return tipiEntities;
@@ -624,13 +646,14 @@ static IarmadioDao *singleton;
             }
             NSString *icon = (NSString *)[type objectForKey:@"icon"];
             NSString *order = (NSString *)[type objectForKey:@"order"];
+            NSString *categoria = (NSString *)[type objectForKey:@"category"];
             NSManagedObject *tipologia = [NSEntityDescription insertNewObjectForEntityForName:@"Tipologia" inManagedObjectContext:self.managedObjectContext];
             [tipologia setValue:key forKey:@"id"];
             [tipologia setValue:single forKey:@"nome"];
             [tipologia setValue:plural forKey:@"plural"];
             [tipologia setValue:icon forKey:@"icon"];
+            [tipologia setValue:categoria forKey:@"category"];
             [tipologia setValue:[NSNumber numberWithInteger:[order integerValue]] forKey:@"order"];
-            
             
         }
         
@@ -902,6 +925,8 @@ static IarmadioDao *singleton;
     [listTipiKeys release];
     [listStagioniKeys release];
     [listStiliKeys release];
+    [listCategoryKeys release];
+    [category release];
     [stagioniEntities release];
     [currStagioneKey release];
     [singleton release];

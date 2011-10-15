@@ -54,10 +54,19 @@
     [(UITableView *)self.view reloadData];
 }
 
+- (void)correctFrame:(UIView *)viewWithWrongFrame {
+    CGRect correctedFrame = [[viewWithWrongFrame superview] frame];
+    correctedFrame.size.height = correctedFrame.size.height - self.navigationController.navigationBar.frame.size.height; /* Height without Navigation Bar */
+    correctedFrame.origin.y = correctedFrame.origin.y + self.navigationController.navigationBar.frame.size.height; /* Origin below Navigation Bar */
+    [viewWithWrongFrame setFrame:correctedFrame];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     dao = [IarmadioDao shared]; 
+    //[self correctFrame:[self.navigationController.view.subviews objectAtIndex:0]];
+    //[self.tableView setContentInset:UIEdgeInsetsMake(-self.navigationController.navigationBar.frame.size.height, 0, 0, 0)];
     
     self.view.backgroundColor = [UIColor clearColor];;
     
@@ -86,20 +95,21 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
+- (void)viewWillDisappear:(BOOL)animated {
 }
+- (void)viewWillAppear:(BOOL)animated {
+    //[self performSelectorOnMainThread:@selector(cleanDisplay) withObject:nil waitUntilDone:NO];
+    
+}
+
+
 
 - (void)viewDidAppear:(BOOL)animated
 {
    [super viewDidAppear:animated];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-}
+
 
 - (void)viewDidDisappear:(BOOL)animated
 {
@@ -117,12 +127,14 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    
+    return [dao.category count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [tipologie count];
+    NSLog(@"Category: %@ numelement: %d",[dao.listCategoryKeys objectAtIndex:section],[[dao.category objectForKey:[dao.listCategoryKeys objectAtIndex:section]] count]);
+    return [[dao.category objectForKey:[dao.listCategoryKeys objectAtIndex:section]] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -133,10 +145,17 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
     
+    NSString *category = [dao.listCategoryKeys objectAtIndex:indexPath.section];
+    
+    
+    tipologie = [dao.category objectForKey:category];
+    
     NSArray *tmp = [[[NSArray alloc] initWithObjects:[tipologie objectAtIndex:indexPath.row],nil] autorelease];
     
     NSInteger count = [[dao getVestitiEntities:tmp filterStagioneKey:nil filterStiliKeys:nil filterGradimento:-1] count];
     
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.imageView.image = [dao getImageFromTipo:([dao getTipoEntity:[tipologie objectAtIndex:indexPath.row]])]; 
     cell.textLabel.text = [dao getTipoEntity:[tipologie objectAtIndex:indexPath.row]].plural;
@@ -157,8 +176,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    
+    NSString *category = [dao.listCategoryKeys objectAtIndex:indexPath.section];
+    tipologie = [dao.category objectForKey:category];
+
+    
     if(delegateController != nil){
-        [(SelectTypeViewController *)delegateController selectedIndex:indexPath.row];
+        [(SelectTypeViewController *)delegateController selectedIndexPath:indexPath];
     }
     else{
         
@@ -167,6 +191,7 @@
             [coverviewcontroller release];
             coverviewcontroller = nil;
         }
+            
             coverviewcontroller = [[CoverViewController alloc] initWithNibName:@"CoverViewController" bundle:nil getTipologia:[tipologie objectAtIndex:indexPath.row]];
            
             
@@ -178,11 +203,46 @@
          
 }
 
+
+- (void)cleanDisplay {
+    //[self.tableView setContentInset:UIEdgeInsetsZero]; /* Fix difference between horizontal and vertical orientation. */
+}
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration {
+    [self correctFrame:[self.navigationController.view.subviews objectAtIndex:0]]; /* Correct the frame so it is after the Navigation Bar */
+    
+    /* Clean the display after turning... */
+    [self performSelectorOnMainThread:@selector(cleanDisplay) withObject:nil waitUntilDone:NO];
+}
+
+
+
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     
     
-    return nil;
+    return [dao.listCategoryKeys objectAtIndex:section];
 
-}     
+}    
+
+- (NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    return 1;
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView{
+    return dao.listCategoryKeys;
+}
+
+
+/*
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
+    UIView *view = [[UIView alloc] init];
+    
+    return view;
+
+}
+ */
+
 
 @end

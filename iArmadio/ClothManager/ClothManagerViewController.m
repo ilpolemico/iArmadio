@@ -53,6 +53,8 @@
 }
 
 
+
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
@@ -66,15 +68,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addIterator:) name:ADD_CLOTH_EVENT object:nil];
     
 }
-
-- (void)navigationController:(UINavigationController *)navigationController   
-      willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {  
-    [viewController viewWillAppear:animated];  
-}  
-- (void)navigationController:(UINavigationController *)navigationController   
-       didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {  
-    [viewController viewDidAppear:animated];  
-}  
 
 
 - (void)viewWillAppear:(BOOL)animated{

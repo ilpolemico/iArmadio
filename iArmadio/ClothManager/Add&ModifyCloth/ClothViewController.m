@@ -387,9 +387,14 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     modifyImageCloth = NO;
-    if((selectController != nil)&&([selectController getIndex] != -1)){
+    if((selectController != nil)&&([selectController getIndexPath] != nil)){
+        NSString *category = [dao.listCategoryKeys objectAtIndex:[selectController getIndexPath].section];
         
-        Tipologia *entity =  [dao getTipoEntity:[dao.listTipiKeys objectAtIndex:[selectController getIndex] ]];
+        
+        NSArray *tipologie = [dao.category objectForKey:category];
+        
+        
+        Tipologia *entity =  [dao getTipoEntity:[tipologie objectAtIndex:[selectController getIndexPath].row ]];
         
          self.tipologiaLabel.text = entity.nome;
         

@@ -45,12 +45,15 @@ static NSString * const IMAGES_PLIST = @"images";
     NSMutableArray *listTipiKeys;
     NSMutableArray *listStagioniKeys;
     NSMutableArray *listStiliKeys;
+    NSMutableDictionary *category;
+    NSMutableArray *listCategoryKeys;
     NSString *currStagioneKey; 
     NSDictionary *imagesDictionary;
 }
 
-
-@property (nonatomic,retain, readonly)  NSString *currStagioneKey;
+@property (nonatomic, retain, readonly) NSMutableDictionary *category;
+@property (nonatomic, retain, readonly) NSMutableArray *listCategoryKeys;
+@property (nonatomic, retain, readonly) NSString *currStagioneKey;
 @property (nonatomic, retain, readonly) NSDictionary *imagesDictionary;
 @property (nonatomic, retain, readonly) NSMutableDictionary *stagioniEntities;
 @property (nonatomic, retain, readonly) NSMutableDictionary *stiliEntities;

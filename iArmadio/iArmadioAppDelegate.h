@@ -20,6 +20,7 @@
     IarmadioDao *dao;
     IBOutlet UIWindow *window;
     IBOutlet UITabBarController *tabBarController;
+    UIImageView* tabBarArrow;
     
 }
 
@@ -27,7 +28,7 @@
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 @property (nonatomic, retain, readonly) IarmadioDao *dao;
-
+@property (nonatomic, retain) UIImageView* tabBarArrow;
 
 
 @end

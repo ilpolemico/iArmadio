@@ -24,12 +24,12 @@
 }
 
 
-- (NSInteger) getIndex{
-    return selectedIndex;
+- (NSIndexPath *) getIndexPath{
+    return selectedIndexPath;
 }
 
-- (void) selectedIndex:(NSInteger )index{
-    selectedIndex = index;
+- (void) selectedIndexPath:(NSIndexPath *)indexPath{
+    selectedIndexPath = indexPath;
     [self dismissModalViewControllerAnimated:YES];
 }
 
@@ -52,7 +52,7 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:@"SelectTypeView" type:@"background"]];
     
     
-    selectedIndex = -1;
+    selectedIndexPath = nil;
     
     armadio = [[ArmadioTableViewController alloc] initWithNibName:@"ArmadioViewTable" bundle:nil delegateController:self];
     

@@ -12,11 +12,11 @@
 @class ArmadioTableViewController;
 
 @interface SelectTypeViewController : UIViewController{
-    NSInteger selectedIndex;
+    NSIndexPath *selectedIndexPath;
     ArmadioTableViewController *armadio;
 }
 
 -(IBAction)undo:(id)sender;
-- (void) selectedIndex:(NSInteger )index;
-- (NSInteger) getIndex;
+- (void) selectedIndexPath:(NSIndexPath *)indexPath;
+- (NSIndexPath *) getIndexPath;
 @end

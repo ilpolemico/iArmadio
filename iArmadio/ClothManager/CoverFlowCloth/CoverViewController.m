@@ -163,9 +163,9 @@ static CGRect frameCover;
     [self reloadVestiti:nil];
     
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:@"CoverView" type:@"background"]];
+    //self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:@"CoverView" type:@"background"]];
 
-    
+    self.view.backgroundColor = nil;
 }
 
 

@@ -20,7 +20,6 @@
 		A30A333B14308E3100D44356 /* stagione.plist in Resources */ = {isa = PBXBuildFile; fileRef = A30A331914308E3100D44356 /* stagione.plist */; };
 		A30A333C14308E3100D44356 /* stile.plist in Resources */ = {isa = PBXBuildFile; fileRef = A30A331A14308E3100D44356 /* stile.plist */; };
 		A30A333E14308E3100D44356 /* tipologia.plist in Resources */ = {isa = PBXBuildFile; fileRef = A30A331C14308E3100D44356 /* tipologia.plist */; };
-		A3297D67143DAA8900EBF25A /* Tipologia.m in Sources */ = {isa = PBXBuildFile; fileRef = A3297D66143DAA8900EBF25A /* Tipologia.m */; };
 		A3297D6B143DC37100EBF25A /* Stile.m in Sources */ = {isa = PBXBuildFile; fileRef = A3297D6A143DC37100EBF25A /* Stile.m */; };
 		A3297D6E143DC37100EBF25A /* Stagione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3297D6D143DC37100EBF25A /* Stagione.m */; };
 		A3297D7C143DE2C000EBF25A /* 02.png in Resources */ = {isa = PBXBuildFile; fileRef = A3297D7B143DE2C000EBF25A /* 02.png */; };
@@ -75,9 +74,12 @@
 		A3A66D731444DBA20098F97C /* icona@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A66D721444DBA20098F97C /* icona@2x.png */; };
 		A3A93AF1144445C800E551D8 /* Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A93AF0144445C800E551D8 /* Configuration.m */; };
 		A3A93AF71444502700E551D8 /* Vestito.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A93AF61444502700E551D8 /* Vestito.m */; };
+		A3D81FCF1448E1910028DD9F /* Tipologia.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D81FCE1448E1910028DD9F /* Tipologia.m */; };
+		A3D81FD71449058D0028DD9F /* TabBarNipple.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D81FD51449058D0028DD9F /* TabBarNipple.png */; };
+		A3D81FD81449058D0028DD9F /* TabBarNipple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D81FD61449058D0028DD9F /* TabBarNipple@2x.png */; };
 		A3DED9841447AB0100908FCF /* ButtonSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DED9831447AB0100908FCF /* ButtonSegmentControl.m */; };
 		A3FB194714462726003620C5 /* images.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3FB194614462725003620C5 /* images.plist */; };
-		A3FB91D41438FF8F009AF9B4 /* ArmadioViewTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3FB91D31438FF8E009AF9B4 /* ArmadioViewTable.xib */; };
+		A3FB91D41438FF8F009AF9B4 /* ArmadioTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3FB91D31438FF8E009AF9B4 /* ArmadioTableView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,8 +115,6 @@
 		A30A331914308E3100D44356 /* stagione.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = stagione.plist; sourceTree = "<group>"; };
 		A30A331A14308E3100D44356 /* stile.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = stile.plist; sourceTree = "<group>"; };
 		A30A331C14308E3100D44356 /* tipologia.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tipologia.plist; sourceTree = "<group>"; };
-		A3297D65143DAA8900EBF25A /* Tipologia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tipologia.h; sourceTree = "<group>"; };
-		A3297D66143DAA8900EBF25A /* Tipologia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tipologia.m; sourceTree = "<group>"; };
 		A3297D69143DC37100EBF25A /* Stile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stile.h; sourceTree = "<group>"; };
 		A3297D6A143DC37100EBF25A /* Stile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stile.m; sourceTree = "<group>"; };
 		A3297D6C143DC37100EBF25A /* Stagione.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stagione.h; sourceTree = "<group>"; };
@@ -191,10 +191,14 @@
 		A3A93AF0144445C800E551D8 /* Configuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Configuration.m; sourceTree = "<group>"; };
 		A3A93AF51444502700E551D8 /* Vestito.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vestito.h; sourceTree = "<group>"; };
 		A3A93AF61444502700E551D8 /* Vestito.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vestito.m; sourceTree = "<group>"; };
+		A3D81FCD1448E1910028DD9F /* Tipologia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tipologia.h; sourceTree = "<group>"; };
+		A3D81FCE1448E1910028DD9F /* Tipologia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tipologia.m; sourceTree = "<group>"; };
+		A3D81FD51449058D0028DD9F /* TabBarNipple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabBarNipple.png; sourceTree = "<group>"; };
+		A3D81FD61449058D0028DD9F /* TabBarNipple@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabBarNipple@2x.png"; sourceTree = "<group>"; };
 		A3DED9821447AB0100908FCF /* ButtonSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonSegmentControl.h; sourceTree = "<group>"; };
 		A3DED9831447AB0100908FCF /* ButtonSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonSegmentControl.m; sourceTree = "<group>"; };
 		A3FB194614462725003620C5 /* images.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = images.plist; sourceTree = "<group>"; };
-		A3FB91D31438FF8E009AF9B4 /* ArmadioViewTable.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArmadioViewTable.xib; sourceTree = "<group>"; };
+		A3FB91D31438FF8E009AF9B4 /* ArmadioTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArmadioTableView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,14 +327,14 @@
 		A30A32F014308E3100D44356 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				A3D81FCD1448E1910028DD9F /* Tipologia.h */,
+				A3D81FCE1448E1910028DD9F /* Tipologia.m */,
 				A3A93AF51444502700E551D8 /* Vestito.h */,
 				A3A93AF61444502700E551D8 /* Vestito.m */,
 				A3297D6C143DC37100EBF25A /* Stagione.h */,
 				A3297D6D143DC37100EBF25A /* Stagione.m */,
 				A3297D69143DC37100EBF25A /* Stile.h */,
 				A3297D6A143DC37100EBF25A /* Stile.m */,
-				A3297D65143DAA8900EBF25A /* Tipologia.h */,
-				A3297D66143DAA8900EBF25A /* Tipologia.m */,
 				A3645B8B143A4B2C00A13FB5 /* Proprieta.h */,
 				A3645B8C143A4B2C00A13FB5 /* Proprieta.m */,
 				A3645B82143A4B2B00A13FB5 /* ProprietaVestito.h */,
@@ -365,6 +369,8 @@
 		A30A331514308E3100D44356 /* Supporting File */ = {
 			isa = PBXGroup;
 			children = (
+				A3D81FD51449058D0028DD9F /* TabBarNipple.png */,
+				A3D81FD61449058D0028DD9F /* TabBarNipple@2x.png */,
 				A3A19EE414486191008E283D /* cappotto.png */,
 				A3A19EE514486191008E283D /* gonna.png */,
 				A3FB194614462725003620C5 /* images.plist */,
@@ -440,7 +446,7 @@
 			children = (
 				A32BA5A714336F830019979B /* ArmadioTableViewController.h */,
 				A32BA5A814336F830019979B /* ArmadioTableViewController.m */,
-				A3FB91D31438FF8E009AF9B4 /* ArmadioViewTable.xib */,
+				A3FB91D31438FF8E009AF9B4 /* ArmadioTableView.xib */,
 			);
 			path = ArmadioViewTable;
 			sourceTree = "<group>";
@@ -564,7 +570,7 @@
 				A30A333C14308E3100D44356 /* stile.plist in Resources */,
 				A30A333E14308E3100D44356 /* tipologia.plist in Resources */,
 				A32BA5B0143375530019979B /* CoverViewController.xib in Resources */,
-				A3FB91D41438FF8F009AF9B4 /* ArmadioViewTable.xib in Resources */,
+				A3FB91D41438FF8F009AF9B4 /* ArmadioTableView.xib in Resources */,
 				A3645A861439C7AA00A13FB5 /* LookManagerView.xib in Resources */,
 				A3816AEC143B5E57009643B4 /* SelectTypeViewController.xib in Resources */,
 				A3297D7C143DE2C000EBF25A /* 02.png in Resources */,
@@ -578,6 +584,8 @@
 				A3FB194714462726003620C5 /* images.plist in Resources */,
 				A3A19EE614486191008E283D /* cappotto.png in Resources */,
 				A3A19EE714486191008E283D /* gonna.png in Resources */,
+				A3D81FD71449058D0028DD9F /* TabBarNipple.png in Resources */,
+				A3D81FD81449058D0028DD9F /* TabBarNipple@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,7 +621,6 @@
 				A3645B84143A4B2B00A13FB5 /* ProprietaVestito.m in Sources */,
 				A3645B8D143A4B2C00A13FB5 /* Proprieta.m in Sources */,
 				A3816AEB143B5E57009643B4 /* SelectTypeViewController.m in Sources */,
-				A3297D67143DAA8900EBF25A /* Tipologia.m in Sources */,
 				A3297D6B143DC37100EBF25A /* Stile.m in Sources */,
 				A3297D6E143DC37100EBF25A /* Stagione.m in Sources */,
 				A3297D85143DE31300EBF25A /* SetupViewController.m in Sources */,
@@ -624,6 +631,7 @@
 				A3A93AF71444502700E551D8 /* Vestito.m in Sources */,
 				A3A66D61144489790098F97C /* CaptureClothController.m in Sources */,
 				A3DED9841447AB0100908FCF /* ButtonSegmentControl.m in Sources */,
+				A3D81FCF1448E1910028DD9F /* Tipologia.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

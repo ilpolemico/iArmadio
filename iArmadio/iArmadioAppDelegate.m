@@ -7,13 +7,17 @@
 //
 
 #import "iArmadioAppDelegate.h"
-
+@interface iArmadioAppDelegate (PrivateMethods)
+- (CGFloat) horizontalLocationFor:(NSUInteger)tabIndex;
+- (void) addTabBarArrow;
+@end
 
 @implementation iArmadioAppDelegate
 
 
 @synthesize window = _window;
-@synthesize tabBarController = _tabBarController;
+@synthesize tabBarController;
+@synthesize tabBarArrow;
 
 - (IarmadioDao *)dao{return dao;}
 
@@ -30,8 +34,11 @@
     geolocal = [GeoLocal shared];
     dao = [IarmadioDao shared];
     [dao setupDB];
-
+    
+    tabBarController.delegate = self;
     self.window.rootViewController = self.tabBarController;
+    [self.window addSubview:tabBarController.view];
+    [self addTabBarArrow];
     [self.window makeKeyAndVisible];
     
     return YES;
@@ -78,14 +85,47 @@
      */
 }
 
+- (void) addTabBarArrow
+{
+    UIImage* tabBarArrowImage = [UIImage imageNamed:@"TabBarNipple.png"];
+    self.tabBarArrow = [[[UIImageView alloc] initWithImage:tabBarArrowImage] autorelease];
+    // To get the vertical location we start at the bottom of the window, go up by height of the tab bar, go up again by the height of arrow and then come back down 2 pixels so the arrow is slightly on top of the tab bar.
+    CGFloat verticalLocation = self.window.frame.size.height - tabBarController.tabBar.frame.size.height - tabBarArrowImage.size.height + 2;
+    tabBarArrow.frame = CGRectMake([self horizontalLocationFor:0], verticalLocation, tabBarArrowImage.size.width, tabBarArrowImage.size.height);
+    
+    [self.window addSubview:tabBarArrow];
+}
 
+- (CGFloat) horizontalLocationFor:(NSUInteger)tabIndex
+{
+    // A single tab item's width is the entire width of the tab bar divided by number of items
+    CGFloat tabItemWidth = tabBarController.tabBar.frame.size.width / tabBarController.tabBar.items.count;
+    
+    // A half width is tabItemWidth divided by 2 minus half the width of the arrow
+    CGFloat halfTabItemWidth = (tabItemWidth / 2.0) - (tabBarArrow.frame.size.width / 2.0);
+    
+    // The horizontal location is the index times the width plus a half width
+    
+    return (tabIndex * tabItemWidth) + halfTabItemWidth;
+}
 
+- (void)tabBarController:(UITabBarController *)theTabBarController didSelectViewController:(UIViewController *)viewController
+{
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.2];
+    CGRect frame = tabBarArrow.frame;
+    frame.origin.x = [self horizontalLocationFor:tabBarController.selectedIndex];
+    tabBarArrow.frame = frame;
+    [UIView commitAnimations];  
+    
+}
 - (void)dealloc
 {
     [_window release];
     [dao release];
     [geolocal release];
-    [_tabBarController release];
+    [tabBarController release];
+    [tabBarArrow release];
     [super dealloc];
 }
 
