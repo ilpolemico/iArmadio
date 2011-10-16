@@ -282,6 +282,13 @@ static IarmadioDao *singleton;
         ];
     }
     
+    if((vestitoEntity.thumbnail != nil)&&([vestitoEntity.thumbnail length] > 0)){ 
+        [[NSFileManager defaultManager] 
+         removeItemAtPath:[self filePathDocuments:vestitoEntity.thumbnail]
+         error:nil
+         ];
+    }
+    
     [self.managedObjectContext deleteObject:vestitoEntity];
     [self saveContext];
     [[NSNotificationCenter defaultCenter]

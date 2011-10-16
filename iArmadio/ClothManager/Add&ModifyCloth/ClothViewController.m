@@ -275,6 +275,8 @@
 	
    NSString *nametipo = self.tipologiaLabel.text; 
    NSArray *tipi = [[NSArray alloc] initWithObjects:nametipo,nil];
+    
+        
    [CurrState shared].currSection = [CurrState shared].oldCurrSection;
    
    NSMutableArray *stili = [[NSMutableArray alloc] init];
@@ -286,6 +288,18 @@
     NSString *scelta_stagione = [[dao listStagioniKeys] objectAtIndex:choiceStagione.selectedIndex] ;
     
     if(addCloth){ 
+        
+        if([[dao getVestitiEntities:tipi filterStagioneKey:nil filterStiliKeys:nil filterGradimento:-1] count]+1 > MAX_CLOTH){
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Numero massimo superato" message:@"Il numero massimo dei capi per questo tipo è stato raggiunto" delegate:self cancelButtonTitle:@"Annulla" otherButtonTitles:nil, nil];
+            
+            [alert show];
+            [alert release];
+            return;
+        }  
+
+        
+        
         [dao addVestitoEntity:[self.imageView.image normal] gradimento:choiceGradimento.selectedIndex tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili];
     }
     else{
@@ -304,7 +318,6 @@
     currstate.currStagioneIndex = [NSNumber numberWithInteger:choiceStagione.selectedIndex]; 
     
     [self dismissModalViewControllerAnimated:YES];
-    
 }
 
 
