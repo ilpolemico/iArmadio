@@ -211,8 +211,6 @@ static IarmadioDao *singleton;
      postNotificationName:ADD_CLOTH_EVENT
      object:self];
     
-    NSLog(@"NEW");
-    
     return vestito;
     
 
@@ -259,7 +257,6 @@ static IarmadioDao *singleton;
         [[NSNotificationCenter defaultCenter]
          postNotificationName:MOD_CLOTH_EVENT
          object:self];
-         NSLog(@"MOD");
     }
     
     return vestito;
@@ -450,10 +447,7 @@ static IarmadioDao *singleton;
         sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"order" ascending:YES] autorelease];
         [sortDescriptors addObject:sortDescriptor];
         
-        sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"category" ascending:YES] autorelease];
-        [sortDescriptors addObject:sortDescriptor];
-        
-		[allItem setEntity:[NSEntityDescription entityForName:@"Tipologia" inManagedObjectContext:self.managedObjectContext]];
+        [allItem setEntity:[NSEntityDescription entityForName:@"Tipologia" inManagedObjectContext:self.managedObjectContext]];
         
         [allItem setSortDescriptors:sortDescriptors];
         
@@ -481,7 +475,6 @@ static IarmadioDao *singleton;
             }
             [tmp addObject:obj.nome];
             [category setValue:tmp forKey:obj.category];
-            NSLog(@"%@",obj.category);
             if(![currCategory isEqualToString:obj.category]){
                 currCategory = obj.category;
                 [listCategoryKeys addObject:obj.category];
@@ -817,7 +810,6 @@ static IarmadioDao *singleton;
     }
     else{
         currStagioneKey = @"estiva";
-        NSLog(@"error get stagioni -> No season found");
     }
 }
 
@@ -844,9 +836,6 @@ static IarmadioDao *singleton;
     if(currStagioneKey == nil){
             [self setCurrStagioneKeyFromTemp:999];
     }
-    
-    //NSLog(@"%@",currStagioneKey);
-    
     return currStagioneKey;
 }
 

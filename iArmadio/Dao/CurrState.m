@@ -59,7 +59,6 @@ static CurrState *singleton;
         index++;
     }
     
-    //NSLog(@"%@ - %@",currStagioneKey,currStagioneIndex);
     
     [currStagioneIndex retain];
     [currStagioneKey retain];
@@ -112,6 +111,19 @@ static CurrState *singleton;
 -(void)setCurrSection:(NSString *)section{
     oldCurrSection = currSection;
     currSection = section;
+}
+
+
+- (void)dealloc{
+     [currStagioneKey release];
+     [currSection release];
+     [oldCurrSection release];
+     [currStagioneIndex release];
+     [currStile release];
+     [currEventi release];
+     [currTipologia release];
+     [currGradimento release];
+     [super dealloc];
 }
 
 @end

@@ -16,7 +16,6 @@
 @synthesize addButton,
             openflow,
             segmentcontrol,
-            segmentfiltroStile,
             orderBy_data,
             orderBy_gradimento,
             stile_1,
@@ -24,7 +23,10 @@
             stile_3,
             stile_4,
             coverBtn,
-            coverView;
+            coverView,
+            tipoView,
+            tipoLabel,
+            tipologia;
 
 static CGRect frameCover;
 
@@ -42,8 +44,7 @@ static CGRect frameCover;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil getTipologia:(NSString *)_tipologia{
     
     self = [self initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    tipologia = _tipologia;
-    [tipologia retain];
+    self.tipologia = _tipologia;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadVestiti:) name:ADD_CLOTH_EVENT object:nil];
     
@@ -77,7 +78,7 @@ static CGRect frameCover;
     NSMutableDictionary *key = [[[NSMutableDictionary alloc] init] autorelease];
     if(orderKey != nil){
         [key setObject:orderKey forKey:@"field"];
-        [key setObject:@"YES" forKey:@"ascending"];
+        [key setObject:@"NO" forKey:@"ascending"];
         [localCurrOrderBy addObject:key];
     }
 }
@@ -161,15 +162,18 @@ static CGRect frameCover;
     localCurrOrderBy = nil;
     
     [self.view setUserInteractionEnabled:FALSE];
-    segmentfiltroStile.selectedSegmentIndex = 0;
     segmentcontrol.selectedSegmentIndex = [currstate.currStagioneIndex intValue];
-    segmentfiltroStile.enabled = YES;
     currstate.currSection = SECTION_COVERFLOW;
     [self.view setUserInteractionEnabled:TRUE];
     [self reloadVestiti:nil];
     
     
     //self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:@"CoverView" type:@"background"]];
+    
+    Tipologia *tipologiaEntity = [dao getTipoEntity:tipologia];
+    self.tipoLabel.text = tipologiaEntity.plural;
+    self.tipoView.contentMode = UIViewContentModeScaleAspectFit;
+    self.tipoView.image = [dao getImageFromTipo:tipologiaEntity];
 
     self.view.backgroundColor = nil;
 }
@@ -345,8 +349,7 @@ static CGRect frameCover;
 
 - (void)flowCover:(FlowCoverView *)view didSelect:(int)image
 {
-    NSLog(@"new:%@ - old:%@",currstate.currSection, currstate.oldCurrSection);
-	if([vestiti count] > image){
+   if([vestiti count] > image){
         ClothViewController *getviewcontroller = [[ClothViewController alloc] initWithNibName:@"ClothView" bundle:nil getVestito: [vestiti objectAtIndex:image]];
         
         iArmadioAppDelegate *appDelegate = (iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -384,7 +387,6 @@ static CGRect frameCover;
     [vestiti release];
     [addButton release];
     [segmentcontrol release];
-    [segmentfiltroStile release];
     [segmentOrderBy release];
     [orderBy_data release];
     [orderBy_gradimento release];
@@ -395,6 +397,13 @@ static CGRect frameCover;
     [tipologia release];
     [stagioneKey release];
     [stili release];
+    [tipoView release];
+    [tipoLabel release];
+    [tipologia release];
+    [stile_1 release];
+    [stile_2 release];
+    [stile_3 release];
+    [stile_4 release];
     [super dealloc]; 
 
 }

@@ -28,7 +28,6 @@
     IBOutlet UIBarButtonItem *addButton;
 
     IBOutlet UISegmentedControl *segmentControl;
-    IBOutlet UISegmentedControl *segmentfiltroStile;
     int imageSelected;
     NSArray *vestiti;
     IBOutlet FlowCoverView *openflow;    
@@ -38,6 +37,11 @@
     NSMutableArray *localCurrOrderBy; 
     CurrState *currstate;
     CaptureClothController *captureClothController;
+    
+    
+    //Label
+    IBOutlet UIImageView *tipoView;
+    IBOutlet UILabel *tipoLabel;
     
     
     //Ordinamento
@@ -60,6 +64,9 @@
     
 }
 
+@property (retain, nonatomic) IBOutlet UIImageView *tipoView;
+@property (retain, nonatomic) IBOutlet UILabel *tipoLabel;
+@property (retain, nonatomic) NSString *tipologia;
 
 @property (retain, nonatomic) IBOutlet UIButton *orderBy_data;
 @property (retain, nonatomic) IBOutlet UIButton *orderBy_gradimento;
@@ -74,7 +81,6 @@
 @property (retain, nonatomic) IBOutlet UIBarButtonItem *addButton;
 @property (retain, nonatomic) IBOutlet UISegmentedControl *segmentcontrol;
 
-@property (retain, nonatomic) IBOutlet UISegmentedControl *segmentfiltroStile;
 @property (nonatomic, retain) IBOutlet UIView *coverView;
 
 @property (nonatomic, retain) IBOutlet NSString *localCurrStile;

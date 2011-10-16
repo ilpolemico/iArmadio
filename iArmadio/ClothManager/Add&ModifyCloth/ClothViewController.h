@@ -21,6 +21,7 @@
     
     SelectTypeViewController *selectController;
     UIImageView * imageView;
+    UIImageView * imageViewReflect;
     IarmadioDao *dao;
     UIImage *newimage;
     Vestito *vestito;
@@ -84,7 +85,7 @@
 @property (nonatomic, retain ) IBOutlet NSString *currTipologia;
 @property (nonatomic, retain ) IBOutlet UIToolbar *toolbar;
 @property (nonatomic, retain ) IBOutlet UIBarButtonItem *trash;
-@property (nonatomic, retain) IBOutlet UIScrollView *scrollview;
+@property (nonatomic, retain) IBOutlet UIImageView *imageViewReflect;
 @property (nonatomic, retain) IBOutlet UIImageView *imageView;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem * saveButton;
 @property (nonatomic, retain) IBOutlet UINavigationBar* addNavigationBar;
@@ -108,7 +109,6 @@
 -(IBAction) saveCloth:(id) sender;
 -(IBAction) deleteCloth:(id) sender;
 -(IBAction) undoCloth:(id) sender;
--(IBAction) segmentSwitch:(id)sender;
 -(void)initStagioniEntities:(NSNumber *)stagioneKey;
 -(void) initInputType;
 

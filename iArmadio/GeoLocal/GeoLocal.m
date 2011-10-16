@@ -140,6 +140,11 @@ int curr_temp;
     
 }
 
+-(void)dealloc{
+    [singleton release];
+    [super dealloc];
+}
+
 
 
 @end

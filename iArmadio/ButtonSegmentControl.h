@@ -25,7 +25,7 @@
 @property (retain, nonatomic) id <ButtonSegmentDelegate> delegate; 
 @property (nonatomic) NSInteger selectedIndex;
 @property (nonatomic) NSInteger currSelectedIndex;
-@property (nonatomic, readonly) NSString  *tag;
+@property (retain,nonatomic, readonly) NSString  *tag;
 
 
 - (id)init:(NSString *)tag;

@@ -50,4 +50,9 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+-(void) dealloc{
+    [dao release];
+    [super dealloc];
+}
+
 @end

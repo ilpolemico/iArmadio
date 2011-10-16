@@ -13,7 +13,8 @@
 
 
 
-@synthesize imageView, 
+@synthesize imageView,
+            imageViewReflect,
             stile_1,
             stile_2,
             stile_3,
@@ -27,7 +28,6 @@
             saveButton, 
             tipologiaBtn, 
             tipologiaLabel,
-            scrollview, 
             addNavigationBar,
             toolbar,
             currTipologia,
@@ -73,8 +73,6 @@
     dao = [IarmadioDao shared];
     
     [CurrState shared].currSection = SECTION_CLOTHVIEW;
-    NSLog(@"%@",[CurrState shared].currSection);
-    
     [self initInputType];
     lastScaleFactor = 0;
     
@@ -82,6 +80,7 @@
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.imageViewReflect.contentMode = UIViewContentModeScaleAspectFit;
     
     //Edit image
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
@@ -109,6 +108,7 @@
     
     if(newimage != nil){
         [self.imageView setImage:newimage];
+        //[self.imageViewReflect setImage:[newimage reflectedImageWithHeight:200 fromAlpha:0.5 toAlpha:1]];
         //[self.addNavigationBar setHidden:NO];
         NSMutableArray *items = [[toolbar.items mutableCopy] autorelease];
         [items removeObject:trash]; 
@@ -116,11 +116,8 @@
     }
     
     if(vestito != nil){
-        //self.navigationItem.rightBarButtonItem = ((UINavigationItem *)[self.addNavigationBar.items objectAtIndex:0]).rightBarButtonItem;
-        
-        
-        //[self.addNavigationBar setHidden:YES];
         [self.imageView setImage:[dao getImageFromVestito:vestito]];
+        //[self.imageViewReflect setImage:[[dao getImageFromVestito:vestito] reflectedImageWithHeight:200 fromAlpha:0.5 toAlpha:0]];
        
         //self.imageView.image = ;
     }
@@ -322,12 +319,6 @@
     choiceStagione.selectedIndex = [stagioneIndex intValue];
 }
 
-- (IBAction)segmentSwitch:(id)sender {
-    //UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
-    //NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
-    //NSLog(@"%@",selectedSegment);
-    
-}
 
 -(IBAction) selectImage:(id) sender{
         UIActionSheet *popupAddItem = [[UIActionSheet alloc] initWithTitle:@"Cambia Immagine Vestito" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Fotocamera", @"Album", nil];
@@ -335,11 +326,6 @@
         popupAddItem.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
         [popupAddItem showInView:self.view];
         [popupAddItem release];
-}
-
--(void) dealloc{
-   
-    [super dealloc];
 }
 
 
@@ -481,6 +467,31 @@
         choiceGradimento.selectedIndex = selectedIndex;
     }
     
+}
+
+-(void) dealloc{
+    
+    [stile_1 release];
+    [stile_2 release];
+    [stile_3 release];
+    [stagione_1 release];
+    [stagione_2 release];
+    [stagione_3 release];
+    [gradimento_1 release];
+    [gradimento_2 release];
+    [gradimento_3 release];
+    [currStile release];
+    [currTipologia release];
+    [toolbar release];
+    [trash release];
+    [imageViewReflect release];
+    [imageView release];
+    [saveButton release];
+    [addNavigationBar release];
+    [undoButton release];
+    [tipologiaBtn release];
+    [tipologiaLabel release];
+    [super dealloc];
 }
 
 

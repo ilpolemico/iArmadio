@@ -55,9 +55,8 @@
 }
 
 -(void) dealloc{
-    [super dealloc];
     [dao release];
-    
+    [super dealloc];
 }
 
 @end
