@@ -295,6 +295,8 @@
             
             [alert show];
             [alert release];
+            [tipi release];
+            [stili release];
             return;
         }  
 
@@ -504,6 +506,9 @@
     [undoButton release];
     [tipologiaBtn release];
     [tipologiaLabel release];
+    [segmentStile release];
+    [segmentStagione release];
+    [segmentGradimento release];
     [super dealloc];
 }
 

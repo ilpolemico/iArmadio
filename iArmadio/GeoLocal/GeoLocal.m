@@ -141,6 +141,7 @@ int curr_temp;
 }
 
 -(void)dealloc{
+    [locationManager release];
     [singleton release];
     [super dealloc];
 }

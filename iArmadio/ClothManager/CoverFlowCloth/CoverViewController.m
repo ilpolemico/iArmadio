@@ -278,17 +278,19 @@ static CGRect frameCover;
 
 -(IBAction)changeStagione:(id)sender{
     
-    UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
-    NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
-    
-    
-    currstate.currStagioneIndex = [NSNumber numberWithInteger:selectedSegment];
-    [self reloadVestiti:nil];
+    if(self.view.isUserInteractionEnabled){    
+        UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
+        NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
+        
+        
+        currstate.currStagioneIndex = [NSNumber numberWithInteger:selectedSegment];
+        [self reloadVestiti:nil];
+    }    
 }
 
 
 -(void)changeStile:(NSInteger)selectedIndex{
-   
+   if(self.view.isUserInteractionEnabled){
     if(selectedIndex < [dao.listStiliKeys count]){
         localCurrStile = [dao.listStiliKeys objectAtIndex:selectedIndex] ;
     }
@@ -298,20 +300,22 @@ static CGRect frameCover;
     
     currstate.currStile =  localCurrStile;    
     [self reloadVestiti:nil];
+   }     
 }
 
 -(void)changeOrderBy:(NSInteger)selectedIndex{
-    
-    NSString *sortKey;
-    
-    [localCurrOrderBy release];
-    localCurrOrderBy = nil;
-    if(selectedIndex == 1){
-        sortKey = @"gradimento";
-        [self addLocalCurrOrderBy:sortKey];
+    if(self.view.isUserInteractionEnabled){
+        NSString *sortKey;
+        
+        [localCurrOrderBy release];
+        localCurrOrderBy = nil;
+        if(selectedIndex == 1){
+            sortKey = @"gradimento";
+            [self addLocalCurrOrderBy:sortKey];
+        }
+        
+        [self reloadVestiti:nil];
     }
-    
-    [self reloadVestiti:nil];
 }
 
 
@@ -380,7 +384,9 @@ static CGRect frameCover;
 
 
 -(void) dealloc{
-    [captureClothController release];
+    if(captureClothController != nil){
+        [captureClothController release];
+    }    
     [localCurrStile release];
     [localCurrOrderBy release];
     [openflow release];
@@ -388,8 +394,10 @@ static CGRect frameCover;
     [addButton release];
     [segmentcontrol release];
     [segmentOrderBy release];
+    [segmentStili release];
     [orderBy_data release];
     [orderBy_gradimento release];
+    [filterStili release];
     [coverBtn release];
     [coverView release];
     [currstate release];

@@ -149,16 +149,18 @@
         
         if(coverviewcontroller != nil){
             [coverviewcontroller removeNotification];
-            [coverviewcontroller release];
-            coverviewcontroller = nil;
+            //IN CASO DI PROBLEMI DECOMMENTARE
+            //[coverviewcontroller release];
+            //coverviewcontroller = nil;
         }
             
-            coverviewcontroller = [[CoverViewController alloc] initWithNibName:@"CoverViewController" bundle:nil getTipologia:[tipologie objectAtIndex:indexPath.row]];
+        coverviewcontroller = [[CoverViewController alloc] initWithNibName:@"CoverViewController" bundle:nil getTipologia:[tipologie objectAtIndex:indexPath.row]];
            
             
             [tableView  deselectRowAtIndexPath:indexPath animated:YES];
             [self.navigationController pushViewController:coverviewcontroller animated:YES];
         
+        [coverviewcontroller release];
             [CurrState shared].currTipologia = [tipologie objectAtIndex:indexPath.row];
     }
          
@@ -186,12 +188,16 @@
 /*
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
-    UIView *view = [[UIView alloc] init];
+    UIView *view = [[[UIView alloc] init] autorelease];
     
     return view;
 
 }
  */
+
+-(void) dealloc{
+    [super dealloc];
+}
 
 
 @end

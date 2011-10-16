@@ -246,7 +246,6 @@
 								<string key="NSFrame">{{248, 120}, {50, 37}}</string>
 								<reference key="NSSuperview" ref="478710158"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:222</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -325,13 +324,11 @@
 				<string key="NSFrameSize">{239, 30}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView"/>
 				<string key="NSReuseIdentifierKey">_NS:262</string>
 				<bool key="IBUIOpaque">NO</bool>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<int key="IBSegmentControlStyle">2</int>
 				<int key="IBNumberOfSegments">4</int>
-				<int key="IBSelectedSegmentIndex">0</int>
 				<object class="NSArray" key="IBSegmentTitles">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>Caldo</string>
