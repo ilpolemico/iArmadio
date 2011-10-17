@@ -71,6 +71,8 @@
 		A3A19EE714486191008E283D /* gonna.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A19EE514486191008E283D /* gonna.png */; };
 		A3A66D6C1444DB3D0098F97C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A66D681444DB3D0098F97C /* Default.png */; };
 		A3A66D6F1444DB3D0098F97C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A66D6B1444DB3D0098F97C /* Default@2x.png */; };
+		A3D7073F144CAB7D00469E06 /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D7073D144CAB7D00469E06 /* CreditsViewController.m */; };
+		A3D70742144CBF7600469E06 /* CreditsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3D70744144CBF7600469E06 /* CreditsViewController.xib */; };
 		A3D81FCF1448E1910028DD9F /* Tipologia.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D81FCE1448E1910028DD9F /* Tipologia.m */; };
 		A3D81FD71449058D0028DD9F /* TabBarNipple.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D81FD51449058D0028DD9F /* TabBarNipple.png */; };
 		A3D81FD81449058D0028DD9F /* TabBarNipple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D81FD61449058D0028DD9F /* TabBarNipple@2x.png */; };
@@ -188,6 +190,11 @@
 		A3A19EE514486191008E283D /* gonna.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gonna.png; sourceTree = "<group>"; };
 		A3A66D681444DB3D0098F97C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A3A66D6B1444DB3D0098F97C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		A3D7073C144CAB7D00469E06 /* CreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsViewController.h; sourceTree = "<group>"; };
+		A3D7073D144CAB7D00469E06 /* CreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsViewController.m; sourceTree = "<group>"; };
+		A3D70743144CBF7600469E06 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CreditsViewController.xib; sourceTree = "<group>"; };
+		A3D70745144CBF8B00469E06 /* it */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = it; path = it.lproj/CreditsViewController.xib; sourceTree = "<group>"; };
+		A3D70746144CBF9400469E06 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/CreditsViewController.xib; sourceTree = "<group>"; };
 		A3D81FCD1448E1910028DD9F /* Tipologia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tipologia.h; sourceTree = "<group>"; };
 		A3D81FCE1448E1910028DD9F /* Tipologia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tipologia.m; sourceTree = "<group>"; };
 		A3D81FD51449058D0028DD9F /* TabBarNipple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabBarNipple.png; sourceTree = "<group>"; };
@@ -417,6 +424,9 @@
 				A3297D7E143DE31300EBF25A /* SetupViewController.h */,
 				A3297D7F143DE31300EBF25A /* SetupViewController.m */,
 				A3297D80143DE31300EBF25A /* SetupViewController.xib */,
+				A3D7073C144CAB7D00469E06 /* CreditsViewController.h */,
+				A3D7073D144CAB7D00469E06 /* CreditsViewController.m */,
+				A3D70744144CBF7600469E06 /* CreditsViewController.xib */,
 			);
 			path = Setup;
 			sourceTree = "<group>";
@@ -624,6 +634,7 @@
 				A3EA4785144A65710095349B /* icona@2x.png in Resources */,
 				A31C7BA2144B17A900BD565D /* CaptureClothController.xib in Resources */,
 				A3FBCA90144C11C80071A213 /* Localizable.strings in Resources */,
+				A3D70742144CBF7600469E06 /* CreditsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,6 +682,7 @@
 				A31C7B9C144B171300BD565D /* Configuration.m in Sources */,
 				A31C7BA1144B17A900BD565D /* CaptureClothController.m in Sources */,
 				A3FBCA9E144C5D2F0071A213 /* Vestito.m in Sources */,
+				A3D7073F144CAB7D00469E06 /* CreditsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,6 +705,16 @@
 				A30A330A14308E3100D44356 /* it */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A3D70744144CBF7600469E06 /* CreditsViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3D70743144CBF7600469E06 /* en */,
+				A3D70745144CBF8B00469E06 /* it */,
+				A3D70746144CBF9400469E06 /* ja */,
+			);
+			name = CreditsViewController.xib;
 			sourceTree = "<group>";
 		};
 		A3FBCA92144C11C80071A213 /* Localizable.strings */ = {

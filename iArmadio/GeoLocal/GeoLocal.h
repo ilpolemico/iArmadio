@@ -22,14 +22,18 @@
     NSString *currLocation;
     NSString *oldLocation;
     CLLocationManager *locationManager;
+    BOOL isEnableGPS;
       
 }
 
-
+@property (nonatomic) BOOL isEnableGPS;
 @property (nonatomic,retain, readonly) MKReverseGeocoder *geoCoder;
 
 
 + (GeoLocal *)shared;
 -(void)setTemperatura;
+-(BOOL)isEnableGPS;
+-(void)enableGPS;
+-(void)disableGPS;
 
 @end

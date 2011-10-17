@@ -10,6 +10,8 @@
 
 @implementation SetupViewController
 
+@synthesize navcontroler, viewImpostazioni, labelGPS, labelShake, gps, shake;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -29,13 +31,30 @@
 
 #pragma mark - View lifecycle
 
+- (void) viewDidAppear:(BOOL)animated{
+    gps.on = [GeoLocal shared].isEnableGPS;
+    //shake.on = [GeoLocal shared].isEnableGPS;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     dao = [IarmadioDao shared]; 
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
+    [CurrState shared].currSection = SECTION_PREFERENCE;
+    
+    
+    [self.view addSubview:navcontroler.view];
+    
+    
+    self.viewImpostazioni.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
+    
     // Do any additional setup after loading the view from its nib.
-    self.navigationItem.title =  NSLocalizedString(@"Impostazioni", nil);
+    self.navcontroler.navigationBar.topItem.title =  NSLocalizedString(@"Impostazioni", nil);
+    self.navcontroler.navigationBar.topItem.rightBarButtonItem.title = NSLocalizedString(@"Credits",nil);
+    
+    self.labelGPS.text = NSLocalizedString(self.labelGPS.text, nil);;
+    self.labelShake.text = NSLocalizedString(self.labelShake.text, nil);;
+     
 }
 
 - (void)viewDidUnload
@@ -52,8 +71,48 @@
     return YES;
 }
 
+
+
+-(IBAction)credits:(id)sender{
+    CreditsViewController *creditsviewcontroller = [[CreditsViewController alloc] initWithNibName:@"CreditsViewController" bundle:nil];
+    
+    [self.navcontroler pushViewController:creditsviewcontroller animated:YES];
+    
+    [creditsviewcontroller release];
+
+}
+-(IBAction)enableGPS:(id)sender{
+    if(((UISwitch *)sender).isOn){
+        [[GeoLocal shared] enableGPS];
+    }
+    else{
+        [[GeoLocal shared] disableGPS];
+    }
+
+
+}
+-(IBAction)enableShake:(id)sender{}
+-(IBAction)reset:(id)sender{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString( @"Cancellare tutte le impostazioni",nil) message:NSLocalizedString(@"Vuoi cancellare tutte le impostazioni? In questo modo cancellerai anche tutti i vestiti",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Annulla",nil) otherButtonTitles:NSLocalizedString( @"Cancella",nil), nil];
+    
+    [alert show];
+    [alert release];
+
+
+}
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(buttonIndex != 0){
+        [dao deleteSQLDB];
+    }
+    
+}
+
+
+
 - (void)dealloc{
-    [dao release];
+    [labelShake release];
+    [labelGPS release];
     [super dealloc];
 }
 

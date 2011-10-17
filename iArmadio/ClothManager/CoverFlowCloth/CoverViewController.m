@@ -113,11 +113,14 @@ static CGRect frameCover;
       ([currstate.oldCurrSection isEqualToString:SECTION_COVERFLOW]) 
      ) 
     {*/
-        /*[self reloadVestiti];
+        [self reloadVestiti];
         if([pNotification.name isEqualToString:ADD_CLOTH_EVENT]){
             [self addIterator];
-        }*/
-    //}
+        }
+    /*}
+    
+    */
+    
 }
 
 - (void)reloadVestiti{

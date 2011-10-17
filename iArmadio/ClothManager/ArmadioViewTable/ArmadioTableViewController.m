@@ -24,6 +24,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+     
 }
 
 
@@ -73,6 +74,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadCassetti:) name:DEL_CLOTH_EVENT object:nil];
     
     //[self reloadCassetti];
+   
     
 }
 
@@ -83,6 +85,20 @@
     // e.g. self.myOutlet = nil;
 }
 
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (void) motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
+    NSLog(@"OK");
+    
+    if (event.type == UIEventSubtypeMotionShake) 
+    {
+        NSLog(@"MI STAI SHAKERANDOOOOOOO!!!!!");
+        
+    }
+    
+}
 
 
 
@@ -132,6 +148,7 @@
     
     return cell;
 }
+
 
 #pragma mark - Table view delegate
 

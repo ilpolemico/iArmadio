@@ -40,9 +40,21 @@
          [NSTimer timerWithTimeInterval:0.5 target:self selector:@selector(showArrow:) userInfo:nil repeats:NO] forMode:NSDefaultRunLoopMode];
     }    
     
-    
+    [self becomeFirstResponder];
     
 }
+
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+
+- (void) motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
+
+    NSLog(@"OK");
+}
+
+
 
 /*
 -(BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{

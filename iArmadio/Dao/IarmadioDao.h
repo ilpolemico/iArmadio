@@ -114,6 +114,8 @@ static NSString * const IMAGES_PLIST = @"images";
 
 - (void)delCombinazioneEntity:(Combinazione *)Combinazione;
 
+- (void)deleteSQLDB;
+
 
 
 @end

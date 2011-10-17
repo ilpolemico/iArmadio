@@ -7,7 +7,13 @@
 */
 
 
+"Impostazioni" = "?Impostazioni";
+"Credits" = "?Credits";
+"Abilita GPS" = "?Abilita GPS";
+"Abilita Shake" = "?Abilita Shake";
 
+"Cancellare tutte le impostazioni" = "?Cancellare tutte le impostazioni";
+"Vuoi cancellare tutte le impostazioni? In questo modo cancellerai anche tutti i vestiti" = "?Vuoi cancellare tutte le impostazioni? In questo modo cancellerai anche tutti i vestiti";
 
 //CaptureCloth
 "Aggiungi vestito" = "Add dress";

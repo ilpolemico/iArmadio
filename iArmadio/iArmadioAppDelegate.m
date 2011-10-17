@@ -38,6 +38,7 @@
     
     tabBarController.delegate = self;
     self.window.rootViewController = self.tabBarController;
+    [self.window becomeFirstResponder];
     
     NSArray *array = self.tabBarController.tabBar.items;
     for(UITabBarItem *item in array){
@@ -46,12 +47,13 @@
 
    
     [self.window addSubview:tabBarController.view];
-       [self addTabBarArrow];
+    [self addTabBarArrow];
     [self.window makeKeyAndVisible];
-    
+    [self.tabBarController.view becomeFirstResponder];
     
     return YES;
 }
+
 
 
 
@@ -84,6 +86,8 @@
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
 }
+
+
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {

@@ -28,6 +28,7 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -35,6 +36,7 @@
     [super viewDidLoad];
     dao = [IarmadioDao shared]; 
     [self reloadVestitiPreferiti:nil];
+    [CurrState shared].currSection = SECTION_FAVORITES;
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
     

@@ -913,6 +913,64 @@ static IarmadioDao *singleton;
     return persistentStoreCoordinator;
 }
 
+
+- (void)deleteSQLDB{
+    NSError *error;
+    
+    NSArray *stores = [persistentStoreCoordinator persistentStores];
+    
+    for(NSPersistentStore *store in stores) {
+        [persistentStoreCoordinator removePersistentStore:store error:&error];
+        [[NSFileManager defaultManager] removeItemAtPath:store.URL.path error:&error];
+    }
+    
+    [persistentStoreCoordinator release];
+    [managedObjectContext release];
+    [managedObjectModel release];
+    managedObjectModel = nil;
+    managedObjectContext = nil;
+    persistentStoreCoordinator = nil;
+    
+    [stiliEntities release];
+    [tipiEntities release];
+    [listTipiKeys release];
+    [listStagioniKeys release];
+    [listStiliKeys release];
+    [listCategoryKeys release];
+    [category release];
+    [stagioniEntities release];
+    [currStagioneKey release];
+    stiliEntities = nil;
+    tipiEntities = nil;
+    listTipiKeys = nil;
+    listStagioniKeys = nil;
+    listStiliKeys = nil;
+    listCategoryKeys = nil;
+    category = nil;
+    stagioniEntities = nil;
+    currStagioneKey = nil;
+    
+    
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSString *directory = [[self filePathDocuments:@""] stringByAppendingString:@"/"] ;
+    
+   
+    for (NSString *file in [fm contentsOfDirectoryAtPath:directory error:&error]) {
+        BOOL success = [fm removeItemAtPath:[NSString stringWithFormat:@"%@%@", directory, file] error:&error];
+        
+        if (!success || error) {
+            NSLog(@"%@",error);
+        }
+    }
+    
+
+    [self setupDB];
+    
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:MOD_CLOTH_EVENT
+     object:self];
+}
+
 - (void)saveContext {
     
     NSError *error = nil;

@@ -9,6 +9,8 @@
 #import "GeoLocal.h"
 
 @implementation GeoLocal
+@synthesize isEnableGPS;
+
 static GeoLocal *singleton;
 BOOL currentConditions;
 int curr_temp;
@@ -36,6 +38,20 @@ int curr_temp;
     [locationManager startUpdatingLocation];
    
     return self;
+}
+
+-(BOOL)isEnableGPS{
+    return locationManager.locationServicesEnabled;
+}
+
+-(void)enableGPS{
+    NSLog(@"Enable GPS");
+    [locationManager startUpdatingLocation];
+}
+
+-(void)disableGPS{
+    NSLog(@"Disable GPS");
+    [locationManager stopUpdatingLocation];
 }
 
 
