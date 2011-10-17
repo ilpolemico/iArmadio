@@ -59,13 +59,14 @@
     IBOutlet UIButton *stile_3;
     IBOutlet UIButton *stile_4;
     
-    
+    IBOutlet UILabel *ordinaLabel;
     
     
 }
 
 @property (retain, nonatomic) IBOutlet UIImageView *tipoView;
 @property (retain, nonatomic) IBOutlet UILabel *tipoLabel;
+@property (retain, nonatomic) IBOutlet UILabel *ordinaLabel;
 @property (retain, nonatomic) NSString *tipologia;
 
 @property (retain, nonatomic) IBOutlet UIButton *orderBy_data;

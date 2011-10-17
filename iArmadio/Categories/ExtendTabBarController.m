@@ -44,6 +44,13 @@
     
 }
 
+/*
+-(BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
+    return (self.interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+*/
+
+
 -(void)showArrow:(NSTimer *)timer{
     [((iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate]).tabBarArrow setHidden:NO];
 }

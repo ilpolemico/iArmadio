@@ -26,7 +26,8 @@
             coverView,
             tipoView,
             tipoLabel,
-            tipologia;
+            tipologia,
+            ordinaLabel;
 
 static CGRect frameCover;
 
@@ -145,6 +146,7 @@ static CGRect frameCover;
     
     dao = [IarmadioDao shared];
     currstate = [CurrState shared];
+    self.ordinaLabel.text = NSLocalizedString(self.ordinaLabel.text, nil);
     currstate.currSection = SECTION_COVERFLOW;
     [self initInputType];
     
@@ -171,7 +173,7 @@ static CGRect frameCover;
     //self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:@"CoverView" type:@"background"]];
     
     Tipologia *tipologiaEntity = [dao getTipoEntity:tipologia];
-    self.tipoLabel.text = tipologiaEntity.plural;
+    self.tipoLabel.text = NSLocalizedString(tipologiaEntity.plural,nil);
     self.tipoView.contentMode = UIViewContentModeScaleAspectFit;
     self.tipoView.image = [dao getImageFromTipo:tipologiaEntity];
 
@@ -257,8 +259,22 @@ static CGRect frameCover;
 {
     // Return YES for supported orientations
     //return (interfaceOrientation == UIInterfaceOrientationPortrait);
-    return NO;
+    return YES;
 }
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+    
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration
+{    
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
+
+}
+
+
 
 -(IBAction)addItem:(id)sender{
     

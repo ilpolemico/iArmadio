@@ -15,5 +15,6 @@
 -(void)presentModalViewController:(UIViewController *) controller animated:(BOOL)animated;
 
 -(void)viewWillAppear:(BOOL)animated;
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation;
 
 @end

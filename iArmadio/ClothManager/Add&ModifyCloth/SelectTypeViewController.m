@@ -9,6 +9,7 @@
 #import "SelectTypeViewController.h"
 
 @implementation SelectTypeViewController
+@synthesize navigationBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,12 +52,13 @@
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
     
-    
+    navigationBar.topItem.title = NSLocalizedString(navigationBar.topItem.title,nil);
     selectedIndexPath = nil;
     
-    armadio = [[ArmadioTableViewController alloc] initWithNibName:@"ArmadioViewTable" bundle:nil delegateController:self];
+    armadio = [[ArmadioTableViewController alloc] initWithNibName:@"ArmadioTableView" bundle:nil delegateController:self];
     
     armadio.view.frame = CGRectMake(0,44,320,420);
+   
     [self.view addSubview:armadio.view];
 }
 
@@ -70,7 +72,8 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    //return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
 }
 
 - (void) dealloc{

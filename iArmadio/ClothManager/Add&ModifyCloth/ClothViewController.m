@@ -28,6 +28,10 @@
             saveButton, 
             tipologiaBtn, 
             tipologiaLabel,
+            tipologiaSelected,
+            stileLabel,
+            stagioneLabel,
+            gradimentoLabel,
             addNavigationBar,
             toolbar,
             currTipologia,
@@ -76,6 +80,10 @@
     [self initInputType];
     lastScaleFactor = 0;
     
+    
+    self.stileLabel.text = NSLocalizedString(self.stileLabel.text,nil);
+    self.stagioneLabel.text = NSLocalizedString(self.stagioneLabel.text,nil);
+    self.gradimentoLabel.text = NSLocalizedString(self.gradimentoLabel.text,nil);
     
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
@@ -130,12 +138,14 @@
         if(self.currTipologia){
             Tipologia *tipologiaEntity = [dao getTipoEntity:self.currTipologia];
             [self.tipologiaBtn setImage:[dao getImageFromTipo:tipologiaEntity] forState:UIControlStateNormal];
-            self.tipologiaLabel.text = tipologiaEntity.nome;
+            self.tipologiaLabel.text = NSLocalizedString(tipologiaEntity.nome,nil);
+            self.tipologiaSelected = tipologiaEntity.nome;
         }
         else{
             Tipologia *tipologiaEntity = [dao getTipoEntity:[dao.listTipiKeys objectAtIndex:0]];
             [self.tipologiaBtn setImage:[dao getImageFromTipo:tipologiaEntity] forState:UIControlStateNormal];
-            self.tipologiaLabel.text = [dao.listTipiKeys objectAtIndex:0];
+            self.tipologiaLabel.text = NSLocalizedString([dao.listTipiKeys objectAtIndex:0],nil);
+            self.tipologiaSelected = tipologiaEntity.nome;
         }  
         
         if([[CurrState shared] currStagioneIndex] == nil){
@@ -153,7 +163,8 @@
         
         Tipologia *tipo = [[vestito.tipi allObjects] objectAtIndex:0];
         [self.tipologiaBtn setImage:[dao getImageFromTipo:tipo] forState:UIControlStateNormal];
-         self.tipologiaLabel.text = tipo.nome;
+         self.tipologiaLabel.text = NSLocalizedString(tipo.nome,nil);
+         self.tipologiaSelected = tipo.nome;
         
         NSNumber *grad = vestito.gradimento;
         
@@ -229,7 +240,13 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    //return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
+}
+
+-(void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
+
+   
 }
 
 - (void)didReceiveMemoryWarning
@@ -250,7 +267,7 @@
 
 -(IBAction) deleteCloth:(id) sender {
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cancella" message:@"Vuoi cancellare il vestito" delegate:self cancelButtonTitle:@"Annulla" otherButtonTitles:@"Cancella", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString( @"Cancella",nil) message:NSLocalizedString(@"Vuoi cancellare il vestito",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Annulla",nil) otherButtonTitles:NSLocalizedString( @"Cancella",nil), nil];
     
     [alert show];
     [alert release];
@@ -273,7 +290,7 @@
 
 -(IBAction) saveCloth:(id) sender {
 	
-   NSString *nametipo = self.tipologiaLabel.text; 
+   NSString *nametipo = self.tipologiaSelected; 
    NSArray *tipi = [[NSArray alloc] initWithObjects:nametipo,nil];
     
         
@@ -291,7 +308,8 @@
         
         if([[dao getVestitiEntities:tipi filterStagioneKey:nil filterStiliKeys:nil filterGradimento:-1] count]+1 > MAX_CLOTH){
             
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Numero massimo superato" message:@"Il numero massimo dei capi per questo tipo è stato raggiunto" delegate:self cancelButtonTitle:@"Annulla" otherButtonTitles:nil, nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:
+                                  NSLocalizedString(@"Numero massimo superato",nil) message: NSLocalizedString(@"Il numero massimo dei capi per questo tipo è stato raggiunto",nil) delegate:self cancelButtonTitle: NSLocalizedString(@"Annulla",nil) otherButtonTitles:nil, nil];
             
             [alert show];
             [alert release];
@@ -336,7 +354,7 @@
 
 
 -(IBAction) selectImage:(id) sender{
-        UIActionSheet *popupAddItem = [[UIActionSheet alloc] initWithTitle:@"Cambia Immagine Vestito" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Fotocamera", @"Album", nil];
+        UIActionSheet *popupAddItem = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Cambia Immagine Vestito",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel",nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Fotocamera",nil),NSLocalizedString(@"Album",nil), nil];
         
         popupAddItem.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
         [popupAddItem showInView:self.view];
@@ -427,6 +445,11 @@
     [((iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate]).tabBarArrow setHidden:YES];
 }
 
+
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     modifyImageCloth = NO;
@@ -441,7 +464,8 @@
         
         Tipologia *entity =  [dao getTipoEntity:[tipologie objectAtIndex:[selectController getIndexPath].row ]];
         
-         self.tipologiaLabel.text = entity.nome;
+        self.tipologiaLabel.text = NSLocalizedString(entity.nome,nil);
+        self.tipologiaSelected = entity.nome;
         
         [self.tipologiaBtn setImage:[dao getImageFromTipo:entity] forState:UIControlStateNormal];
  

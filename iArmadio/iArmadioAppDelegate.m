@@ -35,11 +35,20 @@
     dao = [IarmadioDao shared];
     [dao setupDB];
     
+    
     tabBarController.delegate = self;
     self.window.rootViewController = self.tabBarController;
+    
+    NSArray *array = self.tabBarController.tabBar.items;
+    for(UITabBarItem *item in array){
+        item.title = NSLocalizedString(item.title,nil);
+    }
+
+   
     [self.window addSubview:tabBarController.view];
-    [self addTabBarArrow];
+       [self addTabBarArrow];
     [self.window makeKeyAndVisible];
+    
     
     return YES;
 }
@@ -119,6 +128,8 @@
     [UIView commitAnimations];  
     
 }
+
+
 - (void)dealloc
 {
     [window release];

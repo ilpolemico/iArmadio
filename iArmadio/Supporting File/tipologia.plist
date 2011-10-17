@@ -52,7 +52,7 @@
 		<key>icon</key>
 		<string>02.png</string>
 		<key>category</key>
-		<string>abiti</string>
+		<string>soprabiti</string>
 	</dict>
 	<key>5</key>
 	<dict>
@@ -200,7 +200,7 @@
 	<key>16</key>
 	<dict>
 		<key>name</key>
-		<string>Calze</string>
+		<string>calze</string>
 		<key>allow</key>
 		<string></string>
 		<key>order</key>
@@ -235,6 +235,32 @@
 		<string>02.png</string>
 		<key>category</key>
 		<string>soprabiti</string>
+	</dict>
+	<key>19</key>
+	<dict>
+		<key>name</key>
+		<string>felpa - felpe</string>
+		<key>allow</key>
+		<string></string>
+		<key>order</key>
+		<string></string>
+		<key>icon</key>
+		<string>02.png</string>
+		<key>category</key>
+		<string>soprabiti</string>
+	</dict>
+	<key>20</key>
+	<dict>
+		<key>name</key>
+		<string>vestitino</string>
+		<key>allow</key>
+		<string></string>
+		<key>order</key>
+		<string></string>
+		<key>icon</key>
+		<string>02.png</string>
+		<key>category</key>
+		<string>abiti</string>
 	</dict>
 </dict>
 </plist>

@@ -30,7 +30,11 @@
     IBOutlet UIBarButtonItem *saveButton;
     IBOutlet UIBarButtonItem *undoButton;
     IBOutlet UIButton *tipologiaBtn;
+    NSString *tipologiaSelected;
     IBOutlet UILabel *tipologiaLabel;
+    IBOutlet UILabel *stileLabel;
+    IBOutlet UILabel *gradimentoLabel;
+    IBOutlet UILabel *stagioneLabel;
     
     IBOutlet UIToolbar *toolbar;
     IBOutlet UIBarButtonItem *trash;
@@ -70,6 +74,10 @@
       
 }
 
+@property (nonatomic, retain ) IBOutlet UILabel *stileLabel;
+@property (nonatomic, retain ) IBOutlet UILabel *gradimentoLabel;
+@property (nonatomic, retain ) IBOutlet UILabel *stagioneLabel;
+
 @property (nonatomic, retain )IBOutlet UIButton *stile_1;
 @property (nonatomic, retain )IBOutlet UIButton *stile_2;
 @property (nonatomic, retain )IBOutlet UIButton *stile_3;
@@ -92,8 +100,9 @@
 @property (nonatomic, retain) IBOutlet UIBarButtonItem * undoButton;
 
 
-@property (nonatomic, retain) IBOutlet IBOutlet UIButton *tipologiaBtn;
-@property (nonatomic, retain) IBOutlet IBOutlet UILabel  *tipologiaLabel;
+@property (nonatomic, retain) IBOutlet UIButton *tipologiaBtn;
+@property (nonatomic, retain) IBOutlet UILabel  *tipologiaLabel;
+@property (nonatomic, retain) NSString *tipologiaSelected;
 
 
 

@@ -14,7 +14,6 @@
 		A30A332014308E3100D44356 /* ClothManagerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30A32E014308E3100D44356 /* ClothManagerView.xib */; };
 		A30A332514308E3100D44356 /* ClothView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30A32EA14308E3100D44356 /* ClothView.xib */; };
 		A30A332614308E3100D44356 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A30A32EC14308E3100D44356 /* InfoPlist.strings */; };
-		A30A332714308E3100D44356 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A30A32EE14308E3100D44356 /* Localizable.strings */; };
 		A30A333414308E3100D44356 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30A330D14308E3100D44356 /* MainWindow.xib */; };
 		A30A333814308E3100D44356 /* 02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A30A331614308E3100D44356 /* 02@2x.png */; };
 		A30A333B14308E3100D44356 /* stagione.plist in Resources */ = {isa = PBXBuildFile; fileRef = A30A331914308E3100D44356 /* stagione.plist */; };
@@ -81,6 +80,7 @@
 		A3EA4785144A65710095349B /* icona@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3EA4783144A65710095349B /* icona@2x.png */; };
 		A3FB194714462726003620C5 /* images.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3FB194614462725003620C5 /* images.plist */; };
 		A3FB91D41438FF8F009AF9B4 /* ArmadioTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3FB91D31438FF8E009AF9B4 /* ArmadioTableView.xib */; };
+		A3FBCA90144C11C80071A213 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3FBCA92144C11C80071A213 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,7 +98,6 @@
 		A30A32E914308E3100D44356 /* IarmadioDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IarmadioDao.m; sourceTree = "<group>"; };
 		A30A32EB14308E3100D44356 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ClothView.xib; sourceTree = "<group>"; };
 		A30A32ED14308E3100D44356 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A30A32EF14308E3100D44356 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A30A330214308E3100D44356 /* GeoLocal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoLocal.h; sourceTree = "<group>"; };
 		A30A330314308E3100D44356 /* GeoLocal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeoLocal.m; sourceTree = "<group>"; };
 		A30A330414308E3100D44356 /* iArmadio-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iArmadio-Prefix.pch"; sourceTree = "<group>"; };
@@ -107,7 +106,6 @@
 		A30A330814308E3100D44356 /* iArmadioAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iArmadioAppDelegate.h; sourceTree = "<group>"; };
 		A30A330914308E3100D44356 /* iArmadioAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iArmadioAppDelegate.m; sourceTree = "<group>"; };
 		A30A330A14308E3100D44356 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		A30A330B14308E3100D44356 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A30A330C14308E3100D44356 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A30A330D14308E3100D44356 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		A30A331314308E3100D44356 /* Shake2Style.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shake2Style.h; sourceTree = "<group>"; };
@@ -202,6 +200,8 @@
 		A3EA4783144A65710095349B /* icona@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icona@2x.png"; sourceTree = "<group>"; };
 		A3FB194614462725003620C5 /* images.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = images.plist; sourceTree = "<group>"; };
 		A3FB91D31438FF8E009AF9B4 /* ArmadioTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArmadioTableView.xib; sourceTree = "<group>"; };
+		A3FBCA91144C11C80071A213 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A3FBCA93144C11D10071A213 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,7 +276,6 @@
 				A30A32D914308E3100D44356 /* ClothManager */,
 				A30A331214308E3100D44356 /* Shake2Style */,
 				A30A32EC14308E3100D44356 /* InfoPlist.strings */,
-				A30A32EE14308E3100D44356 /* Localizable.strings */,
 				A30A330414308E3100D44356 /* iArmadio-Prefix.pch */,
 				A30A330514308E3100D44356 /* iArmadio.xcdatamodeld */,
 				A30A330814308E3100D44356 /* iArmadioAppDelegate.h */,
@@ -378,6 +377,7 @@
 				A30A331914308E3100D44356 /* stagione.plist */,
 				A30A331A14308E3100D44356 /* stile.plist */,
 				A30A331C14308E3100D44356 /* tipologia.plist */,
+				A3FBCA92144C11C80071A213 /* Localizable.strings */,
 			);
 			path = "Supporting File";
 			sourceTree = "<group>";
@@ -599,7 +599,6 @@
 				A30A332014308E3100D44356 /* ClothManagerView.xib in Resources */,
 				A30A332514308E3100D44356 /* ClothView.xib in Resources */,
 				A30A332614308E3100D44356 /* InfoPlist.strings in Resources */,
-				A30A332714308E3100D44356 /* Localizable.strings in Resources */,
 				A30A333414308E3100D44356 /* MainWindow.xib in Resources */,
 				A30A333814308E3100D44356 /* 02@2x.png in Resources */,
 				A30A333B14308E3100D44356 /* stagione.plist in Resources */,
@@ -622,6 +621,7 @@
 				A3EA4784144A65710095349B /* icona.png in Resources */,
 				A3EA4785144A65710095349B /* icona@2x.png in Resources */,
 				A31C7BA2144B17A900BD565D /* CaptureClothController.xib in Resources */,
+				A3FBCA90144C11C80071A213 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,11 +693,11 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		A30A32EE14308E3100D44356 /* Localizable.strings */ = {
+		A3FBCA92144C11C80071A213 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A30A32EF14308E3100D44356 /* en */,
-				A30A330B14308E3100D44356 /* it */,
+				A3FBCA91144C11C80071A213 /* en */,
+				A3FBCA93144C11D10071A213 /* it */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

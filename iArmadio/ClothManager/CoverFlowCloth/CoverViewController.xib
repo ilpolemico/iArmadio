@@ -114,7 +114,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<string key="IBUIText">Ordina :</string>
+								<string key="IBUIText">Ordina</string>
 								<object class="NSFont" key="IBUIFont" id="993219185">
 									<string key="NSName">Helvetica</string>
 									<double key="NSSize">17</double>
@@ -246,6 +246,7 @@
 								<string key="NSFrame">{{248, 120}, {50, 37}}</string>
 								<reference key="NSSuperview" ref="478710158"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:222</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -324,6 +325,7 @@
 				<string key="NSFrameSize">{239, 30}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
+				<reference key="NSNextKeyView"/>
 				<string key="NSReuseIdentifierKey">_NS:262</string>
 				<bool key="IBUIOpaque">NO</bool>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -497,6 +499,14 @@
 						<reference key="destination" ref="983379345"/>
 					</object>
 					<int key="connectionID">119</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">ordinaLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="553145494"/>
+					</object>
+					<int key="connectionID">120</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -697,7 +707,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">119</int>
+			<int key="maxID">120</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -749,6 +759,7 @@
 							<string>openflow</string>
 							<string>orderBy_data</string>
 							<string>orderBy_gradimento</string>
+							<string>ordinaLabel</string>
 							<string>segmentControl</string>
 							<string>segmentcontrol</string>
 							<string>stile_1</string>
@@ -768,6 +779,7 @@
 							<string>FlowCoverView</string>
 							<string>UIButton</string>
 							<string>UIButton</string>
+							<string>UILabel</string>
 							<string>UISegmentedControl</string>
 							<string>UISegmentedControl</string>
 							<string>UIButton</string>
@@ -790,6 +802,7 @@
 							<string>openflow</string>
 							<string>orderBy_data</string>
 							<string>orderBy_gradimento</string>
+							<string>ordinaLabel</string>
 							<string>segmentControl</string>
 							<string>segmentcontrol</string>
 							<string>stile_1</string>
@@ -832,6 +845,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">orderBy_gradimento</string>
 								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">ordinaLabel</string>
+								<string key="candidateClassName">UILabel</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">segmentControl</string>

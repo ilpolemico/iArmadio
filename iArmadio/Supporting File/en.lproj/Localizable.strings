@@ -1,0 +1,91 @@
+/* 
+  Localizable.strings
+  iArmadio
+
+  Created by Casa Fortunato on 17/10/11.
+  Copyright 2011 __MyCompanyName__. All rights reserved.
+*/
+
+
+//CaptureCloth
+"Aggiungi vestito" = "Add dress";
+"Aggiungi un altro vestito" = "Add another dress";
+"Fotocamera" = "Camera";
+"Album" = "Album";
+
+//ClothView
+"Cancella" = "Delete";
+"Annulla" = "Cancel";
+"Vuoi cancellare il vestito" = "?Vuoi cancellare il vestito";
+"Cambia Immagine Vestito" = "?Cambia Immagine Vestito";
+
+"Numero massimo superato" = "?Numero massimo superato";
+"Il numero massimo dei capi per questo tipo è stato raggiunto" = "?Il numero massimo dei capi per questo tipo è stato raggiunto";
+"Cambia Immagine Vestito" = "?Cambia Immagine Vestito";
+
+"Stile" = "?Stile";
+"Piace" = "?Piace";
+"Stagione" = "?Stagione";
+"Scegli tipo vestito" = "?Scegli tipo vestito";
+
+
+
+
+//Coverview
+"Ordina" = "Order by";
+
+
+"armadio" = "wardrobe";
+
+//Vestiti
+"calzature" = "?calzature";
+"stivali" = "?stivali";
+"scarpe" = "?shoes";
+"abiti" = "?dress";
+"soprabiti" = "?soprabiti";
+
+
+//Abiti
+"gonna" = "?gonna";
+"gonne" = "?gonne";
+"pantalone" = "?pantalone";
+"pantaloni" = "?pantaloni";
+"camicia" = "?camicia";
+"camicie" = "?camicie";
+"maglietta" = "?maglietta";
+"magliette" = "?magliette";
+"maglione" = "?maglione";
+"maglioni" = "?maglioni";
+"completo" = "?completo";
+"completi" = "?completi";
+"vestitino" = "?vestitino";
+
+
+//Accessori
+"sciarpa" = "?sciarpa";
+"sciarpe" = "?sciarpe";
+"accessori" = "?accessori";
+"cravatta" = "?cravatta";
+"cravatte" = "?cravatte";
+"cintura" = "?cintura";
+"cinture" = "?cinture";
+"borsa" = "?borsa";
+"borse" = "?borse";
+"cappello" = "?cappello";
+"cappelli" = "?cappelli";
+"calze" = "?calze";
+
+
+
+//Soprabiti
+"cappotto" = "?cappotto";
+"cappotti" = "?cappotti";
+"giacca" = "?giacca"; 
+"giacche" = "?giacche";
+"giubetto" = "?giubetto";
+"giubetti" = "?giubetti";
+"felpa" = "?felpa";
+"felpe" = "?felpe";
+
+
+

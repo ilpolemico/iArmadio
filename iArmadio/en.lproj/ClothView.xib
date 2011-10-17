@@ -139,7 +139,6 @@
 						<string key="NSFrame">{{241, 150}, {42, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:311</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -393,7 +392,6 @@
 						<string key="NSFrame">{{248, 404}, {66, 37}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:222</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -581,6 +579,30 @@
 						<reference key="destination" ref="715880733"/>
 					</object>
 					<int key="connectionID">170</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">stileLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="610495290"/>
+					</object>
+					<int key="connectionID">174</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">gradimentoLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="326024389"/>
+					</object>
+					<int key="connectionID">175</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">stagioneLabel</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="73269851"/>
+					</object>
+					<int key="connectionID">176</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -819,7 +841,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">172</int>
+			<int key="maxID">176</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -887,6 +909,7 @@
 							<string>addNavigationBar</string>
 							<string>currStile</string>
 							<string>currTipologia</string>
+							<string>gradimentoLabel</string>
 							<string>gradimento_1</string>
 							<string>gradimento_2</string>
 							<string>gradimento_3</string>
@@ -894,9 +917,11 @@
 							<string>imageViewReflect</string>
 							<string>saveButton</string>
 							<string>scrollview</string>
+							<string>stagioneLabel</string>
 							<string>stagione_1</string>
 							<string>stagione_2</string>
 							<string>stagione_3</string>
+							<string>stileLabel</string>
 							<string>stile_1</string>
 							<string>stile_2</string>
 							<string>stile_3</string>
@@ -911,6 +936,7 @@
 							<string>UINavigationBar</string>
 							<string>NSString</string>
 							<string>NSString</string>
+							<string>UILabel</string>
 							<string>UIButton</string>
 							<string>UIButton</string>
 							<string>UIButton</string>
@@ -918,9 +944,11 @@
 							<string>UIImageView</string>
 							<string>UIBarButtonItem</string>
 							<string>UIScrollView</string>
+							<string>UILabel</string>
 							<string>UIButton</string>
 							<string>UIButton</string>
 							<string>UIButton</string>
+							<string>UILabel</string>
 							<string>UIButton</string>
 							<string>UIButton</string>
 							<string>UIButton</string>
@@ -938,6 +966,7 @@
 							<string>addNavigationBar</string>
 							<string>currStile</string>
 							<string>currTipologia</string>
+							<string>gradimentoLabel</string>
 							<string>gradimento_1</string>
 							<string>gradimento_2</string>
 							<string>gradimento_3</string>
@@ -945,9 +974,11 @@
 							<string>imageViewReflect</string>
 							<string>saveButton</string>
 							<string>scrollview</string>
+							<string>stagioneLabel</string>
 							<string>stagione_1</string>
 							<string>stagione_2</string>
 							<string>stagione_3</string>
+							<string>stileLabel</string>
 							<string>stile_1</string>
 							<string>stile_2</string>
 							<string>stile_3</string>
@@ -970,6 +1001,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">currTipologia</string>
 								<string key="candidateClassName">NSString</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">gradimentoLabel</string>
+								<string key="candidateClassName">UILabel</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">gradimento_1</string>
@@ -1000,6 +1035,10 @@
 								<string key="candidateClassName">UIScrollView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
+								<string key="name">stagioneLabel</string>
+								<string key="candidateClassName">UILabel</string>
+							</object>
+							<object class="IBToOneOutletInfo">
 								<string key="name">stagione_1</string>
 								<string key="candidateClassName">UIButton</string>
 							</object>
@@ -1010,6 +1049,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">stagione_3</string>
 								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">stileLabel</string>
+								<string key="candidateClassName">UILabel</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">stile_1</string>

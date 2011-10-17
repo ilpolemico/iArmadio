@@ -35,10 +35,10 @@
     [super viewDidLoad];
     
     
-    NSString *title = @"Aggiungi vestito";
-    if(iterator){title = @"Aggiungi un altro vestito";}
+    NSString *title = NSLocalizedString(@"Aggiungi vestito",nil);
+    if(iterator){title = NSLocalizedString(@"Aggiungi un altro vestito",nil);}
     
-    UIActionSheet *popupAddItem = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Fotocamera", @"Album", nil];
+    UIActionSheet *popupAddItem = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Fotocamera",nil), NSLocalizedString(@"Album",nil), nil];
     
     popupAddItem.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     
@@ -59,7 +59,8 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    //return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
 }
 
 

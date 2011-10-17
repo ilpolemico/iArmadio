@@ -64,6 +64,7 @@
     [super viewDidLoad];
     dao = [IarmadioDao shared]; 
     self.view.backgroundColor = [UIColor clearColor];
+    self.navigationItem.title =  NSLocalizedString(@"armadio", nil); 
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadCassetti:) name:ADD_CLOTH_EVENT object:nil];
     
@@ -119,7 +120,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.imageView.image = [dao getImageFromTipo:([dao getTipoEntity:[tipologie objectAtIndex:indexPath.row]])]; 
-    cell.textLabel.text = [dao getTipoEntity:[tipologie objectAtIndex:indexPath.row]].plural;
+    cell.textLabel.text = NSLocalizedString([dao getTipoEntity:[tipologie objectAtIndex:indexPath.row]].plural,nil);
     [cell.textLabel setTextColor:[UIColor darkTextColor]];
     [cell.textLabel setFont:[UIFont fontWithName:@"MarkerFelt-Wide" size:18 ]];
     [cell.detailTextLabel setFont:[UIFont fontWithName:@"MarkerFelt-Wide" size:12 ]];
@@ -171,7 +172,7 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     
     
-    return [dao.listCategoryKeys objectAtIndex:section];
+    return NSLocalizedString([dao.listCategoryKeys objectAtIndex:section],nil);
 
 }    
 
@@ -181,7 +182,16 @@
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView{
-    return dao.listCategoryKeys;
+    
+    NSMutableArray *tempArray = [[[NSMutableArray alloc] init] autorelease];
+    for(NSString *category in dao.listCategoryKeys){
+        [tempArray addObject:NSLocalizedString(category, nil)];
+    }
+    
+    
+    
+    
+    return tempArray;
 }
 
 
@@ -194,6 +204,16 @@
 
 }
  */
+
+
+- (void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
+}
+
+
+- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
+
+    return YES;
+}
 
 -(void) dealloc{
     [super dealloc];
