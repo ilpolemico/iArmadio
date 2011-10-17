@@ -36,7 +36,9 @@
             toolbar,
             currTipologia,
             currStile,
-            trash;
+            trash,
+            addPreferiti,
+            preferito;
  
 
 
@@ -50,6 +52,7 @@
     currStile = nil;
     currGradimento = nil;
     currStagione = nil;
+    preferito = @"";
     return self;
 }
 
@@ -77,6 +80,9 @@
     dao = [IarmadioDao shared];
     
     [CurrState shared].currSection = SECTION_CLOTHVIEW;
+    
+    
+    if(vestito != nil){self.preferito = vestito.preferito;}
     [self initInputType];
     lastScaleFactor = 0;
     
@@ -121,13 +127,13 @@
         NSMutableArray *items = [[toolbar.items mutableCopy] autorelease];
         [items removeObject:trash]; 
         toolbar.items = items;
+        
     }
     
     if(vestito != nil){
         [self.imageView setImage:[dao getImageFromVestito:vestito]];
         //[self.imageViewReflect setImage:[[dao getImageFromVestito:vestito] reflectedImageWithHeight:200 fromAlpha:0.5 toAlpha:0]];
-       
-        //self.imageView.image = ;
+       self.preferito = vestito.preferito;
     }
     
     
@@ -234,6 +240,21 @@
     choiceGradimento.selectedIndex = 0;
     
     
+    [self.view setUserInteractionEnabled:NO];
+    if((self.preferito != nil)&&([self.preferito length]>0)){
+        addPreferiti.selected = YES;
+        [addPreferiti setSelected:YES];
+        [addPreferiti setHighlighted:YES];
+    }    
+    else{
+        addPreferiti.selected = NO;
+        [addPreferiti setSelected:NO];
+        [addPreferiti setHighlighted:NO];
+    }
+    [self.view setUserInteractionEnabled:YES];
+     
+    
+    
 }
 
 
@@ -263,6 +284,32 @@
 
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+-(IBAction) addPreferiti:(id)sender{
+    if(self.view.isUserInteractionEnabled){
+     [self performSelector:@selector(keepHighlightButton) withObject:nil afterDelay:0.0];
+    }    
+    
+}
+
+- (void)keepHighlightButton{
+    if(!addPreferiti.selected){
+        [addPreferiti setSelected:YES];
+        [addPreferiti setHighlighted:YES];
+        NSDate* date = [NSDate date];
+        NSDateFormatter* formatter = [[[NSDateFormatter alloc] init] autorelease];
+        [formatter setDateFormat:@"yyyy-MM-dd-hh-mm-ss"];
+        NSString *str = [formatter stringFromDate:date];
+        NSTimeInterval timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
+        NSString *millisecondi = [NSString stringWithFormat:@"-%d",timePassed_ms];
+        self.preferito = [str stringByAppendingString:millisecondi];
+    } else {
+        [addPreferiti setHighlighted:NO];
+        [addPreferiti setSelected:NO];
+        self.preferito = nil;
+    }
+
 }
 
 -(IBAction) deleteCloth:(id) sender {
@@ -296,6 +343,7 @@
         
    [CurrState shared].currSection = [CurrState shared].oldCurrSection;
    
+   
    NSMutableArray *stili = [[NSMutableArray alloc] init];
    if(choiceStile.selectedIndex < [dao.listStiliKeys count]){
        [stili addObject:[dao.listStiliKeys objectAtIndex:choiceStile.selectedIndex]];
@@ -320,7 +368,9 @@
 
         
         
-        [dao addVestitoEntity:[self.imageView.image normal] gradimento:choiceGradimento.selectedIndex tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili];
+        vestito = [dao addVestitoEntity:[self.imageView.image normal] gradimento:choiceGradimento.selectedIndex tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili preferito:self.preferito];
+        [vestito retain];
+        
     }
     else{
         UIImage *tmp = nil;
@@ -328,9 +378,13 @@
             tmp = [self.imageView.image normal];
         }    
         
-        [dao modifyVestitoEntity:vestito image:tmp  isNew:NO gradimento:choiceGradimento.selectedIndex tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili];
+        if(vestito != nil){[vestito autorelease];}
+        vestito.preferito = self.preferito;
+        vestito = [dao modifyVestitoEntity:vestito image:tmp  isNew:NO gradimento:choiceGradimento.selectedIndex tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili];
             modifyImageCloth = NO;
+        [vestito retain];
     }
+    
     
     [tipi release];
     [stili release];
@@ -509,7 +563,9 @@
 }
 
 -(void) dealloc{
-    
+    if(vestito != nil){
+        [vestito release];
+    }
     [stile_1 release];
     [stile_2 release];
     [stile_3 release];
@@ -533,6 +589,7 @@
     [segmentStile release];
     [segmentStagione release];
     [segmentGradimento release];
+    [preferito release];
     [super dealloc];
 }
 

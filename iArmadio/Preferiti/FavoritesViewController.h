@@ -8,9 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import "IarmadioDao.h"
+#import "ClothViewController.h"
 
-@interface FavoritesViewController : UIViewController{
+@interface FavoritesViewController : UIViewController
+    <UITableViewDataSource, UITableViewDelegate>{
     IarmadioDao *dao;
+    IBOutlet UITableView *tableview; 
+    NSArray *vestiti;    
+    IBOutlet UINavigationBar *navbar;    
 }
+
+@property (nonatomic,retain) IBOutlet UITableView *tableview;
+@property (nonatomic,retain) IBOutlet UINavigationBar *navbar;
+@property (nonatomic,retain) NSArray *vestiti;
+
+-(void) reloadVestitiPreferiti:(NSNotification *)notification;
 
 @end

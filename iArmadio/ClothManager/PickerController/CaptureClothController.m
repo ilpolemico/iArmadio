@@ -38,7 +38,7 @@
     NSString *title = NSLocalizedString(@"Aggiungi vestito",nil);
     if(iterator){title = NSLocalizedString(@"Aggiungi un altro vestito",nil);}
     
-    UIActionSheet *popupAddItem = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Fotocamera",nil), NSLocalizedString(@"Album",nil), nil];
+    UIActionSheet *popupAddItem = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel",nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Fotocamera",nil), NSLocalizedString(@"Album",nil), nil];
     
     popupAddItem.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     

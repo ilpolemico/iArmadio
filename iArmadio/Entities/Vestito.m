@@ -2,7 +2,7 @@
 //  Vestito.m
 //  iArmadio
 //
-//  Created by Casa Fortunato on 11/10/11.
+//  Created by Casa Fortunato on 17/10/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -19,6 +19,7 @@
 @dynamic id;
 @dynamic immagine;
 @dynamic thumbnail;
+@dynamic preferito;
 @dynamic conProprieta;
 @dynamic conStile;
 @dynamic inCombinazioni;

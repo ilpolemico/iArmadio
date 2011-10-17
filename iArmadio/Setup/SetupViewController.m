@@ -35,6 +35,7 @@
     dao = [IarmadioDao shared]; 
     self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
     // Do any additional setup after loading the view from its nib.
+    self.navigationItem.title =  NSLocalizedString(@"Impostazioni", nil);
 }
 
 - (void)viewDidUnload

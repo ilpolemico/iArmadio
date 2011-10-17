@@ -95,13 +95,19 @@ static IarmadioDao *singleton;
  }
 
 
-- (NSArray *)getVestitiEntities:(NSArray *)filterTipiKeys filterStagioneKey:(NSString *)filterStagioneKey filterStiliKeys:(NSArray *)filterStiliKeys filterGradimento:(NSInteger)filterGradimento{
-
-    return [self getVestitiEntities:filterTipiKeys filterStagioneKey:filterStagioneKey filterStiliKeys:filterStiliKeys filterGradimento:filterGradimento sortOnKeys:nil];
+- (NSArray *)getVestitiEntitiesPreferiti:(NSArray *)filterTipiKeys filterStagioneKey:(NSString *)filterStagioneKey filterStiliKeys:(NSArray *)filterStiliKeys filterGradimento:(NSInteger)filterGradimento{
+    
+    return [self getVestitiEntities:filterTipiKeys filterStagioneKey:filterStagioneKey filterStiliKeys:filterStiliKeys filterGradimento:filterGradimento sortOnKeys:nil preferiti:YES];
     
 }
 
-- (NSArray *)getVestitiEntities:(NSArray *)filterTipiKeys filterStagioneKey:(NSString *)filterStagioneKey filterStiliKeys:(NSArray *)filterStiliKeys filterGradimento:(NSInteger)filterGradimento sortOnKeys:(NSArray *)sortonkeys
+- (NSArray *)getVestitiEntities:(NSArray *)filterTipiKeys filterStagioneKey:(NSString *)filterStagioneKey filterStiliKeys:(NSArray *)filterStiliKeys filterGradimento:(NSInteger)filterGradimento{
+
+    return [self getVestitiEntities:filterTipiKeys filterStagioneKey:filterStagioneKey filterStiliKeys:filterStiliKeys filterGradimento:filterGradimento sortOnKeys:nil preferiti:NO];
+    
+}
+
+- (NSArray *)getVestitiEntities:(NSArray *)filterTipiKeys filterStagioneKey:(NSString *)filterStagioneKey filterStiliKeys:(NSArray *)filterStiliKeys filterGradimento:(NSInteger)filterGradimento sortOnKeys:(NSArray *)sortonkeys preferiti:(BOOL) preferiti
     {
    
     NSMutableArray *sortDescriptors = [[[NSMutableArray alloc] init] autorelease];
@@ -130,6 +136,10 @@ static IarmadioDao *singleton;
         [predicates addObject:predicate];
     }
     
+    if(preferiti){
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"preferito.length > 0"];
+        [predicates addObject:predicate];
+    }
     
     if((filterStagioneKey != nil)&&(![filterStagioneKey isEqualToString:@"ALL"])){
         NSMutableArray *tmp = [[[NSMutableArray alloc] init] autorelease];
@@ -186,7 +196,7 @@ static IarmadioDao *singleton;
 }
 
 
-- (Vestito *)addVestitoEntity:(UIImage *)image gradimento:(NSInteger)gradimento  tipiKeys:(NSArray *)tipiKeys stagioneKey:(NSString *)stagioneKey stiliKeys:(NSArray *)stiliKeys; {
+- (Vestito *)addVestitoEntity:(UIImage *)image gradimento:(NSInteger)gradimento  tipiKeys:(NSArray *)tipiKeys stagioneKey:(NSString *)stagioneKey stiliKeys:(NSArray *)stiliKeys preferito:(NSString *)preferito; {
     NSString *imageFilename; 
     NSString *thumbnailFilename; 
     
@@ -199,6 +209,9 @@ static IarmadioDao *singleton;
     [vestito setValue:id forKey:@"id"];
     [vestito setValue:imageFilename forKey:@"immagine"];
     [vestito setValue:thumbnailFilename forKey:@"thumbnail"];
+    if(preferito != nil){
+        [vestito setValue:preferito forKey:@"preferito"];
+    }
     
     vestito = [self modifyVestitoEntity:vestito image:image isNew:YES gradimento:gradimento  tipiKeys:tipiKeys stagioneKey:stagioneKey stiliKeys:stiliKeys];
     
@@ -216,8 +229,8 @@ static IarmadioDao *singleton;
 
 }
 
-- (Vestito *)modifyVestitoEntity:(Vestito *)vestito image:(UIImage *)image  isNew:(BOOL)new gradimento:(NSInteger)gradimento  tipiKeys:(NSArray *)tipiKeys stagioneKey:(NSString *)stagioneKey stiliKeys:(NSArray *)stiliKeys{
-    
+- (Vestito *)modifyVestitoEntity:(Vestito *)vestito image:(UIImage *)image  isNew:(BOOL)new gradimento:(NSInteger)gradimento  tipiKeys:(NSArray *)tipiKeys stagioneKey:(NSString *)stagioneKey stiliKeys:(NSArray *)stiliKeys {
+    [vestito retain];
     if(image != nil){
         NSData *imageData = UIImagePNGRepresentation(image);
         [imageData writeToFile:[self filePathDocuments:vestito.immagine] atomically:YES];
@@ -258,7 +271,7 @@ static IarmadioDao *singleton;
          postNotificationName:MOD_CLOTH_EVENT
          object:self];
     }
-    
+    [vestito autorelease];
     return vestito;
 }
 

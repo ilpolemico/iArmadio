@@ -43,6 +43,7 @@
     NSString *currStile;
     NSString *currGradimento;
     NSString *currStagione;
+    NSString *preferito;
     
     
     BOOL addCloth;
@@ -70,9 +71,14 @@
     IBOutlet UIButton *gradimento_1;
     IBOutlet UIButton *gradimento_2;
     IBOutlet UIButton *gradimento_3;
+    
+    IBOutlet UIButton *addPreferiti;
 
       
 }
+
+@property (nonatomic, retain ) NSString *preferito;
+@property (nonatomic, retain ) IBOutlet UIButton *addPreferiti;
 
 @property (nonatomic, retain ) IBOutlet UILabel *stileLabel;
 @property (nonatomic, retain ) IBOutlet UILabel *gradimentoLabel;
@@ -113,6 +119,7 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil getVestito:(Vestito *)vestito;
 
+-(IBAction) addPreferiti:(id) sender;
 -(IBAction) selectTipo:(id) sender;
 -(IBAction) selectImage:(id) sender;
 -(IBAction) saveCloth:(id) sender;

@@ -34,7 +34,7 @@
     [super viewDidLoad];
     dao = [IarmadioDao shared]; 
     self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
-    
+    self.navigationItem.title =  NSLocalizedString(@"look", nil);
     // Do any additional setup after loading the view from its nib.
 }
 

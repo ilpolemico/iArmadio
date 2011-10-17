@@ -106,20 +106,18 @@ static CGRect frameCover;
 #pragma mark - View lifecycle
 
 - (void)reloadVestiti:(NSNotification *)pNotification{
+   /*NSLog(@"currSection: %@",currstate.currSection); 
    if(
       ([currstate.currSection isEqualToString:SECTION_COVERFLOW])
        ||
       ([currstate.oldCurrSection isEqualToString:SECTION_COVERFLOW]) 
      ) 
-    {
-        [self reloadVestiti];
+    {*/
+        /*[self reloadVestiti];
         if([pNotification.name isEqualToString:ADD_CLOTH_EVENT]){
             [self addIterator];
-        }
-    }
-    
-    
-    
+        }*/
+    //}
 }
 
 - (void)reloadVestiti{
@@ -131,7 +129,7 @@ static CGRect frameCover;
         [vestiti release];
     }
     
-    vestiti = [dao getVestitiEntities:[NSArray arrayWithObjects:tipologia,nil] filterStagioneKey:currstate.currStagioneKey filterStiliKeys:[[[NSArray alloc] initWithObjects:localCurrStile, nil] autorelease] filterGradimento:-1 sortOnKeys:localCurrOrderBy];
+    vestiti = [dao getVestitiEntities:[NSArray arrayWithObjects:tipologia,nil] filterStagioneKey:currstate.currStagioneKey filterStiliKeys:[[[NSArray alloc] initWithObjects:localCurrStile, nil] autorelease] filterGradimento:-1 sortOnKeys:localCurrOrderBy preferiti:NO];
     
     [vestiti retain];
     

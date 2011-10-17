@@ -7,6 +7,8 @@
 */
 
 
+
+
 //CaptureCloth
 "Aggiungi vestito" = "Add dress";
 "Aggiungi un altro vestito" = "Add another dress";
@@ -14,6 +16,7 @@
 "Album" = "Album";
 
 //ClothView
+"Cancel" = "?Cancel";
 "Cancella" = "Delete";
 "Annulla" = "Cancel";
 "Vuoi cancellare il vestito" = "?Vuoi cancellare il vestito";
@@ -29,12 +32,17 @@
 "Scegli tipo vestito" = "?Scegli tipo vestito";
 
 
+"Look" = "?Look";
+"Preferiti" = "?Preferiti";
+
+"look" = "?look";
+
 
 
 //Coverview
 "Ordina" = "Order by";
 
-
+"Armadio" = "Wardrobe";
 "armadio" = "wardrobe";
 
 //Vestiti
