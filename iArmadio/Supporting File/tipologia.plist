@@ -262,5 +262,18 @@
 		<key>category</key>
 		<string>abiti</string>
 	</dict>
+	<key>21</key>
+	<dict>
+		<key>name</key>
+		<string>pantaloncino - pantaloncini</string>
+		<key>allow</key>
+		<string></string>
+		<key>order</key>
+		<string></string>
+		<key>icon</key>
+		<string>02.png</string>
+		<key>category</key>
+		<string>abiti</string>
+	</dict>
 </dict>
 </plist>
