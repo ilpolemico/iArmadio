@@ -33,12 +33,14 @@
     // Add the tab bar controller's current view as a subview of the window
     geolocal = [GeoLocal shared];
     dao = [IarmadioDao shared];
+    shake2style = [Shake2Style shared];
     [dao setupDB];
     
     
     tabBarController.delegate = self;
     self.window.rootViewController = self.tabBarController;
-    [self.window becomeFirstResponder];
+    [self.window addSubview:shake2style.view];
+    [shake2style becomeFirstResponder];
     
     NSArray *array = self.tabBarController.tabBar.items;
     for(UITabBarItem *item in array){
@@ -53,6 +55,10 @@
     
     return YES;
 }
+
+
+
+
 
 
 

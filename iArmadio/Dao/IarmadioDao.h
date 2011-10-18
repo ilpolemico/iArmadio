@@ -32,6 +32,7 @@ static NSString * const TIPOLOGIA_PLIST = @"tipologia";
 static NSString * const STAGIONE_PLIST = @"stagione";
 static NSString * const STILE_PLIST = @"stile";
 static NSString * const IMAGES_PLIST = @"images";
+static NSString * const CONFIG_PLIST = @"Config";
 
 @class iArmadioAppDelegate;
 
@@ -49,8 +50,10 @@ static NSString * const IMAGES_PLIST = @"images";
     NSMutableArray *listCategoryKeys;
     NSString *currStagioneKey; 
     NSDictionary *imagesDictionary;
+    NSMutableDictionary *config;
 }
 
+@property (nonatomic, retain) NSMutableDictionary *config;
 @property (nonatomic, retain, readonly) NSMutableDictionary *category;
 @property (nonatomic, retain, readonly) NSMutableArray *listCategoryKeys;
 @property (nonatomic, retain, readonly) NSString *currStagioneKey;

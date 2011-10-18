@@ -15,7 +15,7 @@
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)bundle delegateController:(id)_delegateController{
-    [self initWithNibName:nibNameOrNil bundle:bundle];
+    self = [super initWithNibName:nibNameOrNil bundle:bundle];
     delegateController = _delegateController;
     return self;
 }
@@ -85,20 +85,8 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (BOOL)canBecomeFirstResponder {
-    return YES;
-}
 
-- (void) motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
-    NSLog(@"OK");
-    
-    if (event.type == UIEventSubtypeMotionShake) 
-    {
-        NSLog(@"MI STAI SHAKERANDOOOOOOO!!!!!");
-        
-    }
-    
-}
+
 
 
 

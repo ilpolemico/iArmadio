@@ -12,9 +12,7 @@
 @synthesize navcontroler,addItemBtn, modifyBtn, tipologia;
 
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-
-    
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     return self;
 }
 
@@ -71,7 +69,10 @@
     [self.view addSubview:navcontroler.view];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addIterator:) name:ADD_CLOTH_EVENT object:nil];
     
+    
 }
+
+
 
 
 - (void)viewWillAppear:(BOOL)animated{

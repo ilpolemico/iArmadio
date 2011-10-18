@@ -769,16 +769,43 @@ static IarmadioDao *singleton;
 
 
 
+- (NSMutableDictionary *)config{
+    if(config == nil){
+        NSString *pathDocumentSettings= [[self filePathDocuments:[CONFIG_PLIST stringByAppendingString:@".plist"]] retain];
+        NSString *pathBundleSettings= [[self filePathBundle:[CONFIG_PLIST stringByAppendingString:@".plist"]] retain];
+        
+        if(![[NSFileManager defaultManager] fileExistsAtPath:pathDocumentSettings]){
+             
+             [[NSFileManager defaultManager] copyItemAtPath:pathBundleSettings 
+                                                     toPath:pathDocumentSettings 
+                                                      error:nil];
+        };
+        config = [NSMutableDictionary dictionaryWithContentsOfFile:pathDocumentSettings];
+         
+        [config retain];
+    }
+    return config;
+}
 
 
+- (void)setConfig:(NSMutableDictionary *)_config{
+    if(config != nil){
+        [config release];
+        config = nil;
+    }
+    config = _config;
+    [config retain];
+     NSString *pathDocumentSettings= [self filePathDocuments:[CONFIG_PLIST stringByAppendingString:@".plist"]];
 
-
+    [config writeToFile:pathDocumentSettings atomically:YES];
+}
 
 -(void)setupDB
 {
     [self loadTipologie:TIPOLOGIA_PLIST];
     [self loadStagioni:STAGIONE_PLIST];
     [self loadStili:STILE_PLIST];
+    [self config];
     [self tipiEntities];
     [self stiliEntities];
     [self stagioniEntities];
@@ -931,6 +958,7 @@ static IarmadioDao *singleton;
     managedObjectContext = nil;
     persistentStoreCoordinator = nil;
     
+    [config release];
     [stiliEntities release];
     [tipiEntities release];
     [listTipiKeys release];
@@ -949,6 +977,7 @@ static IarmadioDao *singleton;
     category = nil;
     stagioniEntities = nil;
     currStagioneKey = nil;
+    config = nil;
     
     
     NSFileManager *fm = [NSFileManager defaultManager];
@@ -956,14 +985,12 @@ static IarmadioDao *singleton;
     
    
     for (NSString *file in [fm contentsOfDirectoryAtPath:directory error:&error]) {
-        BOOL success = [fm removeItemAtPath:[NSString stringWithFormat:@"%@%@", directory, file] error:&error];
+         [fm removeItemAtPath:[NSString stringWithFormat:@"%@%@", directory, file] error:&error];
         
-        if (!success || error) {
-            NSLog(@"%@",error);
-        }
+        
+       
     }
     
-
     [self setupDB];
     
     [[NSNotificationCenter defaultCenter]

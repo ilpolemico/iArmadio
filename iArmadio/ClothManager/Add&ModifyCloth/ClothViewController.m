@@ -312,6 +312,13 @@
 
 }
 
+
+
+
+- (void) motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
+    NSLog(@"OK");
+}
+
 -(IBAction) deleteCloth:(id) sender {
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString( @"Cancella",nil) message:NSLocalizedString(@"Vuoi cancellare il vestito",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Annulla",nil) otherButtonTitles:NSLocalizedString( @"Cancella",nil), nil];
@@ -527,6 +534,7 @@
         [selectController release];
         selectController = nil;    
     }
+    
     [super viewWillAppear:animated];
 }
 

@@ -24,6 +24,7 @@ int curr_temp;
 
 
 - (id)init{
+    self = [super init];
     dao = [IarmadioDao shared];
     currLocation = @"";
     oldLocation = @"";
@@ -41,17 +42,19 @@ int curr_temp;
 }
 
 -(BOOL)isEnableGPS{
-    return locationManager.locationServicesEnabled;
+    return [locationManager locationServicesEnabled];
 }
 
 -(void)enableGPS{
     NSLog(@"Enable GPS");
+    locationManager.delegate=self;
     [locationManager startUpdatingLocation];
 }
 
 -(void)disableGPS{
     NSLog(@"Disable GPS");
     [locationManager stopUpdatingLocation];
+    locationManager.delegate=nil;
 }
 
 
@@ -115,7 +118,7 @@ int curr_temp;
     
     [currLocation release];
     currLocation = placemark.locality;
-    NSLog(@"%@",currLocation);
+    //NSLog(@"%@",currLocation);
     [self setTemperatura];
     [currLocation retain];
     [geoCoder release];
@@ -139,7 +142,7 @@ int curr_temp;
 {
     
     if(!geoCoder){
-        NSLog(@"%@",newLocation);
+        //NSLog(@"%@",newLocation);
         geoCoder = [[MKReverseGeocoder alloc] initWithCoordinate:newLocation.coordinate];
         [geoCoder setDelegate:self];
         [geoCoder start];

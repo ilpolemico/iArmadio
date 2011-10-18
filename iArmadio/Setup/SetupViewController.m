@@ -32,8 +32,10 @@
 #pragma mark - View lifecycle
 
 - (void) viewDidAppear:(BOOL)animated{
-    gps.on = [GeoLocal shared].isEnableGPS;
-    //shake.on = [GeoLocal shared].isEnableGPS;
+    NSMutableDictionary *options = [dao.config objectForKey:@"Settings"];
+    gps.on = [[options objectForKey:@"gps"] boolValue];
+    shake.on = [[options objectForKey:@"shake"] boolValue];
+    
 }
 
 - (void)viewDidLoad
@@ -41,7 +43,6 @@
     [super viewDidLoad];
     dao = [IarmadioDao shared]; 
     [CurrState shared].currSection = SECTION_PREFERENCE;
-    
     
     [self.view addSubview:navcontroler.view];
     
@@ -52,8 +53,10 @@
     self.navcontroler.navigationBar.topItem.title =  NSLocalizedString(@"Impostazioni", nil);
     self.navcontroler.navigationBar.topItem.rightBarButtonItem.title = NSLocalizedString(@"Credits",nil);
     
-    self.labelGPS.text = NSLocalizedString(self.labelGPS.text, nil);;
-    self.labelShake.text = NSLocalizedString(self.labelShake.text, nil);;
+    self.labelGPS.text = NSLocalizedString(self.labelGPS.text, nil);
+    self.labelShake.text = NSLocalizedString(self.labelShake.text, nil);
+    
+ 
      
 }
 
@@ -84,14 +87,29 @@
 -(IBAction)enableGPS:(id)sender{
     if(((UISwitch *)sender).isOn){
         [[GeoLocal shared] enableGPS];
+        
     }
     else{
         [[GeoLocal shared] disableGPS];
     }
 
+    NSMutableDictionary *settings = [dao.config copy];
+    NSMutableDictionary *options = [settings objectForKey:@"Settings"];
+
+    [options setValue:[NSNumber numberWithBool:((UISwitch *)sender).isOn] forKey:@"gps"];
+    dao.config = settings;
 
 }
--(IBAction)enableShake:(id)sender{}
+
+-(IBAction)enableShake:(id)sender{
+    NSMutableDictionary *settings = [dao.config copy];
+    NSMutableDictionary *options = [settings objectForKey:@"Settings"];
+    
+    [options setValue:[NSNumber numberWithBool:((UISwitch *)sender).isOn] forKey:@"shake"];
+    dao.config = settings;
+}
+
+
 -(IBAction)reset:(id)sender{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString( @"Cancellare tutte le impostazioni",nil) message:NSLocalizedString(@"Vuoi cancellare tutte le impostazioni? In questo modo cancellerai anche tutti i vestiti",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Annulla",nil) otherButtonTitles:NSLocalizedString( @"Cancella",nil), nil];
     
@@ -104,6 +122,7 @@
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if(buttonIndex != 0){
         [dao deleteSQLDB];
+        [self viewDidAppear:NO];
     }
     
 }

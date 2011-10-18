@@ -58,7 +58,7 @@
 - (IBAction)buttonPressed:(id)sender {
     if(self.currSelectedIndex != self.selectedIndex){
         self.currSelectedIndex = self.currSelectedIndex;
-        self.selectedIndex = [sender tag];
+        self.selectedIndex = [(UIButton *)sender tag];
         [delegate buttonSegmentControl:self selectedButton:[buttons objectAtIndex:self.selectedIndex] selectedIndex:self.selectedIndex];
     }    
     

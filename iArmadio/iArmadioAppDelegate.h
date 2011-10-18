@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "IarmadioDao.h"
 #import "GeoLocal.h"
+#import "Shake2Style.h"
 #import "Configuration.h"
 #import "ExtendTabBarController.h"
 
@@ -20,6 +21,7 @@
 
     GeoLocal *geolocal;
     IarmadioDao *dao;
+    Shake2Style *shake2style;
     IBOutlet UIWindow *window;
     IBOutlet UITabBarController *tabBarController;
     UIImageView* tabBarArrow;

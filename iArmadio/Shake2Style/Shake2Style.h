@@ -9,14 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "IarmadioDao.h"
 
-@interface Shake2Style : NSObject{
+@interface Shake2Style : UIViewController{
     IarmadioDao *dao;
+    
+    UIView *shakeView;
 }
 
 @property (nonatomic, retain, readonly) IarmadioDao *dao;
 
 
-
++ (Shake2Style *)shared;
 - (Combinazione *)shake2style:(NSArray *)filterStili filterStagione:(NSString *)filterStagione;
 
 @end

@@ -11,6 +11,16 @@
 @implementation Shake2Style
 @synthesize dao;
 
+
+static Shake2Style *singleton;
+
++ (Shake2Style *)shared{
+    if(singleton == nil){
+        singleton = [[Shake2Style alloc] init];
+    }
+    return singleton;
+}
+
 - (id)init
 {
     self = [super init];
@@ -19,7 +29,8 @@
         dao = [IarmadioDao shared];
         [dao retain];
     }
-    
+    shakeView = [[UIView alloc] init];
+    self.view = shakeView;
     return self;
 }
 
@@ -54,7 +65,63 @@
     return [combinazioni objectAtIndex: index];
 }
 
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self becomeFirstResponder];
+    
+}
+
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [self.view becomeFirstResponder];
+}
+
+
+-(void) motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event{
+    if([[[dao.config objectForKey:@"Settings"] objectForKey:@"shake"] boolValue]){
+        NSLog(@"OK");
+    }
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    //return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
+}
+
+
+
+
+- (void)didReceiveMemoryWarning
+{
+    // Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+    
+    // Release any cached data, images, etc. that aren't in use.
+}
+
+
+
+
+
+- (void)viewDidUnload
+{
+    
+    [super viewDidUnload];
+    
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+
 -(void) dealloc{
+    [shakeView release];
     [dao release];
     [super dealloc];
 }

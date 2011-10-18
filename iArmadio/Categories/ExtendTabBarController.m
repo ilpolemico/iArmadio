@@ -30,8 +30,6 @@
     
     
     [super viewWillAppear:animated];
-
-    
     if(
         (![[CurrState shared].currSection isEqualToString:SECTION_TRANSIENT])
       ) 
@@ -39,20 +37,10 @@
         [[NSRunLoop currentRunLoop] addTimer: 
          [NSTimer timerWithTimeInterval:0.5 target:self selector:@selector(showArrow:) userInfo:nil repeats:NO] forMode:NSDefaultRunLoopMode];
     }    
-    
-    [self becomeFirstResponder];
-    
-}
-
-- (BOOL)canBecomeFirstResponder {
-    return YES;
 }
 
 
-- (void) motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
 
-    NSLog(@"OK");
-}
 
 
 

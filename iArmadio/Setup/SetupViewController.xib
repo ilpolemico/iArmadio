@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="7.10">
 	<data>
-		<int key="IBDocument.SystemTarget">1056</int>
+		<int key="IBDocument.SystemTarget">1280</int>
 		<string key="IBDocument.SystemVersion">11C74</string>
-		<string key="IBDocument.InterfaceBuilderVersion">1617</string>
+		<string key="IBDocument.InterfaceBuilderVersion">1938</string>
 		<string key="IBDocument.AppKitVersion">1138.23</string>
 		<string key="IBDocument.HIToolboxVersion">567.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">534</string>
+			<string key="NS.object.0">933</string>
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -27,11 +27,8 @@
 			<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 		</object>
 		<object class="NSMutableDictionary" key="IBDocument.Metadata">
-			<bool key="EncodedWithXMLCoder">YES</bool>
-			<object class="NSArray" key="dict.sortedKeys" id="0">
-				<bool key="EncodedWithXMLCoder">YES</bool>
-			</object>
-			<reference key="dict.values" ref="0"/>
+			<string key="NS.key.0">PluginDependencyRecalculationVersion</string>
+			<integer value="1" key="NS.object.0"/>
 		</object>
 		<object class="NSMutableArray" key="IBDocument.RootObjects" id="1000">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -80,7 +77,7 @@
 					<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					<int key="IBUIBarStyle">1</int>
 				</object>
-				<object class="NSArray" key="IBUIViewControllers">
+				<object class="NSMutableArray" key="IBUIViewControllers">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBUIViewController" id="235583008">
 						<object class="IBUIView" key="IBUIView" id="191373211">
@@ -102,11 +99,6 @@
 									<bool key="IBUIUserInteractionEnabled">NO</bool>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 									<string key="IBUIText">Abilita GPS</string>
-									<object class="NSFont" key="IBUIFont" id="616644841">
-										<string key="NSName">Helvetica</string>
-										<double key="NSSize">17</double>
-										<int key="NSfFlags">16</int>
-									</object>
 									<object class="NSColor" key="IBUITextColor" id="636070032">
 										<int key="NSColorSpace">1</int>
 										<bytes key="NSRGB">MCAwIDAAA</bytes>
@@ -114,6 +106,17 @@
 									<nil key="IBUIHighlightedColor"/>
 									<int key="IBUIBaselineAdjustment">1</int>
 									<float key="IBUIMinimumFontSize">10</float>
+									<object class="IBUIFontDescription" key="IBUIFontDescription" id="280277804">
+										<string key="name">Helvetica</string>
+										<string key="family">Helvetica</string>
+										<int key="traits">0</int>
+										<double key="pointSize">17</double>
+									</object>
+									<object class="NSFont" key="IBUIFont" id="616644841">
+										<string key="NSName">Helvetica</string>
+										<double key="NSSize">17</double>
+										<int key="NSfFlags">16</int>
+									</object>
 								</object>
 								<object class="IBUILabel" id="150459595">
 									<reference key="NSNextResponder" ref="191373211"/>
@@ -129,11 +132,12 @@
 									<bool key="IBUIUserInteractionEnabled">NO</bool>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 									<string key="IBUIText">Abilita Shake</string>
-									<reference key="IBUIFont" ref="616644841"/>
 									<reference key="IBUITextColor" ref="636070032"/>
 									<nil key="IBUIHighlightedColor"/>
 									<int key="IBUIBaselineAdjustment">1</int>
 									<float key="IBUIMinimumFontSize">10</float>
+									<reference key="IBUIFontDescription" ref="280277804"/>
+									<reference key="IBUIFont" ref="616644841"/>
 								</object>
 								<object class="IBUISwitch" id="98000420">
 									<reference key="NSNextResponder" ref="191373211"/>
@@ -155,7 +159,6 @@
 									<string key="NSFrame">{{173, 172}, {94, 27}}</string>
 									<reference key="NSSuperview" ref="191373211"/>
 									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView"/>
 									<string key="NSReuseIdentifierKey">_NS:590</string>
 									<bool key="IBUIOpaque">NO</bool>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -207,6 +210,70 @@
 			<object class="NSMutableArray" key="connectionRecords">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">view</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="77052978"/>
+					</object>
+					<int key="connectionID">36</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">navcontroler</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="271463028"/>
+					</object>
+					<int key="connectionID">37</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">labelGPS</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="183678667"/>
+					</object>
+					<int key="connectionID">42</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">labelShake</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="150459595"/>
+					</object>
+					<int key="connectionID">43</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">viewImpostazioni</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="191373211"/>
+					</object>
+					<int key="connectionID">44</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">gps</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="98000420"/>
+					</object>
+					<int key="connectionID">45</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">shake</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="323805386"/>
+					</object>
+					<int key="connectionID">46</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">credits:</string>
+						<reference key="source" ref="512280562"/>
+						<reference key="destination" ref="372490531"/>
+					</object>
+					<int key="connectionID">39</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">enableGPS:</string>
 						<reference key="source" ref="98000420"/>
@@ -233,30 +300,6 @@
 					<int key="connectionID">34</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">view</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="77052978"/>
-					</object>
-					<int key="connectionID">36</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">navcontroler</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="271463028"/>
-					</object>
-					<int key="connectionID">37</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">credits:</string>
-						<reference key="source" ref="512280562"/>
-						<reference key="destination" ref="372490531"/>
-					</object>
-					<int key="connectionID">39</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">reset:</string>
 						<reference key="source" ref="183296612"/>
@@ -264,37 +307,15 @@
 					</object>
 					<int key="connectionID">41</int>
 				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">labelGPS</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="183678667"/>
-					</object>
-					<int key="connectionID">42</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">labelShake</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="150459595"/>
-					</object>
-					<int key="connectionID">43</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">viewImpostazioni</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="191373211"/>
-					</object>
-					<int key="connectionID">44</int>
-				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBObjectRecord">
 						<int key="objectID">0</int>
-						<reference key="object" ref="0"/>
+						<object class="NSArray" key="object" id="0">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+						</object>
 						<reference key="children" ref="1000"/>
 						<nil key="parent"/>
 					</object>
@@ -446,7 +467,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">44</int>
+			<int key="maxID">46</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -504,16 +525,20 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>gps</string>
 							<string>labelGPS</string>
 							<string>labelShake</string>
 							<string>navcontroler</string>
+							<string>shake</string>
 							<string>viewImpostazioni</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>UISwitch</string>
 							<string>UILabel</string>
 							<string>UILabel</string>
 							<string>UINavigationController</string>
+							<string>UISwitch</string>
 							<string>UIView</string>
 						</object>
 					</object>
@@ -521,13 +546,19 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>gps</string>
 							<string>labelGPS</string>
 							<string>labelShake</string>
 							<string>navcontroler</string>
+							<string>shake</string>
 							<string>viewImpostazioni</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">gps</string>
+								<string key="candidateClassName">UISwitch</string>
+							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">labelGPS</string>
 								<string key="candidateClassName">UILabel</string>
@@ -539,6 +570,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">navcontroler</string>
 								<string key="candidateClassName">UINavigationController</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">shake</string>
+								<string key="candidateClassName">UISwitch</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">viewImpostazioni</string>
@@ -561,6 +596,6 @@
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
-		<string key="IBCocoaTouchPluginVersion">534</string>
+		<string key="IBCocoaTouchPluginVersion">933</string>
 	</data>
 </archive>

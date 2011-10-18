@@ -19,8 +19,6 @@
     IBOutlet UIView *viewImpostazioni;
     IBOutlet UISwitch *gps;
     IBOutlet UISwitch *shake;
-    
-
 }
 
 @property (retain,nonatomic) IBOutlet UINavigationController *navcontroler;
