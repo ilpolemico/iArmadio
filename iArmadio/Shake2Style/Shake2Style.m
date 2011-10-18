@@ -9,7 +9,7 @@
 #import "Shake2Style.h"
 
 @implementation Shake2Style
-@synthesize dao;
+@synthesize dao, imageView,vestitoBtn, vestito, combinazione;
 
 
 static Shake2Style *singleton;
@@ -32,8 +32,40 @@ static Shake2Style *singleton;
 }
 
 
+- (Vestito *)shake2style:(NSArray *)vestiti{
+    
+    if([vestiti count] == 0){ return nil;}
+    
+    int tot = 0;
+    
+    NSMutableArray *pesi = [[NSMutableArray alloc] init];
+    
+    int cont = 0;
+    for(Vestito *c in vestiti){
+        tot += [c.gradimento intValue];
+        [pesi addObject:[NSNumber numberWithInt:tot]];
+    }
+    if(tot==0){tot = 1;}
+    int random = rand() % tot;
+    int index = 0;
+    cont = 0;
+    for(NSNumber *peso in pesi){
+        if(random >= [peso intValue]){index = cont;}
+        else{break;}
+        cont++;
+    }
+    
+    
+    [pesi autorelease];
+    return [vestiti objectAtIndex: index];
+}
+
+
 
 - (Combinazione *)shake2style:(NSArray *)filterStili filterStagione:(NSString *)filterStagione{
+    
+    
+    
     NSArray *combinazioni = [dao getCombinazioniEntities:0 filterStagioneKey:filterStagione filterStiliKeys:filterStili];
     
     
@@ -69,7 +101,45 @@ static Shake2Style *singleton;
     [super viewDidLoad];
     
     [self becomeFirstResponder];
-     
+    
+    
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+   
+   NSArray *vestiti = [dao getVestitiEntities:nil filterStagioneKey:dao.currStagioneKey  filterStiliKeys:nil filterGradimento:-1];
+   
+   
+   if(vestito != nil){
+       [vestito release];
+       vestito = nil;
+   }    
+   
+    
+   self.vestito = [self shake2style:vestiti]; 
+   self.imageView.image = nil;
+    
+   
+    
+   if(self.vestito == nil){
+       vestiti = [dao getVestitiEntities:nil filterStagioneKey:nil  filterStiliKeys:nil filterGradimento:-1];
+       self.vestito = [self shake2style:vestiti];
+    
+   } 
+    
+   if(self.vestito == nil){
+       [self.vestitoBtn setEnabled:NO];
+       NSLog(@"Nessun vestito trovato!");
+   } 
+   else{
+       [self.vestitoBtn setEnabled:YES];
+       self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+       self.imageView.image = [dao getImageFromVestito:vestito];
+   }
+    
+    NSLog(@"SHAKE!"); 
+    
     
 }
 
@@ -95,6 +165,16 @@ static Shake2Style *singleton;
     [CurrState shared].currSection = [CurrState shared].oldCurrSection;
     [self dismissModalViewControllerAnimated:YES];
     
+}
+
+-(IBAction)selectCloth:(id)sender{
+    ClothViewController *getviewcontroller = [[ClothViewController alloc] initWithNibName:@"ClothView" bundle:nil getVestito:self.vestito];
+    
+    //iArmadioAppDelegate *appDelegate = (iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    getviewcontroller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentModalViewController:getviewcontroller animated:YES];
+    [getviewcontroller release];
 }
 
 
