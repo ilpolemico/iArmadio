@@ -56,5 +56,10 @@
 		<key>background</key>
 		<string>Default.png</string>
 	</dict>
+	<key>Shake2Style</key>
+	<dict>
+		<key>background</key>
+		<string>Default.png</string>
+	</dict>
 </dict>
 </plist>

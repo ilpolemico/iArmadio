@@ -106,21 +106,19 @@ static CGRect frameCover;
 #pragma mark - View lifecycle
 
 - (void)reloadVestiti:(NSNotification *)pNotification{
-   /*NSLog(@"currSection: %@",currstate.currSection); 
-   if(
-      ([currstate.currSection isEqualToString:SECTION_COVERFLOW])
+   //NSLog(@"currSection: %@",currstate.currSection); 
+  
+    [self reloadVestiti];
+    if(
+       ([currstate.currSection isEqualToString:SECTION_COVERFLOW])
        ||
-      ([currstate.oldCurrSection isEqualToString:SECTION_COVERFLOW]) 
-     ) 
-    {*/
-        [self reloadVestiti];
+       ([currstate.oldCurrSection isEqualToString:SECTION_COVERFLOW]) 
+       ) 
+    {
         if([pNotification.name isEqualToString:ADD_CLOTH_EVENT]){
             [self addIterator];
         }
-    /*}
-    
-    */
-    
+    }    
 }
 
 - (void)reloadVestiti{

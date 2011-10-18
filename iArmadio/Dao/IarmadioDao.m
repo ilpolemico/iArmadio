@@ -771,8 +771,8 @@ static IarmadioDao *singleton;
 
 - (NSMutableDictionary *)config{
     if(config == nil){
-        NSString *pathDocumentSettings= [[self filePathDocuments:[CONFIG_PLIST stringByAppendingString:@".plist"]] retain];
-        NSString *pathBundleSettings= [[self filePathBundle:[CONFIG_PLIST stringByAppendingString:@".plist"]] retain];
+        NSString *pathDocumentSettings= [self filePathDocuments:[CONFIG_PLIST stringByAppendingString:@".plist"]];
+        NSString *pathBundleSettings= [self filePathBundle:[CONFIG_PLIST stringByAppendingString:@".plist"]];
         
         if(![[NSFileManager defaultManager] fileExistsAtPath:pathDocumentSettings]){
              

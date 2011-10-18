@@ -118,7 +118,6 @@ int curr_temp;
     
     [currLocation release];
     currLocation = placemark.locality;
-    //NSLog(@"%@",currLocation);
     [self setTemperatura];
     [currLocation retain];
     [geoCoder release];

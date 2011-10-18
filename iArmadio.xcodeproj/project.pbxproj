@@ -72,6 +72,7 @@
 		A3A66D6C1444DB3D0098F97C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A66D681444DB3D0098F97C /* Default.png */; };
 		A3A66D6F1444DB3D0098F97C /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A66D6B1444DB3D0098F97C /* Default@2x.png */; };
 		A3A89065144D7F320064D79B /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3A89064144D7F320064D79B /* Config.plist */; };
+		A3A976B6144DA7AA00CEB5D6 /* ShakeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3A976B5144DA7A900CEB5D6 /* ShakeView.xib */; };
 		A3D7073F144CAB7D00469E06 /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D7073D144CAB7D00469E06 /* CreditsViewController.m */; };
 		A3D70742144CBF7600469E06 /* CreditsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3D70744144CBF7600469E06 /* CreditsViewController.xib */; };
 		A3D81FCF1448E1910028DD9F /* Tipologia.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D81FCE1448E1910028DD9F /* Tipologia.m */; };
@@ -192,6 +193,7 @@
 		A3A66D681444DB3D0098F97C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A3A66D6B1444DB3D0098F97C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A3A89064144D7F320064D79B /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
+		A3A976B5144DA7A900CEB5D6 /* ShakeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShakeView.xib; sourceTree = "<group>"; };
 		A3D7073C144CAB7D00469E06 /* CreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsViewController.h; sourceTree = "<group>"; };
 		A3D7073D144CAB7D00469E06 /* CreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsViewController.m; sourceTree = "<group>"; };
 		A3D70743144CBF7600469E06 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CreditsViewController.xib; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 			children = (
 				A30A331314308E3100D44356 /* Shake2Style.h */,
 				A30A331414308E3100D44356 /* Shake2Style.m */,
+				A3A976B5144DA7A900CEB5D6 /* ShakeView.xib */,
 			);
 			path = Shake2Style;
 			sourceTree = "<group>";
@@ -642,6 +645,7 @@
 				A3FBCA90144C11C80071A213 /* Localizable.strings in Resources */,
 				A3D70742144CBF7600469E06 /* CreditsViewController.xib in Resources */,
 				A3A89065144D7F320064D79B /* Config.plist in Resources */,
+				A3A976B6144DA7AA00CEB5D6 /* ShakeView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

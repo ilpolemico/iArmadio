@@ -98,6 +98,7 @@
 
     [options setValue:[NSNumber numberWithBool:((UISwitch *)sender).isOn] forKey:@"gps"];
     dao.config = settings;
+    [settings release];
 
 }
 
@@ -107,6 +108,7 @@
     
     [options setValue:[NSNumber numberWithBool:((UISwitch *)sender).isOn] forKey:@"shake"];
     dao.config = settings;
+    [settings release];
 }
 
 

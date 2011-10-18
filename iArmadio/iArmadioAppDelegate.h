@@ -15,7 +15,7 @@
 #import "ExtendTabBarController.h"
 
 
-
+@class Shake2Style;
 
 @interface iArmadioAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate>{
 

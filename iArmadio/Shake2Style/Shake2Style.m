@@ -16,23 +16,21 @@ static Shake2Style *singleton;
 
 + (Shake2Style *)shared{
     if(singleton == nil){
-        singleton = [[Shake2Style alloc] init];
+        singleton = [[Shake2Style alloc] initWithNibName:@"ShakeView" bundle:nil];
     }
     return singleton;
 }
 
-- (id)init
-{
-    self = [super init];
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         srand(time(NULL));
         dao = [IarmadioDao shared];
         [dao retain];
     }
-    shakeView = [[UIView alloc] init];
-    self.view = shakeView;
     return self;
 }
+
 
 
 - (Combinazione *)shake2style:(NSArray *)filterStili filterStagione:(NSString *)filterStagione{
@@ -69,7 +67,9 @@ static Shake2Style *singleton;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [self becomeFirstResponder];
+     
     
 }
 
@@ -77,16 +77,26 @@ static Shake2Style *singleton;
     return YES;
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [self.view becomeFirstResponder];
-}
-
 
 -(void) motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event{
-    if([[[dao.config objectForKey:@"Settings"] objectForKey:@"shake"] boolValue]){
-        NSLog(@"OK");
+    if(![[CurrState shared].currSection isEqualToString:SECTION_SHAKE2STYLE]){
+        if([[[dao.config objectForKey:@"Settings"] objectForKey:@"shake"] boolValue]){
+            [CurrState shared].currSection = SECTION_SHAKE2STYLE;
+            self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
+            iArmadioAppDelegate *appDelegate =  ((iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate]);
+            [appDelegate.tabBarController presentModalViewController:self animated:YES];
+
+        }
     }
 }
+
+
+-(IBAction)done:(id)sender{
+    [CurrState shared].currSection = [CurrState shared].oldCurrSection;
+    [self dismissModalViewControllerAnimated:YES];
+    
+}
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -121,7 +131,7 @@ static Shake2Style *singleton;
 
 
 -(void) dealloc{
-    [shakeView release];
+    [singleton release];
     [dao release];
     [super dealloc];
 }

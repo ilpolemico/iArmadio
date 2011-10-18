@@ -22,9 +22,8 @@
     
     [super presentModalViewController: controller animated:animated];
     
-    
-
 }
+
 
 -(void)viewWillAppear:(BOOL)animated{
     
@@ -37,6 +36,10 @@
         [[NSRunLoop currentRunLoop] addTimer: 
          [NSTimer timerWithTimeInterval:0.5 target:self selector:@selector(showArrow:) userInfo:nil repeats:NO] forMode:NSDefaultRunLoopMode];
     }    
+    
+    
+    [self.view addSubview:[Shake2Style shared].view];
+    [[Shake2Style shared] becomeFirstResponder];
 }
 
 

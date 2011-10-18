@@ -31,6 +31,8 @@
 #define SECTION_PREFERENCE @"PreferenceView"
 
 #define SECTION_TRANSIENT @"TransientView"
+#define SECTION_SHAKE2STYLE @"Shake2Style"
+
 
 
 @interface Configuration : NSObject
