@@ -36,8 +36,9 @@
     [dao setupDB];
     shake2style = [Shake2Style shared];
     tabBarController.delegate = self;
+    self.window.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:SECTION_MAIN_WINDOW type:@"background"]];;
     self.window.rootViewController = self.tabBarController;
-    [self.window addSubview:shake2style.view ];
+    [self.window addSubview:shake2style.view];
     [shake2style becomeFirstResponder];
     
     
@@ -49,9 +50,6 @@
     [self.window addSubview:tabBarController.view];
     [self addTabBarArrow];
     [self.window makeKeyAndVisible];
-    /*
-    [self.tabBarController.view becomeFirstResponder];
-    */
     return YES;
 }
 
@@ -111,7 +109,7 @@
     CGFloat verticalLocation = self.window.frame.size.height - tabBarController.tabBar.frame.size.height - tabBarArrowImage.size.height + 2;
     tabBarArrow.frame = CGRectMake([self horizontalLocationFor:0], verticalLocation, tabBarArrowImage.size.width, tabBarArrowImage.size.height);
     
-    [self.window addSubview:tabBarArrow];
+    [self.tabBarController.view addSubview:tabBarArrow];
 }
 
 - (CGFloat) horizontalLocationFor:(NSUInteger)tabIndex
@@ -137,6 +135,8 @@
     [UIView commitAnimations];  
     
 }
+
+
 
 
 - (void)dealloc

@@ -61,5 +61,10 @@
 		<key>background</key>
 		<string>Default.png</string>
 	</dict>
+	<key>MainWindow</key>
+	<dict>
+		<key>background</key>
+		<string>Default.png</string>
+	</dict>
 </dict>
 </plist>

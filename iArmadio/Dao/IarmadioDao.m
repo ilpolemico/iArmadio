@@ -13,7 +13,7 @@
 
 @implementation IarmadioDao
 
-@synthesize category,listCategoryKeys;
+@synthesize category,listCategoryKeys,localita;
 
 static IarmadioDao *singleton;
 
@@ -832,16 +832,16 @@ static IarmadioDao *singleton;
         predicate = [NSPredicate predicateWithFormat:@"temp_min <= %d AND temp_max >=%d",temperatura,temperatura];
         [predicates addObject:predicate];
     }
-    
-    NSDate* date = [NSDate date];
-    NSDateFormatter* formatter = [[[NSDateFormatter alloc] init] autorelease];
-    [formatter setDateFormat:@"MM-dd"];
-    NSString *filterdate = [formatter stringFromDate:date];
-    
-    predicate = [NSPredicate predicateWithFormat:@"date_from <= %@ AND date_to >=%@",filterdate,filterdate];
-    
-    [predicates addObject:predicate];
-    
+    else{
+        NSDate* date = [NSDate date];
+        NSDateFormatter* formatter = [[[NSDateFormatter alloc] init] autorelease];
+        [formatter setDateFormat:@"MM-dd"];
+        NSString *filterdate = [formatter stringFromDate:date];
+        
+        predicate = [NSPredicate predicateWithFormat:@"date_from <= %@ AND date_to >=%@",filterdate,filterdate];
+        
+        [predicates addObject:predicate];
+    }
     
     [fetchRequest setPredicate:[NSCompoundPredicate andPredicateWithSubpredicates:predicates]];
     
@@ -856,26 +856,8 @@ static IarmadioDao *singleton;
         [currStagioneKey retain];
     }
     else{
-        currStagioneKey = @"estiva";
+        currStagioneKey = @"calda-fredda";
     }
-}
-
-- (NSNumber *)currStagioneIndex{
-    
-    if(
-       [self.currStagioneKey compare:@"estiva"] ||
-       [self.currStagioneKey compare:@"primaverile"]
-      ) {
-        return [NSNumber numberWithInteger:0];
-    }
-    
-    if(
-       [self.currStagioneKey compare:@"invernale"] ||
-       [self.currStagioneKey compare:@"autunnale"]
-       ) {
-       return [NSNumber numberWithInteger:1];
-    }
-    return [NSNumber numberWithInteger:2];
 }
 
 

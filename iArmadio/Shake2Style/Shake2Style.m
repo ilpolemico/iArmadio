@@ -9,7 +9,7 @@
 #import "Shake2Style.h"
 
 @implementation Shake2Style
-@synthesize dao, imageView,vestitoBtn, vestito, combinazione;
+@synthesize dao, imageView,vestitoBtn, vestito, combinazione, stagione, localita;
 
 
 static Shake2Style *singleton;
@@ -99,7 +99,7 @@ static Shake2Style *singleton;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self.view setHidden:YES];
     [self becomeFirstResponder];
     
     
@@ -107,10 +107,13 @@ static Shake2Style *singleton;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-   
+    
    NSArray *vestiti = [dao getVestitiEntities:nil filterStagioneKey:dao.currStagioneKey  filterStiliKeys:nil filterGradimento:-1];
    
    
+   self.stagione.text = dao.currStagioneKey; 
+   self.localita.text = dao.localita; 
+    
    if(vestito != nil){
        [vestito release];
        vestito = nil;
@@ -122,11 +125,6 @@ static Shake2Style *singleton;
     
    
     
-   if(self.vestito == nil){
-       vestiti = [dao getVestitiEntities:nil filterStagioneKey:nil  filterStiliKeys:nil filterGradimento:-1];
-       self.vestito = [self shake2style:vestiti];
-    
-   } 
     
    if(self.vestito == nil){
        [self.vestitoBtn setEnabled:NO];
@@ -138,9 +136,6 @@ static Shake2Style *singleton;
        self.imageView.image = [dao getImageFromVestito:vestito];
    }
     
-    NSLog(@"SHAKE!"); 
-    
-    
 }
 
 - (BOOL)canBecomeFirstResponder {
@@ -151,9 +146,12 @@ static Shake2Style *singleton;
 -(void) motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event{
     if(![[CurrState shared].currSection isEqualToString:SECTION_SHAKE2STYLE]){
         if([[[dao.config objectForKey:@"Settings"] objectForKey:@"shake"] boolValue]){
-            [CurrState shared].currSection = SECTION_SHAKE2STYLE;
-            self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
             iArmadioAppDelegate *appDelegate =  ((iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate]);
+            
+            [CurrState shared].currSection = SECTION_SHAKE2STYLE;
+            [self.view setHidden:NO];
+            self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
+            
             [appDelegate.tabBarController presentModalViewController:self animated:YES];
 
         }
@@ -164,15 +162,15 @@ static Shake2Style *singleton;
 -(IBAction)done:(id)sender{
     [CurrState shared].currSection = [CurrState shared].oldCurrSection;
     [self dismissModalViewControllerAnimated:YES];
-    
+    iArmadioAppDelegate *appDelegate =  ((iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate]);
+    [appDelegate.window addSubview:self.view];    
 }
 
 -(IBAction)selectCloth:(id)sender{
     ClothViewController *getviewcontroller = [[ClothViewController alloc] initWithNibName:@"ClothView" bundle:nil getVestito:self.vestito];
     
-    //iArmadioAppDelegate *appDelegate = (iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate];
-    
     getviewcontroller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    
     [self presentModalViewController:getviewcontroller animated:YES];
     [getviewcontroller release];
 }
@@ -181,8 +179,7 @@ static Shake2Style *singleton;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    //return (interfaceOrientation == UIInterfaceOrientationPortrait);
-    return YES;
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 

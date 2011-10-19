@@ -78,7 +78,6 @@
     
     
     dao = [IarmadioDao shared];
-    
     [CurrState shared].currSection = SECTION_CLOTHVIEW;
     
     
@@ -262,7 +261,7 @@
 {
     // Return YES for supported orientations
     //return (interfaceOrientation == UIInterfaceOrientationPortrait);
-    return YES;
+    return NO;
 }
 
 -(void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
@@ -330,7 +329,7 @@
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if(buttonIndex != 0){
-        [CurrState shared].currSection = [CurrState shared].oldCurrSection;
+        //[CurrState shared].currSection = [CurrState shared].oldCurrSection;
         [dao delVestitoEntity:vestito];
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
@@ -348,7 +347,6 @@
    NSArray *tipi = [[NSArray alloc] initWithObjects:nametipo,nil];
     
         
-   [CurrState shared].currSection = [CurrState shared].oldCurrSection;
    
    
    NSMutableArray *stili = [[NSMutableArray alloc] init];
@@ -404,7 +402,7 @@
 
 
 -(IBAction) undoCloth:(id) sender{
-   [CurrState shared].currSection = [CurrState shared].oldCurrSection;
+   //[CurrState shared].currSection = [CurrState shared].oldCurrSection;
    [self dismissModalViewControllerAnimated:YES];
 }
 
@@ -503,7 +501,6 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-    [((iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate]).tabBarArrow setHidden:YES];
 }
 
 

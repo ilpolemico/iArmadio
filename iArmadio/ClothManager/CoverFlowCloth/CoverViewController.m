@@ -164,7 +164,6 @@ static CGRect frameCover;
     
     [self.view setUserInteractionEnabled:FALSE];
     segmentcontrol.selectedSegmentIndex = [currstate.currStagioneIndex intValue];
-    currstate.currSection = SECTION_COVERFLOW;
     [self.view setUserInteractionEnabled:TRUE];
     [self reloadVestiti:nil];
     
@@ -248,6 +247,9 @@ static CGRect frameCover;
 
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -258,7 +260,7 @@ static CGRect frameCover;
 {
     // Return YES for supported orientations
     //return (interfaceOrientation == UIInterfaceOrientationPortrait);
-    return YES;
+    return NO;
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
@@ -339,7 +341,6 @@ static CGRect frameCover;
 - (void)addIterator
 {
     
-    if([currstate.currSection isEqualToString:SECTION_COVERFLOW]){
         if(captureClothController != nil){
             [captureClothController.view removeFromSuperview];
             [captureClothController release];
@@ -347,8 +348,6 @@ static CGRect frameCover;
         }
         captureClothController = [[CaptureClothController alloc] initWithNibName:@"CaptureClothController" bundle:nil parentController:self  iterator:YES];
         [self.view addSubview:captureClothController.view];
-    }
- 
 }
 
 

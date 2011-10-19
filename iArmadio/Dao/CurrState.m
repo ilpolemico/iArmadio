@@ -109,8 +109,12 @@ static CurrState *singleton;
 }
 
 -(void)setCurrSection:(NSString *)section{
-    oldCurrSection = currSection;
-    currSection = section;
+    if(![section isEqualToString:currSection]){
+        oldCurrSection = currSection;
+        currSection = section;
+    }
+    
+    NSLog(@"%@ - %@",currSection, oldCurrSection);
 }
 
 

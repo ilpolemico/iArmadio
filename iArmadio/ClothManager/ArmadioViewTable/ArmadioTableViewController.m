@@ -23,6 +23,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [CurrState shared].currSection = SECTION_ARMADIO;
     [super viewDidAppear:animated];
      
 }
@@ -217,7 +218,7 @@
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
 
-    return YES;
+    return NO;
 }
 
 -(void) dealloc{

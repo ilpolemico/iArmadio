@@ -9,13 +9,13 @@
 		<key>id</key>
 		<integer>0</integer>
 		<key>temp_min</key>
-		<integer>80</integer>
+		<integer>16</integer>
 		<key>temp_max</key>
-		<integer>20</integer>
+		<integer>16</integer>
 		<key>date_from</key>
-		<string>1-1</string>
+		<string>05-01</string>
 		<key>date_to</key>
-		<string>1-1</string>
+		<string>10-01</string>
 	</dict>
 	<key>fredda</key>
 	<dict>
@@ -26,11 +26,11 @@
 		<key>temp_min</key>
 		<integer>-80</integer>
 		<key>temp_max</key>
-		<integer>19</integer>
+		<integer>15</integer>
 		<key>date_from</key>
-		<string>1-1</string>
+		<string>10-02</string>
 		<key>date_to</key>
-		<string>1-1</string>
+		<string>04-31</string>
 	</dict>
 	<key>calda-fredda</key>
 	<dict>

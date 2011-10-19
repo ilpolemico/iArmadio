@@ -34,7 +34,6 @@
 {
     [super viewDidLoad];
     
-    
     NSString *title = NSLocalizedString(@"Aggiungi vestito",nil);
     if(iterator){title = NSLocalizedString(@"Aggiungi un altro vestito",nil);}
     
@@ -60,7 +59,7 @@
 {
     // Return YES for supported orientations
     //return (interfaceOrientation == UIInterfaceOrientationPortrait);
-    return YES;
+    return NO;
 }
 
 
@@ -98,10 +97,8 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image
                   editingInfo:(NSDictionary *)editingInfo 
 {
-    [CurrState shared].currSection = SECTION_TRANSIENT;
-	[picker dismissModalViewControllerAnimated:NO];
+   [picker dismissModalViewControllerAnimated:NO];
     
-    [CurrState shared].currSection = [CurrState shared].oldCurrSection;
     ClothViewController *addviewcontroller = [[ClothViewController alloc] initWithNibName:@"ClothView" bundle:nil setImage: image];
   
 

@@ -33,6 +33,8 @@
 #define SECTION_TRANSIENT @"TransientView"
 #define SECTION_SHAKE2STYLE @"Shake2Style"
 
+#define SECTION_MAIN_WINDOW @"MainWindow"
+
 
 
 @interface Configuration : NSObject

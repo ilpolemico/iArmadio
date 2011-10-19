@@ -80,7 +80,7 @@
 {
     // Return YES for supported orientations
     //return (interfaceOrientation == UIInterfaceOrientationPortrait);
-    return YES;
+    return NO;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

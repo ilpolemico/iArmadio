@@ -29,7 +29,7 @@
         captureClothController = nil;
         
     }
-    [CurrState shared].currSection = SECTION_CLOTHMANAGERVIEW;
+    [CurrState shared].currSection = SECTION_ARMADIO;
     captureClothController = [[CaptureClothController alloc] initWithNibName:@"CaptureClothController" bundle:nil parentController:self  iterator:NO];
     [self.view addSubview:captureClothController.view];
 }
@@ -38,8 +38,10 @@
 - (void)addIterator:(NSNotification *)notification
 {
    
-    if
-       ([currstate.currSection isEqualToString:SECTION_CLOTHMANAGERVIEW])
+    if(
+       ([currstate.oldCurrSection isEqualToString:SECTION_ARMADIO])||
+       ([currstate.currSection isEqualToString:SECTION_ARMADIO]) 
+        )
         
     {
         
@@ -85,7 +87,7 @@
 {
     // Return YES for supported orientations
     //return (interfaceOrientation == UIInterfaceOrientationPortrait);
-    return YES;
+    return NO;
 }
 
 

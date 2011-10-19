@@ -34,10 +34,7 @@ int curr_temp;
     locationManager.delegate = self;
     locationManager.distanceFilter = kCLDistanceFilterNone;
     locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
-    //[locationManager startMonitoringSignificantLocationChanges];
-    
-    [locationManager startUpdatingLocation];
-   
+    [locationManager startMonitoringSignificantLocationChanges];
     return self;
 }
 
@@ -48,7 +45,7 @@ int curr_temp;
 -(void)enableGPS{
     NSLog(@"Enable GPS");
     locationManager.delegate=self;
-    [locationManager startUpdatingLocation];
+    [locationManager startMonitoringSignificantLocationChanges];
 }
 
 -(void)disableGPS{
@@ -61,6 +58,7 @@ int curr_temp;
 -(void)setTemperatura{
     if(([currLocation length]>0)&&(![currLocation isEqualToString:oldLocation])){
         NSString *request = [NSString stringWithFormat:@"http://www.google.com/ig/api?weather=%@",currLocation];
+        
         NSURLRequest *myRequest = [ [[NSURLRequest alloc] initWithURL: [NSURL URLWithString:request]] autorelease];
         
         NSError        *error = nil;
@@ -118,6 +116,7 @@ int curr_temp;
     
     [currLocation release];
     currLocation = placemark.locality;
+    dao.localita = currLocation;
     [self setTemperatura];
     [currLocation retain];
     [geoCoder release];

@@ -15,10 +15,14 @@
     IarmadioDao *dao;
     IBOutlet UIImageView *imageView;
     IBOutlet UIButton *vestitoBtn;
+    IBOutlet UILabel *stagione;
+    IBOutlet UILabel *localita;
     Vestito *vestito;
     Combinazione *combinazione;
 }
 
+@property (nonatomic, retain, readonly) IBOutlet UILabel *stagione;
+@property (nonatomic, retain, readonly) IBOutlet UILabel *localita;
 @property (nonatomic, retain, readonly) IBOutlet UIImageView *imageView;
 @property (nonatomic, retain, readonly) IBOutlet UIButton *vestitoBtn;
 @property (nonatomic, retain, readonly) IarmadioDao *dao;
