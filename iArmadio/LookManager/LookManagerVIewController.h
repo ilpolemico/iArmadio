@@ -8,10 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "IarmadioDao.h"
+#import "LookTableViewController.h"
 
 @interface LookManagerViewController : UIViewController{
 
     IarmadioDao *dao;
+    IBOutlet LookTableViewController *lookTableViewController;
+    IBOutlet UINavigationController *navcontroler;
+
 }
+
+
+@property (retain, readonly, nonatomic) IBOutlet LookTableViewController *lookTableViewController;
+@property (retain, readonly, nonatomic) IBOutlet UINavigationController *navcontroler;
+
 
 @end

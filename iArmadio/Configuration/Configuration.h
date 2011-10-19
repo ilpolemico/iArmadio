@@ -25,6 +25,8 @@
 #define SECTION_CLOTHMANAGERVIEW @"ClothManagerView"
 
 #define SECTION_LOOKVIEW @"LookView"
+#define SECTION_LOOKTABLEVIEW @"LookTableView"
+
 #define SECTION_LOOKMANAGERVIEW @"LookManagerView"
 
 #define SECTION_FAVORITES @"FavoritesView"

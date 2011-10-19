@@ -24,7 +24,6 @@
 		A31C7BA1144B17A900BD565D /* CaptureClothController.m in Sources */ = {isa = PBXBuildFile; fileRef = A31C7B9F144B17A900BD565D /* CaptureClothController.m */; };
 		A31C7BA2144B17A900BD565D /* CaptureClothController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A31C7BA0144B17A900BD565D /* CaptureClothController.xib */; };
 		A3297D6B143DC37100EBF25A /* Stile.m in Sources */ = {isa = PBXBuildFile; fileRef = A3297D6A143DC37100EBF25A /* Stile.m */; };
-		A3297D6E143DC37100EBF25A /* Stagione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3297D6D143DC37100EBF25A /* Stagione.m */; };
 		A3297D7C143DE2C000EBF25A /* 02.png in Resources */ = {isa = PBXBuildFile; fileRef = A3297D7B143DE2C000EBF25A /* 02.png */; };
 		A3297D85143DE31300EBF25A /* SetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3297D7F143DE31300EBF25A /* SetupViewController.m */; };
 		A3297D86143DE31300EBF25A /* SetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3297D80143DE31300EBF25A /* SetupViewController.xib */; };
@@ -81,6 +80,11 @@
 		A3EA477C1449DD2D0095349B /* ExtendTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EA477B1449DD2D0095349B /* ExtendTabBarController.m */; };
 		A3EA4784144A65710095349B /* icona.png in Resources */ = {isa = PBXBuildFile; fileRef = A3EA4782144A65710095349B /* icona.png */; };
 		A3EA4785144A65710095349B /* icona@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3EA4783144A65710095349B /* icona@2x.png */; };
+		A3F1473D144EFE2D007779DF /* Stagione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F1473C144EFE2D007779DF /* Stagione.m */; };
+		A3F14747144F08E3007779DF /* LookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3F14744144F08E3007779DF /* LookViewController.xib */; };
+		A3F14748144F08E3007779DF /* LookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F14746144F08E3007779DF /* LookViewController.m */; };
+		A3F1474E144F0FB6007779DF /* LookTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3F1474B144F0FB6007779DF /* LookTableView.xib */; };
+		A3F1474F144F0FB6007779DF /* LookTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F1474D144F0FB6007779DF /* LookTableViewController.m */; };
 		A3FB194714462726003620C5 /* images.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3FB194614462725003620C5 /* images.plist */; };
 		A3FB91D41438FF8F009AF9B4 /* ArmadioTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3FB91D31438FF8E009AF9B4 /* ArmadioTableView.xib */; };
 		A3FBCA90144C11C80071A213 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3FBCA92144C11C80071A213 /* Localizable.strings */; };
@@ -127,8 +131,6 @@
 		A31C7BA0144B17A900BD565D /* CaptureClothController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CaptureClothController.xib; sourceTree = "<group>"; };
 		A3297D69143DC37100EBF25A /* Stile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stile.h; sourceTree = "<group>"; };
 		A3297D6A143DC37100EBF25A /* Stile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stile.m; sourceTree = "<group>"; };
-		A3297D6C143DC37100EBF25A /* Stagione.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stagione.h; sourceTree = "<group>"; };
-		A3297D6D143DC37100EBF25A /* Stagione.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stagione.m; sourceTree = "<group>"; };
 		A3297D7B143DE2C000EBF25A /* 02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 02.png; sourceTree = "<group>"; };
 		A3297D7E143DE31300EBF25A /* SetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupViewController.h; sourceTree = "<group>"; };
 		A3297D7F143DE31300EBF25A /* SetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupViewController.m; sourceTree = "<group>"; };
@@ -207,6 +209,14 @@
 		A3EA477B1449DD2D0095349B /* ExtendTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtendTabBarController.m; sourceTree = "<group>"; };
 		A3EA4782144A65710095349B /* icona.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icona.png; sourceTree = "<group>"; };
 		A3EA4783144A65710095349B /* icona@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icona@2x.png"; sourceTree = "<group>"; };
+		A3F1473B144EFE2D007779DF /* Stagione.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stagione.h; sourceTree = "<group>"; };
+		A3F1473C144EFE2D007779DF /* Stagione.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stagione.m; sourceTree = "<group>"; };
+		A3F14744144F08E3007779DF /* LookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LookViewController.xib; sourceTree = "<group>"; };
+		A3F14745144F08E3007779DF /* LookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookViewController.h; sourceTree = "<group>"; };
+		A3F14746144F08E3007779DF /* LookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookViewController.m; sourceTree = "<group>"; };
+		A3F1474B144F0FB6007779DF /* LookTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LookTableView.xib; sourceTree = "<group>"; };
+		A3F1474C144F0FB6007779DF /* LookTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookTableViewController.h; sourceTree = "<group>"; };
+		A3F1474D144F0FB6007779DF /* LookTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookTableViewController.m; sourceTree = "<group>"; };
 		A3FB194614462725003620C5 /* images.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = images.plist; sourceTree = "<group>"; };
 		A3FB91D31438FF8E009AF9B4 /* ArmadioTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArmadioTableView.xib; sourceTree = "<group>"; };
 		A3FBCA91144C11C80071A213 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -341,12 +351,12 @@
 		A30A32F014308E3100D44356 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				A3F1473B144EFE2D007779DF /* Stagione.h */,
+				A3F1473C144EFE2D007779DF /* Stagione.m */,
 				A3FBCA9C144C5D2F0071A213 /* Vestito.h */,
 				A3FBCA9D144C5D2F0071A213 /* Vestito.m */,
 				A3D81FCD1448E1910028DD9F /* Tipologia.h */,
 				A3D81FCE1448E1910028DD9F /* Tipologia.m */,
-				A3297D6C143DC37100EBF25A /* Stagione.h */,
-				A3297D6D143DC37100EBF25A /* Stagione.m */,
 				A3297D69143DC37100EBF25A /* Stile.h */,
 				A3297D6A143DC37100EBF25A /* Stile.m */,
 				A3645B8B143A4B2C00A13FB5 /* Proprieta.h */,
@@ -516,8 +526,10 @@
 		A3645A7B1439C7AA00A13FB5 /* LookManager */ = {
 			isa = PBXGroup;
 			children = (
-				A3645A811439C7AA00A13FB5 /* LookManagerView.xib */,
+				A3F14743144F08E3007779DF /* Add&ModifyLook */,
+				A3F1474A144F0FB6007779DF /* LookViewTable */,
 				A3645A821439C7AA00A13FB5 /* LookManagerVIewController.h */,
+				A3645A811439C7AA00A13FB5 /* LookManagerView.xib */,
 				A3645A831439C7AA00A13FB5 /* LookManagerViewController.m */,
 			);
 			path = LookManager;
@@ -562,6 +574,26 @@
 				A3A66D6B1444DB3D0098F97C /* Default@2x.png */,
 			);
 			name = background;
+			sourceTree = "<group>";
+		};
+		A3F14743144F08E3007779DF /* Add&ModifyLook */ = {
+			isa = PBXGroup;
+			children = (
+				A3F14744144F08E3007779DF /* LookViewController.xib */,
+				A3F14745144F08E3007779DF /* LookViewController.h */,
+				A3F14746144F08E3007779DF /* LookViewController.m */,
+			);
+			path = "Add&ModifyLook";
+			sourceTree = "<group>";
+		};
+		A3F1474A144F0FB6007779DF /* LookViewTable */ = {
+			isa = PBXGroup;
+			children = (
+				A3F1474B144F0FB6007779DF /* LookTableView.xib */,
+				A3F1474C144F0FB6007779DF /* LookTableViewController.h */,
+				A3F1474D144F0FB6007779DF /* LookTableViewController.m */,
+			);
+			path = LookViewTable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -646,6 +678,8 @@
 				A3D70742144CBF7600469E06 /* CreditsViewController.xib in Resources */,
 				A3A89065144D7F320064D79B /* Config.plist in Resources */,
 				A3A976B6144DA7AA00CEB5D6 /* ShakeView.xib in Resources */,
+				A3F14747144F08E3007779DF /* LookViewController.xib in Resources */,
+				A3F1474E144F0FB6007779DF /* LookTableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -682,7 +716,6 @@
 				A3645B8D143A4B2C00A13FB5 /* Proprieta.m in Sources */,
 				A3816AEB143B5E57009643B4 /* SelectTypeViewController.m in Sources */,
 				A3297D6B143DC37100EBF25A /* Stile.m in Sources */,
-				A3297D6E143DC37100EBF25A /* Stagione.m in Sources */,
 				A3297D85143DE31300EBF25A /* SetupViewController.m in Sources */,
 				A3297D87143DE31300EBF25A /* FavoritesViewController.m in Sources */,
 				A3316A9C143F0D0E0042446C /* DataCache.m in Sources */,
@@ -694,6 +727,9 @@
 				A31C7BA1144B17A900BD565D /* CaptureClothController.m in Sources */,
 				A3FBCA9E144C5D2F0071A213 /* Vestito.m in Sources */,
 				A3D7073F144CAB7D00469E06 /* CreditsViewController.m in Sources */,
+				A3F1473D144EFE2D007779DF /* Stagione.m in Sources */,
+				A3F14748144F08E3007779DF /* LookViewController.m in Sources */,
+				A3F1474F144F0FB6007779DF /* LookTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

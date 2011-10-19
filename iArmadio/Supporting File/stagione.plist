@@ -28,9 +28,13 @@
 		<key>temp_max</key>
 		<integer>15</integer>
 		<key>date_from</key>
-		<string>10-02</string>
+		<string>01-01</string>
+		<key>date_from_2</key>
+		<string>10-01</string>
 		<key>date_to</key>
 		<string>04-31</string>
+		<key>date_to_2</key>
+		<string>12-31</string>
 	</dict>
 	<key>calda-fredda</key>
 	<dict>

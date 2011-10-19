@@ -9,6 +9,7 @@
 #import "LookManagerViewController.h"
 
 @implementation LookManagerViewController
+@synthesize lookTableViewController, navcontroler;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,6 +36,7 @@
     dao = [IarmadioDao shared]; 
     self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
     self.navigationItem.title =  NSLocalizedString(@"look", nil);
+    [self.view addSubview:navcontroler.view];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -53,6 +55,7 @@
 
 -(void)dealloc{
     [dao release];
+    [lookTableViewController release];
     [super dealloc];
 }
 

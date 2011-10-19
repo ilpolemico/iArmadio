@@ -759,6 +759,8 @@ static IarmadioDao *singleton;
             [stagione setValue:[prop objectForKey:@"temp_max"] forKey:@"temp_max"];
             [stagione setValue:[prop objectForKey:@"date_from"] forKey:@"date_from"];
             [stagione setValue:[prop objectForKey:@"date_to"] forKey:@"date_to"];
+            [stagione setValue:[prop objectForKey:@"date_from_2"] forKey:@"date_from_2"];
+            [stagione setValue:[prop objectForKey:@"date_to_2"] forKey:@"date_to_2"];
             [stagione setValue:key forKey:@"stagione"];
         }
         
@@ -837,9 +839,7 @@ static IarmadioDao *singleton;
         NSDateFormatter* formatter = [[[NSDateFormatter alloc] init] autorelease];
         [formatter setDateFormat:@"MM-dd"];
         NSString *filterdate = [formatter stringFromDate:date];
-        
-        predicate = [NSPredicate predicateWithFormat:@"date_from <= %@ AND date_to >=%@",filterdate,filterdate];
-        
+        predicate = [NSPredicate predicateWithFormat:@"(date_from <= %@ AND date_to >=%@) OR (date_from_2 <= %@ AND date_to_2 >=%@)",filterdate,filterdate,filterdate,filterdate];
         [predicates addObject:predicate];
     }
     

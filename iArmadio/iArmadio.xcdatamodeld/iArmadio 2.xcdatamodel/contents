@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="562" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="872" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Combinazione" representedClassName="Combinazione">
         <attribute name="gradimento" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="id" attributeType="String"/>
@@ -19,9 +19,11 @@
         <relationship name="delVestito" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Vestito" inverseName="conProprieta" inverseEntity="Vestito"/>
         <relationship name="haNome" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Proprieta" inverseName="isNome" inverseEntity="Proprieta"/>
     </entity>
-    <entity name="Stagione" representedClassName="Stagione" syncable="YES" dataClassName="">
+    <entity name="Stagione" representedClassName="Stagione" syncable="YES">
         <attribute name="date_from" optional="YES" attributeType="String"/>
+        <attribute name="date_from_2" optional="YES" attributeType="String"/>
         <attribute name="date_to" optional="YES" attributeType="String"/>
+        <attribute name="date_to_2" optional="YES" attributeType="String"/>
         <attribute name="icon" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="stagione" attributeType="String"/>
@@ -47,7 +49,7 @@
         <relationship name="allow" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tipologia" inverseName="allow" inverseEntity="Tipologia"/>
         <relationship name="vestiti" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Vestito" inverseName="tipi" inverseEntity="Vestito"/>
     </entity>
-    <entity name="Vestito" representedClassName="Vestito" syncable="YES" dataClassName="">
+    <entity name="Vestito" representedClassName="Vestito" syncable="YES">
         <attribute name="gradimento" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="id" attributeType="String"/>
         <attribute name="immagine" attributeType="String"/>
@@ -64,7 +66,7 @@
         <element name="Proprieta" positionX="513" positionY="-0" width="128" height="75"/>
         <element name="ProprietaCombinazione" positionX="736" positionY="117" width="128" height="60"/>
         <element name="ProprietaVestito" positionX="252" positionY="108" width="128" height="90"/>
-        <element name="Stagione" positionX="765" positionY="432" width="128" height="180"/>
+        <element name="Stagione" positionX="765" positionY="432" width="128" height="210"/>
         <element name="Stile" positionX="160" positionY="192" width="128" height="120"/>
         <element name="Tipologia" positionX="243" positionY="351" width="128" height="165"/>
         <element name="Vestito" positionX="504" positionY="261" width="128" height="195"/>
