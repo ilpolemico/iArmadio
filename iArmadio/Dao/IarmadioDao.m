@@ -660,12 +660,14 @@ static IarmadioDao *singleton;
             NSString *icon = (NSString *)[type objectForKey:@"icon"];
             NSString *order = (NSString *)[type objectForKey:@"order"];
             NSString *categoria = (NSString *)[type objectForKey:@"category"];
+            NSString *choice = (NSString *)[type objectForKey:@"choice"];
             NSManagedObject *tipologia = [NSEntityDescription insertNewObjectForEntityForName:@"Tipologia" inManagedObjectContext:self.managedObjectContext];
             [tipologia setValue:key forKey:@"id"];
             [tipologia setValue:single forKey:@"nome"];
             [tipologia setValue:plural forKey:@"plural"];
             [tipologia setValue:icon forKey:@"icon"];
             [tipologia setValue:categoria forKey:@"category"];
+            [tipologia setValue:choice forKey:@"choice"];
             [tipologia setValue:[NSNumber numberWithInteger:[order integerValue]] forKey:@"order"];
             
         }

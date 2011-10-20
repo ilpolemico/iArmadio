@@ -41,6 +41,7 @@
     </entity>
     <entity name="Tipologia" representedClassName="Tipologia">
         <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="choice" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="icon" optional="YES" attributeType="String"/>
         <attribute name="id" attributeType="String"/>
         <attribute name="nome" attributeType="String"/>
@@ -68,7 +69,7 @@
         <element name="ProprietaVestito" positionX="252" positionY="108" width="128" height="90"/>
         <element name="Stagione" positionX="765" positionY="432" width="128" height="210"/>
         <element name="Stile" positionX="160" positionY="192" width="128" height="120"/>
-        <element name="Tipologia" positionX="243" positionY="351" width="128" height="165"/>
+        <element name="Tipologia" positionX="243" positionY="351" width="128" height="180"/>
         <element name="Vestito" positionX="504" positionY="261" width="128" height="195"/>
     </elements>
 </model>

@@ -11,12 +11,12 @@
 
 @implementation LookTableViewController
 
+@synthesize addLookBtn, segmentControl;
 
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)bundle delegateController:(id)_delegateController{
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)bundle{
     self = [super initWithNibName:nibNameOrNil bundle:bundle];
-    delegateController = _delegateController;
-    NSLog(@"OK");
     return self;
 }
 
@@ -56,7 +56,7 @@
 #pragma mark - View lifecycle
 
 
-- (void)reloadCassetti:(NSNotification *)pNotification{
+- (void)reloadLook:(NSNotification *)pNotification{
     [(UITableView *)self.view reloadData];
 }
 
@@ -68,22 +68,18 @@
     self.view.backgroundColor = [UIColor clearColor];
     self.navigationItem.title =  NSLocalizedString(@"look", nil); 
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadCassetti:) name:ADD_CLOTH_EVENT object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLook:) name:ADD_CLOTH_EVENT object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadCassetti:) name:MOD_CLOTH_EVENT object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLook:) name:MOD_CLOTH_EVENT object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadCassetti:) name:DEL_CLOTH_EVENT object:nil];
-    
-    //[self reloadCassetti];
-   
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLook:) name:DEL_CLOTH_EVENT object:nil];
     
 }
 
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+
 }
 
 
@@ -201,16 +197,6 @@
 }
 
 
-/*
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
-    UIView *view = [[[UIView alloc] init] autorelease];
-    
-    return view;
-
-}
- */
-
 
 - (void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
 }
@@ -220,6 +206,18 @@
 
     return NO;
 }
+
+
+-(IBAction) addLook:(id)sender{
+    LookViewController *lookview = [[LookViewController alloc] initWithNibName:@"LookViewController" bundle:nil];
+    [self.navigationController pushViewController:lookview animated:YES];
+    [lookview release];
+}
+
+-(IBAction) changeSegmentContol:(id)sender{
+    [self reloadLook:nil];
+}
+
 
 -(void) dealloc{
     [super dealloc];

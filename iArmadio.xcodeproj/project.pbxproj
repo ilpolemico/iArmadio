@@ -74,9 +74,9 @@
 		A3A976B6144DA7AA00CEB5D6 /* ShakeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3A976B5144DA7A900CEB5D6 /* ShakeView.xib */; };
 		A3D7073F144CAB7D00469E06 /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D7073D144CAB7D00469E06 /* CreditsViewController.m */; };
 		A3D70742144CBF7600469E06 /* CreditsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3D70744144CBF7600469E06 /* CreditsViewController.xib */; };
-		A3D81FCF1448E1910028DD9F /* Tipologia.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D81FCE1448E1910028DD9F /* Tipologia.m */; };
 		A3D81FD71449058D0028DD9F /* TabBarNipple.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D81FD51449058D0028DD9F /* TabBarNipple.png */; };
 		A3D81FD81449058D0028DD9F /* TabBarNipple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D81FD61449058D0028DD9F /* TabBarNipple@2x.png */; };
+		A3DBA3FB14502B9300FE4298 /* Tipologia.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DBA3FA14502B9300FE4298 /* Tipologia.m */; };
 		A3EA477C1449DD2D0095349B /* ExtendTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EA477B1449DD2D0095349B /* ExtendTabBarController.m */; };
 		A3EA4784144A65710095349B /* icona.png in Resources */ = {isa = PBXBuildFile; fileRef = A3EA4782144A65710095349B /* icona.png */; };
 		A3EA4785144A65710095349B /* icona@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3EA4783144A65710095349B /* icona@2x.png */; };
@@ -201,10 +201,10 @@
 		A3D70743144CBF7600469E06 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CreditsViewController.xib; sourceTree = "<group>"; };
 		A3D70745144CBF8B00469E06 /* it */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = it; path = it.lproj/CreditsViewController.xib; sourceTree = "<group>"; };
 		A3D70746144CBF9400469E06 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/CreditsViewController.xib; sourceTree = "<group>"; };
-		A3D81FCD1448E1910028DD9F /* Tipologia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tipologia.h; sourceTree = "<group>"; };
-		A3D81FCE1448E1910028DD9F /* Tipologia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tipologia.m; sourceTree = "<group>"; };
 		A3D81FD51449058D0028DD9F /* TabBarNipple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabBarNipple.png; sourceTree = "<group>"; };
 		A3D81FD61449058D0028DD9F /* TabBarNipple@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabBarNipple@2x.png"; sourceTree = "<group>"; };
+		A3DBA3F914502B9300FE4298 /* Tipologia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tipologia.h; sourceTree = "<group>"; };
+		A3DBA3FA14502B9300FE4298 /* Tipologia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tipologia.m; sourceTree = "<group>"; };
 		A3EA477A1449DD2D0095349B /* ExtendTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtendTabBarController.h; sourceTree = "<group>"; };
 		A3EA477B1449DD2D0095349B /* ExtendTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtendTabBarController.m; sourceTree = "<group>"; };
 		A3EA4782144A65710095349B /* icona.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icona.png; sourceTree = "<group>"; };
@@ -351,12 +351,12 @@
 		A30A32F014308E3100D44356 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				A3DBA3F914502B9300FE4298 /* Tipologia.h */,
+				A3DBA3FA14502B9300FE4298 /* Tipologia.m */,
 				A3F1473B144EFE2D007779DF /* Stagione.h */,
 				A3F1473C144EFE2D007779DF /* Stagione.m */,
 				A3FBCA9C144C5D2F0071A213 /* Vestito.h */,
 				A3FBCA9D144C5D2F0071A213 /* Vestito.m */,
-				A3D81FCD1448E1910028DD9F /* Tipologia.h */,
-				A3D81FCE1448E1910028DD9F /* Tipologia.m */,
 				A3297D69143DC37100EBF25A /* Stile.h */,
 				A3297D6A143DC37100EBF25A /* Stile.m */,
 				A3645B8B143A4B2C00A13FB5 /* Proprieta.h */,
@@ -720,7 +720,6 @@
 				A3297D87143DE31300EBF25A /* FavoritesViewController.m in Sources */,
 				A3316A9C143F0D0E0042446C /* DataCache.m in Sources */,
 				A3316A9D143F0D0E0042446C /* FlowCoverView.m in Sources */,
-				A3D81FCF1448E1910028DD9F /* Tipologia.m in Sources */,
 				A3EA477C1449DD2D0095349B /* ExtendTabBarController.m in Sources */,
 				A31C7B98144B16DB00BD565D /* ButtonSegmentControl.m in Sources */,
 				A31C7B9C144B171300BD565D /* Configuration.m in Sources */,
@@ -730,6 +729,7 @@
 				A3F1473D144EFE2D007779DF /* Stagione.m in Sources */,
 				A3F14748144F08E3007779DF /* LookViewController.m in Sources */,
 				A3F1474F144F0FB6007779DF /* LookTableViewController.m in Sources */,
+				A3DBA3FB14502B9300FE4298 /* Tipologia.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,10 +20,17 @@
     IarmadioDao *dao;
     SelectTypeViewController *delegateController;
     CoverViewController *coverviewcontroller;
-
+    
+    IBOutlet UISegmentedControl *segmentControl;
+    IBOutlet UIButton *addLookBtn;
 }
 
+@property (retain, nonatomic) IBOutlet UISegmentedControl *segmentControl;
+@property (retain, nonatomic) IBOutlet UIButton *addLookBtn;
 
-- initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)bundle delegateController:(id)delegateController;
-- (void)reloadCassetti:(NSNotification *)pNotification;  
+
+
+-(IBAction) addLook:(id)sender;
+-(IBAction) changeSegmentContol:(id)sender;
+- (void)reloadLook:(NSNotification *)pNotification;  
 @end
