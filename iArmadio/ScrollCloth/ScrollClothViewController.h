@@ -13,7 +13,7 @@
 
 
 
-@interface LookViewController : UIViewController <UINavigationControllerDelegate, UIScrollViewDelegate> {
+@interface LookViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource,  UINavigationControllerDelegate> {
     
     IarmadioDao *dao;
     IBOutlet UIBarButtonItem *undoBtn;
@@ -89,8 +89,7 @@
 - (IBAction) undoLook:(id)sender;
 - (IBAction) saveLook:(id)sender;
 - (IBAction) deleteLook:(id)sender;
-- (IBAction) addPreferiti:(id)sender; 
-- (UIScrollView *)fillScrollView:(NSArray *)images indexTag:(int)indexView;
+- (IBAction) addPreferiti:(id)sender;  
 
 @end
 

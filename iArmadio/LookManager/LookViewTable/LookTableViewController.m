@@ -57,6 +57,10 @@
 
 
 - (void)reloadLook:(NSNotification *)pNotification{
+    NSMutableDictionary *looks4Stile = [[NSMutableDictionary alloc] init];
+    looks4Stile = nil;
+    
+    
     [(UITableView *)self.view reloadData];
 }
 
@@ -68,11 +72,11 @@
     self.view.backgroundColor = [UIColor clearColor];
     self.navigationItem.title =  NSLocalizedString(@"look", nil); 
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLook:) name:ADD_CLOTH_EVENT object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLook:) name:ADD_LOOK_EVENT object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLook:) name:MOD_CLOTH_EVENT object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLook:) name:MOD_LOOK_EVENT object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLook:) name:DEL_CLOTH_EVENT object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLook:) name:DEL_LOOK_EVENT object:nil];
     
 }
 
@@ -92,7 +96,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return [dao.category count];
+    return [dao.listStiliKeys count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -108,16 +112,9 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    NSString *category = [dao.listCategoryKeys objectAtIndex:indexPath.section];
+    NSString *stile = [dao.listStiliKeys objectAtIndex:indexPath.section];
     
-    
-    NSMutableArray *tipologie = [dao.category objectForKey:category];
-    
-    NSArray *tmp = [[[NSArray alloc] initWithObjects:[tipologie objectAtIndex:indexPath.row],nil] autorelease];
-    
-    NSInteger count = [[dao getVestitiEntities:tmp filterStagioneKey:nil filterStiliKeys:nil filterGradimento:-1] count];
-    
-    
+    /*
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.imageView.image = [dao getImageFromTipo:([dao getTipoEntity:[tipologie objectAtIndex:indexPath.row]])]; 
@@ -128,7 +125,7 @@
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", count];
     
     
-    
+    */
     
     
     return cell;
@@ -141,58 +138,36 @@
 {
     
     
-    NSString *category = [dao.listCategoryKeys objectAtIndex:indexPath.section];
-    NSMutableArray *tipologie = [dao.category objectForKey:category];
+    //NSString *stile = [dao.listStiliKeys objectAtIndex:indexPath.section];
+    //Combinazione *combinazione = [dao.category objectForKey:category];
 
     
-    if(delegateController != nil){
-        [(SelectTypeViewController *)delegateController selectedIndexPath:indexPath];
-    }
-    else{
-        
-        if(coverviewcontroller != nil){
-            [coverviewcontroller removeNotification];
-            //IN CASO DI PROBLEMI DECOMMENTARE
-            //[coverviewcontroller release];
-            //coverviewcontroller = nil;
-        }
-            
-        coverviewcontroller = [[CoverViewController alloc] initWithNibName:@"CoverViewController" bundle:nil getTipologia:[tipologie objectAtIndex:indexPath.row]];
+    LookViewController *lookviewcontroller = [[LookViewController alloc] initWithNibName:@"LookViewController" bundle:nil];
            
-            
-            [tableView  deselectRowAtIndexPath:indexPath animated:YES];
-            [self.navigationController pushViewController:coverviewcontroller animated:YES];
-        
-        [coverviewcontroller release];
-            [CurrState shared].currTipologia = [tipologie objectAtIndex:indexPath.row];
-    }
+    [tableView  deselectRowAtIndexPath:indexPath animated:YES];
+    [self.navigationController pushViewController:coverviewcontroller animated:YES];
+    
+    [lookviewcontroller release];
          
 }
 
 
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    
-    
-    return NSLocalizedString([dao.listCategoryKeys objectAtIndex:section],nil);
+    return NSLocalizedString([dao.listStiliKeys objectAtIndex:section],nil);
 
 }    
 
 - (NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath{
-
     return 1;
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView{
     
     NSMutableArray *tempArray = [[[NSMutableArray alloc] init] autorelease];
-    for(NSString *category in dao.listCategoryKeys){
-        [tempArray addObject:NSLocalizedString(category, nil)];
+    for(NSString *stile in dao.listStiliKeys){
+        [tempArray addObject:NSLocalizedString(stile, nil)];
     }
-    
-    
-    
-    
     return tempArray;
 }
 
@@ -210,7 +185,7 @@
 
 -(IBAction) addLook:(id)sender{
     LookViewController *lookview = [[LookViewController alloc] initWithNibName:@"LookViewController" bundle:nil];
-    [self.navigationController pushViewController:lookview animated:YES];
+    [self presentModalViewController:lookview animated:YES];
     [lookview release];
 }
 

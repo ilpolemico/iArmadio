@@ -53,145 +53,73 @@ choice10;
 }
 
 - (void)initInputType{
-    UIPickerView *tmp = [[[UIPickerView alloc] init] autorelease];
-    CGAffineTransform rotate = CGAffineTransformMakeRotation(3.14/2);
-    rotate = CGAffineTransformScale(rotate, 0.25, 2.0);
     
     
-    tmp = [[[UIPickerView alloc] init] autorelease];
-    tmp.showsSelectionIndicator = NO;
-    tmp.backgroundColor = [UIColor clearColor];
-    [tmp setTransform:rotate];
-    [tmp setDelegate:self];
-    [tmp setDataSource:self];
-    [self.choice1 addSubview:tmp];
-    [tmp setTag:1];
+    SEL selector = NSSelectorFromString(@"choice1");
+    NSMutableArray *images = [[NSMutableArray alloc] init];
+    [images addObject:[UIImage imageNamed:@"02.png"]];
+    [images addObject:[UIImage imageNamed:@"02.png"]];
     
-    tmp = [[[UIPickerView alloc] init] autorelease];
-    tmp.showsSelectionIndicator = NO;
-    tmp.backgroundColor = [UIColor clearColor];
-    [tmp setTransform:rotate];
-    [tmp setDelegate:self];
-    [tmp setDataSource:self];
-    [self.choice2 addSubview:tmp];
-    [tmp setTag:2];
-    
-    tmp = [[[UIPickerView alloc] init] autorelease];
-    tmp.showsSelectionIndicator = NO;
-    tmp.backgroundColor = [UIColor clearColor];
-    [tmp setTransform:rotate];
-    [tmp setDelegate:self];
-    [tmp setDataSource:self];
-    [self.choice3 addSubview:tmp];
-    [tmp setTag:3];
-    
-    tmp = [[[UIPickerView alloc] init] autorelease];
-    tmp.showsSelectionIndicator = NO;
-    tmp.backgroundColor = [UIColor clearColor];
-    [tmp setTransform:rotate];
-    [tmp setDelegate:self];
-    [tmp setDataSource:self];
-    [self.choice4 addSubview:tmp];
-    [tmp setTag:4];
-    
-    tmp = [[[UIPickerView alloc] init] autorelease];
-    tmp.showsSelectionIndicator = NO;
-    tmp.backgroundColor = [UIColor clearColor];
-    [tmp setTransform:rotate];
-    [tmp setDelegate:self];
-    [tmp setDataSource:self];
-
-    [self.choice5 addSubview:tmp];
-    [tmp setTag:5];
-    
-    tmp = [[[UIPickerView alloc] init] autorelease];
-    tmp.showsSelectionIndicator = NO;
-    tmp.backgroundColor = [UIColor clearColor];
-    [tmp setTransform:rotate];
-    [tmp setDelegate:self];
-    [tmp setDataSource:self];
-    [self.choice6 addSubview:tmp];
-    [tmp setTag:6];
-    
-    tmp = [[[UIPickerView alloc] init] autorelease];
-    tmp.showsSelectionIndicator = NO;
-    tmp.backgroundColor = [UIColor clearColor];
-    [tmp setTransform:rotate];
-    [tmp setDelegate:self];
-    [tmp setDataSource:self];
-
-    [self.choice7 addSubview:tmp];
-    [tmp setTag:7];
-    
-    
-    tmp = [[[UIPickerView alloc] init] autorelease];
-    tmp.showsSelectionIndicator = NO;
-    tmp.backgroundColor = [UIColor clearColor];
-    [tmp setTransform:rotate];
-    [tmp setDelegate:self];
-    [tmp setDataSource:self];
-
-    [self.choice8 addSubview:tmp];
-    [tmp setTag:8];
-    
-    tmp = [[[UIPickerView alloc] init] autorelease];
-    tmp.showsSelectionIndicator = NO;
-    tmp.backgroundColor = [UIColor clearColor];
-    [tmp setTransform:rotate];
-    [tmp setDelegate:self];
-    [tmp setDataSource:self];
-
-    [self.choice9 addSubview:tmp];
-    [tmp setTag:9];
-    
-    tmp = [[[UIPickerView alloc] init] autorelease];
-    tmp.showsSelectionIndicator = NO;
-    tmp.backgroundColor = [UIColor clearColor];
-    [tmp setTransform:rotate];
-    [tmp setDelegate:self];
-    [tmp setDataSource:self];
-
-    [self.choice10 addSubview:tmp];
-    [tmp setTag:10];
-
-
-
-
+    UIView *view = [self performSelector:selector]; 
+    [view addSubview:[self fillScrollView:images indexTag:1]];
 }
 
 
-- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
-    CGRect rect = CGRectMake(0, 0, 120, 80);
-    UILabel *label = [[UILabel alloc]initWithFrame:rect];
-    CGAffineTransform rotate = CGAffineTransformMakeRotation(3.14/2);
-    rotate = CGAffineTransformScale(rotate, 0.25, 2.0);
-    [label setTransform:rotate];
-    label.text = @"prova";
-    label.font = [UIFont systemFontOfSize:22.0];
-    label.textAlignment = UITextAlignmentCenter;
-    label.numberOfLines = 2;
-    label.lineBreakMode = UILineBreakModeWordWrap;
-    label.backgroundColor = [UIColor clearColor];
-    label.clipsToBounds = YES;
-    return label ;
+- (UIScrollView *)fillScrollView:(NSArray *)images indexTag:(int) indexView{
+    UIScrollView *scrollview = [[[UIScrollView alloc] init] autorelease];
+    int scrollview_size_width = self.choice1.frame.size.width;
+    int scrollview_size_height = self.choice1.frame.size.height;
+    
+    int imageview_size_width = self.choice1.frame.size.width;
+    int imageview_size_height = self.choice1.frame.size.height;
+    
+    
+    scrollview.frame = CGRectMake(0,0,scrollview_size_width,scrollview_size_height);
+    scrollview.pagingEnabled = YES;
+    scrollview.bounces = YES;
+    
+    int index = 0;
+    int sizeScrollView = 0;
+    for(UIImage *image in images){
+        
+        UIImageView *imageview = [[[UIImageView alloc] initWithImage:image] autorelease];
+        
+        imageview.frame = CGRectMake(index*imageview_size_width,0,imageview_size_width,imageview_size_height);
+        [scrollview addSubview:imageview];
+        
+        
+        sizeScrollView += imageview_size_width;
+        index++;
+    }
+    
+    
+    
+    [scrollview setContentSize: CGSizeMake(sizeScrollView,scrollview_size_height)];
+    [scrollview setTag:indexView];
+    return scrollview;
 }
 
 
-- (NSString *)pickerView:(UIPickerView *)pickerView
-			 titleForRow:(NSInteger)row
-			forComponent:(NSInteger)component
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-	return [NSString stringWithFormat:@"VALORE NUM:%d",row];
+    NSLog(@"%f %f", scrollView.contentOffset.y, scrollView.contentSize.height);
 }
 
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-	return 1;
+    NSLog(@"scrollViewDidEndDecelerating");
 }
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
-	return 20;
+    NSLog(@"scrollViewDidEndScrollingAnimation");
 }
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    NSLog(@"scrollViewDidScroll");
+}
+
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
