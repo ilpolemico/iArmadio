@@ -145,8 +145,6 @@ combinazione;
     
     choiceStagione.selectedIndex = [([CurrState shared]).currStagioneIndex intValue];
     
-    
-    
     [self.view setUserInteractionEnabled:NO];
     if((self.preferito != nil)&&([self.preferito length]>0)){
         addPreferitiBtn.selected = YES;
