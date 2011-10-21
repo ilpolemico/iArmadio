@@ -41,6 +41,17 @@
 		<key>background</key>
 		<string>Default.png</string>
 	</dict>
+	<key>LookView</key>
+	<dict>
+		<key>icona_gradimento_1</key>
+		<string>02.png</string>
+		<key>icona_gradimento_2</key>
+		<string>02.png</string>
+		<key>icona_gradimento_3</key>
+		<string>02.png</string>
+		<key>background</key>
+		<string>Default.png</string>
+	</dict>
 	<key>PreferenceView</key>
 	<dict>
 		<key>background</key>

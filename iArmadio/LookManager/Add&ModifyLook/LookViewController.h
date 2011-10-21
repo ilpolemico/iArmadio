@@ -13,7 +13,7 @@
 
 
 
-@interface LookViewController : UIViewController <UINavigationControllerDelegate, UIScrollViewDelegate> {
+@interface LookViewController : UIViewController <UINavigationControllerDelegate, UIScrollViewDelegate, ButtonSegmentDelegate> {
     
     IarmadioDao *dao;
     IBOutlet UIBarButtonItem *undoBtn;
@@ -21,6 +21,9 @@
     IBOutlet UIBarButtonItem *deleteBtn;
     IBOutlet UIButton *addPreferitiBtn;
     
+    
+    NSArray *vestiti;
+    NSMutableDictionary *vestitiInScrollView;
     
     //Stili
     ButtonSegmentControl *choiceStile;
@@ -55,8 +58,14 @@
     IBOutlet UIView *choice8;
     IBOutlet UIView *choice9;
     IBOutlet UIView *choice10;
+    
+    
+    
+    NSString *preferito;
+    Combinazione *combinazione;
 }
 
+@property (nonatomic, retain )Combinazione *combinazione;
 @property (nonatomic, retain )IBOutlet UIButton *stile_1;
 @property (nonatomic, retain )IBOutlet UIButton *stile_2;
 @property (nonatomic, retain )IBOutlet UIButton *stile_3;
@@ -81,6 +90,8 @@
 @property (nonatomic, retain )IBOutlet UIView *choice8;
 @property (nonatomic, retain )IBOutlet UIView *choice9;
 @property (nonatomic, retain )IBOutlet UIView *choice10;
+
+@property (nonatomic, retain )IBOutlet NSString *preferito;
 
 
 

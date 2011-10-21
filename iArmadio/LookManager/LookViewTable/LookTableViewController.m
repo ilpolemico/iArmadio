@@ -112,7 +112,7 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    NSString *stile = [dao.listStiliKeys objectAtIndex:indexPath.section];
+    //NSString *stile = [dao.listStiliKeys objectAtIndex:indexPath.section];
     
     /*
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
