@@ -345,13 +345,31 @@ combinazione;
     [self dismissModalViewControllerAnimated:YES];
 }
 
--(IBAction) deleteLook:(id)sender{
-     NSLog(@"deletelook");
-    if(self.combinazione){
-        [dao delCombinazioneEntity:self.combinazione];
-    }
-    [self dismissModalViewControllerAnimated:YES];
+
+-(IBAction) deleteLook:(id) sender {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString( @"Cancella",nil) message:NSLocalizedString(@"Vuoi cancellare il look",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Annulla",nil) otherButtonTitles:NSLocalizedString( @"Cancella",nil), nil];
+    
+    [alert show];
+    [alert release];
+    
 }
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(buttonIndex != 0){
+        if(self.combinazione){
+            [dao delCombinazioneEntity:self.combinazione];
+        }
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+        [UIView setAnimationDuration:1];
+        [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.view.superview cache:YES];
+        [self dismissModalViewControllerAnimated:NO];
+        [UIView commitAnimations];
+    }
+    
+}
+
 	
 
 - (NSArray *)buttons:(ButtonSegmentControl *)buttonSegmentControl{

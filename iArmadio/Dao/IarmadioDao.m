@@ -459,6 +459,15 @@ static IarmadioDao *singleton;
 
 
 - (void)delCombinazioneEntity:(Combinazione *)combinazione{
+    if((combinazione.lookSnapshot != nil)&&([combinazione.lookSnapshot length] > 0)){ 
+        [[NSFileManager defaultManager] 
+         removeItemAtPath:[self filePathDocuments:combinazione.lookSnapshot]
+         error:nil
+         ];
+    }
+
+    
+    
     [self.managedObjectContext deleteObject:combinazione];
     [self saveContext];
     [[NSNotificationCenter defaultCenter]
