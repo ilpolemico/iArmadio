@@ -3,6 +3,8 @@
     <entity name="Combinazione" representedClassName="Combinazione">
         <attribute name="gradimento" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="id" attributeType="String"/>
+        <attribute name="lookSnapshot" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="preferito" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="conStile" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Stile" inverseName="combinazione" inverseEntity="Stile"/>
         <relationship name="fattaDi" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Vestito" inverseName="inCombinazioni" inverseEntity="Vestito"/>
         <relationship name="perLaStagione" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stagione" inverseName="combinazione" inverseEntity="Stagione"/>
@@ -29,14 +31,14 @@
         <attribute name="stagione" attributeType="String"/>
         <attribute name="temp_max" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="temp_min" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
-        <relationship name="combinazione" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Combinazione" inverseName="perLaStagione" inverseEntity="Combinazione"/>
+        <relationship name="combinazione" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Combinazione" inverseName="perLaStagione" inverseEntity="Combinazione"/>
         <relationship name="vestito" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Vestito" inverseName="perLaStagione" inverseEntity="Vestito"/>
     </entity>
     <entity name="Stile" representedClassName="Stile">
         <attribute name="icon" optional="YES" attributeType="String"/>
         <attribute name="id" attributeType="String"/>
         <attribute name="stile" attributeType="String"/>
-        <relationship name="combinazione" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Combinazione" inverseName="conStile" inverseEntity="Combinazione"/>
+        <relationship name="combinazione" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Combinazione" inverseName="conStile" inverseEntity="Combinazione"/>
         <relationship name="vestiti" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Vestito" inverseName="conStile" inverseEntity="Vestito"/>
     </entity>
     <entity name="Tipologia" representedClassName="Tipologia">
@@ -63,7 +65,7 @@
         <relationship name="tipi" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tipologia" inverseName="vestiti" inverseEntity="Tipologia"/>
     </entity>
     <elements>
-        <element name="Combinazione" positionX="927" positionY="234" width="128" height="120"/>
+        <element name="Combinazione" positionX="927" positionY="234" width="128" height="150"/>
         <element name="Proprieta" positionX="513" positionY="-0" width="128" height="75"/>
         <element name="ProprietaCombinazione" positionX="736" positionY="117" width="128" height="60"/>
         <element name="ProprietaVestito" positionX="252" positionY="108" width="128" height="90"/>

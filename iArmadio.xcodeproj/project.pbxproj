@@ -23,7 +23,6 @@
 		A31C7B9C144B171300BD565D /* Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = A31C7B9B144B171300BD565D /* Configuration.m */; };
 		A31C7BA1144B17A900BD565D /* CaptureClothController.m in Sources */ = {isa = PBXBuildFile; fileRef = A31C7B9F144B17A900BD565D /* CaptureClothController.m */; };
 		A31C7BA2144B17A900BD565D /* CaptureClothController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A31C7BA0144B17A900BD565D /* CaptureClothController.xib */; };
-		A3297D6B143DC37100EBF25A /* Stile.m in Sources */ = {isa = PBXBuildFile; fileRef = A3297D6A143DC37100EBF25A /* Stile.m */; };
 		A3297D7C143DE2C000EBF25A /* 02.png in Resources */ = {isa = PBXBuildFile; fileRef = A3297D7B143DE2C000EBF25A /* 02.png */; };
 		A3297D85143DE31300EBF25A /* SetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3297D7F143DE31300EBF25A /* SetupViewController.m */; };
 		A3297D86143DE31300EBF25A /* SetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3297D80143DE31300EBF25A /* SetupViewController.xib */; };
@@ -60,25 +59,30 @@
 		A3645B3C1439ECD200A13FB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A330C14308E3100D44356 /* main.m */; };
 		A3645B3D1439ECD200A13FB5 /* Shake2Style.m in Sources */ = {isa = PBXBuildFile; fileRef = A30A331414308E3100D44356 /* Shake2Style.m */; };
 		A3645B75143A27CA00A13FB5 /* iArmadio.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = A30A330514308E3100D44356 /* iArmadio.xcdatamodeld */; };
-		A3645B7B143A4B2900A13FB5 /* Combinazione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3645B7A143A4B2900A13FB5 /* Combinazione.m */; };
-		A3645B81143A4B2B00A13FB5 /* ProprietaCombinazione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3645B80143A4B2A00A13FB5 /* ProprietaCombinazione.m */; };
-		A3645B84143A4B2B00A13FB5 /* ProprietaVestito.m in Sources */ = {isa = PBXBuildFile; fileRef = A3645B83143A4B2B00A13FB5 /* ProprietaVestito.m */; };
-		A3645B8D143A4B2C00A13FB5 /* Proprieta.m in Sources */ = {isa = PBXBuildFile; fileRef = A3645B8C143A4B2C00A13FB5 /* Proprieta.m */; };
 		A3816AEB143B5E57009643B4 /* SelectTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3816AE9143B5E57009643B4 /* SelectTypeViewController.m */; };
 		A3816AEC143B5E57009643B4 /* SelectTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3816AEA143B5E57009643B4 /* SelectTypeViewController.xib */; };
 		A3A19EE614486191008E283D /* cappotto.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A19EE414486191008E283D /* cappotto.png */; };
 		A3A19EE714486191008E283D /* gonna.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A19EE514486191008E283D /* gonna.png */; };
 		A3A89065144D7F320064D79B /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3A89064144D7F320064D79B /* Config.plist */; };
 		A3A976B6144DA7AA00CEB5D6 /* ShakeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3A976B5144DA7A900CEB5D6 /* ShakeView.xib */; };
+		A3B10D46145463CC00C9A881 /* ProprietaVestito.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B10D45145463CC00C9A881 /* ProprietaVestito.m */; };
+		A3B10D4A145463CD00C9A881 /* Proprieta.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B10D49145463CD00C9A881 /* Proprieta.m */; };
+		A3B10D4D145463CD00C9A881 /* Stile.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B10D4C145463CD00C9A881 /* Stile.m */; };
+		A3B10D53145463CE00C9A881 /* Vestito.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B10D52145463CE00C9A881 /* Vestito.m */; };
+		A3B10D56145463CE00C9A881 /* Tipologia.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B10D55145463CE00C9A881 /* Tipologia.m */; };
+		A3B10D59145463CE00C9A881 /* Stagione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B10D58145463CE00C9A881 /* Stagione.m */; };
+		A3B10D5C145463CE00C9A881 /* ProprietaCombinazione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B10D5B145463CE00C9A881 /* ProprietaCombinazione.m */; };
+		A3B10D6014546E5E00C9A881 /* icon-1star-002@x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3B10D5D14546E5E00C9A881 /* icon-1star-002@x.png */; };
+		A3B10D6114546E5E00C9A881 /* icon-2star-002@x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3B10D5E14546E5E00C9A881 /* icon-2star-002@x.png */; };
+		A3B10D6214546E5E00C9A881 /* icon-3star-002@x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3B10D5F14546E5E00C9A881 /* icon-3star-002@x.png */; };
+		A3B10D6D1454B09700C9A881 /* Combinazione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B10D6C1454B09700C9A881 /* Combinazione.m */; };
 		A3D7073F144CAB7D00469E06 /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D7073D144CAB7D00469E06 /* CreditsViewController.m */; };
 		A3D70742144CBF7600469E06 /* CreditsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3D70744144CBF7600469E06 /* CreditsViewController.xib */; };
 		A3D81FD71449058D0028DD9F /* TabBarNipple.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D81FD51449058D0028DD9F /* TabBarNipple.png */; };
 		A3D81FD81449058D0028DD9F /* TabBarNipple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D81FD61449058D0028DD9F /* TabBarNipple@2x.png */; };
-		A3DBA3FB14502B9300FE4298 /* Tipologia.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DBA3FA14502B9300FE4298 /* Tipologia.m */; };
 		A3EA477C1449DD2D0095349B /* ExtendTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EA477B1449DD2D0095349B /* ExtendTabBarController.m */; };
 		A3EA4784144A65710095349B /* icona.png in Resources */ = {isa = PBXBuildFile; fileRef = A3EA4782144A65710095349B /* icona.png */; };
 		A3EA4785144A65710095349B /* icona@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3EA4783144A65710095349B /* icona@2x.png */; };
-		A3F1473D144EFE2D007779DF /* Stagione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F1473C144EFE2D007779DF /* Stagione.m */; };
 		A3F14747144F08E3007779DF /* LookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3F14744144F08E3007779DF /* LookViewController.xib */; };
 		A3F14748144F08E3007779DF /* LookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F14746144F08E3007779DF /* LookViewController.m */; };
 		A3F1474E144F0FB6007779DF /* LookTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3F1474B144F0FB6007779DF /* LookTableView.xib */; };
@@ -86,7 +90,6 @@
 		A3FB194714462726003620C5 /* images.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3FB194614462725003620C5 /* images.plist */; };
 		A3FB91D41438FF8F009AF9B4 /* ArmadioTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3FB91D31438FF8E009AF9B4 /* ArmadioTableView.xib */; };
 		A3FBCA90144C11C80071A213 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3FBCA92144C11C80071A213 /* Localizable.strings */; };
-		A3FBCA9E144C5D2F0071A213 /* Vestito.m in Sources */ = {isa = PBXBuildFile; fileRef = A3FBCA9D144C5D2F0071A213 /* Vestito.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,8 +130,6 @@
 		A31C7B9E144B17A900BD565D /* CaptureClothController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptureClothController.h; sourceTree = "<group>"; };
 		A31C7B9F144B17A900BD565D /* CaptureClothController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureClothController.m; sourceTree = "<group>"; };
 		A31C7BA0144B17A900BD565D /* CaptureClothController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CaptureClothController.xib; sourceTree = "<group>"; };
-		A3297D69143DC37100EBF25A /* Stile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stile.h; sourceTree = "<group>"; };
-		A3297D6A143DC37100EBF25A /* Stile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stile.m; sourceTree = "<group>"; };
 		A3297D7B143DE2C000EBF25A /* 02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 02.png; sourceTree = "<group>"; };
 		A3297D7E143DE31300EBF25A /* SetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupViewController.h; sourceTree = "<group>"; };
 		A3297D7F143DE31300EBF25A /* SetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupViewController.m; sourceTree = "<group>"; };
@@ -176,14 +177,6 @@
 		A3645A811439C7AA00A13FB5 /* LookManagerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LookManagerView.xib; sourceTree = "<group>"; };
 		A3645A821439C7AA00A13FB5 /* LookManagerVIewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookManagerVIewController.h; sourceTree = "<group>"; };
 		A3645A831439C7AA00A13FB5 /* LookManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookManagerViewController.m; sourceTree = "<group>"; };
-		A3645B79143A4B2900A13FB5 /* Combinazione.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Combinazione.h; sourceTree = "<group>"; };
-		A3645B7A143A4B2900A13FB5 /* Combinazione.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Combinazione.m; sourceTree = "<group>"; };
-		A3645B7F143A4B2A00A13FB5 /* ProprietaCombinazione.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProprietaCombinazione.h; sourceTree = "<group>"; };
-		A3645B80143A4B2A00A13FB5 /* ProprietaCombinazione.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProprietaCombinazione.m; sourceTree = "<group>"; };
-		A3645B82143A4B2B00A13FB5 /* ProprietaVestito.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProprietaVestito.h; sourceTree = "<group>"; };
-		A3645B83143A4B2B00A13FB5 /* ProprietaVestito.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProprietaVestito.m; sourceTree = "<group>"; };
-		A3645B8B143A4B2C00A13FB5 /* Proprieta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Proprieta.h; sourceTree = "<group>"; };
-		A3645B8C143A4B2C00A13FB5 /* Proprieta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Proprieta.m; sourceTree = "<group>"; };
 		A36A7A311430B91C00BB8EB7 /* iArmadio-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "iArmadio-Info.plist"; path = "../iArmadio-Info.plist"; sourceTree = "<group>"; };
 		A3816AE8143B5E57009643B4 /* SelectTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectTypeViewController.h; sourceTree = "<group>"; };
 		A3816AE9143B5E57009643B4 /* SelectTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectTypeViewController.m; sourceTree = "<group>"; };
@@ -194,6 +187,25 @@
 		A3A66D6B1444DB3D0098F97C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A3A89064144D7F320064D79B /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		A3A976B5144DA7A900CEB5D6 /* ShakeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShakeView.xib; sourceTree = "<group>"; };
+		A3B10D44145463CC00C9A881 /* ProprietaVestito.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProprietaVestito.h; sourceTree = "<group>"; };
+		A3B10D45145463CC00C9A881 /* ProprietaVestito.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProprietaVestito.m; sourceTree = "<group>"; };
+		A3B10D48145463CD00C9A881 /* Proprieta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Proprieta.h; sourceTree = "<group>"; };
+		A3B10D49145463CD00C9A881 /* Proprieta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Proprieta.m; sourceTree = "<group>"; };
+		A3B10D4B145463CD00C9A881 /* Stile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stile.h; sourceTree = "<group>"; };
+		A3B10D4C145463CD00C9A881 /* Stile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stile.m; sourceTree = "<group>"; };
+		A3B10D51145463CE00C9A881 /* Vestito.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vestito.h; sourceTree = "<group>"; };
+		A3B10D52145463CE00C9A881 /* Vestito.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vestito.m; sourceTree = "<group>"; };
+		A3B10D54145463CE00C9A881 /* Tipologia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tipologia.h; sourceTree = "<group>"; };
+		A3B10D55145463CE00C9A881 /* Tipologia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tipologia.m; sourceTree = "<group>"; };
+		A3B10D57145463CE00C9A881 /* Stagione.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stagione.h; sourceTree = "<group>"; };
+		A3B10D58145463CE00C9A881 /* Stagione.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stagione.m; sourceTree = "<group>"; };
+		A3B10D5A145463CE00C9A881 /* ProprietaCombinazione.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProprietaCombinazione.h; sourceTree = "<group>"; };
+		A3B10D5B145463CE00C9A881 /* ProprietaCombinazione.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProprietaCombinazione.m; sourceTree = "<group>"; };
+		A3B10D5D14546E5E00C9A881 /* icon-1star-002@x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-1star-002@x.png"; sourceTree = "<group>"; };
+		A3B10D5E14546E5E00C9A881 /* icon-2star-002@x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-2star-002@x.png"; sourceTree = "<group>"; };
+		A3B10D5F14546E5E00C9A881 /* icon-3star-002@x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-3star-002@x.png"; sourceTree = "<group>"; };
+		A3B10D6B1454B09700C9A881 /* Combinazione.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Combinazione.h; sourceTree = "<group>"; };
+		A3B10D6C1454B09700C9A881 /* Combinazione.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Combinazione.m; sourceTree = "<group>"; };
 		A3D7073C144CAB7D00469E06 /* CreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsViewController.h; sourceTree = "<group>"; };
 		A3D7073D144CAB7D00469E06 /* CreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsViewController.m; sourceTree = "<group>"; };
 		A3D70743144CBF7600469E06 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CreditsViewController.xib; sourceTree = "<group>"; };
@@ -201,14 +213,10 @@
 		A3D70746144CBF9400469E06 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/CreditsViewController.xib; sourceTree = "<group>"; };
 		A3D81FD51449058D0028DD9F /* TabBarNipple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabBarNipple.png; sourceTree = "<group>"; };
 		A3D81FD61449058D0028DD9F /* TabBarNipple@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabBarNipple@2x.png"; sourceTree = "<group>"; };
-		A3DBA3F914502B9300FE4298 /* Tipologia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tipologia.h; sourceTree = "<group>"; };
-		A3DBA3FA14502B9300FE4298 /* Tipologia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tipologia.m; sourceTree = "<group>"; };
 		A3EA477A1449DD2D0095349B /* ExtendTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtendTabBarController.h; sourceTree = "<group>"; };
 		A3EA477B1449DD2D0095349B /* ExtendTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtendTabBarController.m; sourceTree = "<group>"; };
 		A3EA4782144A65710095349B /* icona.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icona.png; sourceTree = "<group>"; };
 		A3EA4783144A65710095349B /* icona@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icona@2x.png"; sourceTree = "<group>"; };
-		A3F1473B144EFE2D007779DF /* Stagione.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stagione.h; sourceTree = "<group>"; };
-		A3F1473C144EFE2D007779DF /* Stagione.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stagione.m; sourceTree = "<group>"; };
 		A3F14744144F08E3007779DF /* LookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LookViewController.xib; sourceTree = "<group>"; };
 		A3F14745144F08E3007779DF /* LookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookViewController.h; sourceTree = "<group>"; };
 		A3F14746144F08E3007779DF /* LookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookViewController.m; sourceTree = "<group>"; };
@@ -219,8 +227,6 @@
 		A3FB91D31438FF8E009AF9B4 /* ArmadioTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArmadioTableView.xib; sourceTree = "<group>"; };
 		A3FBCA91144C11C80071A213 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A3FBCA93144C11D10071A213 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A3FBCA9C144C5D2F0071A213 /* Vestito.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vestito.h; sourceTree = "<group>"; };
-		A3FBCA9D144C5D2F0071A213 /* Vestito.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vestito.m; sourceTree = "<group>"; };
 		A3FBCAA0144C6D040071A213 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -349,22 +355,22 @@
 		A30A32F014308E3100D44356 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				A3DBA3F914502B9300FE4298 /* Tipologia.h */,
-				A3DBA3FA14502B9300FE4298 /* Tipologia.m */,
-				A3F1473B144EFE2D007779DF /* Stagione.h */,
-				A3F1473C144EFE2D007779DF /* Stagione.m */,
-				A3FBCA9C144C5D2F0071A213 /* Vestito.h */,
-				A3FBCA9D144C5D2F0071A213 /* Vestito.m */,
-				A3297D69143DC37100EBF25A /* Stile.h */,
-				A3297D6A143DC37100EBF25A /* Stile.m */,
-				A3645B8B143A4B2C00A13FB5 /* Proprieta.h */,
-				A3645B8C143A4B2C00A13FB5 /* Proprieta.m */,
-				A3645B82143A4B2B00A13FB5 /* ProprietaVestito.h */,
-				A3645B83143A4B2B00A13FB5 /* ProprietaVestito.m */,
-				A3645B7F143A4B2A00A13FB5 /* ProprietaCombinazione.h */,
-				A3645B80143A4B2A00A13FB5 /* ProprietaCombinazione.m */,
-				A3645B79143A4B2900A13FB5 /* Combinazione.h */,
-				A3645B7A143A4B2900A13FB5 /* Combinazione.m */,
+				A3B10D6B1454B09700C9A881 /* Combinazione.h */,
+				A3B10D6C1454B09700C9A881 /* Combinazione.m */,
+				A3B10D5A145463CE00C9A881 /* ProprietaCombinazione.h */,
+				A3B10D5B145463CE00C9A881 /* ProprietaCombinazione.m */,
+				A3B10D57145463CE00C9A881 /* Stagione.h */,
+				A3B10D58145463CE00C9A881 /* Stagione.m */,
+				A3B10D54145463CE00C9A881 /* Tipologia.h */,
+				A3B10D55145463CE00C9A881 /* Tipologia.m */,
+				A3B10D51145463CE00C9A881 /* Vestito.h */,
+				A3B10D52145463CE00C9A881 /* Vestito.m */,
+				A3B10D4B145463CD00C9A881 /* Stile.h */,
+				A3B10D4C145463CD00C9A881 /* Stile.m */,
+				A3B10D48145463CD00C9A881 /* Proprieta.h */,
+				A3B10D49145463CD00C9A881 /* Proprieta.m */,
+				A3B10D44145463CC00C9A881 /* ProprietaVestito.h */,
+				A3B10D45145463CC00C9A881 /* ProprietaVestito.m */,
 			);
 			name = Entities;
 			path = ../Entities;
@@ -557,6 +563,9 @@
 		A3EA47801449FD6A0095349B /* icone_interfaccia */ = {
 			isa = PBXGroup;
 			children = (
+				A3B10D5D14546E5E00C9A881 /* icon-1star-002@x.png */,
+				A3B10D5E14546E5E00C9A881 /* icon-2star-002@x.png */,
+				A3B10D5F14546E5E00C9A881 /* icon-3star-002@x.png */,
 				A3D81FD51449058D0028DD9F /* TabBarNipple.png */,
 				A3D81FD61449058D0028DD9F /* TabBarNipple@2x.png */,
 				A3297D7B143DE2C000EBF25A /* 02.png */,
@@ -676,6 +685,9 @@
 				A3A976B6144DA7AA00CEB5D6 /* ShakeView.xib in Resources */,
 				A3F14747144F08E3007779DF /* LookViewController.xib in Resources */,
 				A3F1474E144F0FB6007779DF /* LookTableView.xib in Resources */,
+				A3B10D6014546E5E00C9A881 /* icon-1star-002@x.png in Resources */,
+				A3B10D6114546E5E00C9A881 /* icon-2star-002@x.png in Resources */,
+				A3B10D6214546E5E00C9A881 /* icon-3star-002@x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,12 +718,7 @@
 				A3645B1F1439EBC800A13FB5 /* UIImage+Rotating.m in Sources */,
 				A3645B211439EBC800A13FB5 /* UIImage+Saving.m in Sources */,
 				A3645B231439EBC800A13FB5 /* FileSystem.m in Sources */,
-				A3645B7B143A4B2900A13FB5 /* Combinazione.m in Sources */,
-				A3645B81143A4B2B00A13FB5 /* ProprietaCombinazione.m in Sources */,
-				A3645B84143A4B2B00A13FB5 /* ProprietaVestito.m in Sources */,
-				A3645B8D143A4B2C00A13FB5 /* Proprieta.m in Sources */,
 				A3816AEB143B5E57009643B4 /* SelectTypeViewController.m in Sources */,
-				A3297D6B143DC37100EBF25A /* Stile.m in Sources */,
 				A3297D85143DE31300EBF25A /* SetupViewController.m in Sources */,
 				A3297D87143DE31300EBF25A /* FavoritesViewController.m in Sources */,
 				A3316A9C143F0D0E0042446C /* DataCache.m in Sources */,
@@ -720,12 +727,17 @@
 				A31C7B98144B16DB00BD565D /* ButtonSegmentControl.m in Sources */,
 				A31C7B9C144B171300BD565D /* Configuration.m in Sources */,
 				A31C7BA1144B17A900BD565D /* CaptureClothController.m in Sources */,
-				A3FBCA9E144C5D2F0071A213 /* Vestito.m in Sources */,
 				A3D7073F144CAB7D00469E06 /* CreditsViewController.m in Sources */,
-				A3F1473D144EFE2D007779DF /* Stagione.m in Sources */,
 				A3F14748144F08E3007779DF /* LookViewController.m in Sources */,
 				A3F1474F144F0FB6007779DF /* LookTableViewController.m in Sources */,
-				A3DBA3FB14502B9300FE4298 /* Tipologia.m in Sources */,
+				A3B10D46145463CC00C9A881 /* ProprietaVestito.m in Sources */,
+				A3B10D4A145463CD00C9A881 /* Proprieta.m in Sources */,
+				A3B10D4D145463CD00C9A881 /* Stile.m in Sources */,
+				A3B10D53145463CE00C9A881 /* Vestito.m in Sources */,
+				A3B10D56145463CE00C9A881 /* Tipologia.m in Sources */,
+				A3B10D59145463CE00C9A881 /* Stagione.m in Sources */,
+				A3B10D5C145463CE00C9A881 /* ProprietaCombinazione.m in Sources */,
+				A3B10D6D1454B09700C9A881 /* Combinazione.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

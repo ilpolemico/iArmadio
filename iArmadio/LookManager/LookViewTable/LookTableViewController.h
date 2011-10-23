@@ -21,6 +21,8 @@
     SelectTypeViewController *delegateController;
     CoverViewController *coverviewcontroller;
     
+    NSMutableDictionary *combinazioniForStile;
+    
     IBOutlet UISegmentedControl *segmentControl;
     IBOutlet UIButton *addLookBtn;
 }

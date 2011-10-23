@@ -2,7 +2,7 @@
 //  ProprietaVestito.h
 //  iArmadio
 //
-//  Created by Casa Fortunato on 03/10/11.
+//  Created by Casa Fortunato on 23/10/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -11,9 +11,8 @@
 
 @class Proprieta, Vestito;
 
-@interface ProprietaVestito : NSManagedObject {
-@private
-}
+@interface ProprietaVestito : NSManagedObject
+
 @property (nonatomic, retain) NSString * value;
 @property (nonatomic, retain) Vestito *delVestito;
 @property (nonatomic, retain) Proprieta *haNome;

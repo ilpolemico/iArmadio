@@ -2,7 +2,7 @@
 //  ProprietaVestito.m
 //  iArmadio
 //
-//  Created by Casa Fortunato on 03/10/11.
+//  Created by Casa Fortunato on 23/10/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -12,6 +12,7 @@
 
 
 @implementation ProprietaVestito
+
 @dynamic value;
 @dynamic delVestito;
 @dynamic haNome;

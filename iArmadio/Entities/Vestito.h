@@ -2,7 +2,7 @@
 //  Vestito.h
 //  iArmadio
 //
-//  Created by Casa Fortunato on 17/10/11.
+//  Created by Casa Fortunato on 23/10/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -11,14 +11,13 @@
 
 @class Combinazione, ProprietaVestito, Stagione, Stile, Tipologia;
 
-@interface Vestito : NSManagedObject {
-@private
-}
+@interface Vestito : NSManagedObject
+
 @property (nonatomic, retain) NSNumber * gradimento;
 @property (nonatomic, retain) NSString * id;
 @property (nonatomic, retain) NSString * immagine;
-@property (nonatomic, retain) NSString * thumbnail;
 @property (nonatomic, retain) NSString * preferito;
+@property (nonatomic, retain) NSString * thumbnail;
 @property (nonatomic, retain) NSSet *conProprieta;
 @property (nonatomic, retain) NSSet *conStile;
 @property (nonatomic, retain) NSSet *inCombinazioni;

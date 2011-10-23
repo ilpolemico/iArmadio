@@ -34,6 +34,7 @@ choice7,
 choice8,
 choice9,
 choice10,
+captureView,
 preferito,
 combinazione;
 
@@ -145,6 +146,7 @@ combinazione;
     
     choiceStagione.selectedIndex = [([CurrState shared]).currStagioneIndex intValue];
     
+    if(self.combinazione){self.preferito = self.combinazione.preferito;}
     [self.view setUserInteractionEnabled:NO];
     if((self.preferito != nil)&&([self.preferito length]>0)){
         addPreferitiBtn.selected = YES;
@@ -301,6 +303,12 @@ combinazione;
     int index;
     NSMutableArray *vestitiInCombinazione = [[NSMutableArray alloc] init];
     
+    UIGraphicsBeginImageContext(CGSizeMake(self.captureView.frame.size.width,self.captureView.frame.size.height));
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [self.captureView.layer renderInContext:context];
+    UIImage *snapShotImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
     for(int i=1;i<=10;i++){
         NSString *choice = [@"choice" stringByAppendingFormat:@"%d",i];
         if([[vestitiInScrollView objectForKey:choice] count] > 0){
@@ -309,7 +317,6 @@ combinazione;
             UIScrollView *scroll = (UIScrollView *)[view viewWithTag:1];
             tmp = scroll.contentOffset.x / scroll.frame.size.width;
             index = [[NSNumber numberWithFloat:tmp] intValue];
-            NSLog(@"%d %f %f",index,scroll.contentOffset.x,scroll.frame.size.width);
             Vestito *vestito = (Vestito *)[[vestitiInScrollView objectForKey:choice] objectAtIndex:index];
             if(vestito != nil){[vestitiInCombinazione addObject:vestito];}
         }
@@ -323,8 +330,13 @@ combinazione;
     
     
     NSString *scelta_stagione = [[dao listStagioniKeys] objectAtIndex:choiceStagione.selectedIndex] ;
+    if(!self.combinazione){
+        [dao addCombinazioneEntity:vestitiInCombinazione snapshot:snapShotImage gradimento:choiceGradimento.selectedIndex stagioneKey:scelta_stagione stiliKeys:stili preferito:self.preferito];
+    }   
+    else{
+        [dao modifyCombinazioneEntity:self.combinazione  vestitiEntities:vestitiInCombinazione snapshot:snapShotImage isNew:NO gradimento:choiceGradimento.selectedIndex stagioneKey:scelta_stagione stiliKeys:stili preferito:self.preferito];
     
-    [dao addCombinazioneEntity:vestitiInCombinazione gradimento:choiceGradimento.selectedIndex stagioneKey:scelta_stagione stiliKeys:stili preferito:self.preferito];
+    }
     [self dismissModalViewControllerAnimated:YES];
 }
 
@@ -335,6 +347,9 @@ combinazione;
 
 -(IBAction) deleteLook:(id)sender{
      NSLog(@"deletelook");
+    if(self.combinazione){
+        [dao delCombinazioneEntity:self.combinazione];
+    }
     [self dismissModalViewControllerAnimated:YES];
 }
 	

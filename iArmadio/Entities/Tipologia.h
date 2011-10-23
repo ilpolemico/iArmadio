@@ -2,7 +2,7 @@
 //  Tipologia.h
 //  iArmadio
 //
-//  Created by Casa Fortunato on 20/10/11.
+//  Created by Casa Fortunato on 23/10/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -14,12 +14,12 @@
 @interface Tipologia : NSManagedObject
 
 @property (nonatomic, retain) NSString * category;
+@property (nonatomic, retain) NSNumber * choice;
 @property (nonatomic, retain) NSString * icon;
 @property (nonatomic, retain) NSString * id;
 @property (nonatomic, retain) NSString * nome;
 @property (nonatomic, retain) NSNumber * order;
 @property (nonatomic, retain) NSString * plural;
-@property (nonatomic, retain) NSNumber * choice;
 @property (nonatomic, retain) NSSet *allow;
 @property (nonatomic, retain) NSSet *vestiti;
 @end

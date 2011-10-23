@@ -60,7 +60,17 @@
     NSMutableDictionary *looks4Stile = [[NSMutableDictionary alloc] init];
     looks4Stile = nil;
     
+    if(combinazioniForStile != nil){
+        [combinazioniForStile release];
+        combinazioniForStile = nil;
+    }
+    combinazioniForStile = [[NSMutableDictionary alloc] init];
     
+    
+    for(NSString *stile in dao.listStiliKeys){
+       NSArray *combinazioni = [dao getCombinazioniEntities:-1 filterStagioneKey:nil filterStiliKeys:[NSArray arrayWithObject:stile]];
+       [combinazioniForStile setValue:combinazioni forKey:stile] ;
+    }
     [(UITableView *)self.view reloadData];
 }
 
@@ -78,6 +88,8 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLook:) name:DEL_LOOK_EVENT object:nil];
     
+    
+    [self reloadLook:nil];
 }
 
 - (void)viewDidUnload
@@ -101,7 +113,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[dao.category objectForKey:[dao.listCategoryKeys objectAtIndex:section]] count];
+    NSString *stile = [dao.listStiliKeys objectAtIndex:section];
+    return [[combinazioniForStile objectForKey:stile] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -112,22 +125,16 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    //NSString *stile = [dao.listStiliKeys objectAtIndex:indexPath.section];
+    NSString *stile = [dao.listStiliKeys objectAtIndex:indexPath.section];
     
-    /*
+    Combinazione *combinazione =  ((Combinazione *)[[combinazioniForStile objectForKey:stile] objectAtIndex:indexPath.row]);
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.imageView.image = [dao getImageFromTipo:([dao getTipoEntity:[tipologie objectAtIndex:indexPath.row]])]; 
-    cell.textLabel.text = NSLocalizedString([dao getTipoEntity:[tipologie objectAtIndex:indexPath.row]].plural,nil);
+    cell.textLabel.text = combinazione.id ;
     [cell.textLabel setTextColor:[UIColor darkTextColor]];
     [cell.textLabel setFont:[UIFont fontWithName:@"MarkerFelt-Wide" size:18 ]];
     [cell.detailTextLabel setFont:[UIFont fontWithName:@"MarkerFelt-Wide" size:12 ]];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", count];
-    
-    
-    */
-    
-    
+    cell.imageView.image = [dao getImageDocumentFromFile:combinazione.lookSnapshot];
     return cell;
 }
 
@@ -138,14 +145,19 @@
 {
     
     
-    //NSString *stile = [dao.listStiliKeys objectAtIndex:indexPath.section];
-    //Combinazione *combinazione = [dao.category objectForKey:category];
+    NSString *stile = [dao.listStiliKeys objectAtIndex:indexPath.section];
+    Combinazione *combinazione = [[combinazioniForStile objectForKey:stile] objectAtIndex:indexPath.row];
 
     
     LookViewController *lookviewcontroller = [[LookViewController alloc] initWithNibName:@"LookViewController" bundle:nil];
-           
+    lookviewcontroller.combinazione = combinazione;       
     [tableView  deselectRowAtIndexPath:indexPath animated:YES];
-    [self.navigationController pushViewController:coverviewcontroller animated:YES];
+    
+    iArmadioAppDelegate *appDelegate = (iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    
+    [appDelegate.tabBarController presentModalViewController:lookviewcontroller animated:YES];
+   
     
     [lookviewcontroller release];
          
@@ -156,7 +168,13 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     return NSLocalizedString([dao.listStiliKeys objectAtIndex:section],nil);
 
-}    
+}   
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 250;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 1;
@@ -173,6 +191,7 @@
 
 
 
+
 - (void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
 }
 
@@ -185,7 +204,10 @@
 
 -(IBAction) addLook:(id)sender{
     LookViewController *lookview = [[LookViewController alloc] initWithNibName:@"LookViewController" bundle:nil];
-    [self presentModalViewController:lookview animated:YES];
+    
+    iArmadioAppDelegate *appDelegate = (iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    [appDelegate.tabBarController presentModalViewController:lookview animated:YES];
     [lookview release];
 }
 
