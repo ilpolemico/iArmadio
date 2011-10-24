@@ -62,7 +62,6 @@
 		A3816AEB143B5E57009643B4 /* SelectTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3816AE9143B5E57009643B4 /* SelectTypeViewController.m */; };
 		A3816AEC143B5E57009643B4 /* SelectTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3816AEA143B5E57009643B4 /* SelectTypeViewController.xib */; };
 		A3A19EE614486191008E283D /* cappotto.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A19EE414486191008E283D /* cappotto.png */; };
-		A3A19EE714486191008E283D /* gonna.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A19EE514486191008E283D /* gonna.png */; };
 		A3A89065144D7F320064D79B /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3A89064144D7F320064D79B /* Config.plist */; };
 		A3A976B6144DA7AA00CEB5D6 /* ShakeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3A976B5144DA7A900CEB5D6 /* ShakeView.xib */; };
 		A3B10D46145463CC00C9A881 /* ProprietaVestito.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B10D45145463CC00C9A881 /* ProprietaVestito.m */; };
@@ -81,6 +80,13 @@
 		A3D70742144CBF7600469E06 /* CreditsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3D70744144CBF7600469E06 /* CreditsViewController.xib */; };
 		A3D81FD71449058D0028DD9F /* TabBarNipple.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D81FD51449058D0028DD9F /* TabBarNipple.png */; };
 		A3D81FD81449058D0028DD9F /* TabBarNipple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D81FD61449058D0028DD9F /* TabBarNipple@2x.png */; };
+		A3E846B41456158300426764 /* prova.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A3E846B31456158300426764 /* prova.jpeg */; };
+		A3E846B71456188900426764 /* looksfondo.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E846B61456188900426764 /* looksfondo.png */; };
+		A3E846B91456192300426764 /* lookpost.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E846B81456192300426764 /* lookpost.png */; };
+		A3E846BE14562B4800426764 /* vestito.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E846BA14562B4800426764 /* vestito.png */; };
+		A3E846BF14562B4800426764 /* completo.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E846BB14562B4800426764 /* completo.png */; };
+		A3E846C014562B4800426764 /* gonna.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E846BC14562B4800426764 /* gonna.png */; };
+		A3E846C114562B4800426764 /* maglietta.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E846BD14562B4800426764 /* maglietta.png */; };
 		A3EA477C1449DD2D0095349B /* ExtendTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EA477B1449DD2D0095349B /* ExtendTabBarController.m */; };
 		A3EA4784144A65710095349B /* icona.png in Resources */ = {isa = PBXBuildFile; fileRef = A3EA4782144A65710095349B /* icona.png */; };
 		A3EA4785144A65710095349B /* icona@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3EA4783144A65710095349B /* icona@2x.png */; };
@@ -183,7 +189,6 @@
 		A3816AE9143B5E57009643B4 /* SelectTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectTypeViewController.m; sourceTree = "<group>"; };
 		A3816AEA143B5E57009643B4 /* SelectTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectTypeViewController.xib; sourceTree = "<group>"; };
 		A3A19EE414486191008E283D /* cappotto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cappotto.png; sourceTree = "<group>"; };
-		A3A19EE514486191008E283D /* gonna.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gonna.png; sourceTree = "<group>"; };
 		A3A66D681444DB3D0098F97C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A3A66D6B1444DB3D0098F97C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A3A89064144D7F320064D79B /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
@@ -215,6 +220,13 @@
 		A3D70746144CBF9400469E06 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/CreditsViewController.xib; sourceTree = "<group>"; };
 		A3D81FD51449058D0028DD9F /* TabBarNipple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabBarNipple.png; sourceTree = "<group>"; };
 		A3D81FD61449058D0028DD9F /* TabBarNipple@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabBarNipple@2x.png"; sourceTree = "<group>"; };
+		A3E846B31456158300426764 /* prova.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = prova.jpeg; sourceTree = "<group>"; };
+		A3E846B61456188900426764 /* looksfondo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = looksfondo.png; sourceTree = "<group>"; };
+		A3E846B81456192300426764 /* lookpost.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookpost.png; sourceTree = "<group>"; };
+		A3E846BA14562B4800426764 /* vestito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vestito.png; sourceTree = "<group>"; };
+		A3E846BB14562B4800426764 /* completo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = completo.png; sourceTree = "<group>"; };
+		A3E846BC14562B4800426764 /* gonna.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gonna.png; sourceTree = "<group>"; };
+		A3E846BD14562B4800426764 /* maglietta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maglietta.png; sourceTree = "<group>"; };
 		A3EA477A1449DD2D0095349B /* ExtendTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtendTabBarController.h; sourceTree = "<group>"; };
 		A3EA477B1449DD2D0095349B /* ExtendTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtendTabBarController.m; sourceTree = "<group>"; };
 		A3EA4782144A65710095349B /* icona.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icona.png; sourceTree = "<group>"; };
@@ -557,8 +569,11 @@
 		A3EA477F1449FD4B0095349B /* icone_vestiti */ = {
 			isa = PBXGroup;
 			children = (
+				A3E846BA14562B4800426764 /* vestito.png */,
+				A3E846BB14562B4800426764 /* completo.png */,
+				A3E846BC14562B4800426764 /* gonna.png */,
+				A3E846BD14562B4800426764 /* maglietta.png */,
 				A3A19EE414486191008E283D /* cappotto.png */,
-				A3A19EE514486191008E283D /* gonna.png */,
 			);
 			name = icone_vestiti;
 			sourceTree = "<group>";
@@ -566,6 +581,7 @@
 		A3EA47801449FD6A0095349B /* icone_interfaccia */ = {
 			isa = PBXGroup;
 			children = (
+				A3E846B81456192300426764 /* lookpost.png */,
 				A3B10D5D14546E5E00C9A881 /* icon-1star-002@x.png */,
 				A3B10D5E14546E5E00C9A881 /* icon-2star-002@x.png */,
 				A3B10D5F14546E5E00C9A881 /* icon-3star-002@x.png */,
@@ -580,6 +596,8 @@
 		A3EA47811449FD940095349B /* background */ = {
 			isa = PBXGroup;
 			children = (
+				A3E846B61456188900426764 /* looksfondo.png */,
+				A3E846B31456158300426764 /* prova.jpeg */,
 				A3A66D681444DB3D0098F97C /* Default.png */,
 				A3A66D6B1444DB3D0098F97C /* Default@2x.png */,
 			);
@@ -676,7 +694,6 @@
 				A3297D88143DE31300EBF25A /* FavoritesViewController.xib in Resources */,
 				A3FB194714462726003620C5 /* images.plist in Resources */,
 				A3A19EE614486191008E283D /* cappotto.png in Resources */,
-				A3A19EE714486191008E283D /* gonna.png in Resources */,
 				A3D81FD71449058D0028DD9F /* TabBarNipple.png in Resources */,
 				A3D81FD81449058D0028DD9F /* TabBarNipple@2x.png in Resources */,
 				A3EA4784144A65710095349B /* icona.png in Resources */,
@@ -692,6 +709,13 @@
 				A3B10D6114546E5E00C9A881 /* icon-2star-002@x.png in Resources */,
 				A3B10D6214546E5E00C9A881 /* icon-3star-002@x.png in Resources */,
 				A3D5E6211455B6EB00F0772C /* emptyCloth.png in Resources */,
+				A3E846B41456158300426764 /* prova.jpeg in Resources */,
+				A3E846B71456188900426764 /* looksfondo.png in Resources */,
+				A3E846B91456192300426764 /* lookpost.png in Resources */,
+				A3E846BE14562B4800426764 /* vestito.png in Resources */,
+				A3E846BF14562B4800426764 /* completo.png in Resources */,
+				A3E846C014562B4800426764 /* gonna.png in Resources */,
+				A3E846C114562B4800426764 /* maglietta.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

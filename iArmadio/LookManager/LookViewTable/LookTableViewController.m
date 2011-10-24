@@ -57,8 +57,7 @@
 
 
 - (void)reloadLook:(NSNotification *)pNotification{
-    NSMutableDictionary *looks4Stile = [[NSMutableDictionary alloc] init];
-    looks4Stile = nil;
+   
     
     if(combinazioniForStile != nil){
         [combinazioniForStile release];

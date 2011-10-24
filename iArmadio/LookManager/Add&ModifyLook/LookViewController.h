@@ -71,6 +71,9 @@
     NSArray *vestitiForTipi;
     int currChoice;
     NSMutableArray *selectedVestiti;
+    
+    UIButton *currButton;
+    IBOutlet UIImageView *lookSfondo;
 }
 
 @property (nonatomic, retain )Combinazione *combinazione;
@@ -103,6 +106,7 @@
 @property (nonatomic, retain )IBOutlet UIToolbar *toolbar;
 @property (nonatomic, retain )NSString *preferito;
 @property (nonatomic, retain )IBOutlet UIScrollView *mainView;
+@property (nonatomic, retain )IBOutlet IBOutlet UIImageView *lookSfondo;
 
 
 

@@ -27,7 +27,8 @@
             tipoView,
             tipoLabel,
             tipologia,
-            ordinaLabel;
+            ordinaLabel,
+            imageview;
 
 static CGRect frameCover;
 
@@ -168,7 +169,6 @@ static CGRect frameCover;
     [self reloadVestiti:nil];
     
     
-    //self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:@"CoverView" type:@"background"]];
     
     Tipologia *tipologiaEntity = [dao getTipoEntity:tipologia];
     self.tipoLabel.text = NSLocalizedString(tipologiaEntity.plural,nil);
@@ -176,6 +176,11 @@ static CGRect frameCover;
     self.tipoView.image = [dao getImageFromTipo:tipologiaEntity];
 
     self.view.backgroundColor = nil;
+    
+    self.imageview.layer.shadowColor = [UIColor grayColor].CGColor;
+    self.imageview.layer.shadowOffset = CGSizeMake(0, -7);
+    self.imageview.layer.shadowOpacity = 1;
+    self.imageview.layer.shadowRadius = 3.0;
 }
 
 

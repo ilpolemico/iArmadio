@@ -39,7 +39,8 @@ captureView,
 preferito,
 combinazione,
 toolbar,
-mainView;
+mainView,
+lookSfondo;
 
 
 
@@ -52,6 +53,9 @@ mainView;
     dao = [IarmadioDao shared];
     [CurrState shared].currSection = SECTION_LOOKVIEW;
     self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
+    
+    
+  
     
     
     choiceToTipi = [[NSMutableDictionary alloc] init];
@@ -71,7 +75,12 @@ mainView;
     }
     
     [self.mainView setContentSize:CGSizeMake(320,700)];
-    self.mainView.bounces = NO;
+    self.mainView.bounces = YES;
+    
+    self.lookSfondo.layer.shadowColor = [UIColor grayColor].CGColor;
+    self.lookSfondo.layer.shadowOffset = CGSizeMake(-7, 1);
+    self.lookSfondo.layer.shadowOpacity = 1;
+    self.lookSfondo.layer.shadowRadius = 3.0;
     
     selectedVestiti = [[NSMutableArray alloc] initWithObjects:@"",@"",@"",@"",@"",@"",@"" @"",@"",@"",nil];
     [self initInputType];
@@ -82,6 +91,11 @@ mainView;
     //self.listCloth.pagingEnabled = YES;
     self.listCloth.bounces = YES;
     self.listCloth.delegate = self;
+    //self.listCloth.backgroundColor = [UIColor colorWithPatternImage:[dao getImageBundleFromFile:@"prova.jpeg"]]; 
+    
+    //self.captureView.backgroundColor = [UIColor colorWithPatternImage:[dao getImageBundleFromFile:@"looksfondo.png"]];  
+                                      
+                                      
     
     if(self.combinazione){
         NSSet *vestitiInCombinazione = self.combinazione.fattaDi; 
@@ -138,12 +152,10 @@ mainView;
     choiceGradimento.selectedIndex = 0;
     
     NSSet *stili;
-    int gradimento;
 
     
     if(self.combinazione != nil){
         stili = combinazione.conStile;
-        gradimento = [combinazione.gradimento intValue];
         [CurrState shared].currStagioneKey = stagione.stagione;
         Stile *tmp = [[stili objectEnumerator] nextObject];    
         choiceStile.selectedIndex = [tmp.id intValue]-1;
@@ -208,8 +220,23 @@ mainView;
 }
 
 
+
+- (void)keepHighlightButton:(id)button{
+        [((UIButton *)button) setSelected:YES];
+        [((UIButton *)button) setHighlighted:YES];
+}
+
+
 - (IBAction)selectCloth:(id)sender{
     int index = ((UIButton *)sender).tag;
+    if(currButton != nil){
+        [currButton setHighlighted:NO];
+        [currButton setSelected:NO];
+    }
+    
+    currButton = (UIButton *)sender;
+    [self performSelector:@selector(keepHighlightButton:) withObject:(UIButton *)sender afterDelay:0.0];
+    
     int scrollview_size_width = self.listCloth.frame.size.width;
     //int scrollview_size_height = self.listCloth.frame.size.height;
     
@@ -225,15 +252,10 @@ mainView;
     
     NSArray *tipi = [choiceToTipi objectForKey:[NSString stringWithFormat:@"%d",index,nil]]; 
     
+ 
     
-    if(vestitiForTipi != nil){
-        [vestitiForTipi release];
-        vestitiForTipi = nil;
-    }
     
-    vestitiForTipi = [dao getVestitiEntities:tipi filterStagioneKey:nil filterStiliKeys:nil filterGradimento:-1 sortOnKeys:nil preferiti:NO];
-    
-    [vestitiForTipi retain];
+ 
     
     int sizeScrollView = imageview_size_height;
     
@@ -249,6 +271,20 @@ mainView;
     [self.listCloth addSubview:button];
 
     int count = 1;
+    
+    if(vestitiForTipi != nil){
+        [vestitiForTipi release];
+        vestitiForTipi = nil;
+    }
+    
+    if(tipi != nil){
+        vestitiForTipi = [dao getVestitiEntities:tipi filterStagioneKey:nil filterStiliKeys:nil filterGradimento:-1 sortOnKeys:nil preferiti:NO];
+        
+        [vestitiForTipi retain];
+    } 
+    else{
+        vestitiForTipi = [[[NSArray alloc] init] autorelease];
+    }
     
     
     for(Vestito *vestito in vestitiForTipi){
@@ -275,8 +311,9 @@ mainView;
 -(IBAction)buttonPressed:(id)sender{
     int tag = ((UIButton *)sender).tag;
     
-    
-    
+    [currButton setSelected:NO];
+    [currButton setHighlighted:NO];
+   
     
     SEL selector = NSSelectorFromString([@"choice" stringByAppendingFormat:@"%d",currChoice,nil]);
     UIButton *button = [self performSelector:selector];
@@ -355,7 +392,7 @@ mainView;
 }
 
 -(IBAction) saveLook:(id) sender {
-    NSMutableArray *vestitiInCombinazione = [[NSMutableArray alloc] init];
+    NSMutableArray *vestitiInCombinazione = [[[NSMutableArray alloc] init] autorelease];
     
     UIGraphicsBeginImageContext(CGSizeMake(self.captureView.frame.size.width,self.captureView.frame.size.height));
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -375,7 +412,7 @@ mainView;
         return;
     }
     
-    NSMutableArray *stili = [[NSMutableArray alloc] init];
+    NSMutableArray *stili = [[[NSMutableArray alloc] init] autorelease];
     if(choiceStile.selectedIndex < [dao.listStiliKeys count]){
         [stili addObject:[dao.listStiliKeys objectAtIndex:choiceStile.selectedIndex]];
     }

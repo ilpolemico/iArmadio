@@ -61,6 +61,8 @@
     
     IBOutlet UILabel *ordinaLabel;
     
+    IBOutlet UIImageView *imageview;
+    
     
 }
 
@@ -83,6 +85,7 @@
 @property (retain, nonatomic) IBOutlet UISegmentedControl *segmentcontrol;
 
 @property (nonatomic, retain) IBOutlet UIView *coverView;
+@property (nonatomic, retain) IBOutlet UIImageView *imageview;
 
 @property (nonatomic, retain) IBOutlet NSString *localCurrStile;
 @property (nonatomic, retain, readonly) IBOutlet NSMutableArray *localCurrOrderBy;

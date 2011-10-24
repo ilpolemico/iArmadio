@@ -31,6 +31,7 @@
 @property (nonatomic, retain) Tipologia *tipologia;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *addItemBtn;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *modifyBtn;
+@property (nonatomic, retain) IBOutlet UIImageView *imageview;
 @property(nonatomic,retain, readonly) IBOutlet UINavigationController *navcontroler;
 
 
