@@ -137,7 +137,40 @@
     [cell.textLabel setTextColor:[UIColor darkTextColor]];
     [cell.textLabel setFont:[UIFont fontWithName:@"MarkerFelt-Wide" size:18 ]];
     [cell.detailTextLabel setFont:[UIFont fontWithName:@"MarkerFelt-Wide" size:12 ]];
-    cell.imageView.image = [dao getImageDocumentFromFile:combinazione.lookSnapshot];
+    
+    NSMutableArray *images = [[[NSMutableArray alloc] initWithObjects:@"",@"",@"",@"",@"",@"",@"",@"",@"",nil] autorelease];
+    
+    
+    NSSet *vestitiInCombinazione = combinazione.fattaDi; 
+    for(Vestito *vestito in vestitiInCombinazione){
+        Tipologia *tipo = ([[vestito.tipi objectEnumerator] nextObject]);
+        [images replaceObjectAtIndex:[tipo.choice intValue] withObject:[dao getImageFromVestito:vestito]];
+    }
+    
+    int offset_x = 0;
+    int offset_y = 0;
+    int count = 0;
+  
+    for (UIView *view in cell.subviews) {
+        [view removeFromSuperview];
+    }
+    
+    for(UIImage *image in images){
+        if ([image class] == [UIImage class]){
+            UIImageView *imageview = [[[UIImageView alloc] initWithImage:image] autorelease];
+            imageview.frame = CGRectMake(offset_x,offset_y,40,40);
+            imageview.contentMode = UIViewContentModeScaleAspectFit; 
+            [cell addSubview:imageview];
+            
+            offset_x += imageview.frame.size.width;
+            if(count == 6){
+                offset_x = 0;
+                offset_y += imageview.frame.size.height;
+            }
+            count++;
+        }
+    }
+    
     return cell;
 }
 
@@ -176,7 +209,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 250;
+    return 100;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -76,6 +76,7 @@
 		A3B10D6114546E5E00C9A881 /* icon-2star-002@x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3B10D5E14546E5E00C9A881 /* icon-2star-002@x.png */; };
 		A3B10D6214546E5E00C9A881 /* icon-3star-002@x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3B10D5F14546E5E00C9A881 /* icon-3star-002@x.png */; };
 		A3B10D6D1454B09700C9A881 /* Combinazione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B10D6C1454B09700C9A881 /* Combinazione.m */; };
+		A3D5E6211455B6EB00F0772C /* emptyCloth.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D5E6201455B6EB00F0772C /* emptyCloth.png */; };
 		A3D7073F144CAB7D00469E06 /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D7073D144CAB7D00469E06 /* CreditsViewController.m */; };
 		A3D70742144CBF7600469E06 /* CreditsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3D70744144CBF7600469E06 /* CreditsViewController.xib */; };
 		A3D81FD71449058D0028DD9F /* TabBarNipple.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D81FD51449058D0028DD9F /* TabBarNipple.png */; };
@@ -206,6 +207,7 @@
 		A3B10D5F14546E5E00C9A881 /* icon-3star-002@x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-3star-002@x.png"; sourceTree = "<group>"; };
 		A3B10D6B1454B09700C9A881 /* Combinazione.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Combinazione.h; sourceTree = "<group>"; };
 		A3B10D6C1454B09700C9A881 /* Combinazione.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Combinazione.m; sourceTree = "<group>"; };
+		A3D5E6201455B6EB00F0772C /* emptyCloth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyCloth.png; sourceTree = "<group>"; };
 		A3D7073C144CAB7D00469E06 /* CreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsViewController.h; sourceTree = "<group>"; };
 		A3D7073D144CAB7D00469E06 /* CreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsViewController.m; sourceTree = "<group>"; };
 		A3D70743144CBF7600469E06 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CreditsViewController.xib; sourceTree = "<group>"; };
@@ -542,6 +544,7 @@
 		A3EA477E1449FD3A0095349B /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A3D5E6201455B6EB00F0772C /* emptyCloth.png */,
 				A3EA4782144A65710095349B /* icona.png */,
 				A3EA4783144A65710095349B /* icona@2x.png */,
 				A3EA47811449FD940095349B /* background */,
@@ -688,6 +691,7 @@
 				A3B10D6014546E5E00C9A881 /* icon-1star-002@x.png in Resources */,
 				A3B10D6114546E5E00C9A881 /* icon-2star-002@x.png in Resources */,
 				A3B10D6214546E5E00C9A881 /* icon-3star-002@x.png in Resources */,
+				A3D5E6211455B6EB00F0772C /* emptyCloth.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

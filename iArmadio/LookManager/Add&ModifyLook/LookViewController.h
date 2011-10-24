@@ -20,7 +20,7 @@
     IBOutlet UIBarButtonItem *saveBtn;
     IBOutlet UIBarButtonItem *deleteBtn;
     IBOutlet UIButton *addPreferitiBtn;
-    
+    IBOutlet UIScrollView *mainView;
     
     NSArray *vestiti;
     NSMutableDictionary *vestitiInScrollView;
@@ -48,16 +48,18 @@
     
     
     //Combinazione
-    IBOutlet UIView *choice1;
-    IBOutlet UIView *choice2;
-    IBOutlet UIView *choice3;
-    IBOutlet UIView *choice4;
-    IBOutlet UIView *choice5;
-    IBOutlet UIView *choice6;
-    IBOutlet UIView *choice7;
-    IBOutlet UIView *choice8;
-    IBOutlet UIView *choice9;
-    IBOutlet UIView *choice10;
+    IBOutlet UIButton *choice1;
+    IBOutlet UIButton *choice2;
+    IBOutlet UIButton *choice3;
+    IBOutlet UIButton *choice4;
+    IBOutlet UIButton *choice5;
+    IBOutlet UIButton *choice6;
+    IBOutlet UIButton *choice7;
+    IBOutlet UIButton *choice8;
+    IBOutlet UIButton *choice9;
+    IBOutlet UIButton *choice10;
+    IBOutlet UIScrollView *listCloth;
+    
     
     IBOutlet UIView *captureView;
     IBOutlet UIToolbar *toolbar;
@@ -65,6 +67,10 @@
     
     NSString *preferito;
     Combinazione *combinazione;
+    NSMutableDictionary *choiceToTipi;
+    NSArray *vestitiForTipi;
+    int currChoice;
+    NSMutableArray *selectedVestiti;
 }
 
 @property (nonatomic, retain )Combinazione *combinazione;
@@ -82,20 +88,21 @@
 @property (nonatomic, retain )IBOutlet UIBarButtonItem *deleteBtn;
 @property (nonatomic, retain )IBOutlet UIButton *addPreferitiBtn;
 
-@property (nonatomic, retain )IBOutlet UIView *choice1;
-@property (nonatomic, retain )IBOutlet UIView *choice2;
-@property (nonatomic, retain )IBOutlet UIView *choice3;
-@property (nonatomic, retain )IBOutlet UIView *choice4;
-@property (nonatomic, retain )IBOutlet UIView *choice5;
-@property (nonatomic, retain )IBOutlet UIView *choice6;
-@property (nonatomic, retain )IBOutlet UIView *choice7;
-@property (nonatomic, retain )IBOutlet UIView *choice8;
-@property (nonatomic, retain )IBOutlet UIView *choice9;
-@property (nonatomic, retain )IBOutlet UIView *choice10;
+@property (nonatomic, retain )IBOutlet UIButton *choice1;
+@property (nonatomic, retain )IBOutlet UIButton *choice2;
+@property (nonatomic, retain )IBOutlet UIButton *choice3;
+@property (nonatomic, retain )IBOutlet UIButton *choice4;
+@property (nonatomic, retain )IBOutlet UIButton *choice5;
+@property (nonatomic, retain )IBOutlet UIButton *choice6;
+@property (nonatomic, retain )IBOutlet UIButton *choice7;
+@property (nonatomic, retain )IBOutlet UIButton *choice8;
+@property (nonatomic, retain )IBOutlet UIButton *choice9;
+@property (nonatomic, retain )IBOutlet UIButton *choice10;
 @property (nonatomic, retain )IBOutlet UIView *captureView;
+@property (nonatomic, retain )IBOutlet UIScrollView *listCloth;
 @property (nonatomic, retain )IBOutlet UIToolbar *toolbar;
 @property (nonatomic, retain )NSString *preferito;
-
+@property (nonatomic, retain )IBOutlet UIScrollView *mainView;
 
 
 
@@ -104,8 +111,8 @@
 - (IBAction) saveLook:(id)sender;
 - (IBAction) deleteLook:(id)sender;
 - (IBAction) addPreferiti:(id)sender; 
-- (UIScrollView *)fillScrollView:(NSArray *)images indexTag:(int)indexView;
-
+- (IBAction)selectCloth:(id)sender;
+- (IBAction)buttonPressed:(id)sender;
 @end
 
 

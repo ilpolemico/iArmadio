@@ -34,10 +34,12 @@ choice7,
 choice8,
 choice9,
 choice10,
+listCloth,
 captureView,
 preferito,
 combinazione,
-toolbar;
+toolbar,
+mainView;
 
 
 
@@ -50,43 +52,49 @@ toolbar;
     dao = [IarmadioDao shared];
     [CurrState shared].currSection = SECTION_LOOKVIEW;
     self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
+    
+    
+    choiceToTipi = [[NSMutableDictionary alloc] init];
+    NSArray *tipiKey = dao.listTipiKeys;
+    for(NSString *tipoKey in tipiKey){
+        Tipologia *tipoEntity = [dao getTipoEntity:tipoKey];
+        int choice = [tipoEntity.choice intValue];
+        
+        NSMutableArray *tipi = [choiceToTipi objectForKey:[NSString stringWithFormat:@"%d",choice,nil]];
+        
+        
+        if(tipi == nil){
+            tipi = [[[NSMutableArray alloc] init] autorelease];
+        }
+        [tipi addObject:tipoEntity.nome];
+        [choiceToTipi setValue:tipi forKey:[NSString stringWithFormat:@"%d",choice,nil]]; 
+    }
+    
+    [self.mainView setContentSize:CGSizeMake(320,700)];
+    self.mainView.bounces = NO;
+    
+    selectedVestiti = [[NSMutableArray alloc] initWithObjects:@"",@"",@"",@"",@"",@"",@"" @"",@"",@"",nil];
     [self initInputType];
 }
 
 - (void)initInputType{
     
-    vestiti = [dao getVestitiEntities:nil filterStagioneKey:nil filterStiliKeys:nil filterGradimento:-1];
+    //self.listCloth.pagingEnabled = YES;
+    self.listCloth.bounces = YES;
+    self.listCloth.delegate = self;
     
-    vestitiInScrollView = [[NSMutableDictionary alloc] init];     
-    
-    NSMutableDictionary *viewScrollimages = [[NSMutableDictionary alloc] init];
-    
-    
-    for(Vestito *vestito in vestiti){
-        Tipologia *tipo = ([[vestito.tipi objectEnumerator] nextObject]);
-        NSString *idView = [@"choice" stringByAppendingFormat:@"%d",[tipo.choice intValue]];  
-        NSMutableArray *temp = [viewScrollimages objectForKey:idView];
-        NSMutableArray *vestitiId = [vestitiInScrollView objectForKey:idView];
-       
-        
-        if(temp == nil){
-            temp = [[[NSMutableArray alloc] init] autorelease];
-            vestitiId = [[[NSMutableArray alloc] init] autorelease];
-            [viewScrollimages setValue:temp forKey:idView];
-            [vestitiInScrollView setValue:vestitiId forKey:idView];
+    if(self.combinazione){
+        NSSet *vestitiInCombinazione = self.combinazione.fattaDi; 
+        for(Vestito *vestito in vestitiInCombinazione){
+            Tipologia *tipo = ([[vestito.tipi objectEnumerator] nextObject]);
+            SEL selector = NSSelectorFromString([@"choice" stringByAppendingFormat:@"%d",[tipo.choice intValue],nil]);
+            
+            UIButton *button = [self performSelector:selector];
+            button.imageView.contentMode = UIViewContentModeScaleAspectFit;
+            [button  setImage:[dao getImageFromVestito:vestito] forState:UIControlStateNormal];
+            [selectedVestiti replaceObjectAtIndex:[tipo.choice intValue] withObject:vestito];
         }
-        
-        [vestitiId addObject:vestito];
-        [temp addObject: [dao getImageFromVestito:vestito]];
     }
-    
-    for(NSString* choice in viewScrollimages){
-        SEL selector = NSSelectorFromString(choice);
-        UIView *view = [self performSelector:selector];
-        [view addSubview:[self fillScrollView:[viewScrollimages objectForKey:choice] indexTag:[[choice substringToIndex:6] intValue]]];
-    }
-    
-    
     
     
     //Seleziona Stili
@@ -200,53 +208,95 @@ toolbar;
 }
 
 
-- (UIScrollView *)fillScrollView:(NSArray *)images indexTag:(int) indexView{
-    UIScrollView *scrollview = [[[UIScrollView alloc] init] autorelease];
-    int scrollview_size_width = self.choice1.frame.size.width;
-    int scrollview_size_height = self.choice1.frame.size.height;
+- (IBAction)selectCloth:(id)sender{
+    int index = ((UIButton *)sender).tag;
+    int scrollview_size_width = self.listCloth.frame.size.width;
+    //int scrollview_size_height = self.listCloth.frame.size.height;
     
-    int imageview_size_width = self.choice1.frame.size.width;
-    int imageview_size_height = self.choice1.frame.size.height;
+    int imageview_size_width = scrollview_size_width;
+    int imageview_size_height = 80;
     
+     
     
-    
-    scrollview.frame = CGRectMake(0,0,scrollview_size_width,scrollview_size_height);
-    scrollview.pagingEnabled = YES;
-    scrollview.bounces = YES;
-    scrollview.delegate = self;
-    
-    int index = 0;
-    int sizeScrollView = 0;
-    NSArray *vestiti_scrollview = [vestitiInScrollView objectForKey:[@"choice" stringByAppendingFormat:@"%d",indexView]];
-    
-    for(UIImage *image in images){
-        
-        UIImageView *imageview = [[[UIImageView alloc] initWithImage:image] autorelease];
-        
-        imageview.frame = CGRectMake(index*imageview_size_width,0,imageview_size_width,imageview_size_height);
-        [scrollview addSubview:imageview];
-    
-        
-        sizeScrollView += imageview_size_width;
-        
-        Vestito *vestito = [vestiti_scrollview objectAtIndex:index];
-        if(self.combinazione){
-            if([vestito.inCombinazioni containsObject:self.combinazione]){
-               [scrollview scrollRectToVisible:imageview.frame animated:NO];
-            }
-        }
-        
-        index++;
+    for (UIView *view in self.listCloth.subviews) {
+        [view removeFromSuperview];
     }
     
-   
-  
     
-    [scrollview setContentSize: CGSizeMake(sizeScrollView,scrollview_size_height)];
-    [scrollview setTag:1];
-    return scrollview;
+    NSArray *tipi = [choiceToTipi objectForKey:[NSString stringWithFormat:@"%d",index,nil]]; 
+    
+    
+    if(vestitiForTipi != nil){
+        [vestitiForTipi release];
+        vestitiForTipi = nil;
+    }
+    
+    vestitiForTipi = [dao getVestitiEntities:tipi filterStagioneKey:nil filterStiliKeys:nil filterGradimento:-1 sortOnKeys:nil preferiti:NO];
+    
+    [vestitiForTipi retain];
+    
+    int sizeScrollView = imageview_size_height;
+    
+    
+    UIImage *imageTmp = [dao getImageBundleFromFile:@"emptyCloth.png"];
+    UIButton *button = [[[UIButton alloc] init] autorelease];
+    [button setImage:imageTmp forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [button setTag:0];
+    
+    
+    button.frame = CGRectMake(0,0,imageview_size_width,imageview_size_height);
+    [self.listCloth addSubview:button];
+
+    int count = 1;
+    
+    
+    for(Vestito *vestito in vestitiForTipi){
+        UIImage *imageTmp = [dao getThumbnailFromVestito:vestito];
+        UIButton *button = [[[UIButton alloc] init] autorelease];
+        [button setImage:imageTmp forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [button setTag:count];
+        
+        
+        button.frame = CGRectMake(0,count*imageview_size_height,imageview_size_width,imageview_size_height);
+        [self.listCloth addSubview:button];
+        
+        
+        sizeScrollView += imageview_size_height;
+        [self.listCloth setContentSize: CGSizeMake(scrollview_size_width,sizeScrollView)];
+        count++;
+    }
+    
+    currChoice = index;
+    
 }
 
+-(IBAction)buttonPressed:(id)sender{
+    int tag = ((UIButton *)sender).tag;
+    
+    
+    
+    
+    SEL selector = NSSelectorFromString([@"choice" stringByAppendingFormat:@"%d",currChoice,nil]);
+    UIButton *button = [self performSelector:selector];
+    button.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    
+    
+    if(tag == 0){
+         [button setImage:[dao getImageBundleFromFile:@"emptyCloth.png"] 
+                  forState:UIControlStateNormal];
+         [selectedVestiti replaceObjectAtIndex:currChoice withObject:@""];
+         return;
+     }
+    
+    if([vestitiForTipi count] > 0){
+        Vestito *vestito = [vestitiForTipi objectAtIndex:tag-1];
+        
+        [button  setImage:[dao getImageFromVestito:vestito] forState:UIControlStateNormal];
+        [selectedVestiti replaceObjectAtIndex:currChoice withObject:vestito];
+    }
+}
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
@@ -305,8 +355,6 @@ toolbar;
 }
 
 -(IBAction) saveLook:(id) sender {
-    float tmp;
-    int index;
     NSMutableArray *vestitiInCombinazione = [[NSMutableArray alloc] init];
     
     UIGraphicsBeginImageContext(CGSizeMake(self.captureView.frame.size.width,self.captureView.frame.size.height));
@@ -315,24 +363,23 @@ toolbar;
     UIImage *snapShotImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    for(int i=1;i<=10;i++){
-        NSString *choice = [@"choice" stringByAppendingFormat:@"%d",i];
-        if([[vestitiInScrollView objectForKey:choice] count] > 0){
-            SEL selector = NSSelectorFromString(choice);
-            UIView *view = [self performSelector:selector];
-            UIScrollView *scroll = (UIScrollView *)[view viewWithTag:1];
-            tmp = scroll.contentOffset.x / scroll.frame.size.width;
-            index = [[NSNumber numberWithFloat:tmp] intValue];
-            Vestito *vestito = (Vestito *)[[vestitiInScrollView objectForKey:choice] objectAtIndex:index];
-            if(vestito != nil){[vestitiInCombinazione addObject:vestito];}
-        }
+    for(Vestito *vestito in selectedVestiti){
+       if ([vestito class] == [Vestito class]){[vestitiInCombinazione addObject:vestito];}
     }
     
+    if([vestitiInCombinazione count] == 0){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString( @"Salvataggio",nil) message:NSLocalizedString(@"Non puo' essere salvato un look senza vestiti",nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"Annulla",nil) otherButtonTitles:nil];
+        
+        [alert show];
+        [alert release];
+        return;
+    }
     
     NSMutableArray *stili = [[NSMutableArray alloc] init];
     if(choiceStile.selectedIndex < [dao.listStiliKeys count]){
         [stili addObject:[dao.listStiliKeys objectAtIndex:choiceStile.selectedIndex]];
     }
+    
     
     
     NSString *scelta_stagione = [[dao listStagioniKeys] objectAtIndex:choiceStagione.selectedIndex] ;
@@ -409,6 +456,7 @@ toolbar;
   
 
 -(void) dealloc{
+    [selectedVestiti release];
 }
 
 
