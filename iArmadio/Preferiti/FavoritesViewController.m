@@ -178,9 +178,9 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     
     if(section == 0){
-        return @"Abiti";
+        return NSLocalizedString(@"Abiti","");
     }
-    return @"Look";
+    return  NSLocalizedString(@"Look","");
     
 }    
 
@@ -192,7 +192,7 @@
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView{
     
-    return [NSArray arrayWithObjects:@"Abiti",@"Look", nil] ;
+    return [NSArray arrayWithObjects: NSLocalizedString(@"Abiti",""), NSLocalizedString(@"Look",""), nil] ;
 }
 
 

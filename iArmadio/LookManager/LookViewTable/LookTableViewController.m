@@ -68,7 +68,7 @@
     
     
     for(NSString *stile in dao.listStiliKeys){
-       NSArray *combinazioni = [dao getCombinazioniEntities:-1 filterStagioneKey:nil filterStiliKeys:[NSArray arrayWithObject:stile]];
+       NSArray *combinazioni = [dao getCombinazioniEntities:-1 filterStagioneKey:[CurrState shared].currStagioneKey filterStiliKeys:[NSArray arrayWithObject:stile]];
        [combinazioniForStile setValue:combinazioni forKey:stile] ;
     }
     [(UITableView *)self.view reloadData];
@@ -88,6 +88,9 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLook:) name:DEL_LOOK_EVENT object:nil];
     
+    [self.view setUserInteractionEnabled:FALSE];
+    segmentControl.selectedSegmentIndex = [[CurrState shared].currStagioneIndex intValue];
+    [self.view setUserInteractionEnabled:TRUE];
     
     [self reloadLook:nil];
 }
@@ -211,8 +214,15 @@
     [lookview release];
 }
 
--(IBAction) changeSegmentContol:(id)sender{
-    [self reloadLook:nil];
+-(IBAction) changeSegmentControl:(id)sender{
+    if(self.view.isUserInteractionEnabled){    
+        UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
+        NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
+        
+        
+        [CurrState shared].currStagioneIndex = [NSNumber numberWithInteger:selectedSegment];
+        [self reloadLook:nil];  
+    }    
 }
 
 

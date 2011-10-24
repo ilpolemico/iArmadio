@@ -15,6 +15,12 @@
 "Cancellare tutte le impostazioni" = "?Cancellare tutte le impostazioni";
 "Vuoi cancellare tutte le impostazioni? In questo modo cancellerai anche tutti i vestiti" = "?Vuoi cancellare tutte le impostazioni? In questo modo cancellerai anche tutti i vestiti";
 
+
+//Stili
+"sportivo" = "?sportivo";
+"casual" = "?casual";
+"elegante" = "?elegante";
+
 //CaptureCloth
 "Aggiungi vestito" = "Add dress";
 "Aggiungi un altro vestito" = "Add another dress";
@@ -50,6 +56,11 @@
 
 "Armadio" = "Wardrobe";
 "armadio" = "wardrobe";
+
+//LookView
+"Vuoi cancellare il look" = "?Vuoi cancellare il look";
+"Abiti" = "?Abiti";
+"Look" = "?Look";
 
 //Vestiti
 "calzature" = "?calzature";

@@ -36,7 +36,8 @@ choice9,
 choice10,
 captureView,
 preferito,
-combinazione;
+combinazione,
+toolbar;
 
 
 
@@ -138,6 +139,11 @@ combinazione;
         [CurrState shared].currStagioneKey = stagione.stagione;
         Stile *tmp = [[stili objectEnumerator] nextObject];    
         choiceStile.selectedIndex = [tmp.id intValue]-1;
+    }
+    else{
+        NSMutableArray *items = [[toolbar.items mutableCopy] autorelease];
+        [items removeObject:deleteBtn]; 
+        toolbar.items = items;
     }
     
     if([[CurrState shared] currStagioneIndex] == nil){

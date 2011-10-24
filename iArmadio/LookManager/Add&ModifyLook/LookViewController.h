@@ -60,6 +60,7 @@
     IBOutlet UIView *choice10;
     
     IBOutlet UIView *captureView;
+    IBOutlet UIToolbar *toolbar;
     
     
     NSString *preferito;
@@ -92,7 +93,8 @@
 @property (nonatomic, retain )IBOutlet UIView *choice9;
 @property (nonatomic, retain )IBOutlet UIView *choice10;
 @property (nonatomic, retain )IBOutlet UIView *captureView;
-@property (nonatomic, retain )IBOutlet NSString *preferito;
+@property (nonatomic, retain )IBOutlet UIToolbar *toolbar;
+@property (nonatomic, retain )NSString *preferito;
 
 
 

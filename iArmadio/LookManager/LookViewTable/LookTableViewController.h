@@ -23,6 +23,7 @@
     
     NSMutableDictionary *combinazioniForStile;
     
+    
     IBOutlet UISegmentedControl *segmentControl;
     IBOutlet UIButton *addLookBtn;
 }
@@ -33,6 +34,6 @@
 
 
 -(IBAction) addLook:(id)sender;
--(IBAction) changeSegmentContol:(id)sender;
+-(IBAction) changeSegmentControl:(id)sender;
 - (void)reloadLook:(NSNotification *)pNotification;  
 @end
