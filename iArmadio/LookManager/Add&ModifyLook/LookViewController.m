@@ -105,7 +105,7 @@ lookSfondo;
             
             UIButton *button = [self performSelector:selector];
             button.imageView.contentMode = UIViewContentModeScaleAspectFit;
-            [button  setImage:[dao getImageFromVestito:vestito] forState:UIControlStateNormal];
+            [button  setImage:[[dao getImageFromVestito:vestito] rotateInDegrees:10] forState:UIControlStateNormal];
             [selectedVestiti replaceObjectAtIndex:[tipo.choice intValue] withObject:vestito];
         }
     }
@@ -142,9 +142,9 @@ lookSfondo;
     choiceStagione.selectedIndex = 0;
     
     
-    [self.gradimento_1 setImage:[dao getImageFromSection:[CurrState shared].currSection type:@"icona_gradimento_1"] forState: UIControlStateNormal];
-    [self.gradimento_2 setImage:[dao getImageFromSection:[CurrState shared].currSection type:@"icona_gradimento_2"] forState: UIControlStateNormal];
-    [self.gradimento_3 setImage:[dao getImageFromSection:[CurrState shared].currSection type:@"icona_gradimento_3"] forState: UIControlStateNormal]; 
+    [self.gradimento_1 setImage:[dao getImageFromGradimento:0] forState: UIControlStateNormal];
+    [self.gradimento_2 setImage:[dao getImageFromGradimento:1] forState: UIControlStateNormal];
+    [self.gradimento_3 setImage:[dao getImageFromGradimento:2] forState: UIControlStateNormal]; 
     
     segmentGradimento = [[NSArray alloc] initWithObjects:self.gradimento_1,self.gradimento_2,self.gradimento_3, nil];
     choiceGradimento = [[ButtonSegmentControl alloc] init:@"gradimento"];
@@ -203,7 +203,7 @@ lookSfondo;
 - (void)keepHighlightButton{
     if(!addPreferitiBtn.selected){
         [addPreferitiBtn setSelected:YES];
-        [addPreferitiBtn setHighlighted:YES];
+        [addPreferitiBtn setHighlighted:NO];
         NSDate* date = [NSDate date];
         NSDateFormatter* formatter = [[[NSDateFormatter alloc] init] autorelease];
         [formatter setDateFormat:@"yyyy-MM-dd-hh-mm-ss"];
@@ -212,7 +212,7 @@ lookSfondo;
         NSString *millisecondi = [NSString stringWithFormat:@"-%d",timePassed_ms];
         self.preferito = [str stringByAppendingString:millisecondi];
     } else {
-        [addPreferitiBtn setHighlighted:NO];
+        [addPreferitiBtn setHighlighted:YES];
         [addPreferitiBtn setSelected:NO];
         self.preferito = nil;
     }
@@ -233,11 +233,11 @@ lookSfondo;
         [currButton setHighlighted:NO];
         [currButton setSelected:NO];
     }
-    
+    self.listCloth.contentMode = UIViewContentModeScaleAspectFit;
     currButton = (UIButton *)sender;
     [self performSelector:@selector(keepHighlightButton:) withObject:(UIButton *)sender afterDelay:0.0];
     
-    int scrollview_size_width = self.listCloth.frame.size.width;
+    int scrollview_size_width = self.listCloth.frame.size.width-8;
     //int scrollview_size_height = self.listCloth.frame.size.height;
     
     int imageview_size_width = scrollview_size_width;
@@ -251,23 +251,21 @@ lookSfondo;
     
     
     NSArray *tipi = [choiceToTipi objectForKey:[NSString stringWithFormat:@"%d",index,nil]]; 
-    
- 
-    
-    
- 
-    
     int sizeScrollView = imageview_size_height;
     
     
     UIImage *imageTmp = [dao getImageBundleFromFile:@"emptyCloth.png"];
     UIButton *button = [[[UIButton alloc] init] autorelease];
-    [button setImage:imageTmp forState:UIControlStateNormal];
+    [button setBackgroundImage:imageTmp forState:UIControlStateNormal];
+   
+    
+    button.adjustsImageWhenHighlighted = YES;
     [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [button setTag:0];
     
     
-    button.frame = CGRectMake(0,0,imageview_size_width,imageview_size_height);
+    button.frame = CGRectMake(3,0,imageview_size_width,imageview_size_height);
+    button.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.listCloth addSubview:button];
 
     int count = 1;
@@ -288,14 +286,20 @@ lookSfondo;
     
     
     for(Vestito *vestito in vestitiForTipi){
-        UIImage *imageTmp = [dao getThumbnailFromVestito:vestito];
+        UIImage *imageTmp = [dao getThumbnailWithInfoFromVestito:vestito];
         UIButton *button = [[[UIButton alloc] init] autorelease];
-        [button setImage:imageTmp forState:UIControlStateNormal];
+        button.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        [button setBackgroundImage:[imageTmp rotateInDegrees:10] forState:UIControlStateNormal];
+        button.adjustsImageWhenHighlighted = YES;
         [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [button setTag:count];
         
+        button.layer.shadowColor = [UIColor grayColor].CGColor;
+        button.layer.shadowOffset = CGSizeMake(0,7);
+        button.layer.shadowOpacity = 1;
+        button.layer.shadowRadius = 3.0;
         
-        button.frame = CGRectMake(0,count*imageview_size_height,imageview_size_width,imageview_size_height);
+        button.frame = CGRectMake(3,count*imageview_size_height,imageview_size_width,imageview_size_height);
         [self.listCloth addSubview:button];
         
         
@@ -321,7 +325,7 @@ lookSfondo;
     
     
     if(tag == 0){
-         [button setImage:[dao getImageBundleFromFile:@"emptyCloth.png"] 
+         [button setImage:nil 
                   forState:UIControlStateNormal];
          [selectedVestiti replaceObjectAtIndex:currChoice withObject:@""];
          return;
@@ -330,7 +334,7 @@ lookSfondo;
     if([vestitiForTipi count] > 0){
         Vestito *vestito = [vestitiForTipi objectAtIndex:tag-1];
         
-        [button  setImage:[dao getImageFromVestito:vestito] forState:UIControlStateNormal];
+        [button  setImage:[[dao getImageFromVestito:vestito] rotateInDegrees:10] forState:UIControlStateNormal];
         [selectedVestiti replaceObjectAtIndex:currChoice withObject:vestito];
     }
 }

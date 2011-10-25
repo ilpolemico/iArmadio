@@ -367,7 +367,7 @@ static CGRect frameCover;
     if([vestiti count] <= image){
         return [[[UIImage alloc] init] autorelease];
     }
-    return [dao getThumbnailFromVestito:[vestiti objectAtIndex:image]];
+    return [dao getThumbnailWithInfoFromVestito:[vestiti objectAtIndex:image]];
 }
 
 - (void)flowCover:(FlowCoverView *)view didSelect:(int)image

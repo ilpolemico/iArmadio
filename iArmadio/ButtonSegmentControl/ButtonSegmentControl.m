@@ -33,9 +33,9 @@
         UIButton *button = [buttons objectAtIndex:i];
         if (i == selectedIndex) {
             [button setSelected:YES];
-            [button setHighlighted:YES];
-        } else {
             [button setHighlighted:NO];
+        } else {
+            [button setHighlighted:YES];
             [button setSelected:NO];
         }
     }

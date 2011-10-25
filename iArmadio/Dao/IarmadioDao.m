@@ -55,8 +55,75 @@ static IarmadioDao *singleton;
       return [[[self getImageDocumentFromFile:vestitoEntity.thumbnail] retain] autorelease];
 }
 
+- (UIImage *)getThumbnailWithInfoFromVestito:(Vestito *)vestitoEntity{
+    UIImage *thumbnail = [[[self getImageDocumentFromFile:vestitoEntity.thumbnail] retain] autorelease];
+    
+    NSString *preferito = vestitoEntity.preferito;
+    Stagione *stagione = vestitoEntity.perLaStagione;
+    Stile *stile = [[vestitoEntity.conStile objectEnumerator] nextObject];
+    int gradimento = [vestitoEntity.gradimento intValue];
+    
+    UIView *viewTmp = [[[UIView alloc] initWithFrame:CGRectMake(0,0,thumbnail.size.width, thumbnail.size.height)] autorelease]; 
+    
+    viewTmp.contentMode = UIViewContentModeScaleAspectFit;
+    UIGraphicsBeginImageContext(CGSizeMake(viewTmp.frame.size.width,viewTmp.frame.size.height));
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [viewTmp addSubview:[[[UIImageView alloc] initWithImage:thumbnail] autorelease]];
+    
+    int offset = 0;
+    
+ 
+    if((preferito != nil)&&(preferito.length > 0)){
+        
+        UIImageView *tmp = [[[UIImageView alloc] initWithImage:[self getImageBundleFromFile:@"bookmark.png"]] autorelease];
+        tmp.frame = CGRectMake(offset, 0, 40, 40);
+        tmp.contentMode = UIViewContentModeScaleAspectFit;
+        
+        [viewTmp addSubview:tmp];
+        offset += 40;
+    }
+   
+    if(stagione != nil){
+        UIImageView *tmp = [[[UIImageView alloc] initWithImage:[self getImageFromStagione:stagione]] autorelease];
+        
+        tmp.frame = CGRectMake(offset, 0, 40, 40);
+        tmp.contentMode = UIViewContentModeScaleAspectFit;
+        [viewTmp addSubview:tmp];
+        offset += 40;
+    }
+    if(stile != nil){
+        UIImageView *tmp = [[[UIImageView alloc] initWithImage:[self getImageFromStile:stile]] autorelease];        
+        tmp.frame = CGRectMake(offset, 0, 40, 40);
+        tmp.contentMode = UIViewContentModeScaleAspectFit;
+        [viewTmp addSubview:tmp];
+        offset += 40;
+    }
+    
+    if(gradimento>-1){
+        UIImageView *tmp = [[[UIImageView alloc] initWithImage:[self getImageFromGradimento:gradimento]] autorelease];    
+        tmp.frame = CGRectMake(offset, 0, 50, 40);
+        tmp.contentMode = UIViewContentModeScaleAspectFit;
+        [viewTmp addSubview:tmp];
+    
+    }
+    
+    [viewTmp.layer renderInContext:context];
+    UIImage *snapShotImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    return snapShotImage;
+}
+
 - (UIImage *)getImageFromTipo:(Tipologia *)tipologiaEntity{
     return [[[self getImageBundleFromFile:tipologiaEntity.icon] retain] autorelease];
+}
+
+- (UIImage *)getImageFromGradimento:(int)gradimento{
+    UIImage *image;
+    NSString *filename = [NSString stringWithFormat:@"icon-%dstar-002@x.png",gradimento+1];
+    NSLog(@"%@",filename);
+    image = [self getImageBundleFromFile:filename];
+    return image;
 }
 
 - (UIImage *)getImageFromStile:(Stile *)stileEntity{

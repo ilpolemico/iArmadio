@@ -93,25 +93,32 @@
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.imageView.layer.shadowColor = [UIColor grayColor].CGColor;
+    self.imageView.layer.shadowOffset = CGSizeMake(7,10);
+    self.imageView.layer.shadowOpacity = 1;
+    self.imageView.layer.shadowRadius = 3.0;
+    
+    
+    
     self.imageViewReflect.contentMode = UIViewContentModeScaleAspectFit;
     
     //Edit image
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
     
     tapGesture.numberOfTapsRequired = 2;
-    [self.imageView addGestureRecognizer:tapGesture];
+    //[self.imageView addGestureRecognizer:tapGesture];
     [tapGesture release];
     
     
     UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)];
     
-    [self.imageView addGestureRecognizer:pinchGesture];
+    //[self.imageView addGestureRecognizer:pinchGesture];
     [pinchGesture release];
     
     
     UIRotationGestureRecognizer *rotateGesture = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(handleRotateGesture:)];
     
-    [self.imageView addGestureRecognizer:rotateGesture];
+    //[self.imageView addGestureRecognizer:rotateGesture];
     [rotateGesture release];
     [self.imageView setUserInteractionEnabled:YES];
     self.imageView.multipleTouchEnabled = YES;
@@ -229,9 +236,9 @@
     choiceStagione.selectedIndex = 0;
     
     
-    [self.gradimento_1 setImage:[dao getImageFromSection:[CurrState shared].currSection type:@"icona_gradimento_1"] forState: UIControlStateNormal];
-    [self.gradimento_2 setImage:[dao getImageFromSection:[CurrState shared].currSection type:@"icona_gradimento_2"] forState: UIControlStateNormal];
-    [self.gradimento_3 setImage:[dao getImageFromSection:[CurrState shared].currSection type:@"icona_gradimento_3"] forState: UIControlStateNormal]; 
+    [self.gradimento_1 setImage:[dao getImageFromGradimento:0] forState: UIControlStateNormal];
+    [self.gradimento_2 setImage:[dao getImageFromGradimento:1] forState: UIControlStateNormal];
+    [self.gradimento_3 setImage:[dao getImageFromGradimento:2] forState: UIControlStateNormal]; 
     
     segmentGradimento = [[NSArray alloc] initWithObjects:self.gradimento_1,self.gradimento_2,self.gradimento_3, nil];
     choiceGradimento = [[ButtonSegmentControl alloc] init:@"gradimento"];
@@ -243,12 +250,12 @@
     if((self.preferito != nil)&&([self.preferito length]>0)){
         addPreferiti.selected = YES;
         [addPreferiti setSelected:YES];
-        [addPreferiti setHighlighted:YES];
+        [addPreferiti setHighlighted:NO];
     }    
     else{
         addPreferiti.selected = NO;
         [addPreferiti setSelected:NO];
-        [addPreferiti setHighlighted:NO];
+        [addPreferiti setHighlighted:YES];
     }
     [self.view setUserInteractionEnabled:YES];
      
@@ -295,7 +302,7 @@
 - (void)keepHighlightButton{
     if(!addPreferiti.selected){
         [addPreferiti setSelected:YES];
-        [addPreferiti setHighlighted:YES];
+        [addPreferiti setHighlighted:NO];
         NSDate* date = [NSDate date];
         NSDateFormatter* formatter = [[[NSDateFormatter alloc] init] autorelease];
         [formatter setDateFormat:@"yyyy-MM-dd-hh-mm-ss"];
@@ -304,7 +311,7 @@
         NSString *millisecondi = [NSString stringWithFormat:@"-%d",timePassed_ms];
         self.preferito = [str stringByAppendingString:millisecondi];
     } else {
-        [addPreferiti setHighlighted:NO];
+        [addPreferiti setHighlighted:YES];
         [addPreferiti setSelected:NO];
         self.preferito = nil;
     }

@@ -86,11 +86,11 @@
 		A3C94F5A1456B54600369340 /* cintura.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F591456B54500369340 /* cintura.png */; };
 		A3C94F5C1456B57200369340 /* giacca.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F5B1456B57200369340 /* giacca.png */; };
 		A3C94F5E1456B5A900369340 /* cravatta.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F5D1456B5A900369340 /* cravatta.png */; };
-		A3C94F601456B74100369340 /* maglietta.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F5F1456B74100369340 /* maglietta.png */; };
 		A3C94F621456B7A600369340 /* maglione.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F611456B7A600369340 /* maglione.png */; };
 		A3C94F641456B7D900369340 /* camicia.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F631456B7D900369340 /* camicia.png */; };
 		A3C94F661456C64D00369340 /* gruccia.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F651456C64D00369340 /* gruccia.png */; };
 		A3C94F681456C9B100369340 /* specchiera.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F671456C9B100369340 /* specchiera.png */; };
+		A3C94F6A1456E6E000369340 /* bookmark.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F691456E6E000369340 /* bookmark.png */; };
 		A3D5E6211455B6EB00F0772C /* emptyCloth.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D5E6201455B6EB00F0772C /* emptyCloth.png */; };
 		A3D7073F144CAB7D00469E06 /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D7073D144CAB7D00469E06 /* CreditsViewController.m */; };
 		A3D70742144CBF7600469E06 /* CreditsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3D70744144CBF7600469E06 /* CreditsViewController.xib */; };
@@ -243,6 +243,7 @@
 		A3C94F631456B7D900369340 /* camicia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camicia.png; sourceTree = "<group>"; };
 		A3C94F651456C64D00369340 /* gruccia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gruccia.png; sourceTree = "<group>"; };
 		A3C94F671456C9B100369340 /* specchiera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = specchiera.png; sourceTree = "<group>"; };
+		A3C94F691456E6E000369340 /* bookmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookmark.png; sourceTree = "<group>"; };
 		A3D5E6201455B6EB00F0772C /* emptyCloth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyCloth.png; sourceTree = "<group>"; };
 		A3D7073C144CAB7D00469E06 /* CreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsViewController.h; sourceTree = "<group>"; };
 		A3D7073D144CAB7D00469E06 /* CreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsViewController.m; sourceTree = "<group>"; };
@@ -624,6 +625,7 @@
 		A3EA47801449FD6A0095349B /* icone_interfaccia */ = {
 			isa = PBXGroup;
 			children = (
+				A3C94F691456E6E000369340 /* bookmark.png */,
 				A3C94F671456C9B100369340 /* specchiera.png */,
 				A3C94F651456C64D00369340 /* gruccia.png */,
 				A3E846B81456192300426764 /* lookpost.png */,
@@ -771,11 +773,11 @@
 				A3C94F5A1456B54600369340 /* cintura.png in Resources */,
 				A3C94F5C1456B57200369340 /* giacca.png in Resources */,
 				A3C94F5E1456B5A900369340 /* cravatta.png in Resources */,
-				A3C94F601456B74100369340 /* maglietta.png in Resources */,
 				A3C94F621456B7A600369340 /* maglione.png in Resources */,
 				A3C94F641456B7D900369340 /* camicia.png in Resources */,
 				A3C94F661456C64D00369340 /* gruccia.png in Resources */,
 				A3C94F681456C9B100369340 /* specchiera.png in Resources */,
+				A3C94F6A1456E6E000369340 /* bookmark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
