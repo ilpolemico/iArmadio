@@ -20,6 +20,7 @@
 @interface ClothViewController : UIViewController <UIScrollViewDelegate,UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, ButtonSegmentDelegate> {
     
     SelectTypeViewController *selectController;
+    UIImageView * imageViewSfondo;
     UIImageView * imageView;
     UIImageView * imageViewReflect;
     IarmadioDao *dao;
@@ -66,17 +67,14 @@
     IBOutlet UIButton *stagione_3;
     
     //Gradimento
-    ButtonSegmentControl *choiceGradimento;
-    NSArray *segmentGradimento;
-    IBOutlet UIButton *gradimento_1;
-    IBOutlet UIButton *gradimento_2;
-    IBOutlet UIButton *gradimento_3;
-    
+    int gradimento;
+    IBOutlet UIView *viewGradimento;
     IBOutlet UIButton *addPreferiti;
 
       
 }
 
+@property (nonatomic, retain ) IBOutlet UIView *viewGradimento;
 @property (nonatomic, retain ) NSString *preferito;
 @property (nonatomic, retain ) IBOutlet UIButton *addPreferiti;
 
@@ -90,9 +88,7 @@
 @property (nonatomic, retain )IBOutlet UIButton *stagione_1;
 @property (nonatomic, retain )IBOutlet UIButton *stagione_2;
 @property (nonatomic, retain )IBOutlet UIButton *stagione_3;
-@property (nonatomic, retain )IBOutlet UIButton *gradimento_1;
-@property (nonatomic, retain )IBOutlet UIButton *gradimento_2;
-@property (nonatomic, retain )IBOutlet UIButton *gradimento_3;
+
 
 
 @property (nonatomic, retain ) IBOutlet NSString *currStile;
@@ -101,6 +97,7 @@
 @property (nonatomic, retain ) IBOutlet UIBarButtonItem *trash;
 @property (nonatomic, retain) IBOutlet UIImageView *imageViewReflect;
 @property (nonatomic, retain) IBOutlet UIImageView *imageView;
+@property (nonatomic, retain) IBOutlet UIImageView *imageSfondo;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem * saveButton;
 @property (nonatomic, retain) IBOutlet UINavigationBar* addNavigationBar;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem * undoButton;
@@ -119,6 +116,7 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil getVestito:(Vestito *)vestito;
 
+-(IBAction) selectGradimento:(id)sender;
 -(IBAction) addPreferiti:(id) sender;
 -(IBAction) selectTipo:(id) sender;
 -(IBAction) selectImage:(id) sender;

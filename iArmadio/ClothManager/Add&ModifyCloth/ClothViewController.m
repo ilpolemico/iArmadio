@@ -14,6 +14,7 @@
 
 
 @synthesize imageView,
+            imageSfondo,
             imageViewReflect,
             stile_1,
             stile_2,
@@ -21,9 +22,6 @@
             stagione_1,
             stagione_2,
             stagione_3,
-            gradimento_1,
-            gradimento_2,
-            gradimento_3,
             undoButton, 
             saveButton, 
             tipologiaBtn, 
@@ -38,7 +36,8 @@
             currStile,
             trash,
             addPreferiti,
-            preferito;
+            preferito,
+            viewGradimento;
  
 
 
@@ -79,7 +78,7 @@
     
     dao = [IarmadioDao shared];
     [CurrState shared].currSection = SECTION_CLOTHVIEW;
-    
+    gradimento = 1;
     
     if(vestito != nil){self.preferito = vestito.preferito;}
     [self initInputType];
@@ -90,13 +89,19 @@
     self.stagioneLabel.text = NSLocalizedString(self.stagioneLabel.text,nil);
     self.gradimentoLabel.text = NSLocalizedString(self.gradimentoLabel.text,nil);
     
-    
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
+    self.imageSfondo.layer.shadowColor = [UIColor grayColor].CGColor;
+    self.imageSfondo.layer.shadowOffset = CGSizeMake(0,-10);
+    self.imageSfondo.layer.shadowOpacity = 1;
+    self.imageSfondo.layer.shadowRadius = 4.0;
+
+   
+    /*
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     self.imageView.layer.shadowColor = [UIColor grayColor].CGColor;
     self.imageView.layer.shadowOffset = CGSizeMake(7,10);
     self.imageView.layer.shadowOpacity = 1;
-    self.imageView.layer.shadowRadius = 3.0;
+    self.imageView.layer.shadowRadius = 10.0;
+     */
     
     
     
@@ -181,7 +186,8 @@
         NSNumber *grad = vestito.gradimento;
         
         if(grad != nil){
-            choiceGradimento.selectedIndex = grad.intValue;
+            gradimento = grad.intValue;
+            [self selectGradimento:[self.view viewWithTag:gradimento]];
         } 
         
         NSString *stagioneKey = vestito.perLaStagione.stagione;
@@ -235,27 +241,16 @@
     choiceStagione.delegate = self;
     choiceStagione.selectedIndex = 0;
     
+    [addPreferiti setImage:[dao getImageBundleFromFile:@"bookmark_deselect.png"] forState:UIControlStateNormal];
     
-    [self.gradimento_1 setImage:[dao getImageFromGradimento:0] forState: UIControlStateNormal];
-    [self.gradimento_2 setImage:[dao getImageFromGradimento:1] forState: UIControlStateNormal];
-    [self.gradimento_3 setImage:[dao getImageFromGradimento:2] forState: UIControlStateNormal]; 
-    
-    segmentGradimento = [[NSArray alloc] initWithObjects:self.gradimento_1,self.gradimento_2,self.gradimento_3, nil];
-    choiceGradimento = [[ButtonSegmentControl alloc] init:@"gradimento"];
-    choiceGradimento.delegate = self;
-    choiceGradimento.selectedIndex = 0;
-    
+    [addPreferiti setImage:[dao getImageBundleFromFile:@"bookmark.png"] forState:UIControlStateSelected];
     
     [self.view setUserInteractionEnabled:NO];
     if((self.preferito != nil)&&([self.preferito length]>0)){
-        addPreferiti.selected = YES;
         [addPreferiti setSelected:YES];
-        [addPreferiti setHighlighted:NO];
     }    
     else{
-        addPreferiti.selected = NO;
         [addPreferiti setSelected:NO];
-        [addPreferiti setHighlighted:YES];
     }
     [self.view setUserInteractionEnabled:YES];
      
@@ -380,7 +375,7 @@
 
         
         
-        vestito = [dao addVestitoEntity:[self.imageView.image normal] gradimento:choiceGradimento.selectedIndex tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili preferito:self.preferito];
+        vestito = [dao addVestitoEntity:[self.imageView.image normal] gradimento:gradimento tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili preferito:self.preferito];
         [vestito retain];
         
     }
@@ -392,7 +387,7 @@
         
         if(vestito != nil){[vestito autorelease];}
         vestito.preferito = self.preferito;
-        vestito = [dao modifyVestitoEntity:vestito image:tmp  isNew:NO gradimento:choiceGradimento.selectedIndex tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili];
+        vestito = [dao modifyVestitoEntity:vestito image:tmp  isNew:NO gradimento:gradimento tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili];
             modifyImageCloth = NO;
         [vestito retain];
     }
@@ -507,6 +502,21 @@
     [self presentModalViewController:selectController animated:YES];
 }
 
+-(IBAction) selectGradimento:(id)sender{
+    
+    int tag = [(UIButton *)sender tag];
+    gradimento = tag;
+    for(int i=1;i<5;i++){
+        UIButton *button =  (UIButton *)[self.viewGradimento viewWithTag:i];
+        if(i <= tag){
+            [button setImage:[dao getImageBundleFromFile:@"star.png"] forState:UIControlStateNormal];
+        }
+        else{
+            [button setImage:[dao getImageBundleFromFile:@"star_gray.png"] forState:UIControlStateNormal];
+        }
+    }
+}
+
 - (void)viewDidAppear:(BOOL)animated{
 }
 
@@ -553,9 +563,6 @@
     else if([buttonSegmentControl.tag isEqualToString:@"stagioni"]){
         return segmentStagione;
     }
-    else if([buttonSegmentControl.tag isEqualToString:@"gradimento"]){
-        return segmentGradimento;
-    }
     return nil;
 }
 
@@ -568,10 +575,6 @@
     else if([buttonControl.tag isEqualToString:@"stagioni"]){
         choiceStagione.selectedIndex = selectedIndex;
     }
-    else if([buttonControl.tag isEqualToString:@"gradimento"]){
-        choiceGradimento.selectedIndex = selectedIndex;
-    }
-    
 }
 
 -(void) dealloc{
@@ -584,9 +587,6 @@
     [stagione_1 release];
     [stagione_2 release];
     [stagione_3 release];
-    [gradimento_1 release];
-    [gradimento_2 release];
-    [gradimento_3 release];
     [currStile release];
     [currTipologia release];
     [toolbar release];
@@ -600,7 +600,7 @@
     [tipologiaLabel release];
     [segmentStile release];
     [segmentStagione release];
-    [segmentGradimento release];
+    [viewGradimento release];
     [preferito release];
     [super dealloc];
 }

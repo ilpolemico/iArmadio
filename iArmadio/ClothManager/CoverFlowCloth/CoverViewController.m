@@ -207,9 +207,6 @@ static CGRect frameCover;
 
 - (void)initInputType{
     
-    //Seleziona ordinamento
-    [self.orderBy_gradimento setImage:[dao getImageFromSection:[CurrState shared].currSection type:@"icona_ordina_data"] forState: UIControlStateNormal];
-    [self.orderBy_data setImage:[dao getImageFromSection:[CurrState shared].currSection type:@"icona_ordina_gradimento"] forState: UIControlStateNormal];
     
     segmentOrderBy = [[NSArray alloc] initWithObjects:self.orderBy_data,self.orderBy_gradimento, nil];
     orderBy = [[ButtonSegmentControl alloc] init:@"orderBy"];

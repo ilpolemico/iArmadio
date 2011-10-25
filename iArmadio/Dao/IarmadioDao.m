@@ -61,7 +61,6 @@ static IarmadioDao *singleton;
     NSString *preferito = vestitoEntity.preferito;
     Stagione *stagione = vestitoEntity.perLaStagione;
     Stile *stile = [[vestitoEntity.conStile objectEnumerator] nextObject];
-    int gradimento = [vestitoEntity.gradimento intValue];
     
     UIView *viewTmp = [[[UIView alloc] initWithFrame:CGRectMake(0,0,thumbnail.size.width, thumbnail.size.height)] autorelease]; 
     
@@ -97,14 +96,6 @@ static IarmadioDao *singleton;
         tmp.contentMode = UIViewContentModeScaleAspectFit;
         [viewTmp addSubview:tmp];
         offset += 40;
-    }
-    
-    if(gradimento>-1){
-        UIImageView *tmp = [[[UIImageView alloc] initWithImage:[self getImageFromGradimento:gradimento]] autorelease];    
-        tmp.frame = CGRectMake(offset, 0, 50, 40);
-        tmp.contentMode = UIViewContentModeScaleAspectFit;
-        [viewTmp addSubview:tmp];
-    
     }
     
     [viewTmp.layer renderInContext:context];
