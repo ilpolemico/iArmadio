@@ -22,9 +22,11 @@
     IBOutlet UINavigationController *navcontroler;
     IBOutlet UIBarButtonItem *addItemBtn;
     IBOutlet UIBarButtonItem *modifyBtn;
+    IBOutlet UIImageView *imageview;
     Tipologia *tipologia;
     CurrState *currstate;
     CaptureClothController *captureClothController;
+    
   
 }
 

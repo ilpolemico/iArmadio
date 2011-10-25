@@ -15,9 +15,11 @@
     NSIndexPath *selectedIndexPath;
     ArmadioTableViewController *armadio;
     IBOutlet UINavigationBar *navigationBar;
+    IBOutlet UIImageView *imageview;
 }
 
 @property (retain,nonatomic) IBOutlet UINavigationBar *navigationBar;
+@property (retain,nonatomic) IBOutlet UIImageView *imageview;
 
 -(IBAction)undo:(id)sender;
 - (void) selectedIndexPath:(NSIndexPath *)indexPath;

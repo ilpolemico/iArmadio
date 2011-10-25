@@ -11,7 +11,7 @@
 		<key>order</key>
 		<string>15</string>
 		<key>icon</key>
-		<string>02.png</string>
+		<string>scarpe.png</string>
 		<key>category</key>
 		<string>calzature</string>
 		<key>choice</key>
@@ -41,7 +41,7 @@
 		<key>order</key>
 		<string>13</string>
 		<key>icon</key>
-		<string>02.png</string>
+		<string>pantaloni.png</string>
 		<key>category</key>
 		<string>abiti</string>
 		<key>choice</key>
@@ -56,7 +56,7 @@
 		<key>order</key>
 		<string>2</string>
 		<key>icon</key>
-		<string>02.png</string>
+		<string>giacca.png</string>
 		<key>category</key>
 		<string>soprabiti</string>
 		<key>choice</key>
@@ -71,7 +71,7 @@
 		<key>order</key>
 		<string>14</string>
 		<key>icon</key>
-		<string>02.png</string>
+		<string>cravatta.png</string>
 		<key>category</key>
 		<string>accessori</string>
 		<key>choice</key>
@@ -86,7 +86,7 @@
 		<key>order</key>
 		<string>3</string>
 		<key>icon</key>
-		<string>02.png</string>
+		<string>camicia.png</string>
 		<key>category</key>
 		<string>abiti</string>
 		<key>choice</key>
@@ -116,7 +116,7 @@
 		<key>order</key>
 		<string>6</string>
 		<key>icon</key>
-		<string>02.png</string>
+		<string>maglione.png</string>
 		<key>category</key>
 		<string>abiti</string>
 		<key>choice</key>
@@ -131,7 +131,7 @@
 		<key>order</key>
 		<string>7</string>
 		<key>icon</key>
-		<string>02.png</string>
+		<string>sciarpa.png</string>
 		<key>category</key>
 		<string>accessori</string>
 		<key>choice</key>
@@ -146,7 +146,7 @@
 		<key>order</key>
 		<string>9</string>
 		<key>icon</key>
-		<string>02.png</string>
+		<string>borsa.png</string>
 		<key>category</key>
 		<string>accessori</string>
 		<key>choice</key>
@@ -191,7 +191,7 @@
 		<key>order</key>
 		<string>1</string>
 		<key>icon</key>
-		<string>02.png</string>
+		<string>cappello.png</string>
 		<key>category</key>
 		<string>accessori</string>
 		<key>choice</key>
@@ -202,7 +202,7 @@
 		<key>category</key>
 		<string>accessori</string>
 		<key>icon</key>
-		<string>02.png</string>
+		<string>cintura.png</string>
 		<key>order</key>
 		<string>17</string>
 		<key>allow</key>
@@ -221,7 +221,7 @@
 		<key>order</key>
 		<string></string>
 		<key>icon</key>
-		<string>02.png</string>
+		<string>felpa.png</string>
 		<key>category</key>
 		<string>abiti</string>
 		<key>choice</key>
@@ -236,7 +236,7 @@
 		<key>order</key>
 		<string></string>
 		<key>icon</key>
-		<string>vestito.png</string>
+		<string>vestitino.png</string>
 		<key>category</key>
 		<string>abiti</string>
 		<key>choice</key>

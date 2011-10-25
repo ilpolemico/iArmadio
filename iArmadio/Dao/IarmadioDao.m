@@ -531,6 +531,7 @@ static IarmadioDao *singleton;
             }    
         }
 	}
+    
 	return tipiEntities;
 };
 

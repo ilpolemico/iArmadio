@@ -9,7 +9,7 @@
 #import "LookManagerViewController.h"
 
 @implementation LookManagerViewController
-@synthesize lookTableViewController, navcontroler;
+@synthesize lookTableViewController, navcontroler, imageview;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,9 +34,12 @@
 {
     [super viewDidLoad];
     dao = [IarmadioDao shared]; 
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
     self.navigationItem.title =  NSLocalizedString(@"look", nil);
     [self.view addSubview:navcontroler.view];
+    self.imageview.layer.shadowColor = [UIColor grayColor].CGColor;
+    self.imageview.layer.shadowOffset = CGSizeMake(7, 1);
+    self.imageview.layer.shadowOpacity = 1;
+    self.imageview.layer.shadowRadius = 3.0;
     // Do any additional setup after loading the view from its nib.
 }
 

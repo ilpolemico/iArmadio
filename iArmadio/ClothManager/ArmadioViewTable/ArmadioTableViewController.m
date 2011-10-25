@@ -205,12 +205,14 @@
 /*
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
-    UIView *view = [[[UIView alloc] init] autorelease];
-    
-    return view;
+    UILabel *label = [[UILabel alloc] init];
+    label.text = [dao.listCategoryKeys objectAtIndex:section];
+    label.backgroundColor = [UIColor clearColor];
+    return label;
 
 }
  */
+
 
 
 - (void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
