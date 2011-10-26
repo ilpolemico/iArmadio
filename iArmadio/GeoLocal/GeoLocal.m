@@ -43,13 +43,13 @@ int curr_temp;
 }
 
 -(void)enableGPS{
-    NSLog(@"Enable GPS");
+    //NSLog(@"Enable GPS");
     locationManager.delegate=self;
     [locationManager startMonitoringSignificantLocationChanges];
 }
 
 -(void)disableGPS{
-    NSLog(@"Disable GPS");
+    //NSLog(@"Disable GPS");
     [locationManager stopUpdatingLocation];
     locationManager.delegate=nil;
 }

@@ -89,15 +89,16 @@
     self.stagioneLabel.text = NSLocalizedString(self.stagioneLabel.text,nil);
     self.gradimentoLabel.text = NSLocalizedString(self.gradimentoLabel.text,nil);
     
+    self.imageSfondo.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.imageSfondo.bounds].CGPath;
     self.imageSfondo.layer.shadowColor = [UIColor grayColor].CGColor;
     self.imageSfondo.layer.shadowOffset = CGSizeMake(0,-10);
     self.imageSfondo.layer.shadowOpacity = 1;
     self.imageSfondo.layer.shadowRadius = 4.0;
-
+    
    
-    /*
+    
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    self.imageView.layer.shadowColor = [UIColor grayColor].CGColor;
+    /*self.imageView.layer.shadowColor = [UIColor grayColor].CGColor;
     self.imageView.layer.shadowOffset = CGSizeMake(7,10);
     self.imageView.layer.shadowOpacity = 1;
     self.imageView.layer.shadowRadius = 10.0;
@@ -317,7 +318,7 @@
 
 
 - (void) motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
-    NSLog(@"OK");
+   
 }
 
 -(IBAction) deleteCloth:(id) sender {

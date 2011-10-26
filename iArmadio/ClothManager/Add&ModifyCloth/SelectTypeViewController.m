@@ -60,10 +60,13 @@
     armadio.view.frame = CGRectMake(0,44,320,420);
    
     [self.view addSubview:armadio.view];
+    
+    self.imageview.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.imageview.bounds].CGPath;
     self.imageview.layer.shadowColor = [UIColor grayColor].CGColor;
     self.imageview.layer.shadowOffset = CGSizeMake(7, 1);
     self.imageview.layer.shadowOpacity = 1;
     self.imageview.layer.shadowRadius = 3.0;
+    
 }
 
 - (void)viewDidUnload

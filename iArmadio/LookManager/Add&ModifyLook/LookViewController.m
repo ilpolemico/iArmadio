@@ -77,6 +77,7 @@ lookSfondo;
     [self.mainView setContentSize:CGSizeMake(320,700)];
     self.mainView.bounces = YES;
     
+    self.lookSfondo.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.lookSfondo.bounds].CGPath;
     self.lookSfondo.layer.shadowColor = [UIColor grayColor].CGColor;
     self.lookSfondo.layer.shadowOffset = CGSizeMake(-7, 1);
     self.lookSfondo.layer.shadowOpacity = 1;
@@ -294,6 +295,7 @@ lookSfondo;
         [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [button setTag:count];
         
+        button.layer.shadowPath = [UIBezierPath bezierPathWithRect:button.bounds].CGPath;
         button.layer.shadowColor = [UIColor grayColor].CGColor;
         button.layer.shadowOffset = CGSizeMake(0,7);
         button.layer.shadowOpacity = 1;

@@ -112,7 +112,7 @@ static IarmadioDao *singleton;
 - (UIImage *)getImageFromGradimento:(int)gradimento{
     UIImage *image;
     NSString *filename = [NSString stringWithFormat:@"icon-%dstar-002@x.png",gradimento+1];
-    NSLog(@"%@",filename);
+    //NSLog(@"%@",filename);
     image = [self getImageBundleFromFile:filename];
     return image;
 }

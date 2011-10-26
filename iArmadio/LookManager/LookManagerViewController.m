@@ -36,6 +36,7 @@
     dao = [IarmadioDao shared]; 
     self.navigationItem.title =  NSLocalizedString(@"look", nil);
     [self.view addSubview:navcontroler.view];
+    self.imageview.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.imageview.bounds].CGPath;
     self.imageview.layer.shadowColor = [UIColor grayColor].CGColor;
     self.imageview.layer.shadowOffset = CGSizeMake(7, 1);
     self.imageview.layer.shadowOpacity = 1;

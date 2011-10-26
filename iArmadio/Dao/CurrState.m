@@ -114,7 +114,7 @@ static CurrState *singleton;
         currSection = section;
     }
     
-    NSLog(@"%@ - %@",currSection, oldCurrSection);
+    //NSLog(@"%@ - %@",currSection, oldCurrSection);
 }
 
 
