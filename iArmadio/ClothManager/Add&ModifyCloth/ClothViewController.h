@@ -50,6 +50,13 @@
     BOOL addCloth;
     BOOL modifyImageCloth;
     int lastScaleFactor, netRotation;
+    CGPoint netTranslation;
+    
+    CGAffineTransform rotate;
+    CGAffineTransform pinch;
+    CGAffineTransform pan;
+    CGAffineTransform currTransform;
+    
     
     
     //Stili
@@ -70,10 +77,19 @@
     int gradimento;
     IBOutlet UIView *viewGradimento;
     IBOutlet UIButton *addPreferiti;
-
+    
+    IBOutlet UIView *captureView;
+    IBOutlet UIView *sfondoView;
+    
+    IBOutlet UISlider *sliderZoom;
+    
+    BOOL isChangeImage;
       
 }
 
+@property (nonatomic, retain ) IBOutlet UISlider *sliderZoom;
+@property (nonatomic, retain ) IBOutlet UIView *sfondoView;
+@property (nonatomic, retain ) IBOutlet UIView *captureView;
 @property (nonatomic, retain ) IBOutlet UIView *viewGradimento;
 @property (nonatomic, retain ) NSString *preferito;
 @property (nonatomic, retain ) IBOutlet UIButton *addPreferiti;

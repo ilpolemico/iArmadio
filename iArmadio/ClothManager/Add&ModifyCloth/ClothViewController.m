@@ -37,7 +37,10 @@
             trash,
             addPreferiti,
             preferito,
-            viewGradimento;
+            viewGradimento,
+            captureView,
+            sfondoView,
+            sliderZoom;
  
 
 
@@ -75,7 +78,7 @@
 {
     [super viewDidLoad];
     
-    
+    isChangeImage = NO;
     dao = [IarmadioDao shared];
     [CurrState shared].currSection = SECTION_CLOTHVIEW;
     gradimento = 1;
@@ -83,6 +86,7 @@
     if(vestito != nil){self.preferito = vestito.preferito;}
     [self initInputType];
     lastScaleFactor = 0;
+    //currTransform = CGAffineTransformMake;
     
     
     self.stileLabel.text = NSLocalizedString(self.stileLabel.text,nil);
@@ -108,24 +112,40 @@
     
     self.imageViewReflect.contentMode = UIViewContentModeScaleAspectFit;
     
+    
+    self.captureView.clipsToBounds = YES;
     //Edit image
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
     
     tapGesture.numberOfTapsRequired = 2;
-    //[self.imageView addGestureRecognizer:tapGesture];
+    [self.imageView addGestureRecognizer:tapGesture];
     [tapGesture release];
+    
+    
+    netRotation = 0;
+    netTranslation.x = 0;
+    netTranslation.y = 0;
+    currTransform = self.view.transform;
     
     
     UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)];
     
-    //[self.imageView addGestureRecognizer:pinchGesture];
+    [self.imageView addGestureRecognizer:pinchGesture];
     [pinchGesture release];
     
     
     UIRotationGestureRecognizer *rotateGesture = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(handleRotateGesture:)];
     
-    //[self.imageView addGestureRecognizer:rotateGesture];
+    [self.imageView addGestureRecognizer:rotateGesture];
     [rotateGesture release];
+    
+    
+    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanGesture:)];
+    
+    [self.imageView addGestureRecognizer:panGesture];
+    [panGesture release];
+    
+    
     [self.imageView setUserInteractionEnabled:YES];
     self.imageView.multipleTouchEnabled = YES;
     
@@ -350,7 +370,12 @@
    NSArray *tipi = [[NSArray alloc] initWithObjects:nametipo,nil];
     
         
-   
+    UIGraphicsBeginImageContext(CGSizeMake(self.captureView.frame.size.width,self.captureView.frame.size.height));
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [self.captureView.layer renderInContext:context];
+    UIImage *snapShotImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
    
    NSMutableArray *stili = [[NSMutableArray alloc] init];
    if(choiceStile.selectedIndex < [dao.listStiliKeys count]){
@@ -373,22 +398,17 @@
             [stili release];
             return;
         }  
-
         
         
-        vestito = [dao addVestitoEntity:[self.imageView.image normal] gradimento:gradimento tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili preferito:self.preferito];
+        
+        vestito = [dao addVestitoEntity:snapShotImage gradimento:gradimento tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili preferito:self.preferito];
         [vestito retain];
         
     }
     else{
-        UIImage *tmp = nil;
-        if(modifyImageCloth){
-            tmp = [self.imageView.image normal];
-        }    
-        
         if(vestito != nil){[vestito autorelease];}
         vestito.preferito = self.preferito;
-        vestito = [dao modifyVestitoEntity:vestito image:tmp  isNew:NO gradimento:gradimento tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili];
+        vestito = [dao modifyVestitoEntity:vestito image:snapShotImage  isNew:NO gradimento:gradimento tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili];
             modifyImageCloth = NO;
         [vestito retain];
     }
@@ -466,34 +486,51 @@
 }
 
 -(IBAction) handlePinchGesture:(UIGestureRecognizer *)sender{
+    if(sender.state == UIGestureRecognizerStateBegan){
+        currTransform = sender.view.transform;
+        isChangeImage = YES;
+        return;
+    }
+    
+    
     CGFloat factor = [(UIPinchGestureRecognizer *)sender scale];
-    if(factor > 1){
-        sender.view.transform = CGAffineTransformMakeScale(lastScaleFactor + (factor-1),lastScaleFactor + (factor-1));
-                                                           
+    NSLog(@"factor:%f",factor);
+    if(lastScaleFactor >= 1){
+        CGAffineTransform transform = CGAffineTransformScale(currTransform,factor,factor);
+        lastScaleFactor += factor;
+        sender.view.transform = transform;
+        NSLog(@"zoom in:%d",lastScaleFactor);
     }
-    else{
-        sender.view.transform = CGAffineTransformMakeScale(lastScaleFactor*factor, lastScaleFactor+factor);
-    }
-    
-    if(sender.state == UIGestureRecognizerStateEnded){
-        if(factor > 1){
-            lastScaleFactor += (factor-1);
-        }
-        else{
-            lastScaleFactor *=factor;
-        }
-    }
-    
 }
 
 
 -(IBAction) handleRotateGesture:(UIGestureRecognizer *)sender{
-    CGFloat rotation = [(UIRotationGestureRecognizer *)sender rotation];
-    sender.view.transform = CGAffineTransformMakeRotation(rotation + netRotation);
+    if(sender.state == UIGestureRecognizerStateBegan){
+        currTransform = sender.view.transform;
+        isChangeImage = YES;
+    }  
+    else{
+        CGFloat rotation = [(UIRotationGestureRecognizer *)sender rotation];
+        sender.view.transform = CGAffineTransformRotate(currTransform,rotation);
+    }    
+}
+
+-(IBAction) handlePanGesture:(UIGestureRecognizer *)sender{
     
-    if(sender.state == UIGestureRecognizerStateEnded){
-        netRotation += rotation;
+    if(sender.state == UIGestureRecognizerStateBegan){
+        currTransform = sender.view.transform;
+        isChangeImage = YES;
     }
+ 
+    else{
+        CGPoint translation = [(UIPanGestureRecognizer *)sender translationInView:imageView];
+        
+        CGAffineTransform transform = CGAffineTransformTranslate(currTransform, translation.x, translation.y);
+        sender.view.transform = transform;
+    }
+    
+   
+    
 }
 
 -(IBAction) selectTipo:(id) sender{
@@ -501,6 +538,27 @@
     selectController = [[SelectTypeViewController alloc] initWithNibName:@"SelectTypeViewController" bundle:nil];
     
     [self presentModalViewController:selectController animated:YES];
+}
+
+-(IBAction) startChangeZoom:(id) sender{
+ 
+    
+}
+
+-(IBAction) changeZoom:(id) sender{
+    if(isChangeImage){
+        currTransform = self.imageView.transform;
+        isChangeImage = NO;
+    }
+    
+    float factor = 0;
+    float scaleFactor = ((UISlider *)sender).value;
+    
+    factor = scaleFactor + 1.0;
+    NSLog(@"SECONDO");
+    CGAffineTransform transform = CGAffineTransformScale(currTransform,factor,factor);
+    self.imageView.transform = transform;
+    lastScaleFactor = factor;
 }
 
 -(IBAction) selectGradimento:(id)sender{
