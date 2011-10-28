@@ -83,7 +83,7 @@ lookSfondo;
     self.lookSfondo.layer.shadowOpacity = 1;
     self.lookSfondo.layer.shadowRadius = 3.0;
     
-    selectedVestiti = [[NSMutableArray alloc] initWithObjects:@"",@"",@"",@"",@"",@"",@"" @"",@"",@"",nil];
+    selectedVestiti = [[NSMutableArray alloc] initWithObjects:@"",@"",@"",@"",@"",@"",@"" ,@"",@"",@"",nil];
     [self initInputType];
 }
 
@@ -257,7 +257,7 @@ lookSfondo;
     
     UIImage *imageTmp = [dao getImageBundleFromFile:@"emptyCloth.png"];
     UIButton *button = [[[UIButton alloc] init] autorelease];
-    [button setBackgroundImage:imageTmp forState:UIControlStateNormal];
+    [button setImage:imageTmp forState:UIControlStateNormal];
    
     
     button.adjustsImageWhenHighlighted = YES;
@@ -336,7 +336,7 @@ lookSfondo;
     if([vestitiForTipi count] > 0){
         Vestito *vestito = [vestitiForTipi objectAtIndex:tag-1];
         
-        [button  setImage:[[dao getImageFromVestito:vestito] rotateInDegrees:10] forState:UIControlStateNormal];
+        [button setImage:[dao getImageFromVestito:vestito] forState:UIControlStateNormal];
         [selectedVestiti replaceObjectAtIndex:currChoice withObject:vestito];
     }
 }
@@ -400,11 +400,13 @@ lookSfondo;
 -(IBAction) saveLook:(id) sender {
     NSMutableArray *vestitiInCombinazione = [[[NSMutableArray alloc] init] autorelease];
     
+    /*
     UIGraphicsBeginImageContext(CGSizeMake(self.captureView.frame.size.width,self.captureView.frame.size.height));
     CGContextRef context = UIGraphicsGetCurrentContext();
     [self.captureView.layer renderInContext:context];
     UIImage *snapShotImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    */
     
     for(Vestito *vestito in selectedVestiti){
        if ([vestito class] == [Vestito class]){[vestitiInCombinazione addObject:vestito];}
@@ -427,10 +429,10 @@ lookSfondo;
     
     NSString *scelta_stagione = [[dao listStagioniKeys] objectAtIndex:choiceStagione.selectedIndex] ;
     if(!self.combinazione){
-        [dao addCombinazioneEntity:vestitiInCombinazione snapshot:snapShotImage gradimento:choiceGradimento.selectedIndex stagioneKey:scelta_stagione stiliKeys:stili preferito:self.preferito];
+        [dao addCombinazioneEntity:vestitiInCombinazione gradimento:choiceGradimento.selectedIndex stagioneKey:scelta_stagione stiliKeys:stili preferito:self.preferito];
     }   
     else{
-        [dao modifyCombinazioneEntity:self.combinazione  vestitiEntities:vestitiInCombinazione snapshot:snapShotImage isNew:NO gradimento:choiceGradimento.selectedIndex stagioneKey:scelta_stagione stiliKeys:stili preferito:self.preferito];
+        [dao modifyCombinazioneEntity:self.combinazione  vestitiEntities:vestitiInCombinazione  isNew:NO gradimento:choiceGradimento.selectedIndex stagioneKey:scelta_stagione stiliKeys:stili preferito:self.preferito];
     
     }
     [self dismissModalViewControllerAnimated:YES];
@@ -500,6 +502,7 @@ lookSfondo;
 
 -(void) dealloc{
     [selectedVestiti release];
+    [super dealloc];
 }
 
 

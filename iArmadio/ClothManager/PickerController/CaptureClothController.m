@@ -79,13 +79,12 @@
 #else
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 #endif
-        picker.allowsEditing = YES;
+
         [((iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate]).tabBarController presentModalViewController:picker animated:YES];
         [picker release];
     }
     else if (buttonIndex == 1) {
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        picker.allowsEditing = YES;
         [((iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate]). tabBarController presentModalViewController:picker animated:YES];
         [picker release];
     } 

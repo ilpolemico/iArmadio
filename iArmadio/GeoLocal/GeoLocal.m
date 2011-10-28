@@ -38,9 +38,6 @@ int curr_temp;
     return self;
 }
 
--(BOOL)isEnableGPS{
-    return [locationManager locationServicesEnabled];
-}
 
 -(void)enableGPS{
     //NSLog(@"Enable GPS");

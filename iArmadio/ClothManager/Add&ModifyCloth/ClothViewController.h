@@ -114,6 +114,7 @@
 @property (nonatomic, retain) IBOutlet UIImageView *imageViewReflect;
 @property (nonatomic, retain) IBOutlet UIImageView *imageView;
 @property (nonatomic, retain) IBOutlet UIImageView *imageSfondo;
+@property (nonatomic, retain) IBOutlet UIImageView *imageViewGradimento;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem * saveButton;
 @property (nonatomic, retain) IBOutlet UINavigationBar* addNavigationBar;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem * undoButton;

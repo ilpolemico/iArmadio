@@ -40,7 +40,8 @@
             viewGradimento,
             captureView,
             sfondoView,
-            sliderZoom;
+            sliderZoom,
+            imageViewGradimento;
  
 
 
@@ -95,18 +96,32 @@
     
     self.imageSfondo.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.imageSfondo.bounds].CGPath;
     self.imageSfondo.layer.shadowColor = [UIColor grayColor].CGColor;
-    self.imageSfondo.layer.shadowOffset = CGSizeMake(0,-10);
+    self.imageSfondo.layer.shadowOffset = CGSizeMake(10,10);
     self.imageSfondo.layer.shadowOpacity = 1;
     self.imageSfondo.layer.shadowRadius = 4.0;
     
    
     
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    /*self.imageView.layer.shadowColor = [UIColor grayColor].CGColor;
-    self.imageView.layer.shadowOffset = CGSizeMake(7,10);
-    self.imageView.layer.shadowOpacity = 1;
-    self.imageView.layer.shadowRadius = 10.0;
+    
+    /*self.captureView.layer.shadowPath = [self renderPaperCurl:self.captureView]; 
+    self.captureView.layer.shadowColor = [UIColor blackColor].CGColor;
+	self.captureView.layer.shadowOpacity = 0.7f;
+	self.captureView.layer.shadowOffset = CGSizeMake(10.0f, 10.0f);
+	self.captureView.layer.shadowRadius = 2.0f;
+	self.captureView.layer.masksToBounds = NO;
      */
+    
+    
+    self.imageViewGradimento.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.imageSfondo.bounds].CGPath;
+    self.imageViewGradimento.layer.shadowColor = [UIColor grayColor].CGColor;
+    self.imageViewGradimento.layer.shadowOffset = CGSizeMake(0,4);
+    self.imageViewGradimento.layer.shadowOpacity = 1;
+    self.imageViewGradimento.layer.shadowRadius = 4.0;
+    
+    
+    
+     
     
     
     
@@ -126,12 +141,6 @@
     netTranslation.x = 0;
     netTranslation.y = 0;
     currTransform = self.view.transform;
-    
-    
-    UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)];
-    
-    [self.imageView addGestureRecognizer:pinchGesture];
-    [pinchGesture release];
     
     
     UIRotationGestureRecognizer *rotateGesture = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(handleRotateGesture:)];
@@ -231,16 +240,17 @@
    
 }
 
+
 - (void)initInputType{
     //Seleziona Stili
     NSArray *stiliKeys = [dao listStiliKeys];
     Stile *stile;
     stile = [dao getStileEntity:[stiliKeys objectAtIndex:0]];
-    [self.stile_1 setImage:[dao getImageFromStile:stile] forState: UIControlStateNormal];
+    //[self.stile_1 setImage:[dao getImageFromStile:stile] forState: UIControlStateNormal];
     stile = [dao getStileEntity:[stiliKeys objectAtIndex:1]];
-    [self.stile_2 setImage:[dao getImageFromStile:stile] forState: UIControlStateNormal];
+    //[self.stile_2 setImage:[dao getImageFromStile:stile] forState: UIControlStateNormal];
     stile = [dao getStileEntity:[stiliKeys objectAtIndex:2]];
-    [self.stile_3 setImage:[dao getImageFromStile:stile] forState: UIControlStateNormal]; 
+    //[self.stile_3 setImage:[dao getImageFromStile:stile] forState: UIControlStateNormal]; 
     
     segmentStile = [[NSArray alloc] initWithObjects:self.stile_1,self.stile_2,self.stile_3, nil];
     choiceStile = [[ButtonSegmentControl alloc] init:@"stili"];
@@ -251,6 +261,8 @@
     NSArray *stagioniKeys = [dao listStagioniKeys];
     Stagione *stagione;
     stagione = [dao getStagioneEntity:[stagioniKeys objectAtIndex:0]];
+    
+    self.stagione_1.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.stagione_1 setImage:[dao getImageFromStagione:stagione] forState: UIControlStateNormal];
     stagione = [dao getStagioneEntity:[stagioniKeys objectAtIndex:1]];
     [self.stagione_2 setImage:[dao getImageFromStagione:stagione] forState: UIControlStateNormal];
@@ -463,7 +475,6 @@
     }
     else if (buttonIndex == 1) {
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        //picker.allowsEditing = YES;
         [self presentModalViewController:picker animated:YES];
         [picker release];
     } 
@@ -474,6 +485,8 @@
 {
 	[picker dismissModalViewControllerAnimated:NO];
     [self.imageView setImage:image];
+    self.imageView.transform = CGAffineTransformIdentity;
+    self.sliderZoom.value = 0;
     modifyImageCloth = YES;
 }
 
@@ -483,24 +496,6 @@
         sender.view.contentMode = UIViewContentModeCenter;
     else
         sender.view.contentMode = UIViewContentModeScaleAspectFit;
-}
-
--(IBAction) handlePinchGesture:(UIGestureRecognizer *)sender{
-    if(sender.state == UIGestureRecognizerStateBegan){
-        currTransform = sender.view.transform;
-        isChangeImage = YES;
-        return;
-    }
-    
-    
-    CGFloat factor = [(UIPinchGestureRecognizer *)sender scale];
-    NSLog(@"factor:%f",factor);
-    if(lastScaleFactor >= 1){
-        CGAffineTransform transform = CGAffineTransformScale(currTransform,factor,factor);
-        lastScaleFactor += factor;
-        sender.view.transform = transform;
-        NSLog(@"zoom in:%d",lastScaleFactor);
-    }
 }
 
 

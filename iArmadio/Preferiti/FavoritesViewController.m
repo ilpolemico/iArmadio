@@ -9,7 +9,7 @@
 #import "FavoritesViewController.h"
 
 @implementation FavoritesViewController
-@synthesize tableview, navbar, vestiti,combinazioni;
+@synthesize tableview, navbar, vestiti,combinazioni, imageview;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,8 +38,6 @@
     [self reloadVestitiPreferiti:nil];
     [CurrState shared].currSection = SECTION_FAVORITES;
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
-    
     self.tableview.delegate = self;
     self.tableview.backgroundColor = [UIColor clearColor];
    
@@ -56,7 +54,14 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadVestitiPreferiti:) name:DEL_LOOK_EVENT object:nil];
     
     self.navbar.topItem.title=  NSLocalizedString(@"Preferiti", nil);
-    // Do any additional setup after loading the view from its nib.
+    
+    self.imageview.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.imageview.bounds].CGPath;
+    self.imageview.layer.shadowColor = [UIColor grayColor].CGColor;
+    self.imageview.layer.shadowOffset = CGSizeMake(7, 1);
+    self.imageview.layer.shadowOpacity = 1;
+    self.imageview.layer.shadowRadius = 3.0;
+    
+    
 }
 
 
@@ -118,7 +123,6 @@
     
     
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     [cell.textLabel setTextColor:[UIColor darkTextColor]];
     [cell.textLabel setFont:[UIFont fontWithName:@"MarkerFelt-Wide" size:18 ]];
     [cell.detailTextLabel setFont:[UIFont fontWithName:@"MarkerFelt-Wide" size:12 ]];
@@ -126,12 +130,45 @@
 
     if(indexPath.section == 0){
         Vestito *vestito = (Vestito *)[self.vestiti objectAtIndex:indexPath.row];
-        cell.imageView.image = [dao getImageFromVestito:vestito];
+        cell.imageView.image = [[dao getImageFromVestito:vestito] scaleToFitSize:CGSizeMake(80,80)];
         cell.textLabel.text = NSLocalizedString(((Tipologia *)[[vestito.tipi objectEnumerator] nextObject]).nome,nil) ;
     }
     else{
         Combinazione *combinazione = (Combinazione *)[self.combinazioni objectAtIndex:indexPath.row];
-        cell.imageView.image = [dao getImageDocumentFromFile:combinazione.lookSnapshot];
+        
+        NSMutableArray *images = [[[NSMutableArray alloc] initWithObjects:@"",@"",@"",@"",@"",@"",@"",@"",@"",nil] autorelease];
+        
+        
+        NSSet *vestitiInCombinazione = combinazione.fattaDi; 
+        for(Vestito *vestito in vestitiInCombinazione){
+            Tipologia *tipo = ([[vestito.tipi objectEnumerator] nextObject]);
+            [images replaceObjectAtIndex:[tipo.choice intValue] withObject:[dao getImageFromVestito:vestito]];
+        }
+        
+        
+        int offset_x = 0;
+        int offset_y = 0;
+        int count = 0;
+        
+        for (UIView *view in cell.subviews) {
+            [view removeFromSuperview];
+        }
+        
+        for(UIImage *image in images){
+            if ([image class] == [UIImage class]){
+                UIImageView *_imageview = [[[UIImageView alloc] initWithImage:image] autorelease];
+                _imageview.frame = CGRectMake(offset_x,offset_y,40,40);
+                _imageview.contentMode = UIViewContentModeScaleAspectFit; 
+                [cell addSubview:_imageview];
+                
+                offset_x += _imageview.frame.size.width;
+                if(count == 6){
+                    offset_x = 0;
+                    offset_y += _imageview.frame.size.height;
+                }
+                count++;
+            }
+        }
     }
     
     
@@ -140,8 +177,8 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section == 1){return 250;}
-    return 30;
+    if(indexPath.section == 1){return 80;}
+    return 80;
 }
 
 #pragma mark - Table view delegate
@@ -188,6 +225,8 @@
     
     return 1;
 }
+
+
 
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView{

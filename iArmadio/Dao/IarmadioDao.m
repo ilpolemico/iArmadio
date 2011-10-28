@@ -95,7 +95,6 @@ static IarmadioDao *singleton;
         tmp.frame = CGRectMake(offset, 0, 40, 40);
         tmp.contentMode = UIViewContentModeScaleAspectFit;
         [viewTmp addSubview:tmp];
-        offset += 40;
     }
     
     [viewTmp.layer renderInContext:context];
@@ -465,7 +464,7 @@ static IarmadioDao *singleton;
 }
 
 
-- (Combinazione *)addCombinazioneEntity:(NSArray *)vestitiEntities snapshot:(UIImage *)snapshot  gradimento:(NSInteger)gradimento stagioneKey:(NSString *)stagioneKey stiliKeys:(NSArray *)stiliKeys preferito:(NSString *)preferito;{
+- (Combinazione *)addCombinazioneEntity:(NSArray *)vestitiEntities  gradimento:(NSInteger)gradimento stagioneKey:(NSString *)stagioneKey stiliKeys:(NSArray *)stiliKeys preferito:(NSString *)preferito;{
     
     Combinazione *combinazione = [NSEntityDescription insertNewObjectForEntityForName:@"Combinazione" inManagedObjectContext:self.managedObjectContext];
     
@@ -474,7 +473,7 @@ static IarmadioDao *singleton;
     [combinazione setValue:[NSNumber numberWithInteger:gradimento] forKey:@"gradimento"];
     
     
-    combinazione = [self modifyCombinazioneEntity:combinazione vestitiEntities:vestitiEntities snapshot:snapshot isNew:YES gradimento:gradimento stagioneKey:stagioneKey stiliKeys:stiliKeys preferito:preferito];
+    combinazione = [self modifyCombinazioneEntity:combinazione vestitiEntities:vestitiEntities isNew:YES gradimento:gradimento stagioneKey:stagioneKey stiliKeys:stiliKeys preferito:preferito];
     
     [[NSNotificationCenter defaultCenter]
      postNotificationName:ADD_LOOK_EVENT
@@ -484,13 +483,11 @@ static IarmadioDao *singleton;
     return combinazione;    
 }
 
-- (Combinazione *)modifyCombinazioneEntity:(Combinazione *)combinazione vestitiEntities:(NSArray *)vestitiEntities snapshot:snapshot isNew:(BOOL)isnew gradimento:(NSInteger)gradimento stagioneKey:(NSString *)stagioneKey stiliKeys:(NSArray *)stiliKeys preferito:(NSString *)preferito{
+- (Combinazione *)modifyCombinazioneEntity:(Combinazione *)combinazione vestitiEntities:(NSArray *)vestitiEntities isNew:(BOOL)isnew gradimento:(NSInteger)gradimento stagioneKey:(NSString *)stagioneKey stiliKeys:(NSArray *)stiliKeys preferito:(NSString *)preferito{
     
     if(preferito != nil){ [combinazione setValue:preferito forKey:@"preferito"];}
     [combinazione setValue:[NSNumber numberWithInteger:gradimento] forKey:@"gradimento"];
-    combinazione.lookSnapshot = [@"lookSnapshot_" stringByAppendingFormat:@"%@.png",combinazione.id,nil];
-    NSData *imageData = UIImagePNGRepresentation(snapshot);
-    [imageData writeToFile:[self filePathDocuments:combinazione.lookSnapshot] atomically:YES];
+    
     
     if((stiliKeys != nil )&&([stiliKeys count] > 0)){
         NSMutableArray *tmp = [[[NSMutableArray alloc] init] autorelease];
@@ -517,15 +514,6 @@ static IarmadioDao *singleton;
 
 
 - (void)delCombinazioneEntity:(Combinazione *)combinazione{
-    if((combinazione.lookSnapshot != nil)&&([combinazione.lookSnapshot length] > 0)){ 
-        [[NSFileManager defaultManager] 
-         removeItemAtPath:[self filePathDocuments:combinazione.lookSnapshot]
-         error:nil
-         ];
-    }
-
-    
-    
     [self.managedObjectContext deleteObject:combinazione];
     [self saveContext];
     [[NSNotificationCenter defaultCenter]
