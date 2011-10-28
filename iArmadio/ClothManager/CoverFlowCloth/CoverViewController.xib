@@ -319,7 +319,7 @@
 						<string key="NSFrame">{{0, 200}, {320, 300}}</string>
 						<reference key="NSSuperview" ref="112204975"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
+						<reference key="NSNextKeyView" ref="553145494"/>
 						<string key="NSReuseIdentifierKey">_NS:180</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -357,10 +357,10 @@
 				<int key="IBNumberOfSegments">4</int>
 				<object class="NSArray" key="IBSegmentTitles">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>Caldo</string>
-					<string>Freddo</string>
-					<string>Sempre</string>
-					<string>Tutti</string>
+					<string/>
+					<string/>
+					<string/>
+					<string>*</string>
 				</object>
 				<object class="NSMutableArray" key="IBSegmentWidths">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -385,10 +385,16 @@
 				</object>
 				<object class="NSMutableArray" key="IBSegmentImages">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="NSNull" id="4"/>
-					<reference ref="4"/>
-					<reference ref="4"/>
-					<reference ref="4"/>
+					<object class="NSCustomResource" id="955437851">
+						<string key="NSClassName">NSImage</string>
+						<string key="NSResourceName">caldo_20x20.png</string>
+					</object>
+					<object class="NSCustomResource">
+						<string key="NSClassName">NSImage</string>
+						<string key="NSResourceName">freddo_20x20.png</string>
+					</object>
+					<reference ref="955437851"/>
+					<object class="NSNull"/>
 				</object>
 			</object>
 		</object>
@@ -955,11 +961,15 @@
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<object class="NSArray" key="dict.sortedKeys">
 				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>caldo_20x20.png</string>
+				<string>freddo_20x20.png</string>
 				<string>sfondo1.png</string>
 				<string>sfondo_texture.jpeg</string>
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>{20, 20}</string>
+				<string>{20, 20}</string>
 				<string>{640, 960}</string>
 				<string>{596, 560}</string>
 			</object>

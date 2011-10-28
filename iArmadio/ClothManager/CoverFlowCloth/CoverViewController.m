@@ -235,19 +235,6 @@ static CGRect frameCover;
     filterStili.selectedIndex = 0;
     
     
-    
-    
-    
-    
-    
-    for(NSString *currStagioneKey in [dao listStagioniKeys]){
-        Stagione *stagione = [dao getStagioneEntity:currStagioneKey];
-        [segmentcontrol setImage:[dao getImageFromStagione:stagione] forSegmentAtIndex:[stagione.id intValue]];
-    }
-    
-    [segmentcontrol setImage:
-     [dao getImageFromSection:[CurrState shared].currSection type:@"icona_stagione_all"] forSegmentAtIndex:[[dao listStagioniKeys] count]];
-
 
 }
 

@@ -55,9 +55,26 @@ lookSfondo;
     self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
     
     
-  
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLook:) name:ADD_CLOTH_EVENT object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLook:) name:MOD_CLOTH_EVENT object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLook:) name:DEL_CLOTH_EVENT object:nil];
+
+
     
     
+    currIndex = 0;    
+    [self initInputType];
+}
+
+- (void)reloadLook:(NSNotification *)pNotification{
+    [self initInputType];
+        
+
+}
+
+- (void)initInputType{
     choiceToTipi = [[NSMutableDictionary alloc] init];
     NSArray *tipiKey = dao.listTipiKeys;
     for(NSString *tipoKey in tipiKey){
@@ -84,18 +101,19 @@ lookSfondo;
     self.lookSfondo.layer.shadowRadius = 3.0;
     
     selectedVestiti = [[NSMutableArray alloc] initWithObjects:@"",@"",@"",@"",@"",@"",@"" ,@"",@"",@"",nil];
-    [self initInputType];
-}
 
-- (void)initInputType{
-    
     //self.listCloth.pagingEnabled = YES;
     self.listCloth.bounces = YES;
     self.listCloth.delegate = self;
     //self.listCloth.backgroundColor = [UIColor colorWithPatternImage:[dao getImageBundleFromFile:@"prova.jpeg"]]; 
     
     //self.captureView.backgroundColor = [UIColor colorWithPatternImage:[dao getImageBundleFromFile:@"looksfondo.png"]];  
-                                      
+    
+    for(int i=1;i<=10;i++){
+       SEL selector = NSSelectorFromString([@"choice" stringByAppendingFormat:@"%d",i,nil]);
+            UIButton *button = [self performSelector:selector];
+            [button setImage:nil forState:UIControlStateNormal];
+    }
                                       
     
     if(self.combinazione){
@@ -106,10 +124,12 @@ lookSfondo;
             
             UIButton *button = [self performSelector:selector];
             button.imageView.contentMode = UIViewContentModeScaleAspectFit;
-            [button  setImage:[[dao getImageFromVestito:vestito] rotateInDegrees:10] forState:UIControlStateNormal];
+            [button  setImage:[dao getImageFromVestito:vestito] forState:UIControlStateNormal];
             [selectedVestiti replaceObjectAtIndex:[tipo.choice intValue] withObject:vestito];
         }
     }
+    
+  
     
     
     //Seleziona Stili
@@ -188,9 +208,13 @@ lookSfondo;
     [self.view setUserInteractionEnabled:YES];
     
     
-    
-    
-    
+    if(currIndex != 0){
+        SEL selector = NSSelectorFromString([@"choice" stringByAppendingFormat:@"%d",currIndex,nil]);
+        UIButton *button = [self performSelector:selector];
+
+        [self selectCloth: button];
+    }
+        
     
 }
 
@@ -230,6 +254,7 @@ lookSfondo;
 
 - (IBAction)selectCloth:(id)sender{
     int index = ((UIButton *)sender).tag;
+    currIndex = index;
     if(currButton != nil){
         [currButton setHighlighted:NO];
         [currButton setSelected:NO];
@@ -261,8 +286,11 @@ lookSfondo;
    
     
     button.adjustsImageWhenHighlighted = YES;
+    
     [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [button setTag:0];
+    
+
     
     
     button.frame = CGRectMake(3,0,imageview_size_width,imageview_size_height);
@@ -295,6 +323,14 @@ lookSfondo;
         [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [button setTag:count];
         
+        
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
+        
+        tapGesture.numberOfTapsRequired = 2;
+        [button addGestureRecognizer:tapGesture];
+        [tapGesture release];
+        
+        
         button.layer.shadowPath = [UIBezierPath bezierPathWithRect:button.bounds].CGPath;
         button.layer.shadowColor = [UIColor grayColor].CGColor;
         button.layer.shadowOffset = CGSizeMake(0,7);
@@ -312,6 +348,22 @@ lookSfondo;
     
     currChoice = index;
     
+}
+
+
+-(IBAction) handleTapGesture:(UIGestureRecognizer *)sender{
+    int tag = sender.view.tag;
+    
+    NSLog(@"%d",tag);
+    Vestito *vestito = [vestitiForTipi objectAtIndex:tag-1];
+    
+    if([vestito class] == [Vestito class]){
+        ClothViewController *getviewcontroller = [[ClothViewController alloc] initWithNibName:@"ClothView" bundle:nil getVestito: vestito];
+        
+        getviewcontroller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        [self presentModalViewController:getviewcontroller animated:YES];
+        [getviewcontroller release];
+    }
 }
 
 -(IBAction)buttonPressed:(id)sender{

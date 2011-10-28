@@ -98,6 +98,8 @@
 		A3C94F661456C64D00369340 /* gruccia.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F651456C64D00369340 /* gruccia.png */; };
 		A3C94F681456C9B100369340 /* specchiera.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F671456C9B100369340 /* specchiera.png */; };
 		A3C94F6A1456E6E000369340 /* bookmark_deselect.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F691456E6E000369340 /* bookmark_deselect.png */; };
+		A3CFBA0B145A9AEC002C060A /* caldo_20x20.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CFBA09145A9AEC002C060A /* caldo_20x20.png */; };
+		A3CFBA0C145A9AEC002C060A /* freddo_20x20.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CFBA0A145A9AEC002C060A /* freddo_20x20.png */; };
 		A3D7073F144CAB7D00469E06 /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D7073D144CAB7D00469E06 /* CreditsViewController.m */; };
 		A3D70742144CBF7600469E06 /* CreditsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3D70744144CBF7600469E06 /* CreditsViewController.xib */; };
 		A3D81FD71449058D0028DD9F /* TabBarNipple.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D81FD51449058D0028DD9F /* TabBarNipple.png */; };
@@ -260,6 +262,8 @@
 		A3C94F651456C64D00369340 /* gruccia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gruccia.png; sourceTree = "<group>"; };
 		A3C94F671456C9B100369340 /* specchiera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = specchiera.png; sourceTree = "<group>"; };
 		A3C94F691456E6E000369340 /* bookmark_deselect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookmark_deselect.png; sourceTree = "<group>"; };
+		A3CFBA09145A9AEC002C060A /* caldo_20x20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = caldo_20x20.png; sourceTree = "<group>"; };
+		A3CFBA0A145A9AEC002C060A /* freddo_20x20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = freddo_20x20.png; sourceTree = "<group>"; };
 		A3D7073C144CAB7D00469E06 /* CreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsViewController.h; sourceTree = "<group>"; };
 		A3D7073D144CAB7D00469E06 /* CreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsViewController.m; sourceTree = "<group>"; };
 		A3D70743144CBF7600469E06 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CreditsViewController.xib; sourceTree = "<group>"; };
@@ -642,6 +646,8 @@
 		A3EA47801449FD6A0095349B /* icone_interfaccia */ = {
 			isa = PBXGroup;
 			children = (
+				A3CFBA09145A9AEC002C060A /* caldo_20x20.png */,
+				A3CFBA0A145A9AEC002C060A /* freddo_20x20.png */,
 				A31B3AD8145A0E6200BD0F73 /* freddo.png */,
 				A31B3AD9145A0E6200BD0F73 /* caldo.png */,
 				A31B3AD4145A0AA100BD0F73 /* mezzastagione.png */,
@@ -814,6 +820,8 @@
 				A31B3AD7145A0AA200BD0F73 /* mezzastagione.png in Resources */,
 				A31B3ADA145A0E6200BD0F73 /* freddo.png in Resources */,
 				A31B3ADB145A0E6200BD0F73 /* caldo.png in Resources */,
+				A3CFBA0B145A9AEC002C060A /* caldo_20x20.png in Resources */,
+				A3CFBA0C145A9AEC002C060A /* freddo_20x20.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

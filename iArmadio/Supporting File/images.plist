@@ -14,10 +14,6 @@
 	</dict>
 	<key>CoverView</key>
 	<dict>
-		<key>icona_stagione_all</key>
-		<string>02.png</string>
-		<key>icona_stile_all</key>
-		<string>02.png</string>
 		<key>background</key>
 		<string>Default.png</string>
 		<key>icona_ordina_data</key>

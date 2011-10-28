@@ -443,7 +443,7 @@
 
 
 - (void)initStagioniEntities:(NSNumber *)stagioneIndex{
-    choiceStagione.selectedIndex = [stagioneIndex intValue];
+ choiceStagione.selectedIndex = [stagioneIndex intValue];
 }
 
 
@@ -614,11 +614,12 @@
     if([buttonSegmentControl.tag isEqualToString:@"stili"]){
         return segmentStile;
     }
-    else if([buttonSegmentControl.tag isEqualToString:@"stagioni"]){
+ else if([buttonSegmentControl.tag isEqualToString:@"stagioni"]){
         return segmentStagione;
     }
-    return nil;
+       return nil;
 }
+
 
 
 - (void)buttonSegmentControl:(ButtonSegmentControl *)buttonControl  selectedButton:(UIButton *)button selectedIndex:(NSInteger)selectedIndex{
@@ -628,7 +629,7 @@
     }
     else if([buttonControl.tag isEqualToString:@"stagioni"]){
         choiceStagione.selectedIndex = selectedIndex;
-    }
+    }  
 }
 
 -(void) dealloc{
@@ -640,7 +641,6 @@
     [stile_3 release];
     [stagione_1 release];
     [stagione_2 release];
-    [stagione_3 release];
     [currStile release];
     [currTipologia release];
     [toolbar release];

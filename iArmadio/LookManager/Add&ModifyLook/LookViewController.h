@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "IarmadioDao.h"
 #import "ButtonSegmentControl.h"
+#import "ClothViewController.h"
 
 
 
@@ -74,6 +75,8 @@
     
     UIButton *currButton;
     IBOutlet UIImageView *lookSfondo;
+    
+    int currIndex;
 }
 
 @property (nonatomic, retain )Combinazione *combinazione;
