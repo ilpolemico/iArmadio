@@ -61,8 +61,11 @@
     IBOutlet UIButton *choice10;
     IBOutlet UIScrollView *listCloth;
     
+    IBOutlet UIButton *upscroll;
+    IBOutlet UIButton *downscroll;
     
-    IBOutlet UIView *captureView;
+    
+    IBOutlet UIScrollView *captureView;
     IBOutlet UIToolbar *toolbar;
     
     
@@ -76,6 +79,12 @@
     UIButton *currButton;
     IBOutlet UIImageView *lookSfondo;
     
+    
+    //Gradimento
+    int gradimento;
+    IBOutlet UIView *viewGradimento;
+
+    
     int currIndex;
 }
 
@@ -86,9 +95,9 @@
 @property (nonatomic, retain )IBOutlet UIButton *stagione_1;
 @property (nonatomic, retain )IBOutlet UIButton *stagione_2;
 @property (nonatomic, retain )IBOutlet UIButton *stagione_3;
-@property (nonatomic, retain )IBOutlet UIButton *gradimento_1;
-@property (nonatomic, retain )IBOutlet UIButton *gradimento_2;
-@property (nonatomic, retain )IBOutlet UIButton *gradimento_3;
+
+@property (nonatomic, retain )IBOutlet UIView *viewGradimento;
+
 @property (nonatomic, retain )IBOutlet UIBarButtonItem *undoBtn;
 @property (nonatomic, retain )IBOutlet UIBarButtonItem *saveBtn;
 @property (nonatomic, retain )IBOutlet UIBarButtonItem *deleteBtn;
@@ -104,7 +113,9 @@
 @property (nonatomic, retain )IBOutlet UIButton *choice8;
 @property (nonatomic, retain )IBOutlet UIButton *choice9;
 @property (nonatomic, retain )IBOutlet UIButton *choice10;
-@property (nonatomic, retain )IBOutlet UIView *captureView;
+@property (nonatomic, retain )IBOutlet UIButton *upscroll;
+@property (nonatomic, retain )IBOutlet UIButton *downscroll;
+@property (nonatomic, retain )IBOutlet UIScrollView *captureView;
 @property (nonatomic, retain )IBOutlet UIScrollView *listCloth;
 @property (nonatomic, retain )IBOutlet UIToolbar *toolbar;
 @property (nonatomic, retain )NSString *preferito;
@@ -114,12 +125,15 @@
 
 
 - (void)initInputType;
+- (IBAction) upscrollAction:(id)sender;
+- (IBAction) downscrollAction:(id)sender;
 - (IBAction) undoLook:(id)sender;
 - (IBAction) saveLook:(id)sender;
 - (IBAction) deleteLook:(id)sender;
 - (IBAction) addPreferiti:(id)sender; 
 - (IBAction)selectCloth:(id)sender;
 - (IBAction)buttonPressed:(id)sender;
+- (IBAction)selectGradimento:(id)sender;
 @end
 
 

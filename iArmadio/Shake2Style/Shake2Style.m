@@ -9,7 +9,7 @@
 #import "Shake2Style.h"
 
 @implementation Shake2Style
-@synthesize dao, imageView,vestitoBtn, vestito, combinazione, stagione, localita;
+@synthesize dao, imageView,vestitoBtn, vestito, currCombinazione, stagione, localita;
 
 
 static Shake2Style *singleton;
@@ -101,41 +101,37 @@ static Shake2Style *singleton;
     [super viewDidLoad];
     [self.view setHidden:YES];
     [self becomeFirstResponder];
-    
-    
-    
 }
 
--(void)viewWillAppear:(BOOL)animated{
+-(void)shake{
     
-   NSArray *vestiti = [dao getVestitiEntities:nil filterStagioneKey:dao.currStagioneKey  filterStiliKeys:nil filterGradimento:-1];
-   
-   
-   self.stagione.text = dao.currStagioneKey; 
-   self.localita.text = dao.localita; 
+    Combinazione *combinazione=[self shake2style:nil filterStagione:dao.currStagioneKey];
     
-   if(vestito != nil){
-       [vestito release];
-       vestito = nil;
-   }    
+       
+
+    if(combinazione == nil){
+         combinazione=[self shake2style:nil filterStagione:nil];
+    } 
    
     
-   self.vestito = [self shake2style:vestiti]; 
-   self.imageView.image = nil;
+    if(combinazione != nil){
+        LookViewController *lookviewcontroller = [[LookViewController alloc] initWithNibName:@"LookViewController" bundle:nil];
+        lookviewcontroller.combinazione = combinazione;       
+        
+        iArmadioAppDelegate *appDelegate = (iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate];
+        
+        
+        [appDelegate.tabBarController presentModalViewController:lookviewcontroller animated:YES];
+        [lookviewcontroller release];  
+    }
+    else{
     
-   
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString( @"Shake2Style",nil) message:NSLocalizedString(@"Non ci sono combinazioni disponibili!",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Annulla",nil) otherButtonTitles:nil];
+        
+        [alert show];
+        [alert release];
     
-    
-   if(self.vestito == nil){
-       [self.vestitoBtn setEnabled:NO];
-       NSLog(@"Nessun vestito trovato!");
-   } 
-   else{
-       [self.vestitoBtn setEnabled:YES];
-       self.imageView.contentMode = UIViewContentModeScaleAspectFit;
-       self.imageView.image = [dao getImageFromVestito:vestito];
-   }
-    
+    }
 }
 
 - (BOOL)canBecomeFirstResponder {
@@ -146,13 +142,11 @@ static Shake2Style *singleton;
 -(void) motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event{
     if(![[CurrState shared].currSection isEqualToString:SECTION_SHAKE2STYLE]){
         if([[[dao.config objectForKey:@"Settings"] objectForKey:@"shake"] boolValue]){
-            iArmadioAppDelegate *appDelegate =  ((iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate]);
-            
-            [CurrState shared].currSection = SECTION_SHAKE2STYLE;
+           [CurrState shared].currSection = SECTION_SHAKE2STYLE;
             [self.view setHidden:NO];
             self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
             
-            [appDelegate.tabBarController presentModalViewController:self animated:YES];
+            [self shake];
 
         }
     }

@@ -10,6 +10,7 @@
 #import "IarmadioDao.h"
 #import "iArmadioAppDelegate.h"
 #import "ClothViewController.h"
+#import "LookViewController.h"
 
 @interface Shake2Style : UIViewController{
     IarmadioDao *dao;
@@ -18,7 +19,7 @@
     IBOutlet UILabel *stagione;
     IBOutlet UILabel *localita;
     Vestito *vestito;
-    Combinazione *combinazione;
+    Combinazione *currCombinazione;
 }
 
 @property (nonatomic, retain, readonly) IBOutlet UILabel *stagione;
@@ -27,7 +28,7 @@
 @property (nonatomic, retain, readonly) IBOutlet UIButton *vestitoBtn;
 @property (nonatomic, retain, readonly) IarmadioDao *dao;
 @property (nonatomic, retain) Vestito *vestito;
-@property (nonatomic, retain) Combinazione *combinazione;
+@property (nonatomic, retain) Combinazione *currCombinazione;
 
 
 + (Shake2Style *)shared;

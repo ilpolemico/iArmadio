@@ -17,9 +17,7 @@ stile_3,
 stagione_1,
 stagione_2,
 stagione_3,
-gradimento_1,
-gradimento_2,
-gradimento_3,
+viewGradimento,
 undoBtn,
 saveBtn,
 deleteBtn,
@@ -40,7 +38,9 @@ preferito,
 combinazione,
 toolbar,
 mainView,
-lookSfondo;
+lookSfondo,
+upscroll,
+downscroll;
 
 
 
@@ -115,7 +115,7 @@ lookSfondo;
             [button setImage:nil forState:UIControlStateNormal];
     }
                                       
-    
+    gradimento = 1;
     if(self.combinazione){
         NSSet *vestitiInCombinazione = self.combinazione.fattaDi; 
         for(Vestito *vestito in vestitiInCombinazione){
@@ -127,10 +127,18 @@ lookSfondo;
             [button  setImage:[dao getImageFromVestito:vestito] forState:UIControlStateNormal];
             [selectedVestiti replaceObjectAtIndex:[tipo.choice intValue] withObject:vestito];
         }
+        
+        NSNumber *grad = combinazione.gradimento;
+        
+        if(grad != nil){
+            gradimento = grad.intValue;
+            
+        } 
+        
     }
     
   
-    
+    [self selectGradimento:[self.view viewWithTag:gradimento]];
     
     //Seleziona Stili
     NSArray *stiliKeys = [dao listStiliKeys];
@@ -160,17 +168,9 @@ lookSfondo;
     segmentStagione = [[NSArray alloc] initWithObjects:self.stagione_1,self.stagione_2,self.stagione_3, nil];
     choiceStagione = [[ButtonSegmentControl alloc] init:@"stagioni"];
     choiceStagione.delegate = self;
-    choiceStagione.selectedIndex = 0;
+    choiceStagione.selectedIndex = 1;
     
     
-    [self.gradimento_1 setImage:[dao getImageFromGradimento:0] forState: UIControlStateNormal];
-    [self.gradimento_2 setImage:[dao getImageFromGradimento:1] forState: UIControlStateNormal];
-    [self.gradimento_3 setImage:[dao getImageFromGradimento:2] forState: UIControlStateNormal]; 
-    
-    segmentGradimento = [[NSArray alloc] initWithObjects:self.gradimento_1,self.gradimento_2,self.gradimento_3, nil];
-    choiceGradimento = [[ButtonSegmentControl alloc] init:@"gradimento"];
-    choiceGradimento.delegate = self;
-    choiceGradimento.selectedIndex = 0;
     
     NSSet *stili;
 
@@ -192,18 +192,19 @@ lookSfondo;
     }
     
     choiceStagione.selectedIndex = [([CurrState shared]).currStagioneIndex intValue];
+    NSLog(@"%d",choiceStagione.selectedIndex);
     
     if(self.combinazione){self.preferito = self.combinazione.preferito;}
     [self.view setUserInteractionEnabled:NO];
     if((self.preferito != nil)&&([self.preferito length]>0)){
         addPreferitiBtn.selected = YES;
         [addPreferitiBtn setSelected:YES];
-        [addPreferitiBtn setHighlighted:YES];
+        [addPreferitiBtn setHighlighted:NO];
     }    
     else{
         addPreferitiBtn.selected = NO;
         [addPreferitiBtn setSelected:NO];
-        [addPreferitiBtn setHighlighted:NO];
+        [addPreferitiBtn setHighlighted:YES];
     }
     [self.view setUserInteractionEnabled:YES];
     
@@ -535,6 +536,20 @@ lookSfondo;
     return nil;
 }
 
+-(IBAction) selectGradimento:(id)sender{
+    
+    int tag = [(UIButton *)sender tag];
+    gradimento = tag;
+    for(int i=1;i<5;i++){
+        UIButton *button =  (UIButton *)[self.viewGradimento viewWithTag:i];
+        if(i <= tag){
+            [button setImage:[dao getImageBundleFromFile:@"star.png"] forState:UIControlStateNormal];
+        }
+        else{
+            [button setImage:[dao getImageBundleFromFile:@"star_gray.png"] forState:UIControlStateNormal];
+        }
+    }
+}
 
 - (void)buttonSegmentControl:(ButtonSegmentControl *)buttonControl  selectedButton:(UIButton *)button selectedIndex:(NSInteger)selectedIndex{
     
@@ -544,11 +559,16 @@ lookSfondo;
     else if([buttonControl.tag isEqualToString:@"stagioni"]){
         choiceStagione.selectedIndex = selectedIndex;
     }
-    else if([buttonControl.tag isEqualToString:@"gradimento"]){
-        choiceGradimento.selectedIndex = selectedIndex;
-    }
-    
 }
+
+- (IBAction) upscrollAction:(id)sender{
+    [self.captureView setContentOffset:CGPointMake(0, 400) animated:YES];
+    
+};
+
+- (IBAction) downscrollAction:(id)sender{
+     [self.captureView setContentOffset:CGPointMake(0,0) animated:YES];
+};
 
   
 

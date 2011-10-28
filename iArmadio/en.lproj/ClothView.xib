@@ -222,7 +222,7 @@
 					</object>
 					<object class="IBUIButton" id="470222657">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">-2147483356</int>
 						<string key="NSFrame">{{35, 423}, {72, 37}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
@@ -244,7 +244,7 @@
 					</object>
 					<object class="IBUIButton" id="709703646">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">-2147483356</int>
 						<string key="NSFrame">{{121, 423}, {74, 37}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
@@ -266,7 +266,7 @@
 					</object>
 					<object class="IBUIButton" id="117281406">
 						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">-2147483356</int>
 						<string key="NSFrame">{{213, 423}, {66, 37}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
@@ -430,16 +430,20 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="1073327970"/>
+						<object class="NSCustomResource" key="IBUINormalImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">caldo.png</string>
+						</object>
 						<reference key="IBUIFontDescription" ref="375220393"/>
 						<reference key="IBUIFont" ref="679295857"/>
 					</object>
 					<object class="IBUIButton" id="721175505">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{270, 337}, {30, 39}}</string>
+						<string key="NSFrame">{{270, 324}, {30, 39}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="598476861"/>
+						<reference key="NSNextKeyView" ref="426382846"/>
 						<string key="NSReuseIdentifierKey">_NS:222</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUIContentMode">2</int>
@@ -453,13 +457,17 @@
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="1073327970"/>
+						<object class="NSCustomResource" key="IBUINormalImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">freddo.png</string>
+						</object>
 						<reference key="IBUIFontDescription" ref="375220393"/>
 						<reference key="IBUIFont" ref="679295857"/>
 					</object>
-					<object class="IBUIButton" id="598476861">
+					<object class="IBUIButton" id="426382846">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{270, 384}, {30, 39}}</string>
+						<string key="NSFrame">{{270, 371}, {30, 39}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="470222657"/>
@@ -469,13 +477,16 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<string key="IBUINormalTitle">*</string>
 						<reference key="IBUIHighlightedTitleColor" ref="516291792"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="1073327970"/>
+						<object class="NSCustomResource" key="IBUINormalImage">
+							<string key="NSClassName">NSImage</string>
+							<string key="NSResourceName">caldo_freddo.png</string>
+						</object>
 						<reference key="IBUIFontDescription" ref="375220393"/>
 						<reference key="IBUIFont" ref="679295857"/>
 					</object>
@@ -697,7 +708,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">stagione_3</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="598476861"/>
+						<reference key="destination" ref="426382846"/>
 					</object>
 					<int key="connectionID">233</int>
 				</object>
@@ -836,7 +847,7 @@
 							<reference ref="709703646"/>
 							<reference ref="117281406"/>
 							<reference ref="774189743"/>
-							<reference ref="598476861"/>
+							<reference ref="426382846"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -992,7 +1003,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">231</int>
-						<reference key="object" ref="598476861"/>
+						<reference key="object" ref="426382846"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</object>
@@ -1391,6 +1402,9 @@
 			<object class="NSArray" key="dict.sortedKeys">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>bookmark.png</string>
+				<string>caldo.png</string>
+				<string>caldo_freddo.png</string>
+				<string>freddo.png</string>
 				<string>sfondo1.png</string>
 				<string>sfondo_texture.jpeg</string>
 				<string>star.png</string>
@@ -1400,6 +1414,9 @@
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
+				<string>{32, 32}</string>
+				<string>{32, 32}</string>
+				<string>{32, 32}</string>
 				<string>{32, 32}</string>
 				<string>{640, 960}</string>
 				<string>{596, 560}</string>

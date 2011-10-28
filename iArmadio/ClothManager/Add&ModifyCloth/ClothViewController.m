@@ -262,12 +262,12 @@
     Stagione *stagione;
     stagione = [dao getStagioneEntity:[stagioniKeys objectAtIndex:0]];
     
-    self.stagione_1.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    [self.stagione_1 setImage:[dao getImageFromStagione:stagione] forState: UIControlStateNormal];
-    stagione = [dao getStagioneEntity:[stagioniKeys objectAtIndex:1]];
-    [self.stagione_2 setImage:[dao getImageFromStagione:stagione] forState: UIControlStateNormal];
-    stagione = [dao getStagioneEntity:[stagioniKeys objectAtIndex:2]];
-    [self.stagione_3 setImage:[dao getImageFromStagione:stagione] forState: UIControlStateNormal]; 
+    //self.stagione_1.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    //[self.stagione_1 setImage:[dao getImageFromStagione:stagione] forState: UIControlStateNormal];
+    //stagione = [dao getStagioneEntity:[stagioniKeys objectAtIndex:1]];
+    //[self.stagione_2 setImage:[dao getImageFromStagione:stagione] forState: UIControlStateNormal];
+    //stagione = [dao getStagioneEntity:[stagioniKeys objectAtIndex:2]];
+    //[self.stagione_3 setImage:[dao getImageFromStagione:stagione] forState: UIControlStateNormal]; 
     
     segmentStagione = [[NSArray alloc] initWithObjects:self.stagione_1,self.stagione_2,self.stagione_3, nil];
     choiceStagione = [[ButtonSegmentControl alloc] init:@"stagioni"];

@@ -60,7 +60,7 @@ static IarmadioDao *singleton;
     
     NSString *preferito = vestitoEntity.preferito;
     Stagione *stagione = vestitoEntity.perLaStagione;
-    Stile *stile = [[vestitoEntity.conStile objectEnumerator] nextObject];
+    //Stile *stile = [[vestitoEntity.conStile objectEnumerator] nextObject];
     
     UIView *viewTmp = [[[UIView alloc] initWithFrame:CGRectMake(0,0,thumbnail.size.width, thumbnail.size.height)] autorelease]; 
     
@@ -85,17 +85,18 @@ static IarmadioDao *singleton;
     if(stagione != nil){
         UIImageView *tmp = [[[UIImageView alloc] initWithImage:[self getImageFromStagione:stagione]] autorelease];
         
-        tmp.frame = CGRectMake(offset, 0, 40, 40);
+        tmp.frame = CGRectMake(offset, 0, 30, 30);
         tmp.contentMode = UIViewContentModeScaleAspectFit;
         [viewTmp addSubview:tmp];
         offset += 40;
     }
+    /*
     if(stile != nil){
         UIImageView *tmp = [[[UIImageView alloc] initWithImage:[self getImageFromStile:stile]] autorelease];        
         tmp.frame = CGRectMake(offset, 0, 40, 40);
         tmp.contentMode = UIViewContentModeScaleAspectFit;
         [viewTmp addSubview:tmp];
-    }
+    }*/
     
     [viewTmp.layer renderInContext:context];
     UIImage *snapShotImage = UIGraphicsGetImageFromCurrentImageContext();

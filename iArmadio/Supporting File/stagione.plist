@@ -39,7 +39,7 @@
 	<key>calda-fredda</key>
 	<dict>
 		<key>icon</key>
-		<string>02.png</string>
+		<string>caldo_freddo.png</string>
 		<key>id</key>
 		<integer>2</integer>
 		<key>temp_min</key>
