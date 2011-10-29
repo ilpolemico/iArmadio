@@ -123,7 +123,7 @@
     
     
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.imageView.image = [dao getImageFromTipo:([dao getTipoEntity:[tipologie objectAtIndex:indexPath.row]])]; 
     cell.textLabel.text = NSLocalizedString([dao getTipoEntity:[tipologie objectAtIndex:indexPath.row]].plural,nil);
     [cell.textLabel setTextColor:[UIColor darkTextColor]];
@@ -221,7 +221,7 @@
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
 
-    return NO;
+    return (toInterfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 -(void) dealloc{

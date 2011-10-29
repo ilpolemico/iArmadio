@@ -295,8 +295,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    //return (interfaceOrientation == UIInterfaceOrientationPortrait);
-    return NO;
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 -(void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
@@ -550,7 +549,6 @@
     float scaleFactor = ((UISlider *)sender).value;
     
     factor = scaleFactor + 1.0;
-    NSLog(@"SECONDO");
     CGAffineTransform transform = CGAffineTransformScale(currTransform,factor,factor);
     self.imageView.transform = transform;
     lastScaleFactor = factor;

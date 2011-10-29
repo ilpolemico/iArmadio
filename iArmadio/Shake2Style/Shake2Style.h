@@ -12,7 +12,7 @@
 #import "ClothViewController.h"
 #import "LookViewController.h"
 
-@interface Shake2Style : UIViewController{
+@interface Shake2Style : UIViewController <UIActionSheetDelegate>{
     IarmadioDao *dao;
     IBOutlet UIImageView *imageView;
     IBOutlet UIButton *vestitoBtn;

@@ -103,14 +103,31 @@ static Shake2Style *singleton;
     [self becomeFirstResponder];
 }
 
--(void)shake{
+-(void)choiceStyle{
+    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"ShakeYourStyle, scegli uno stile",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel",nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"sportivo",nil), 
+                            NSLocalizedString(@"casual",nil),
+                            NSLocalizedString(@"elegante",nil), 
+                            NSLocalizedString(@"tutte",nil),                           
+                            nil];
     
-    Combinazione *combinazione=[self shake2style:nil filterStagione:dao.currStagioneKey];
+    popup.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    
+    [popup showInView:((iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate]).window];
+    [popup release];
+}
+
+-(void)shake:(NSString *)style{
+    NSArray *stili = nil;
+    if(style != nil){
+        stili = [[[NSArray alloc] initWithObjects:style, nil] autorelease];
+    }
+    
+    Combinazione *combinazione=[self shake2style:stili filterStagione:dao.currStagioneKey];
     
        
 
     if(combinazione == nil){
-         combinazione=[self shake2style:nil filterStagione:nil];
+         combinazione=[self shake2style:stili filterStagione:nil];
     } 
    
     
@@ -134,6 +151,25 @@ static Shake2Style *singleton;
     }
 }
 
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex == 0) {
+        [self shake:@"sportivo"];
+    }
+    else if (buttonIndex == 1) {
+        [self shake:@"casual"];
+    } 
+    else if (buttonIndex == 2) {
+        [self shake:@"elegante"];
+    }    
+    else if (buttonIndex == 3) {
+        [self shake:nil];
+    }
+    else{
+        [self dismissModalViewControllerAnimated:YES];
+    }    
+}
+
 - (BOOL)canBecomeFirstResponder {
     return YES;
 }
@@ -143,11 +179,7 @@ static Shake2Style *singleton;
     if(![[CurrState shared].currSection isEqualToString:SECTION_SHAKE2STYLE]){
         if([[[dao.config objectForKey:@"Settings"] objectForKey:@"shake"] boolValue]){
            [CurrState shared].currSection = SECTION_SHAKE2STYLE;
-            [self.view setHidden:NO];
-            self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
-            
-            [self shake];
-
+           [self choiceStyle];
         }
     }
 }

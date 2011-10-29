@@ -164,7 +164,16 @@
         if ([image class] == [UIImage class]){
             UIImageView *imageview = [[[UIImageView alloc] initWithImage:image] autorelease];
             imageview.frame = CGRectMake(offset_x,offset_y,40,40);
-            imageview.contentMode = UIViewContentModeScaleAspectFit; 
+            imageview.contentMode = UIViewContentModeScaleAspectFit;
+            
+            imageview.layer.shadowColor = [UIColor blackColor].CGColor;
+            imageview.layer.shadowOpacity = 0.7f;
+            imageview.layer.shadowOffset = CGSizeMake(3.0f, 3.0f);
+            imageview.layer.shadowRadius = 2.0f;
+            imageview.layer.masksToBounds = NO;
+            imageview.layer.shadowPath = [imageview renderPaperCurl];
+            
+            
             [cell addSubview:imageview];
             
             offset_x += imageview.frame.size.width;
@@ -239,7 +248,7 @@
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
 
-    return NO;
+    return (toInterfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 

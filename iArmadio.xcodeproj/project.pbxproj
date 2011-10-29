@@ -70,6 +70,7 @@
 		A3A19EE614486191008E283D /* cappotto.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A19EE414486191008E283D /* cappotto.png */; };
 		A3A89065144D7F320064D79B /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3A89064144D7F320064D79B /* Config.plist */; };
 		A3A976B6144DA7AA00CEB5D6 /* ShakeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3A976B5144DA7A900CEB5D6 /* ShakeView.xib */; };
+		A3ABEE6A145B70BA00F764E8 /* sfondo_02.png in Resources */ = {isa = PBXBuildFile; fileRef = A3ABEE69145B70BA00F764E8 /* sfondo_02.png */; };
 		A3B10D46145463CC00C9A881 /* ProprietaVestito.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B10D45145463CC00C9A881 /* ProprietaVestito.m */; };
 		A3B10D4A145463CD00C9A881 /* Proprieta.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B10D49145463CD00C9A881 /* Proprieta.m */; };
 		A3B10D4D145463CD00C9A881 /* Stile.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B10D4C145463CD00C9A881 /* Stile.m */; };
@@ -109,6 +110,9 @@
 		A3D70742144CBF7600469E06 /* CreditsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3D70744144CBF7600469E06 /* CreditsViewController.xib */; };
 		A3D81FD71449058D0028DD9F /* TabBarNipple.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D81FD51449058D0028DD9F /* TabBarNipple.png */; };
 		A3D81FD81449058D0028DD9F /* TabBarNipple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D81FD61449058D0028DD9F /* TabBarNipple@2x.png */; };
+		A3E44055145B81DC00021751 /* UIImage+Effect.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E44054145B81DC00021751 /* UIImage+Effect.m */; };
+		A3E44058145B85D500021751 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E44057145B85D500021751 /* Default.png */; };
+		A3E4405A145B85E000021751 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E44059145B85DF00021751 /* Default@2x.png */; };
 		A3E846B41456158300426764 /* sfondo_texture.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A3E846B31456158300426764 /* sfondo_texture.jpeg */; };
 		A3E846B71456188900426764 /* sfondo1.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E846B61456188900426764 /* sfondo1.png */; };
 		A3E846B91456192300426764 /* lookpost.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E846B81456192300426764 /* lookpost.png */; };
@@ -230,6 +234,7 @@
 		A3A66D6B1444DB3D0098F97C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A3A89064144D7F320064D79B /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		A3A976B5144DA7A900CEB5D6 /* ShakeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShakeView.xib; sourceTree = "<group>"; };
+		A3ABEE69145B70BA00F764E8 /* sfondo_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sfondo_02.png; sourceTree = "<group>"; };
 		A3B10D44145463CC00C9A881 /* ProprietaVestito.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProprietaVestito.h; sourceTree = "<group>"; };
 		A3B10D45145463CC00C9A881 /* ProprietaVestito.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProprietaVestito.m; sourceTree = "<group>"; };
 		A3B10D48145463CD00C9A881 /* Proprieta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Proprieta.h; sourceTree = "<group>"; };
@@ -281,6 +286,10 @@
 		A3D70746144CBF9400469E06 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/CreditsViewController.xib; sourceTree = "<group>"; };
 		A3D81FD51449058D0028DD9F /* TabBarNipple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabBarNipple.png; sourceTree = "<group>"; };
 		A3D81FD61449058D0028DD9F /* TabBarNipple@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabBarNipple@2x.png"; sourceTree = "<group>"; };
+		A3E44053145B81DC00021751 /* UIImage+Effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Effect.h"; sourceTree = "<group>"; };
+		A3E44054145B81DC00021751 /* UIImage+Effect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Effect.m"; sourceTree = "<group>"; };
+		A3E44057145B85D500021751 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		A3E44059145B85DF00021751 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A3E846B31456158300426764 /* sfondo_texture.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sfondo_texture.jpeg; sourceTree = "<group>"; };
 		A3E846B61456188900426764 /* sfondo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sfondo1.png; sourceTree = "<group>"; };
 		A3E846B81456192300426764 /* lookpost.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookpost.png; sourceTree = "<group>"; };
@@ -331,6 +340,8 @@
 		9CD1ACA01412840500441AB7 = {
 			isa = PBXGroup;
 			children = (
+				A3E44059145B85DF00021751 /* Default@2x.png */,
+				A3E44057145B85D500021751 /* Default.png */,
 				A30A32D814308E3100D44356 /* iArmadio */,
 				9CD1ACAE1412840600441AB7 /* Frameworks */,
 				9CD1ACAC1412840600441AB7 /* Products */,
@@ -559,6 +570,8 @@
 				A357D7151435B7BC00594E69 /* FileSystem.m */,
 				A3EA477A1449DD2D0095349B /* ExtendTabBarController.h */,
 				A3EA477B1449DD2D0095349B /* ExtendTabBarController.m */,
+				A3E44053145B81DC00021751 /* UIImage+Effect.h */,
+				A3E44054145B81DC00021751 /* UIImage+Effect.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -690,6 +703,7 @@
 		A3EA47811449FD940095349B /* background */ = {
 			isa = PBXGroup;
 			children = (
+				A3ABEE69145B70BA00F764E8 /* sfondo_02.png */,
 				A3CFBA1E145AF9FD002C060A /* sfondo_new.png */,
 				A3E846B61456188900426764 /* sfondo1.png */,
 				A3E846B31456158300426764 /* sfondo_texture.jpeg */,
@@ -842,6 +856,9 @@
 				A3CFBA1C145AF67C002C060A /* caldo_freddo_20x20.png in Resources */,
 				A3CFBA1D145AF67C002C060A /* caldo_freddo.png in Resources */,
 				A3CFBA1F145AF9FD002C060A /* sfondo_new.png in Resources */,
+				A3ABEE6A145B70BA00F764E8 /* sfondo_02.png in Resources */,
+				A3E44058145B85D500021751 /* Default.png in Resources */,
+				A3E4405A145B85E000021751 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -892,6 +909,7 @@
 				A3B10D59145463CE00C9A881 /* Stagione.m in Sources */,
 				A3B10D5C145463CE00C9A881 /* ProprietaCombinazione.m in Sources */,
 				A3B10D6D1454B09700C9A881 /* Combinazione.m in Sources */,
+				A3E44055145B81DC00021751 /* UIImage+Effect.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

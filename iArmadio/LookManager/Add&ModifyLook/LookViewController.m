@@ -192,7 +192,7 @@ downscroll;
     }
     
     choiceStagione.selectedIndex = [([CurrState shared]).currStagioneIndex intValue];
-    NSLog(@"%d",choiceStagione.selectedIndex);
+    
     
     if(self.combinazione){self.preferito = self.combinazione.preferito;}
     [self.view setUserInteractionEnabled:NO];
@@ -355,7 +355,6 @@ downscroll;
 -(IBAction) handleTapGesture:(UIGestureRecognizer *)sender{
     int tag = sender.view.tag;
     
-    NSLog(@"%d",tag);
     Vestito *vestito = [vestitiForTipi objectAtIndex:tag-1];
     
     if([vestito class] == [Vestito class]){
@@ -396,22 +395,20 @@ downscroll;
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    NSLog(@"%f %f", scrollView.contentOffset.y, scrollView.contentSize.height);
+    
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    NSLog(@"scrollViewDidEndDecelerating");
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
-    NSLog(@"scrollViewDidEndScrollingAnimation");
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    NSLog(@"scrollViewDidScroll");
+
 }
 
 
@@ -419,8 +416,7 @@ downscroll;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    //return (interfaceOrientation == UIInterfaceOrientationPortrait);
-    return NO;
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 -(void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration{
@@ -453,14 +449,6 @@ downscroll;
 -(IBAction) saveLook:(id) sender {
     NSMutableArray *vestitiInCombinazione = [[[NSMutableArray alloc] init] autorelease];
     
-    /*
-    UIGraphicsBeginImageContext(CGSizeMake(self.captureView.frame.size.width,self.captureView.frame.size.height));
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    [self.captureView.layer renderInContext:context];
-    UIImage *snapShotImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    */
-    
     for(Vestito *vestito in selectedVestiti){
        if ([vestito class] == [Vestito class]){[vestitiInCombinazione addObject:vestito];}
     }
@@ -482,17 +470,16 @@ downscroll;
     
     NSString *scelta_stagione = [[dao listStagioniKeys] objectAtIndex:choiceStagione.selectedIndex] ;
     if(!self.combinazione){
-        [dao addCombinazioneEntity:vestitiInCombinazione gradimento:choiceGradimento.selectedIndex stagioneKey:scelta_stagione stiliKeys:stili preferito:self.preferito];
+        [dao addCombinazioneEntity:vestitiInCombinazione gradimento:gradimento stagioneKey:scelta_stagione stiliKeys:stili preferito:self.preferito];
     }   
     else{
-        [dao modifyCombinazioneEntity:self.combinazione  vestitiEntities:vestitiInCombinazione  isNew:NO gradimento:choiceGradimento.selectedIndex stagioneKey:scelta_stagione stiliKeys:stili preferito:self.preferito];
+        [dao modifyCombinazioneEntity:self.combinazione  vestitiEntities:vestitiInCombinazione  isNew:NO gradimento:gradimento stagioneKey:scelta_stagione stiliKeys:stili preferito:self.preferito];
     
     }
     [self dismissModalViewControllerAnimated:YES];
 }
 
 -(IBAction) undoLook:(id) sender {
-     NSLog(@"undolook");
     [self dismissModalViewControllerAnimated:YES];
 }
 

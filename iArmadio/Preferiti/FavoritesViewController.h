@@ -10,6 +10,7 @@
 #import "IarmadioDao.h"
 #import "ClothViewController.h"
 #import "LookViewController.h"
+#import "UIImage+Effect.h"
 
 @interface FavoritesViewController : UIViewController
     <UITableViewDataSource, UITableViewDelegate>{

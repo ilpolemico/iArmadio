@@ -11,6 +11,7 @@
 #import "LookViewController.h"
 #import "CoverViewController.h"
 #import "SelectTypeViewController.h"
+#import "UIImage+Effect.h"
 
 
 @class CoverViewController;
