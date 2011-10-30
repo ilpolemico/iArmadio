@@ -135,6 +135,7 @@ static CGRect frameCover;
     
     [vestiti retain];
     
+    
     [self.openflow emptyCache];
     [self.openflow draw];
         
@@ -399,6 +400,7 @@ static CGRect frameCover;
     [segmentcontrol release];
     [segmentOrderBy release];
     [segmentStili release];
+    [orderBy release];
     [orderBy_data release];
     [orderBy_gradimento release];
     [filterStili release];

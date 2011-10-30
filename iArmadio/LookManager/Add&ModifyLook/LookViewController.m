@@ -52,8 +52,6 @@ downscroll;
     
     dao = [IarmadioDao shared];
     [CurrState shared].currSection = SECTION_LOOKVIEW;
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
-    
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLook:) name:ADD_CLOTH_EVENT object:nil];
     
@@ -61,7 +59,10 @@ downscroll;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLook:) name:DEL_CLOTH_EVENT object:nil];
 
-
+    
+    [addPreferitiBtn setImage:[dao getImageBundleFromFile:@"bookmark_deselect.png"] forState:UIControlStateNormal];
+    
+    [addPreferitiBtn setImage:[dao getImageBundleFromFile:@"bookmark.png"] forState:UIControlStateSelected];
     
     
     currIndex = 0;    
@@ -99,6 +100,11 @@ downscroll;
     self.lookSfondo.layer.shadowOffset = CGSizeMake(-7, 1);
     self.lookSfondo.layer.shadowOpacity = 1;
     self.lookSfondo.layer.shadowRadius = 3.0;
+    
+    if(selectedVestiti != nil){
+        [selectedVestiti release];
+        selectedVestiti = nil;
+    }
     
     selectedVestiti = [[NSMutableArray alloc] initWithObjects:@"",@"",@"",@"",@"",@"",@"" ,@"",@"",@"",nil];
 
@@ -177,7 +183,7 @@ downscroll;
     
     if(self.combinazione != nil){
         stili = combinazione.conStile;
-        [CurrState shared].currStagioneKey = stagione.stagione;
+        choiceStagione.selectedIndex = [stagione.id intValue];
         Stile *tmp = [[stili objectEnumerator] nextObject];    
         choiceStile.selectedIndex = [tmp.id intValue]-1;
     }
@@ -185,13 +191,12 @@ downscroll;
         NSMutableArray *items = [[toolbar.items mutableCopy] autorelease];
         [items removeObject:deleteBtn]; 
         toolbar.items = items;
+        choiceStagione.selectedIndex = [([CurrState shared]).currStagioneIndex intValue];
+        if([([CurrState shared]).currStagioneIndex intValue] > 2){
+            choiceStagione.selectedIndex = 2;
+        }
     }
     
-    if([[CurrState shared] currStagioneIndex] == nil){
-        ([CurrState shared]).currStagioneKey = dao.currStagioneKey;
-    }
-    
-    choiceStagione.selectedIndex = [([CurrState shared]).currStagioneIndex intValue];
     
     
     if(self.combinazione){self.preferito = self.combinazione.preferito;}
@@ -199,12 +204,10 @@ downscroll;
     if((self.preferito != nil)&&([self.preferito length]>0)){
         addPreferitiBtn.selected = YES;
         [addPreferitiBtn setSelected:YES];
-        [addPreferitiBtn setHighlighted:NO];
     }    
     else{
         addPreferitiBtn.selected = NO;
         [addPreferitiBtn setSelected:NO];
-        [addPreferitiBtn setHighlighted:YES];
     }
     [self.view setUserInteractionEnabled:YES];
     
@@ -229,7 +232,6 @@ downscroll;
 - (void)keepHighlightButton{
     if(!addPreferitiBtn.selected){
         [addPreferitiBtn setSelected:YES];
-        [addPreferitiBtn setHighlighted:NO];
         NSDate* date = [NSDate date];
         NSDateFormatter* formatter = [[[NSDateFormatter alloc] init] autorelease];
         [formatter setDateFormat:@"yyyy-MM-dd-hh-mm-ss"];
@@ -238,7 +240,6 @@ downscroll;
         NSString *millisecondi = [NSString stringWithFormat:@"-%d",timePassed_ms];
         self.preferito = [str stringByAppendingString:millisecondi];
     } else {
-        [addPreferitiBtn setHighlighted:YES];
         [addPreferitiBtn setSelected:NO];
         self.preferito = nil;
     }
@@ -267,7 +268,7 @@ downscroll;
     int scrollview_size_width = self.listCloth.frame.size.width-8;
     //int scrollview_size_height = self.listCloth.frame.size.height;
     
-    int imageview_size_width = scrollview_size_width;
+    int imageview_size_width = scrollview_size_width-4;
     int imageview_size_height = 80;
     
      
@@ -285,14 +286,8 @@ downscroll;
     UIButton *button = [[[UIButton alloc] init] autorelease];
     [button setImage:imageTmp forState:UIControlStateNormal];
    
-    
-    button.adjustsImageWhenHighlighted = YES;
-    
     [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [button setTag:0];
-    
-
-    
     
     button.frame = CGRectMake(3,0,imageview_size_width,imageview_size_height);
     button.imageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -317,19 +312,37 @@ downscroll;
     
     for(Vestito *vestito in vestitiForTipi){
         UIImage *imageTmp = [dao getThumbnailWithInfoFromVestito:vestito];
+        UIImageView *imageview = [[[UIImageView alloc] initWithImage:imageTmp] autorelease];
+        
+        imageview.layer.shadowColor = [UIColor blackColor].CGColor;
+        imageview.layer.shadowOpacity = 0.7f;
+        imageview.layer.shadowOffset = CGSizeMake(3.0f, 3.0f);
+        imageview.layer.shadowRadius = 2.0f;
+        imageview.layer.masksToBounds = NO;
+        imageview.layer.shadowPath = [button renderPaperCurl];
+        imageview.frame = CGRectMake(0,0,imageview_size_width,imageview_size_height);
+        
+        
+        
         UIButton *button = [[[UIButton alloc] init] autorelease];
-        button.imageView.contentMode = UIViewContentModeScaleAspectFit;
-        [button setBackgroundImage:[imageTmp rotateInDegrees:10] forState:UIControlStateNormal];
-        button.adjustsImageWhenHighlighted = YES;
+        [button addSubview:imageview];
+        
+        
+        
+                 
+         
+        button.contentMode = UIViewContentModeScaleAspectFit;
+        [button setImage:imageTmp forState:UIControlStateNormal];
+        
         [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [button setTag:count];
         
-        
+        /*
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
         
         tapGesture.numberOfTapsRequired = 2;
         [button addGestureRecognizer:tapGesture];
-        [tapGesture release];
+        [tapGesture release];*/
         
         
         button.layer.shadowPath = [UIBezierPath bezierPathWithRect:button.bounds].CGPath;
@@ -338,15 +351,16 @@ downscroll;
         button.layer.shadowOpacity = 1;
         button.layer.shadowRadius = 3.0;
         
-        button.frame = CGRectMake(3,count*imageview_size_height,imageview_size_width,imageview_size_height);
+        button.frame = CGRectMake(3,count*(imageview_size_height+10),imageview_size_width,imageview_size_height);
         [self.listCloth addSubview:button];
         
         
         sizeScrollView += imageview_size_height;
-        [self.listCloth setContentSize: CGSizeMake(scrollview_size_width,sizeScrollView)];
+      
         count++;
     }
     
+    [self.listCloth setContentSize: CGSizeMake(scrollview_size_width,sizeScrollView)];
     currChoice = index;
     
 }
@@ -387,8 +401,8 @@ downscroll;
     
     if([vestitiForTipi count] > 0){
         Vestito *vestito = [vestitiForTipi objectAtIndex:tag-1];
-        
-        [button setImage:[dao getImageFromVestito:vestito] forState:UIControlStateNormal];
+        UIImage *tmp = [[dao getImageFromVestito:vestito] scaleToFitSize:CGSizeMake(button.frame.size.width,button.frame.size.height)];
+        [button setImage:tmp  forState:UIControlStateNormal];
         [selectedVestiti replaceObjectAtIndex:currChoice withObject:vestito];
     }
 }
@@ -549,7 +563,7 @@ downscroll;
 }
 
 - (IBAction) upscrollAction:(id)sender{
-    [self.captureView setContentOffset:CGPointMake(0, 400) animated:YES];
+    [self.captureView setContentOffset:CGPointMake(0, 410) animated:YES];
     
 };
 
@@ -560,6 +574,11 @@ downscroll;
   
 
 -(void) dealloc{
+    [segmentStile release];
+    [choiceStile release];
+    [segmentStagione release];
+    [choiceStagione release];
+    [choiceToTipi release];
     [selectedVestiti release];
     [super dealloc];
 }

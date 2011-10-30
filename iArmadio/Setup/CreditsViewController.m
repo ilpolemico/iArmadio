@@ -35,7 +35,7 @@
     [super viewDidLoad];
     dao = [IarmadioDao shared];
     self.navigationController.navigationItem.title =  NSLocalizedString(@"Credits", nil);
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
+    /*self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];*/
 }
 
 - (void)viewDidUnload

@@ -68,6 +68,10 @@
 		A3816AEB143B5E57009643B4 /* SelectTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3816AE9143B5E57009643B4 /* SelectTypeViewController.m */; };
 		A3816AEC143B5E57009643B4 /* SelectTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3816AEA143B5E57009643B4 /* SelectTypeViewController.xib */; };
 		A3A19EE614486191008E283D /* cappotto.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A19EE414486191008E283D /* cappotto.png */; };
+		A3A5E262145D837500D4E362 /* borsa.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A5E25E145D837500D4E362 /* borsa.png */; };
+		A3A5E263145D837500D4E362 /* giacca.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A5E25F145D837500D4E362 /* giacca.png */; };
+		A3A5E264145D837500D4E362 /* camicia.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A5E260145D837500D4E362 /* camicia.png */; };
+		A3A5E265145D837500D4E362 /* completo.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A5E261145D837500D4E362 /* completo.png */; };
 		A3A89065144D7F320064D79B /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3A89064144D7F320064D79B /* Config.plist */; };
 		A3A976B6144DA7AA00CEB5D6 /* ShakeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3A976B5144DA7A900CEB5D6 /* ShakeView.xib */; };
 		A3ABEE6A145B70BA00F764E8 /* sfondo_02.png in Resources */ = {isa = PBXBuildFile; fileRef = A3ABEE69145B70BA00F764E8 /* sfondo_02.png */; };
@@ -85,13 +89,10 @@
 		A3C94F501456B30F00369340 /* pantaloni.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F4F1456B30F00369340 /* pantaloni.png */; };
 		A3C94F521456B36F00369340 /* felpa.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F511456B36F00369340 /* felpa.png */; };
 		A3C94F541456B38E00369340 /* gonna.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F531456B38D00369340 /* gonna.png */; };
-		A3C94F561456B3C700369340 /* borsa.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F551456B3C700369340 /* borsa.png */; };
 		A3C94F581456B50600369340 /* cappello.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F571456B50600369340 /* cappello.png */; };
 		A3C94F5A1456B54600369340 /* cintura.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F591456B54500369340 /* cintura.png */; };
-		A3C94F5C1456B57200369340 /* giacca.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F5B1456B57200369340 /* giacca.png */; };
 		A3C94F5E1456B5A900369340 /* cravatta.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F5D1456B5A900369340 /* cravatta.png */; };
 		A3C94F621456B7A600369340 /* maglione.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F611456B7A600369340 /* maglione.png */; };
-		A3C94F641456B7D900369340 /* camicia.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F631456B7D900369340 /* camicia.png */; };
 		A3C94F661456C64D00369340 /* gruccia.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F651456C64D00369340 /* gruccia.png */; };
 		A3C94F681456C9B100369340 /* specchiera.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F671456C9B100369340 /* specchiera.png */; };
 		A3C94F6A1456E6E000369340 /* bookmark_deselect.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F691456E6E000369340 /* bookmark_deselect.png */; };
@@ -117,7 +118,6 @@
 		A3E846B71456188900426764 /* sfondo1.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E846B61456188900426764 /* sfondo1.png */; };
 		A3E846B91456192300426764 /* lookpost.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E846B81456192300426764 /* lookpost.png */; };
 		A3E846BE14562B4800426764 /* vestito.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E846BA14562B4800426764 /* vestito.png */; };
-		A3E846BF14562B4800426764 /* completo.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E846BB14562B4800426764 /* completo.png */; };
 		A3E846C114562B4800426764 /* maglietta.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E846BD14562B4800426764 /* maglietta.png */; };
 		A3EA477C1449DD2D0095349B /* ExtendTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EA477B1449DD2D0095349B /* ExtendTabBarController.m */; };
 		A3EA4784144A65710095349B /* icona.png in Resources */ = {isa = PBXBuildFile; fileRef = A3EA4782144A65710095349B /* icona.png */; };
@@ -230,6 +230,10 @@
 		A3816AE9143B5E57009643B4 /* SelectTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectTypeViewController.m; sourceTree = "<group>"; };
 		A3816AEA143B5E57009643B4 /* SelectTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectTypeViewController.xib; sourceTree = "<group>"; };
 		A3A19EE414486191008E283D /* cappotto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cappotto.png; sourceTree = "<group>"; };
+		A3A5E25E145D837500D4E362 /* borsa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = borsa.png; sourceTree = "<group>"; };
+		A3A5E25F145D837500D4E362 /* giacca.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = giacca.png; sourceTree = "<group>"; };
+		A3A5E260145D837500D4E362 /* camicia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camicia.png; sourceTree = "<group>"; };
+		A3A5E261145D837500D4E362 /* completo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = completo.png; sourceTree = "<group>"; };
 		A3A66D681444DB3D0098F97C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A3A66D6B1444DB3D0098F97C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A3A89064144D7F320064D79B /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
@@ -257,14 +261,11 @@
 		A3C94F4F1456B30F00369340 /* pantaloni.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pantaloni.png; sourceTree = "<group>"; };
 		A3C94F511456B36F00369340 /* felpa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = felpa.png; sourceTree = "<group>"; };
 		A3C94F531456B38D00369340 /* gonna.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gonna.png; sourceTree = "<group>"; };
-		A3C94F551456B3C700369340 /* borsa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = borsa.png; sourceTree = "<group>"; };
 		A3C94F571456B50600369340 /* cappello.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cappello.png; sourceTree = "<group>"; };
 		A3C94F591456B54500369340 /* cintura.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cintura.png; sourceTree = "<group>"; };
-		A3C94F5B1456B57200369340 /* giacca.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = giacca.png; sourceTree = "<group>"; };
 		A3C94F5D1456B5A900369340 /* cravatta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cravatta.png; sourceTree = "<group>"; };
 		A3C94F5F1456B74100369340 /* maglietta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maglietta.png; sourceTree = "<group>"; };
 		A3C94F611456B7A600369340 /* maglione.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maglione.png; sourceTree = "<group>"; };
-		A3C94F631456B7D900369340 /* camicia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camicia.png; sourceTree = "<group>"; };
 		A3C94F651456C64D00369340 /* gruccia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gruccia.png; sourceTree = "<group>"; };
 		A3C94F671456C9B100369340 /* specchiera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = specchiera.png; sourceTree = "<group>"; };
 		A3C94F691456E6E000369340 /* bookmark_deselect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookmark_deselect.png; sourceTree = "<group>"; };
@@ -294,7 +295,6 @@
 		A3E846B61456188900426764 /* sfondo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sfondo1.png; sourceTree = "<group>"; };
 		A3E846B81456192300426764 /* lookpost.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookpost.png; sourceTree = "<group>"; };
 		A3E846BA14562B4800426764 /* vestito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vestito.png; sourceTree = "<group>"; };
-		A3E846BB14562B4800426764 /* completo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = completo.png; sourceTree = "<group>"; };
 		A3E846BD14562B4800426764 /* maglietta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maglietta.png; sourceTree = "<group>"; };
 		A3EA477A1449DD2D0095349B /* ExtendTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtendTabBarController.h; sourceTree = "<group>"; };
 		A3EA477B1449DD2D0095349B /* ExtendTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtendTabBarController.m; sourceTree = "<group>"; };
@@ -644,14 +644,15 @@
 		A3EA477F1449FD4B0095349B /* icone_vestiti */ = {
 			isa = PBXGroup;
 			children = (
-				A3C94F631456B7D900369340 /* camicia.png */,
+				A3A5E25E145D837500D4E362 /* borsa.png */,
+				A3A5E25F145D837500D4E362 /* giacca.png */,
+				A3A5E260145D837500D4E362 /* camicia.png */,
+				A3A5E261145D837500D4E362 /* completo.png */,
 				A3C94F611456B7A600369340 /* maglione.png */,
 				A3C94F5F1456B74100369340 /* maglietta.png */,
 				A3C94F5D1456B5A900369340 /* cravatta.png */,
-				A3C94F5B1456B57200369340 /* giacca.png */,
 				A3C94F591456B54500369340 /* cintura.png */,
 				A3C94F571456B50600369340 /* cappello.png */,
-				A3C94F551456B3C700369340 /* borsa.png */,
 				A3C94F531456B38D00369340 /* gonna.png */,
 				A3C94F511456B36F00369340 /* felpa.png */,
 				A3C94F4F1456B30F00369340 /* pantaloni.png */,
@@ -659,7 +660,6 @@
 				A3C94F4D1456B2E600369340 /* vestitino.png */,
 				A3C94F481456B2BA00369340 /* scarpe.png */,
 				A3E846BA14562B4800426764 /* vestito.png */,
-				A3E846BB14562B4800426764 /* completo.png */,
 				A3E846BD14562B4800426764 /* maglietta.png */,
 				A3A19EE414486191008E283D /* cappotto.png */,
 			);
@@ -818,7 +818,6 @@
 				A3E846B71456188900426764 /* sfondo1.png in Resources */,
 				A3E846B91456192300426764 /* lookpost.png in Resources */,
 				A3E846BE14562B4800426764 /* vestito.png in Resources */,
-				A3E846BF14562B4800426764 /* completo.png in Resources */,
 				A3E846C114562B4800426764 /* maglietta.png in Resources */,
 				A3C94F491456B2BA00369340 /* scarpe.png in Resources */,
 				A3C94F4C1456B2DF00369340 /* sciarpa.png in Resources */,
@@ -826,13 +825,10 @@
 				A3C94F501456B30F00369340 /* pantaloni.png in Resources */,
 				A3C94F521456B36F00369340 /* felpa.png in Resources */,
 				A3C94F541456B38E00369340 /* gonna.png in Resources */,
-				A3C94F561456B3C700369340 /* borsa.png in Resources */,
 				A3C94F581456B50600369340 /* cappello.png in Resources */,
 				A3C94F5A1456B54600369340 /* cintura.png in Resources */,
-				A3C94F5C1456B57200369340 /* giacca.png in Resources */,
 				A3C94F5E1456B5A900369340 /* cravatta.png in Resources */,
 				A3C94F621456B7A600369340 /* maglione.png in Resources */,
-				A3C94F641456B7D900369340 /* camicia.png in Resources */,
 				A3C94F661456C64D00369340 /* gruccia.png in Resources */,
 				A3C94F681456C9B100369340 /* specchiera.png in Resources */,
 				A3C94F6A1456E6E000369340 /* bookmark_deselect.png in Resources */,
@@ -859,6 +855,10 @@
 				A3ABEE6A145B70BA00F764E8 /* sfondo_02.png in Resources */,
 				A3E44058145B85D500021751 /* Default.png in Resources */,
 				A3E4405A145B85E000021751 /* Default@2x.png in Resources */,
+				A3A5E262145D837500D4E362 /* borsa.png in Resources */,
+				A3A5E263145D837500D4E362 /* giacca.png in Resources */,
+				A3A5E264145D837500D4E362 /* camicia.png in Resources */,
+				A3A5E265145D837500D4E362 /* completo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

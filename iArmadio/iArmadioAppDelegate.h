@@ -17,15 +17,16 @@
 
 @class Shake2Style;
 
-@interface iArmadioAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate>{
+@interface iArmadioAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate, UIScrollViewDelegate>{
 
     GeoLocal *geolocal;
     IarmadioDao *dao;
     Shake2Style *shake2style;
     IBOutlet UIWindow *window;
     IBOutlet UITabBarController *tabBarController;
-    UIImageView* tabBarArrow;
-    
+    UIImageView *tabBarArrow;
+    UIScrollView *openView;
+    int lastTranslation;
 }
 
 
@@ -33,6 +34,7 @@
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 @property (nonatomic, retain, readonly) IarmadioDao *dao;
 @property (nonatomic, retain) UIImageView* tabBarArrow;
+@property (nonatomic, retain) UIScrollView* openView;
 
 
 

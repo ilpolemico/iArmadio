@@ -57,7 +57,11 @@
 
 
 - (void)reloadLook:(NSNotification *)pNotification{
-   
+    NSMutableArray *keys = [[[NSMutableArray alloc] init] autorelease];
+    NSMutableDictionary *key = [[[NSMutableDictionary alloc] init] autorelease];
+    [key setObject:@"gradimento" forKey:@"field"];
+    [key setObject:@"NO" forKey:@"ascending"];
+    [keys addObject:key];
     
     if(combinazioniForStile != nil){
         [combinazioniForStile release];
@@ -67,7 +71,10 @@
     
     
     for(NSString *stile in dao.listStiliKeys){
-       NSArray *combinazioni = [dao getCombinazioniEntities:-1 filterStagioneKey:[CurrState shared].currStagioneKey filterStiliKeys:[NSArray arrayWithObject:stile]];
+        
+     
+
+       NSArray *combinazioni = [dao getCombinazioniEntities:-1 filterStagioneKey:[CurrState shared].currStagioneKey filterStiliKeys:[NSArray arrayWithObject:stile] sortOnKeys:keys preferiti:NO ];
        [combinazioniForStile setValue:combinazioni forKey:stile] ;
     }
     [(UITableView *)self.view reloadData];
@@ -137,7 +144,6 @@
     
     Combinazione *combinazione =  ((Combinazione *)[[combinazioniForStile objectForKey:stile] objectAtIndex:indexPath.row]);
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.text = combinazione.id ;
     [cell.textLabel setTextColor:[UIColor darkTextColor]];
     [cell.textLabel setFont:[UIFont fontWithName:@"MarkerFelt-Wide" size:18 ]];
@@ -274,6 +280,7 @@
 
 
 -(void) dealloc{
+    [combinazioniForStile release];
     [super dealloc];
 }
 

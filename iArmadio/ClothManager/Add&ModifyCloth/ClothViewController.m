@@ -200,7 +200,7 @@
         }
         
         if([[[CurrState shared] currStagioneIndex] intValue] == 3){
-            [self initStagioniEntities:[NSNumber numberWithInt:1]];
+            [self initStagioniEntities:[NSNumber numberWithInt:2]];
         }
         else{
             [self initStagioniEntities:[[CurrState shared] currStagioneIndex]];
@@ -220,12 +220,7 @@
             [self selectGradimento:[self.view viewWithTag:gradimento]];
         } 
         
-        NSString *stagioneKey = vestito.perLaStagione.stagione;
-        
-        
-        ([CurrState shared]).currStagioneKey = stagioneKey;
-        
-        [self initStagioniEntities:[[CurrState shared] currStagioneIndex]];
+        [self initStagioniEntities:vestito.perLaStagione.id];
         
         
         if([vestito.conStile count] > 0){
@@ -243,24 +238,16 @@
 
 - (void)initInputType{
     //Seleziona Stili
-    NSArray *stiliKeys = [dao listStiliKeys];
-    Stile *stile;
-    stile = [dao getStileEntity:[stiliKeys objectAtIndex:0]];
-    //[self.stile_1 setImage:[dao getImageFromStile:stile] forState: UIControlStateNormal];
-    stile = [dao getStileEntity:[stiliKeys objectAtIndex:1]];
-    //[self.stile_2 setImage:[dao getImageFromStile:stile] forState: UIControlStateNormal];
-    stile = [dao getStileEntity:[stiliKeys objectAtIndex:2]];
-    //[self.stile_3 setImage:[dao getImageFromStile:stile] forState: UIControlStateNormal]; 
-    
+    //NSArray *stiliKeys = [dao listStiliKeys];
     segmentStile = [[NSArray alloc] initWithObjects:self.stile_1,self.stile_2,self.stile_3, nil];
     choiceStile = [[ButtonSegmentControl alloc] init:@"stili"];
     choiceStile.delegate = self;
     choiceStile.selectedIndex = 0;
     
     
-    NSArray *stagioniKeys = [dao listStagioniKeys];
-    Stagione *stagione;
-    stagione = [dao getStagioneEntity:[stagioniKeys objectAtIndex:0]];
+    //NSArray *stagioniKeys = [dao listStagioniKeys];
+    //Stagione *stagione;
+    //stagione = [dao getStagioneEntity:[stagioniKeys objectAtIndex:0]];
     
     //self.stagione_1.imageView.contentMode = UIViewContentModeScaleAspectFit;
     //[self.stagione_1 setImage:[dao getImageFromStagione:stagione] forState: UIControlStateNormal];
@@ -329,7 +316,6 @@
 - (void)keepHighlightButton{
     if(!addPreferiti.selected){
         [addPreferiti setSelected:YES];
-        [addPreferiti setHighlighted:NO];
         NSDate* date = [NSDate date];
         NSDateFormatter* formatter = [[[NSDateFormatter alloc] init] autorelease];
         [formatter setDateFormat:@"yyyy-MM-dd-hh-mm-ss"];
@@ -338,7 +324,6 @@
         NSString *millisecondi = [NSString stringWithFormat:@"-%d",timePassed_ms];
         self.preferito = [str stringByAppendingString:millisecondi];
     } else {
-        [addPreferiti setHighlighted:YES];
         [addPreferiti setSelected:NO];
         self.preferito = nil;
     }
@@ -427,8 +412,7 @@
     
     [tipi release];
     [stili release];
-    CurrState *currstate = [CurrState shared];
-    currstate.currStagioneIndex = [NSNumber numberWithInteger:choiceStagione.selectedIndex]; 
+     
     
     [self dismissModalViewControllerAnimated:YES];
 }
@@ -442,7 +426,7 @@
 
 
 - (void)initStagioniEntities:(NSNumber *)stagioneIndex{
- choiceStagione.selectedIndex = [stagioneIndex intValue];
+    choiceStagione.selectedIndex = [stagioneIndex intValue];
 }
 
 
@@ -652,6 +636,8 @@
     [tipologiaLabel release];
     [segmentStile release];
     [segmentStagione release];
+    [choiceStile release];
+    [choiceStagione release];
     [viewGradimento release];
     [preferito release];
     [super dealloc];

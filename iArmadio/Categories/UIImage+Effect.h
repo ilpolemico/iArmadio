@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImageView (UIImage_Effect)
+@interface UIView (UIImage_Effect)
 - (CGPathRef)renderPaperCurl;
 @end

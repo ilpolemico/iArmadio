@@ -67,7 +67,6 @@
 
 
 - (void) dealloc{
-    [buttons release];
     [tag release];
     [(NSObject *)delegate release];
     [super dealloc];

@@ -88,7 +88,7 @@ static IarmadioDao *singleton;
         tmp.frame = CGRectMake(offset, 0, 30, 30);
         tmp.contentMode = UIViewContentModeScaleAspectFit;
         [viewTmp addSubview:tmp];
-        offset += 40;
+        //offset += 40;
     }
     /*
     if(stile != nil){
@@ -393,6 +393,12 @@ static IarmadioDao *singleton;
     
     NSMutableArray *predicates = [[[NSMutableArray alloc] init] autorelease]; 
     
+    
+    if(preferiti){
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"preferito.length > 0"];
+        [predicates addObject:predicate];
+    }
+    
     NSMutableArray *sortDescriptors = [[[NSMutableArray alloc] init] autorelease];
     
     if(sortonkeys != nil){
@@ -486,7 +492,11 @@ static IarmadioDao *singleton;
 
 - (Combinazione *)modifyCombinazioneEntity:(Combinazione *)combinazione vestitiEntities:(NSArray *)vestitiEntities isNew:(BOOL)isnew gradimento:(NSInteger)gradimento stagioneKey:(NSString *)stagioneKey stiliKeys:(NSArray *)stiliKeys preferito:(NSString *)preferito{
     
+    combinazione.preferito = preferito;
     if(preferito != nil){ [combinazione setValue:preferito forKey:@"preferito"];}
+    else{
+        
+    }
     [combinazione setValue:[NSNumber numberWithInteger:gradimento] forKey:@"gradimento"];
     
     
@@ -796,7 +806,7 @@ static IarmadioDao *singleton;
         NSString *key;
         while ((key = [keys nextObject])) {
             NSDictionary *prop = [dict objectForKey:key];
-            NSString *value = [prop objectForKey:@"id"]; 
+            NSString *value = [prop objectForKey:@"id"];
             NSString *icon = [prop objectForKey:@"icon"];
             Stile *stile = [NSEntityDescription insertNewObjectForEntityForName:@"Stile" inManagedObjectContext:self.managedObjectContext];
             [stile setValue:key forKey:@"stile"];
@@ -808,6 +818,8 @@ static IarmadioDao *singleton;
         [self saveContext];
     }
 }
+
+
 
 
 - (void)loadStagioni:(NSString *)namefile{
@@ -938,6 +950,8 @@ static IarmadioDao *singleton;
     else{
         currStagioneKey = @"calda-fredda";
     }
+    
+    
 }
 
 

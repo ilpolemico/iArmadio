@@ -42,7 +42,7 @@ static Shake2Style *singleton;
     
     int cont = 0;
     for(Vestito *c in vestiti){
-        tot += [c.gradimento intValue];
+        tot += [c.gradimento intValue]+1;
         [pesi addObject:[NSNumber numberWithInt:tot]];
     }
     if(tot==0){tot = 1;}
@@ -77,7 +77,7 @@ static Shake2Style *singleton;
     
     int cont = 0;
     for(Combinazione *c in combinazioni){
-        tot += [c.gradimento intValue];
+        tot += [c.gradimento intValue]+1;
         [pesi addObject:[NSNumber numberWithInt:tot]];
     }
     if(tot==0){tot = 1;}
@@ -166,6 +166,7 @@ static Shake2Style *singleton;
         [self shake:nil];
     }
     else{
+        [CurrState shared].currSection = [CurrState shared].oldCurrSection;
         [self dismissModalViewControllerAnimated:YES];
     }    
 }

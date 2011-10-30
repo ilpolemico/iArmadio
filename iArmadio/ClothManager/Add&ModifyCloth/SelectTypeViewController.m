@@ -48,10 +48,6 @@
 {
     [super viewDidLoad];
     
-    IarmadioDao *dao = [IarmadioDao shared];
-    
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
-    
     navigationBar.topItem.title = NSLocalizedString(navigationBar.topItem.title,nil);
     selectedIndexPath = nil;
     

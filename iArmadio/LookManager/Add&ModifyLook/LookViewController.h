@@ -10,6 +10,7 @@
 #import "IarmadioDao.h"
 #import "ButtonSegmentControl.h"
 #import "ClothViewController.h"
+#import "UIImage+Effect.h"
 
 
 

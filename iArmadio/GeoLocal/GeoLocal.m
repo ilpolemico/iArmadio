@@ -55,7 +55,8 @@ int curr_temp;
 -(void)setTemperatura{
     if(([currLocation length]>0)&&(![currLocation isEqualToString:oldLocation])){
         NSString *request = [NSString stringWithFormat:@"http://www.google.com/ig/api?weather=%@",currLocation];
-        
+        request =  [request stringByAddingPercentEscapesUsingEncoding:
+                    NSASCIIStringEncoding];
         NSURLRequest *myRequest = [ [[NSURLRequest alloc] initWithURL: [NSURL URLWithString:request]] autorelease];
         
         NSError        *error = nil;
@@ -69,13 +70,13 @@ int curr_temp;
         NSStringEncoding encoding = CFStringConvertEncodingToNSStringEncoding(CFStringConvertIANACharSetNameToEncoding((CFStringRef) encodingName));*/
         
         
+        
         NSXMLParser *parser = [[NSXMLParser alloc] initWithData:responseData];
         parser.delegate = self;  
         [parser parse];
         [parser release];
         
         oldTemperatura = curr_temp;
-        
         [dao setCurrStagioneKeyFromTemp:curr_temp]; 
     }
 }
@@ -89,6 +90,7 @@ int curr_temp;
     else if (currentConditions){
         if([elementName isEqualToString:@"temp_c"]){
             curr_temp =[((NSString *)[attributeDict objectForKey:@"data"]) intValue];
+            
         }
         
     }

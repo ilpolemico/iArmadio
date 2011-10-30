@@ -47,8 +47,6 @@
     [self.view addSubview:navcontroler.view];
     
     
-    self.viewImpostazioni.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
-    
     // Do any additional setup after loading the view from its nib.
     self.navcontroler.navigationBar.topItem.title =  NSLocalizedString(@"Impostazioni", nil);
     self.navcontroler.navigationBar.topItem.rightBarButtonItem.title = NSLocalizedString(@"Credits",nil);

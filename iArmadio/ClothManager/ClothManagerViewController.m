@@ -38,8 +38,8 @@
 - (void)addIterator:(NSNotification *)notification
 {
    
+    NSLog(@"%@",currstate.currSection);
     if(
-       ([currstate.oldCurrSection isEqualToString:SECTION_ARMADIO])||
        ([currstate.currSection isEqualToString:SECTION_ARMADIO]) 
         )
         
@@ -66,7 +66,6 @@
     [CurrState shared].currSection = SECTION_CLOTHMANAGERVIEW;
     navcontroler.delegate = self; 
     dao = [IarmadioDao shared];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:[CurrState shared].currSection type:@"background"]];
     currstate = [CurrState shared];
     [self.view addSubview:navcontroler.view];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addIterator:) name:ADD_CLOTH_EVENT object:nil];
@@ -77,7 +76,6 @@
 
 
 - (void)viewWillAppear:(BOOL)animated{
-    
     [CurrState shared].currSection = SECTION_CLOTHMANAGERVIEW;
 }
 
@@ -113,6 +111,11 @@
 }
 
 - (void)dealloc {
+    if(captureClothController != nil){
+        [captureClothController release];
+        captureClothController = nil;
+    }
+
     [tipologia release];
     [addItemBtn release];
     [modifyBtn release];

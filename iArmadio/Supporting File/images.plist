@@ -16,21 +16,11 @@
 	<dict>
 		<key>background</key>
 		<string>Default.png</string>
-		<key>icona_ordina_data</key>
-		<string>02.png</string>
-		<key>icona_ordina_gradimento</key>
-		<string>02.png</string>
 	</dict>
 	<key>ClothView</key>
 	<dict>
 		<key>background</key>
 		<string>Default.png</string>
-		<key>icona_gradimento_1</key>
-		<string>icon-1star-002@x.png</string>
-		<key>icona_gradimento_2</key>
-		<string>icon-2star-002@x.png</string>
-		<key>icona_gradimento_3</key>
-		<string>icon-3star-002@x.png</string>
 	</dict>
 	<key>LookManagerView</key>
 	<dict>
@@ -39,12 +29,6 @@
 	</dict>
 	<key>LookView</key>
 	<dict>
-		<key>icona_gradimento_1</key>
-		<string>02.png</string>
-		<key>icona_gradimento_2</key>
-		<string>02.png</string>
-		<key>icona_gradimento_3</key>
-		<string>02.png</string>
 		<key>background</key>
 		<string>Default.png</string>
 	</dict>

@@ -8,7 +8,7 @@
 
 #import "UIImage+Effect.h"
 
-@implementation UIImageView (UIImage_Effect)
+@implementation UIView (UIImage_Effect)
 
 - (CGPathRef)renderPaperCurl{
 	CGSize size = self.bounds.size;

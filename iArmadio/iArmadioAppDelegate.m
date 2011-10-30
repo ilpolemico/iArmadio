@@ -17,7 +17,8 @@
 
 @synthesize window;
 @synthesize tabBarController;
-@synthesize tabBarArrow;
+@synthesize tabBarArrow, openView;
+
 
 - (IarmadioDao *)dao{return dao;}
 
@@ -35,27 +36,49 @@
     dao = [IarmadioDao shared];
     [dao setupDB];
     shake2style = [Shake2Style shared];
+    [self.tabBarController.view setUserInteractionEnabled:YES];
     tabBarController.delegate = self;
     self.window.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:SECTION_MAIN_WINDOW type:@"background"]];;
     self.window.rootViewController = self.tabBarController;
     [self.window addSubview:shake2style.view];
-    [shake2style becomeFirstResponder];
     
     
+    
+    openView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,320,480)];
+    openView.pagingEnabled = YES;
+    openView.bounces = NO;
+    openView.delegate = self;
+    openView.showsHorizontalScrollIndicator = NO;
+    openView.backgroundColor = [UIColor clearColor];
+    openView.contentOffset = CGPointMake(0,0);
+    openView.contentSize = CGSizeMake(640,480);
+    UIImageView *openimage = [[[UIImageView alloc] initWithImage:[dao getImageBundleFromFile:@"Default.png"]] autorelease];
+    [openView addSubview:openimage];
+    
+    
+
     NSArray *array = self.tabBarController.tabBar.items;
     for(UITabBarItem *item in array){
         item.title = NSLocalizedString(item.title,nil);
     }
 
     [self.window addSubview:tabBarController.view];
+    [self.window addSubview:openView];
     [self addTabBarArrow];
     [self.window makeKeyAndVisible];
     return YES;
 }
 
 
-
-
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if(scrollView.contentOffset.x == 320){
+        [scrollView setHidden:YES];
+        [scrollView autorelease];
+        [self.tabBarController.view setUserInteractionEnabled:YES];
+        [shake2style becomeFirstResponder];
+    }
+}
 
 
 
