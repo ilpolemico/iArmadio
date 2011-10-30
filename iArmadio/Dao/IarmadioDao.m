@@ -709,20 +709,7 @@ static IarmadioDao *singleton;
 }
 
 - (void)loadTipologie:(NSString *)namefile{
-	NSFetchRequest * allItem = [[[NSFetchRequest alloc] init] autorelease];
-    [allItem setEntity:[NSEntityDescription entityForName:@"Tipologia" inManagedObjectContext:self.managedObjectContext]];
-    [allItem setIncludesPropertyValues:NO];
-    
-    NSError *error = nil;
-    NSArray *entities = [self.managedObjectContext executeFetchRequest:allItem error:&error];
-    
-    if(entities == nil){
-        NSLog(@"loadTipologie error %@, %@", error, [error userInfo]);
-        abort();
-    }
-    
-    if([entities count] == 0){
-        NSString *path=[[NSBundle mainBundle] pathForResource:namefile ofType:@"plist"];
+	    NSString *path=[[NSBundle mainBundle] pathForResource:namefile ofType:@"plist"];
         NSDictionary *dict=[NSDictionary dictionaryWithContentsOfFile:path];
         
         NSEnumerator *keys = [dict keyEnumerator];
@@ -749,7 +736,7 @@ static IarmadioDao *singleton;
             NSString *order = (NSString *)[type objectForKey:@"order"];
             NSString *categoria = (NSString *)[type objectForKey:@"category"];
             NSString *choice = (NSString *)[type objectForKey:@"choice"];
-            NSManagedObject *tipologia = [NSEntityDescription insertNewObjectForEntityForName:@"Tipologia" inManagedObjectContext:self.managedObjectContext];
+            Tipologia *tipologia = [self getTipologiaWithID:key];
             [tipologia setValue:key forKey:@"id"];
             [tipologia setValue:single forKey:@"nome"];
             [tipologia setValue:plural forKey:@"plural"];
@@ -780,35 +767,24 @@ static IarmadioDao *singleton;
             [array autorelease];
         }
         [self saveContext];
-    }
+    
 }
 
 
 
 - (void)loadStili:(NSString *)namefile{
-	NSFetchRequest * allItem = [[[NSFetchRequest alloc] init] autorelease];
-    [allItem setEntity:[NSEntityDescription entityForName:@"Stile" inManagedObjectContext:self.managedObjectContext]];
-    [allItem setIncludesPropertyValues:NO];
-    
-    NSError *error = nil;
-    NSArray *entities = [self.managedObjectContext executeFetchRequest:allItem error:&error];
-    
-    if(entities == nil){
-        NSLog(@"LoadStili error %@, %@", error, [error userInfo]);
-        abort();
-    }
-    
-    if([entities count] == 0){
+	
         NSString *path=[[NSBundle mainBundle] pathForResource:namefile ofType:@"plist"];
         NSDictionary *dict=[NSDictionary dictionaryWithContentsOfFile:path];
         
         NSEnumerator *keys = [dict keyEnumerator];
         NSString *key;
         while ((key = [keys nextObject])) {
+            
             NSDictionary *prop = [dict objectForKey:key];
             NSString *value = [prop objectForKey:@"id"];
             NSString *icon = [prop objectForKey:@"icon"];
-            Stile *stile = [NSEntityDescription insertNewObjectForEntityForName:@"Stile" inManagedObjectContext:self.managedObjectContext];
+            Stile *stile = [self getStileWithID:[prop objectForKey:@"id"]];
             [stile setValue:key forKey:@"stile"];
             [stile setValue:value forKey:@"id"]; 
             [stile setValue:icon forKey:@"icon"]; 
@@ -816,26 +792,14 @@ static IarmadioDao *singleton;
         }
         
         [self saveContext];
-    }
+    
 }
 
 
 
 
 - (void)loadStagioni:(NSString *)namefile{
-	NSFetchRequest * allItem = [[[NSFetchRequest alloc] init] autorelease];
-    [allItem setEntity:[NSEntityDescription entityForName:@"Stagione" inManagedObjectContext:self.managedObjectContext]];
-    [allItem setIncludesPropertyValues:NO];
-    
-    NSError *error = nil;
-    NSArray *entities = [self.managedObjectContext executeFetchRequest:allItem error:&error];
-    
-    if(entities == nil){
-        NSLog(@"loadStagioni error %@, %@", error, [error userInfo]);
-        abort();
-    }
-    
-    if([entities count] == 0){
+	
         NSString *path=[[NSBundle mainBundle] pathForResource:namefile ofType:@"plist"];
         NSDictionary *dict=[NSDictionary dictionaryWithContentsOfFile:path];
         
@@ -843,7 +807,7 @@ static IarmadioDao *singleton;
         NSString *key;
         while ((key = [keys nextObject])) {
             NSDictionary *prop = [dict objectForKey:key];
-            Stagione *stagione = [NSEntityDescription insertNewObjectForEntityForName:@"Stagione" inManagedObjectContext:self.managedObjectContext];
+            Stagione *stagione = [self getStagioneWithID:[prop objectForKey:@"id"]];
             
             [stagione setValue:(NSNumber *)[prop objectForKey:@"id"] forKey:@"id"];
             [stagione setValue:[prop objectForKey:@"icon"] forKey:@"icon"];
@@ -855,9 +819,81 @@ static IarmadioDao *singleton;
             [stagione setValue:[prop objectForKey:@"date_to_2"] forKey:@"date_to_2"];
             [stagione setValue:key forKey:@"stagione"];
         }
-        
         [self saveContext];
+}
+
+- (Stagione *)getStagioneWithID:(NSString *)id{
+    NSFetchRequest *fetch = [[[NSFetchRequest alloc] init] autorelease];
+    [fetch setEntity:[NSEntityDescription entityForName:@"Stagione" inManagedObjectContext:self.managedObjectContext]];
+    NSPredicate *predicate = [NSPredicate  predicateWithFormat:@"id = %@",id];
+    [fetch setPredicate: predicate];
+    
+    NSError *error = nil;
+    NSArray *entities = [self.managedObjectContext executeFetchRequest:fetch error:&error];
+    
+    if(entities == nil){
+        NSLog(@"loadStagioni error %@, %@", error, [error userInfo]);
+        abort();
     }
+    
+    if([entities count] > 0){
+        return [entities objectAtIndex:0];
+        
+    }
+    
+    Stagione *stagione = [NSEntityDescription insertNewObjectForEntityForName:@"Stagione" inManagedObjectContext:self.managedObjectContext];
+    return stagione;
+     
+}
+
+
+- (Stile *)getStileWithID:(NSString *)id{
+    NSFetchRequest *fetch = [[[NSFetchRequest alloc] init] autorelease];
+    [fetch setEntity:[NSEntityDescription entityForName:@"Stile" inManagedObjectContext:self.managedObjectContext]];
+    NSPredicate *predicate = [NSPredicate  predicateWithFormat:@"id = %@",id];
+    [fetch setPredicate: predicate];
+    
+    NSError *error = nil;
+    NSArray *entities = [self.managedObjectContext executeFetchRequest:fetch error:&error];
+    
+    if(entities == nil){
+        NSLog(@"loadStili error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    
+    if([entities count] > 0){
+        return [entities objectAtIndex:0];
+        
+    }
+    
+    Stile *stile = [NSEntityDescription insertNewObjectForEntityForName:@"Stile" inManagedObjectContext:self.managedObjectContext];
+    return stile;
+    
+}
+
+
+- (Tipologia *)getTipologiaWithID:(NSString *)id{
+    NSFetchRequest *fetch = [[[NSFetchRequest alloc] init] autorelease];
+    [fetch setEntity:[NSEntityDescription entityForName:@"Tipologia" inManagedObjectContext:self.managedObjectContext]];
+    NSPredicate *predicate = [NSPredicate  predicateWithFormat:@"id = %@",id];
+    [fetch setPredicate: predicate];
+    
+    NSError *error = nil;
+    NSArray *entities = [self.managedObjectContext executeFetchRequest:fetch error:&error];
+    
+    if(entities == nil){
+        NSLog(@"loadTipologie error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    
+    if([entities count] > 0){
+        return [entities objectAtIndex:0];
+        
+    }
+    
+    Tipologia *tipo = [NSEntityDescription insertNewObjectForEntityForName:@"Tipologia" inManagedObjectContext:self.managedObjectContext];
+    return tipo;
+    
 }
 
 

@@ -158,8 +158,8 @@
         [images replaceObjectAtIndex:[tipo.choice intValue] withObject:[dao getImageFromVestito:vestito]];
     }
     
-    int offset_x = 0;
-    int offset_y = 0;
+    int offset_x = 8;
+    int offset_y = 8;
     int count = 0;
   
     for (UIView *view in cell.subviews) {
@@ -229,7 +229,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    return 120;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath{

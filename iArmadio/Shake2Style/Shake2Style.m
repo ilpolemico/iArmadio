@@ -177,7 +177,13 @@ static Shake2Style *singleton;
 
 
 -(void) motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event{
-    if(![[CurrState shared].currSection isEqualToString:SECTION_SHAKE2STYLE]){
+    if(
+       (![[CurrState shared].currSection isEqualToString:SECTION_SHAKE2STYLE])
+       &&
+       (![[CurrState shared].currSection isEqualToString:SECTION_CLOTHVIEW])
+       &&
+       (![[CurrState shared].currSection isEqualToString:SECTION_LOOKVIEW])
+       ){
         if([[[dao.config objectForKey:@"Settings"] objectForKey:@"shake"] boolValue]){
            [CurrState shared].currSection = SECTION_SHAKE2STYLE;
            [self choiceStyle];

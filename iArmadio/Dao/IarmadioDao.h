@@ -93,7 +93,9 @@ static NSString * const CONFIG_PLIST = @"Config";
 - (UIImage *)getImageFromSection:(NSString *)section type:(NSString *)type;
 
 
-
+- (Stagione *)getStagioneWithID:(NSString *)id;
+- (Stile *)getStileWithID:(NSString *)id;
+- (Tipologia *)getTipologiaWithID:(NSString *)id;
 
 - (NSArray *)getVestitiEntities:(NSArray *)filterTipiKeys filterStagioneKey:(NSString *)filterStagioneKey filterStiliKeys:(NSArray *)filterStiliKeys filterGradimento:(NSInteger)filterGradimento sortOnKeys:(NSArray *)keys preferiti:(BOOL)preferiti;
 
