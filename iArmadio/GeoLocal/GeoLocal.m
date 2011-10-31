@@ -34,20 +34,30 @@ int curr_temp;
     locationManager.delegate = self;
     locationManager.distanceFilter = kCLDistanceFilterNone;
     locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
-    [locationManager startMonitoringSignificantLocationChanges];
+    
+    
+    if([self isEnableGPS]){
+        [locationManager startMonitoringSignificantLocationChanges];
+    }    
+    
     return self;
 }
 
+- (BOOL)isEnableGPS{
+    NSMutableDictionary *config = dao.config;
+    return 
+        [[[config objectForKey:@"Settings"] objectForKey:@"gps"] boolValue];
+}
 
 -(void)enableGPS{
-    //NSLog(@"Enable GPS");
+
     locationManager.delegate=self;
     [locationManager startMonitoringSignificantLocationChanges];
 }
 
 -(void)disableGPS{
     //NSLog(@"Disable GPS");
-    [locationManager stopUpdatingLocation];
+    [locationManager stopMonitoringSignificantLocationChanges];
     locationManager.delegate=nil;
 }
 
@@ -137,7 +147,6 @@ int curr_temp;
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation 
 {
-    
     if(!geoCoder){
         //NSLog(@"%@",newLocation);
         geoCoder = [[MKReverseGeocoder alloc] initWithCoordinate:newLocation.coordinate];

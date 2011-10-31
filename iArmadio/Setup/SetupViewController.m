@@ -121,6 +121,7 @@
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if(buttonIndex != 0){
         [dao deleteSQLDB];
+        [[GeoLocal shared] enableGPS];
         [self viewDidAppear:NO];
     }
     

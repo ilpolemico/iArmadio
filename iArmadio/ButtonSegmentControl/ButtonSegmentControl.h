@@ -37,6 +37,9 @@
 
 
 @protocol ButtonSegmentDelegate
+@optional
+- (BOOL)invertHighlight;
+@required
 - (NSArray *)buttons:(ButtonSegmentControl *)buttonSegmentControl;
 - (void)buttonSegmentControl:(ButtonSegmentControl *)buttonSegment  selectedButton:(UIButton *)button selectedIndex:(NSInteger)selectedIndex;
 @end

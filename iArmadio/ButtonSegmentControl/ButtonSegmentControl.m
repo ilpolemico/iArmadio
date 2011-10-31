@@ -35,13 +35,14 @@
             [button setSelected:YES];
             [button setHighlighted:NO];
         } else {
-           
-                [button setHighlighted:YES];
-                [button setSelected:NO];
+           [button setHighlighted:YES];
+           [button setSelected:NO];
         }
     }
 
 }
+
+
 
 - (void) setDelegate:(id <ButtonSegmentDelegate>) _delegate{
     delegate = _delegate;

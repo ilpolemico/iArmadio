@@ -191,9 +191,7 @@ static CGRect frameCover;
     if([buttonSegmentControl.tag isEqualToString:@"orderBy"]){
         return segmentOrderBy;
     }
-    else if([buttonSegmentControl.tag isEqualToString:@"stili"]){
-        return segmentStili;
-    }
+
     return nil;
 }
 
@@ -202,9 +200,6 @@ static CGRect frameCover;
     
     if([buttonControl.tag isEqualToString:@"orderBy"]){
         [self changeOrderBy:selectedIndex];
-    }
-    else if([buttonControl.tag isEqualToString:@"stili"]){
-        [self changeStile:selectedIndex];
     }
 }
 
@@ -314,6 +309,8 @@ static CGRect frameCover;
 -(void)changeOrderBy:(NSInteger)selectedIndex{
     if(self.view.isUserInteractionEnabled){
         NSString *sortKey;
+        
+        NSLog(@"OKOKOO!");
         
         [localCurrOrderBy release];
         localCurrOrderBy = nil;

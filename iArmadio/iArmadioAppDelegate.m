@@ -17,7 +17,7 @@
 
 @synthesize window;
 @synthesize tabBarController;
-@synthesize tabBarArrow, openView;
+@synthesize tabBarArrow;
 
 
 - (IarmadioDao *)dao{return dao;}
@@ -41,20 +41,7 @@
     self.window.backgroundColor = [UIColor colorWithPatternImage:[dao getImageFromSection:SECTION_MAIN_WINDOW type:@"background"]];;
     self.window.rootViewController = self.tabBarController;
     [self.window addSubview:shake2style.view];
-    
-    
-    
-    openView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,320,480)];
-    openView.pagingEnabled = YES;
-    openView.bounces = NO;
-    openView.delegate = self;
-    openView.showsHorizontalScrollIndicator = NO;
-    openView.backgroundColor = [UIColor clearColor];
-    openView.contentOffset = CGPointMake(0,0);
-    openView.contentSize = CGSizeMake(640,480);
-    UIImageView *openimage = [[[UIImageView alloc] initWithImage:[dao getImageBundleFromFile:@"Default.png"]] autorelease];
-    [openView addSubview:openimage];
-    
+       
     
 
     NSArray *array = self.tabBarController.tabBar.items;
@@ -63,10 +50,33 @@
     }
 
     [self.window addSubview:tabBarController.view];
-    [self.window addSubview:openView];
+    
     [self addTabBarArrow];
     [self.window makeKeyAndVisible];
+    [self openArmadio];
     return YES;
+}
+
+
+- (void)openArmadio{
+    [self.tabBarController.view setUserInteractionEnabled:NO];
+    if(openView == nil){
+        openView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,320,480)];
+        openView.pagingEnabled = YES;
+        openView.bounces = NO;
+        openView.delegate = self;
+        openView.showsHorizontalScrollIndicator = NO;
+        openView.backgroundColor = [UIColor clearColor];
+        
+        openView.contentSize = CGSizeMake(640,480);
+        
+        UIImageView *openimage = [[[UIImageView alloc] initWithImage:[[dao getImageBundleFromFile:@"armadio.png"] scaleToFitSize:CGSizeMake(320,480)]]    autorelease];
+        [openView addSubview:openimage];
+        
+        [self.window addSubview:openView];
+    }    
+    [openView setHidden:NO];
+    openView.contentOffset = CGPointMake(0,0);
 }
 
 
@@ -74,7 +84,6 @@
 {
     if(scrollView.contentOffset.x == 320){
         [scrollView setHidden:YES];
-        [scrollView autorelease];
         [self.tabBarController.view setUserInteractionEnabled:YES];
         [shake2style becomeFirstResponder];
     }
@@ -91,12 +100,14 @@
      */
 }
 
+
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
     /*
      Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
      If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
      */
+    [geolocal disableGPS];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -104,6 +115,10 @@
     /*
      Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
      */
+    if([geolocal isEnableGPS])
+            [geolocal enableGPS];
+    
+    
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
@@ -111,6 +126,7 @@
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
+    [self openArmadio];
 }
 
 
@@ -165,6 +181,7 @@
 - (void)dealloc
 {
     [window release];
+    [openView release];
     [dao release];
     [geolocal release];
     [tabBarController release];

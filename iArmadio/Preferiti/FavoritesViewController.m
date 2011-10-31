@@ -213,10 +213,10 @@
                 _imageview.layer.shadowPath = [_imageview renderPaperCurl];
                 [cell addSubview:_imageview];
                 
-                offset_x += _imageview.frame.size.width;
-                if(count == 6){
-                    offset_x = 0;
-                    offset_y += _imageview.frame.size.height;
+                offset_x += _imageview.frame.size.width + 10;
+                if(count == 3){
+                    offset_x = 8;
+                    offset_y += _imageview.frame.size.height+10;
                 }
                 count++;
             }
@@ -229,7 +229,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section == 1){return 80;}
+    if(indexPath.section == 1){return 120;}
     return 68;
 }
 

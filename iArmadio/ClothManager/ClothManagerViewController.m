@@ -38,7 +38,7 @@
 - (void)addIterator:(NSNotification *)notification
 {
    
-    NSLog(@"%@",currstate.currSection);
+    //NSLog(@"%@",currstate.currSection);
     if(
        ([currstate.currSection isEqualToString:SECTION_ARMADIO]) 
         )

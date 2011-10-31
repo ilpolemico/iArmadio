@@ -39,6 +39,7 @@
 		A3316A9C143F0D0E0042446C /* DataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A3316A99143F0D0E0042446C /* DataCache.m */; };
 		A3316A9D143F0D0E0042446C /* FlowCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3316A9B143F0D0E0042446C /* FlowCoverView.m */; };
 		A3316AA1143F10370042446C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3316AA0143F10370042446C /* OpenGLES.framework */; };
+		A3438135145E2DCC005A45D1 /* sfondo_03.png in Resources */ = {isa = PBXBuildFile; fileRef = A3438134145E2DCC005A45D1 /* sfondo_03.png */; };
 		A357353C1426850F008A742D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A357353B1426850F008A742D /* MapKit.framework */; };
 		A357353E142686F8008A742D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A357353D142686F8008A742D /* CoreLocation.framework */; };
 		A3645A861439C7AA00A13FB5 /* LookManagerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3645A811439C7AA00A13FB5 /* LookManagerView.xib */; };
@@ -71,9 +72,9 @@
 		A3A5E265145D837500D4E362 /* completo.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A5E261145D837500D4E362 /* completo.png */; };
 		A3A5E267145E00ED00D4E362 /* SelectTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3A5E269145E00ED00D4E362 /* SelectTypeViewController.xib */; };
 		A3A5E26C145E017700D4E362 /* LookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3A5E26E145E017700D4E362 /* LookViewController.xib */; };
+		A3A5E272145E0BBD00D4E362 /* sfondo_02.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A5E274145E0BBD00D4E362 /* sfondo_02.png */; };
 		A3A89065144D7F320064D79B /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3A89064144D7F320064D79B /* Config.plist */; };
 		A3A976B6144DA7AA00CEB5D6 /* ShakeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3A976B5144DA7A900CEB5D6 /* ShakeView.xib */; };
-		A3ABEE6A145B70BA00F764E8 /* sfondo_02.png in Resources */ = {isa = PBXBuildFile; fileRef = A3ABEE69145B70BA00F764E8 /* sfondo_02.png */; };
 		A3B10D46145463CC00C9A881 /* ProprietaVestito.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B10D45145463CC00C9A881 /* ProprietaVestito.m */; };
 		A3B10D4A145463CD00C9A881 /* Proprieta.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B10D49145463CD00C9A881 /* Proprieta.m */; };
 		A3B10D4D145463CD00C9A881 /* Stile.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B10D4C145463CD00C9A881 /* Stile.m */; };
@@ -82,6 +83,11 @@
 		A3B10D59145463CE00C9A881 /* Stagione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B10D58145463CE00C9A881 /* Stagione.m */; };
 		A3B10D5C145463CE00C9A881 /* ProprietaCombinazione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B10D5B145463CE00C9A881 /* ProprietaCombinazione.m */; };
 		A3B10D6D1454B09700C9A881 /* Combinazione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B10D6C1454B09700C9A881 /* Combinazione.m */; };
+		A3BF4CE5145E2958001AB9CD /* armadio.png in Resources */ = {isa = PBXBuildFile; fileRef = A3BF4CE4145E2958001AB9CD /* armadio.png */; };
+		A3C333A4145E342900C45138 /* look.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C333A3145E342900C45138 /* look.png */; };
+		A3C333AA145E39DE00C45138 /* look_laterale.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C333A8145E39DE00C45138 /* look_laterale.png */; };
+		A3C333AB145E39DE00C45138 /* look_sinistra.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C333A9145E39DE00C45138 /* look_sinistra.png */; };
+		A3C333AD145E3CA900C45138 /* sfondo_01_bis.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C333AC145E3CA900C45138 /* sfondo_01_bis.png */; };
 		A3C94F491456B2BA00369340 /* scarpe.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F481456B2BA00369340 /* scarpe.png */; };
 		A3C94F4C1456B2DF00369340 /* sciarpa.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F4B1456B2DE00369340 /* sciarpa.png */; };
 		A3C94F4E1456B2E600369340 /* vestitino.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F4D1456B2E600369340 /* vestitino.png */; };
@@ -214,6 +220,7 @@
 		A3316A9A143F0D0E0042446C /* FlowCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlowCoverView.h; sourceTree = "<group>"; };
 		A3316A9B143F0D0E0042446C /* FlowCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlowCoverView.m; sourceTree = "<group>"; };
 		A3316AA0143F10370042446C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		A3438134145E2DCC005A45D1 /* sfondo_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sfondo_03.png; sourceTree = "<group>"; };
 		A357353B1426850F008A742D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A357353D142686F8008A742D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A357D7141435B7BC00594E69 /* FileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileSystem.h; sourceTree = "<group>"; };
@@ -231,14 +238,14 @@
 		A3A5E261145D837500D4E362 /* completo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = completo.png; sourceTree = "<group>"; };
 		A3A5E268145E00ED00D4E362 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SelectTypeViewController.xib; sourceTree = "<group>"; };
 		A3A5E26A145E010300D4E362 /* it */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = it; path = it.lproj/SelectTypeViewController.xib; sourceTree = "<group>"; };
-		A3A5E26B145E014A00D4E362 /* it */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = it; path = it.lproj/ClothView.xib; sourceTree = "<group>"; };
 		A3A5E26D145E017700D4E362 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LookViewController.xib; sourceTree = "<group>"; };
 		A3A5E26F145E018B00D4E362 /* it */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = it; path = it.lproj/LookViewController.xib; sourceTree = "<group>"; };
+		A3A5E273145E0BBD00D4E362 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/sfondo_02.png; sourceTree = "<group>"; };
+		A3A5E275145E0BC600D4E362 /* it */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = it; path = it.lproj/sfondo_02.png; sourceTree = "<group>"; };
 		A3A66D681444DB3D0098F97C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A3A66D6B1444DB3D0098F97C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A3A89064144D7F320064D79B /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		A3A976B5144DA7A900CEB5D6 /* ShakeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShakeView.xib; sourceTree = "<group>"; };
-		A3ABEE69145B70BA00F764E8 /* sfondo_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sfondo_02.png; sourceTree = "<group>"; };
 		A3B10D44145463CC00C9A881 /* ProprietaVestito.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProprietaVestito.h; sourceTree = "<group>"; };
 		A3B10D45145463CC00C9A881 /* ProprietaVestito.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProprietaVestito.m; sourceTree = "<group>"; };
 		A3B10D48145463CD00C9A881 /* Proprieta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Proprieta.h; sourceTree = "<group>"; };
@@ -255,6 +262,11 @@
 		A3B10D5B145463CE00C9A881 /* ProprietaCombinazione.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProprietaCombinazione.m; sourceTree = "<group>"; };
 		A3B10D6B1454B09700C9A881 /* Combinazione.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Combinazione.h; sourceTree = "<group>"; };
 		A3B10D6C1454B09700C9A881 /* Combinazione.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Combinazione.m; sourceTree = "<group>"; };
+		A3BF4CE4145E2958001AB9CD /* armadio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = armadio.png; sourceTree = "<group>"; };
+		A3C333A3145E342900C45138 /* look.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = look.png; sourceTree = "<group>"; };
+		A3C333A8145E39DE00C45138 /* look_laterale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = look_laterale.png; sourceTree = "<group>"; };
+		A3C333A9145E39DE00C45138 /* look_sinistra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = look_sinistra.png; sourceTree = "<group>"; };
+		A3C333AC145E3CA900C45138 /* sfondo_01_bis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sfondo_01_bis.png; sourceTree = "<group>"; };
 		A3C94F481456B2BA00369340 /* scarpe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scarpe.png; sourceTree = "<group>"; };
 		A3C94F4B1456B2DE00369340 /* sciarpa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sciarpa.png; sourceTree = "<group>"; };
 		A3C94F4D1456B2E600369340 /* vestitino.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vestitino.png; sourceTree = "<group>"; };
@@ -700,7 +712,13 @@
 		A3EA47811449FD940095349B /* background */ = {
 			isa = PBXGroup;
 			children = (
-				A3ABEE69145B70BA00F764E8 /* sfondo_02.png */,
+				A3C333AC145E3CA900C45138 /* sfondo_01_bis.png */,
+				A3C333A8145E39DE00C45138 /* look_laterale.png */,
+				A3C333A9145E39DE00C45138 /* look_sinistra.png */,
+				A3C333A3145E342900C45138 /* look.png */,
+				A3438134145E2DCC005A45D1 /* sfondo_03.png */,
+				A3BF4CE4145E2958001AB9CD /* armadio.png */,
+				A3A5E274145E0BBD00D4E362 /* sfondo_02.png */,
 				A3CFBA1E145AF9FD002C060A /* sfondo_new.png */,
 				A3E846B61456188900426764 /* sfondo1.png */,
 				A3E846B31456158300426764 /* sfondo_texture.jpeg */,
@@ -847,13 +865,19 @@
 				A3CFBA1C145AF67C002C060A /* caldo_freddo_20x20.png in Resources */,
 				A3CFBA1D145AF67C002C060A /* caldo_freddo.png in Resources */,
 				A3CFBA1F145AF9FD002C060A /* sfondo_new.png in Resources */,
-				A3ABEE6A145B70BA00F764E8 /* sfondo_02.png in Resources */,
 				A3E44058145B85D500021751 /* Default.png in Resources */,
 				A3E4405A145B85E000021751 /* Default@2x.png in Resources */,
 				A3A5E262145D837500D4E362 /* borsa.png in Resources */,
 				A3A5E263145D837500D4E362 /* giacca.png in Resources */,
 				A3A5E264145D837500D4E362 /* camicia.png in Resources */,
 				A3A5E265145D837500D4E362 /* completo.png in Resources */,
+				A3A5E272145E0BBD00D4E362 /* sfondo_02.png in Resources */,
+				A3BF4CE5145E2958001AB9CD /* armadio.png in Resources */,
+				A3438135145E2DCC005A45D1 /* sfondo_03.png in Resources */,
+				A3C333A4145E342900C45138 /* look.png in Resources */,
+				A3C333AA145E39DE00C45138 /* look_laterale.png in Resources */,
+				A3C333AB145E39DE00C45138 /* look_sinistra.png in Resources */,
+				A3C333AD145E3CA900C45138 /* sfondo_01_bis.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -915,7 +939,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				A30A32EB14308E3100D44356 /* en */,
-				A3A5E26B145E014A00D4E362 /* it */,
 			);
 			name = ClothView.xib;
 			path = ../..;
@@ -946,6 +969,15 @@
 				A3A5E26F145E018B00D4E362 /* it */,
 			);
 			name = LookViewController.xib;
+			sourceTree = "<group>";
+		};
+		A3A5E274145E0BBD00D4E362 /* sfondo_02.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3A5E273145E0BBD00D4E362 /* en */,
+				A3A5E275145E0BC600D4E362 /* it */,
+			);
+			name = sfondo_02.png;
 			sourceTree = "<group>";
 		};
 		A3D70744144CBF7600469E06 /* CreditsViewController.xib */ = {

@@ -182,12 +182,14 @@
             
             [cell addSubview:imageview];
             
-            offset_x += imageview.frame.size.width;
-            if(count == 6){
-                offset_x = 0;
-                offset_y += imageview.frame.size.height;
+            offset_x += imageview.frame.size.width+10;
+            
+            if(count == 3){
+                offset_x = 8;
+                offset_y += imageview.frame.size.height+10;
             }
             count++;
+           
         }
     }
     

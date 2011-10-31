@@ -34,7 +34,10 @@
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 @property (nonatomic, retain, readonly) IarmadioDao *dao;
 @property (nonatomic, retain) UIImageView* tabBarArrow;
-@property (nonatomic, retain) UIScrollView* openView;
+
+
+
+-(void)openArmadio;
 
 
 
