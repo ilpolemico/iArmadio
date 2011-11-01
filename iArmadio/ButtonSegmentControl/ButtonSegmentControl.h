@@ -18,7 +18,7 @@
     id <ButtonSegmentDelegate> delegate;
     NSInteger selectedIndex;
     NSInteger currSelectedIndex;
-    
+    BOOL invertHighlight;
 
 }
 
@@ -26,6 +26,7 @@
 @property (nonatomic) NSInteger selectedIndex;
 @property (nonatomic) NSInteger currSelectedIndex;
 @property (retain,nonatomic, readonly) NSString  *tag;
+@property (nonatomic) BOOL invertHighlight;
 
 
 - (id)init:(NSString *)tag;
@@ -37,8 +38,6 @@
 
 
 @protocol ButtonSegmentDelegate
-@optional
-- (BOOL)invertHighlight;
 @required
 - (NSArray *)buttons:(ButtonSegmentControl *)buttonSegmentControl;
 - (void)buttonSegmentControl:(ButtonSegmentControl *)buttonSegment  selectedButton:(UIButton *)button selectedIndex:(NSInteger)selectedIndex;

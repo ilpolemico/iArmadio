@@ -52,6 +52,7 @@ static NSString * const CONFIG_PLIST = @"Config";
     NSString *localita;
     NSDictionary *imagesDictionary;
     NSMutableDictionary *config;
+    BOOL silenceNotification;
 }
 
 @property (nonatomic, retain) NSMutableDictionary *config;

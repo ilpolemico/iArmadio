@@ -26,6 +26,7 @@
     IBOutlet UITabBarController *tabBarController;
     UIImageView *tabBarArrow;
     UIScrollView *openView;
+    UIScrollView *openViewLeft;
     int lastTranslation;
 }
 

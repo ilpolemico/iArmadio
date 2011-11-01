@@ -50,6 +50,9 @@ downscroll;
     [super viewDidLoad];
     
     
+    
+    
+    
     dao = [IarmadioDao shared];
     [CurrState shared].currSection = SECTION_LOOKVIEW;
     
@@ -67,6 +70,24 @@ downscroll;
     
     currIndex = 0;    
     [self initInputType];
+    
+    if(iconeTipi != nil){
+        [iconeTipi release];
+        iconeTipi = nil;
+    }
+    
+    iconeTipi = [[NSMutableArray alloc] initWithObjects:@"",@"",@"",@"",@"",@"",@"" ,@"",@"",@"",nil];
+    
+    [iconeTipi replaceObjectAtIndex:1 withObject:[dao getImageBundleFromFile:@"cappotto.png"]];
+    [iconeTipi replaceObjectAtIndex:2 withObject:[dao getImageBundleFromFile:@"maglione.png"]];
+    [iconeTipi replaceObjectAtIndex:3 withObject:[dao getImageBundleFromFile:@"maglietta.png"]];
+    [iconeTipi replaceObjectAtIndex:4 withObject:[dao getImageBundleFromFile:@"pantaloni.png"]];
+    [iconeTipi replaceObjectAtIndex:5 withObject:[dao getImageBundleFromFile:@"scarpe.png"]];
+    [iconeTipi replaceObjectAtIndex:6 withObject:[dao getImageBundleFromFile:@"cappello.png"]];
+    [iconeTipi replaceObjectAtIndex:7 withObject:@""];
+    [iconeTipi replaceObjectAtIndex:8 withObject:[dao getImageBundleFromFile:@"sciarpa.png"]];
+    [iconeTipi replaceObjectAtIndex:9 withObject:[dao getImageBundleFromFile:@"borsa.png"]];
+    
 }
 
 - (void)reloadLook:(NSNotification *)pNotification{
@@ -107,6 +128,7 @@ downscroll;
     }
     
     selectedVestiti = [[NSMutableArray alloc] initWithObjects:@"",@"",@"",@"",@"",@"",@"" ,@"",@"",@"",nil];
+    
 
     //self.listCloth.pagingEnabled = YES;
     self.listCloth.bounces = YES;
@@ -115,11 +137,14 @@ downscroll;
     
     //self.captureView.backgroundColor = [UIColor colorWithPatternImage:[dao getImageBundleFromFile:@"looksfondo.png"]];  
     
+    
+    /*
     for(int i=1;i<=10;i++){
        SEL selector = NSSelectorFromString([@"choice" stringByAppendingFormat:@"%d",i,nil]);
             UIButton *button = [self performSelector:selector];
-            [button setImage:nil forState:UIControlStateNormal];
+         
     }
+     */
                                       
     gradimento = 1;
     if(self.combinazione){
@@ -159,6 +184,7 @@ downscroll;
     segmentStile = [[NSArray alloc] initWithObjects:self.stile_1,self.stile_2,self.stile_3, nil];
     choiceStile = [[ButtonSegmentControl alloc] init:@"stili"];
     choiceStile.delegate = self;
+    //choiceStile.invertHighlight = YES;
     choiceStile.selectedIndex = 0;
     
     
@@ -174,6 +200,7 @@ downscroll;
     segmentStagione = [[NSArray alloc] initWithObjects:self.stagione_1,self.stagione_2,self.stagione_3, nil];
     choiceStagione = [[ButtonSegmentControl alloc] init:@"stagioni"];
     choiceStagione.delegate = self;
+    choiceStagione.invertHighlight = YES;
     choiceStagione.selectedIndex = 1;
     
     
@@ -301,7 +328,13 @@ downscroll;
     }
     
     if(tipi != nil){
-        vestitiForTipi = [dao getVestitiEntities:tipi filterStagioneKey:nil filterStiliKeys:nil filterGradimento:-1 sortOnKeys:nil preferiti:NO];
+        NSMutableArray *orderBy = [[[NSMutableArray alloc] init] autorelease];
+        NSMutableDictionary *key = [[[NSMutableDictionary alloc] init] autorelease];
+        [key setObject:@"gradimento" forKey:@"field"];
+        [key setObject:@"NO" forKey:@"ascending"];
+        [orderBy addObject:key];
+        
+        vestitiForTipi = [dao getVestitiEntities:tipi filterStagioneKey:nil filterStiliKeys:nil filterGradimento:-1 sortOnKeys:orderBy preferiti:NO];
         
         [vestitiForTipi retain];
     } 
@@ -393,7 +426,8 @@ downscroll;
     
     
     if(tag == 0){
-         [button setImage:nil 
+         
+         [button setImage: [iconeTipi objectAtIndex:currChoice] 
                   forState:UIControlStateNormal];
          [selectedVestiti replaceObjectAtIndex:currChoice withObject:@""];
          return;
@@ -580,6 +614,7 @@ downscroll;
     [choiceStagione release];
     [choiceToTipi release];
     [selectedVestiti release];
+    [iconeTipi release];
     [super dealloc];
 }
 

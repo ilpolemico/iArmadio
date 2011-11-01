@@ -84,6 +84,11 @@
     //Gradimento
     int gradimento;
     IBOutlet UIView *viewGradimento;
+    
+    
+    
+    //SaveIcone
+    NSMutableArray *iconeTipi;
 
     
     int currIndex;

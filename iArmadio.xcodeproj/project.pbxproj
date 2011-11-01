@@ -73,6 +73,9 @@
 		A3A5E267145E00ED00D4E362 /* SelectTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3A5E269145E00ED00D4E362 /* SelectTypeViewController.xib */; };
 		A3A5E26C145E017700D4E362 /* LookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3A5E26E145E017700D4E362 /* LookViewController.xib */; };
 		A3A5E272145E0BBD00D4E362 /* sfondo_02.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A5E274145E0BBD00D4E362 /* sfondo_02.png */; };
+		A3A79566145F603900D1A5D3 /* crediti.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A79564145F603900D1A5D3 /* crediti.png */; };
+		A3A7956B145F6B7800D1A5D3 /* look_definitivo.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A79569145F6B7800D1A5D3 /* look_definitivo.png */; };
+		A3A7956C145F6B7800D1A5D3 /* style.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A7956A145F6B7800D1A5D3 /* style.png */; };
 		A3A89065144D7F320064D79B /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3A89064144D7F320064D79B /* Config.plist */; };
 		A3A976B6144DA7AA00CEB5D6 /* ShakeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3A976B5144DA7A900CEB5D6 /* ShakeView.xib */; };
 		A3B10D46145463CC00C9A881 /* ProprietaVestito.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B10D45145463CC00C9A881 /* ProprietaVestito.m */; };
@@ -87,7 +90,6 @@
 		A3C333A4145E342900C45138 /* look.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C333A3145E342900C45138 /* look.png */; };
 		A3C333AA145E39DE00C45138 /* look_laterale.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C333A8145E39DE00C45138 /* look_laterale.png */; };
 		A3C333AB145E39DE00C45138 /* look_sinistra.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C333A9145E39DE00C45138 /* look_sinistra.png */; };
-		A3C333AD145E3CA900C45138 /* sfondo_01_bis.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C333AC145E3CA900C45138 /* sfondo_01_bis.png */; };
 		A3C94F491456B2BA00369340 /* scarpe.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F481456B2BA00369340 /* scarpe.png */; };
 		A3C94F4C1456B2DF00369340 /* sciarpa.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F4B1456B2DE00369340 /* sciarpa.png */; };
 		A3C94F4E1456B2E600369340 /* vestitino.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F4D1456B2E600369340 /* vestitino.png */; };
@@ -124,6 +126,10 @@
 		A3E846B91456192300426764 /* lookpost.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E846B81456192300426764 /* lookpost.png */; };
 		A3E846BE14562B4800426764 /* vestito.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E846BA14562B4800426764 /* vestito.png */; };
 		A3E846C114562B4800426764 /* maglietta.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E846BD14562B4800426764 /* maglietta.png */; };
+		A3E9CBF5145F421200F18342 /* anta_dx.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E9CBF3145F421200F18342 /* anta_dx.png */; };
+		A3E9CBF6145F421200F18342 /* anta_sx.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E9CBF4145F421200F18342 /* anta_sx.png */; };
+		A3E9CBF9145F4FD000F18342 /* sfondo_01_bis.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E9CBF8145F4FD000F18342 /* sfondo_01_bis.png */; };
+		A3E9CBFB145F519E00F18342 /* look_base.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E9CBFA145F519E00F18342 /* look_base.png */; };
 		A3EA477C1449DD2D0095349B /* ExtendTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EA477B1449DD2D0095349B /* ExtendTabBarController.m */; };
 		A3EA4784144A65710095349B /* icona.png in Resources */ = {isa = PBXBuildFile; fileRef = A3EA4782144A65710095349B /* icona.png */; };
 		A3EA4785144A65710095349B /* icona@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3EA4783144A65710095349B /* icona@2x.png */; };
@@ -139,7 +145,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9CD1ACAB1412840600441AB7 /* iArmadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iArmadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CD1ACAB1412840600441AB7 /* WhatDoWear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatDoWear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD1ACAF1412840600441AB7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9CD1ACB11412840600441AB7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9CD1ACB31412840600441AB7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -244,6 +250,9 @@
 		A3A5E275145E0BC600D4E362 /* it */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = it; path = it.lproj/sfondo_02.png; sourceTree = "<group>"; };
 		A3A66D681444DB3D0098F97C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A3A66D6B1444DB3D0098F97C /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		A3A79564145F603900D1A5D3 /* crediti.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crediti.png; sourceTree = "<group>"; };
+		A3A79569145F6B7800D1A5D3 /* look_definitivo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = look_definitivo.png; sourceTree = "<group>"; };
+		A3A7956A145F6B7800D1A5D3 /* style.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = style.png; sourceTree = "<group>"; };
 		A3A89064144D7F320064D79B /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		A3A976B5144DA7A900CEB5D6 /* ShakeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShakeView.xib; sourceTree = "<group>"; };
 		A3B10D44145463CC00C9A881 /* ProprietaVestito.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProprietaVestito.h; sourceTree = "<group>"; };
@@ -266,7 +275,6 @@
 		A3C333A3145E342900C45138 /* look.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = look.png; sourceTree = "<group>"; };
 		A3C333A8145E39DE00C45138 /* look_laterale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = look_laterale.png; sourceTree = "<group>"; };
 		A3C333A9145E39DE00C45138 /* look_sinistra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = look_sinistra.png; sourceTree = "<group>"; };
-		A3C333AC145E3CA900C45138 /* sfondo_01_bis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sfondo_01_bis.png; sourceTree = "<group>"; };
 		A3C94F481456B2BA00369340 /* scarpe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scarpe.png; sourceTree = "<group>"; };
 		A3C94F4B1456B2DE00369340 /* sciarpa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sciarpa.png; sourceTree = "<group>"; };
 		A3C94F4D1456B2E600369340 /* vestitino.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vestitino.png; sourceTree = "<group>"; };
@@ -308,6 +316,10 @@
 		A3E846B81456192300426764 /* lookpost.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lookpost.png; sourceTree = "<group>"; };
 		A3E846BA14562B4800426764 /* vestito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vestito.png; sourceTree = "<group>"; };
 		A3E846BD14562B4800426764 /* maglietta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maglietta.png; sourceTree = "<group>"; };
+		A3E9CBF3145F421200F18342 /* anta_dx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = anta_dx.png; sourceTree = "<group>"; };
+		A3E9CBF4145F421200F18342 /* anta_sx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = anta_sx.png; sourceTree = "<group>"; };
+		A3E9CBF8145F4FD000F18342 /* sfondo_01_bis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sfondo_01_bis.png; sourceTree = "<group>"; };
+		A3E9CBFA145F519E00F18342 /* look_base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = look_base.png; sourceTree = "<group>"; };
 		A3EA477A1449DD2D0095349B /* ExtendTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtendTabBarController.h; sourceTree = "<group>"; };
 		A3EA477B1449DD2D0095349B /* ExtendTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtendTabBarController.m; sourceTree = "<group>"; };
 		A3EA4782144A65710095349B /* icona.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icona.png; sourceTree = "<group>"; };
@@ -362,7 +374,7 @@
 		9CD1ACAC1412840600441AB7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9CD1ACAB1412840600441AB7 /* iArmadio.app */,
+				9CD1ACAB1412840600441AB7 /* WhatDoWear.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -680,6 +692,7 @@
 		A3EA47801449FD6A0095349B /* icone_interfaccia */ = {
 			isa = PBXGroup;
 			children = (
+				A3A7956A145F6B7800D1A5D3 /* style.png */,
 				A3CFBA1A145AF67B002C060A /* caldo_freddo_20x20.png */,
 				A3CFBA1B145AF67B002C060A /* caldo_freddo.png */,
 				A3CFBA18145AE43A002C060A /* down_arrow_32x32.png */,
@@ -712,7 +725,12 @@
 		A3EA47811449FD940095349B /* background */ = {
 			isa = PBXGroup;
 			children = (
-				A3C333AC145E3CA900C45138 /* sfondo_01_bis.png */,
+				A3A79569145F6B7800D1A5D3 /* look_definitivo.png */,
+				A3A79564145F603900D1A5D3 /* crediti.png */,
+				A3E9CBFA145F519E00F18342 /* look_base.png */,
+				A3E9CBF8145F4FD000F18342 /* sfondo_01_bis.png */,
+				A3E9CBF3145F421200F18342 /* anta_dx.png */,
+				A3E9CBF4145F421200F18342 /* anta_sx.png */,
 				A3C333A8145E39DE00C45138 /* look_laterale.png */,
 				A3C333A9145E39DE00C45138 /* look_sinistra.png */,
 				A3C333A3145E342900C45138 /* look.png */,
@@ -765,7 +783,7 @@
 			);
 			name = iArmadio;
 			productName = iArmadio;
-			productReference = 9CD1ACAB1412840600441AB7 /* iArmadio.app */;
+			productReference = 9CD1ACAB1412840600441AB7 /* WhatDoWear.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -877,7 +895,13 @@
 				A3C333A4145E342900C45138 /* look.png in Resources */,
 				A3C333AA145E39DE00C45138 /* look_laterale.png in Resources */,
 				A3C333AB145E39DE00C45138 /* look_sinistra.png in Resources */,
-				A3C333AD145E3CA900C45138 /* sfondo_01_bis.png in Resources */,
+				A3E9CBF5145F421200F18342 /* anta_dx.png in Resources */,
+				A3E9CBF6145F421200F18342 /* anta_sx.png in Resources */,
+				A3E9CBF9145F4FD000F18342 /* sfondo_01_bis.png in Resources */,
+				A3E9CBFB145F519E00F18342 /* look_base.png in Resources */,
+				A3A79566145F603900D1A5D3 /* crediti.png in Resources */,
+				A3A7956B145F6B7800D1A5D3 /* look_definitivo.png in Resources */,
+				A3A7956C145F6B7800D1A5D3 /* style.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1023,6 +1047,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = WhatDoWear;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1041,6 +1066,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_NAME = WhatDoWear;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1066,7 +1092,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				"OTHER_LDFLAGS[arch=*]" = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WhatDoWear;
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/**";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1097,7 +1123,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				"OTHER_LDFLAGS[arch=*]" = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WhatDoWear;
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/**";
 				WRAPPER_EXTENSION = app;
 			};

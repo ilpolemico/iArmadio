@@ -51,6 +51,8 @@
     BOOL modifyImageCloth;
     int lastScaleFactor, netRotation;
     CGPoint netTranslation;
+    float scaleFactor;
+    float offsetScaleFactor;
     
     CGAffineTransform rotate;
     CGAffineTransform pinch;

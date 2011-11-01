@@ -9,13 +9,14 @@
 #import "ButtonSegmentControl.h"
 
 @implementation ButtonSegmentControl
-@synthesize delegate, selectedIndex, currSelectedIndex, tag;
+@synthesize delegate, selectedIndex, currSelectedIndex, tag, invertHighlight;
 
 - (id)init:(NSString *)_tag
 {
     self = [super init];
     if (self) {
         tag = _tag;
+        self.invertHighlight = NO;
     }
     
     return self;
@@ -33,9 +34,9 @@
         UIButton *button = [buttons objectAtIndex:i];
         if (i == selectedIndex) {
             [button setSelected:YES];
-            [button setHighlighted:NO];
+            [button setHighlighted:(!self.invertHighlight)&&YES];
         } else {
-           [button setHighlighted:YES];
+           [button setHighlighted:self.invertHighlight&&YES];
            [button setSelected:NO];
         }
     }
@@ -54,6 +55,8 @@
         [button setTag:i];
     }
     self.currSelectedIndex = -1;
+
+
 }
 
 

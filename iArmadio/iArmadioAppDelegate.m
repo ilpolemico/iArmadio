@@ -62,34 +62,78 @@
     [self.tabBarController.view setUserInteractionEnabled:NO];
     if(openView == nil){
         openView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,320,480)];
+        openViewLeft = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,160,480)];
+        openView.tag = 1;
+        openViewLeft.tag = 2;
+        
         openView.pagingEnabled = YES;
         openView.bounces = NO;
         openView.delegate = self;
         openView.showsHorizontalScrollIndicator = NO;
         openView.backgroundColor = [UIColor clearColor];
         
+        
+        
+        
+        openViewLeft.pagingEnabled = YES;
+        openViewLeft.bounces = NO;
+        openViewLeft.delegate = self;
+        openViewLeft.showsHorizontalScrollIndicator = NO;
+        openViewLeft.backgroundColor = [UIColor clearColor];
+        
+        openViewLeft.contentSize = CGSizeMake(640,480);
         openView.contentSize = CGSizeMake(640,480);
         
-        UIImageView *openimage = [[[UIImageView alloc] initWithImage:[[dao getImageBundleFromFile:@"armadio.png"] scaleToFitSize:CGSizeMake(320,480)]]    autorelease];
+        UIImageView *openimage = [[[UIImageView alloc] initWithImage:[[dao getImageBundleFromFile:@"anta_dx.png"] scaleToFitSize:CGSizeMake(160,480)]]    autorelease];
+        
+        openimage.layer.shadowPath = [UIBezierPath bezierPathWithRect:openimage.bounds].CGPath;
+        openimage.layer.shadowColor = [UIColor grayColor].CGColor;
+        openimage.layer.shadowOffset = CGSizeMake(-5,0);
+        openimage.layer.shadowOpacity = 1;
+        openimage.layer.shadowRadius = 3.0;
+        
+        openimage.frame = CGRectMake(160, 0, 160,480);
         [openView addSubview:openimage];
         
+        
+        UIImageView *openimageleft = [[[UIImageView alloc] initWithImage:[[dao getImageBundleFromFile:@"anta_sx.png"] scaleToFitSize:CGSizeMake(160,480)]]    autorelease];
+        
+        openimageleft.frame = CGRectMake(0, 0, 160,480);
+        [openViewLeft addSubview:openimageleft];
+        
+        [self.window addSubview:openViewLeft];
         [self.window addSubview:openView];
     }    
     [openView setHidden:NO];
+    [openViewLeft setHidden:NO];
     openView.contentOffset = CGPointMake(0,0);
+    openViewLeft.contentOffset = CGPointMake(0,0);
 }
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if(scrollView.contentOffset.x == 320){
-        [scrollView setHidden:YES];
-        [self.tabBarController.view setUserInteractionEnabled:YES];
-        [shake2style becomeFirstResponder];
+    
+    if(scrollView.tag == 1){
+        if(scrollView.contentOffset.x == 320){
+            [scrollView setHidden:YES];
+            [self.tabBarController.view setUserInteractionEnabled:YES];
+            [UIView beginAnimations:nil context:nil];
+            [UIView setAnimationDuration:0.3];
+            [UIView setAnimationDelegate:self];
+            [UIView setAnimationDidStopSelector:@selector(setHiddenOpenViewLeft:finished:context:)];
+            
+            openViewLeft.contentOffset = CGPointMake(160,0);
+            [UIView commitAnimations];
+            [shake2style becomeFirstResponder];
+        }
+       
     }
 }
 
-
+-(void)setHiddenOpenViewLeft:(NSString *)animationID finished:(NSNumber *) finished context:(void *) context {
+    [openViewLeft setHidden:YES];
+}
 
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -108,6 +152,7 @@
      If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
      */
     [geolocal disableGPS];
+    [self openArmadio];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

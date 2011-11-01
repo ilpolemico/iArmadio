@@ -310,8 +310,6 @@ static CGRect frameCover;
     if(self.view.isUserInteractionEnabled){
         NSString *sortKey;
         
-        NSLog(@"OKOKOO!");
-        
         [localCurrOrderBy release];
         localCurrOrderBy = nil;
         if(selectedIndex == 1){

@@ -27,6 +27,7 @@ static IarmadioDao *singleton;
 - (IarmadioDao*)initDao{
     srand(time(NULL));
     singleton = self;
+    silenceNotification = NO;
     return self;
 }
 
@@ -278,10 +279,11 @@ static IarmadioDao *singleton;
     [vestito retain];
     [vestito autorelease];
     
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:ADD_CLOTH_EVENT
-     object:self];
-    
+    if(!silenceNotification){
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:ADD_CLOTH_EVENT
+         object:self];
+    }
     return vestito;
     
 
@@ -309,6 +311,29 @@ static IarmadioDao *singleton;
         for (NSString *key in tipiKeys) {
             [tmp addObject:[self getTipoEntity:key]];
         }
+        
+        if((vestito.tipi != nil)&&([vestito.tipi count]>0)){
+            Tipologia *tipoCurr = [[vestito.tipi allObjects] objectAtIndex:0];
+            Tipologia *tipoNew = [tmp objectAtIndex:0];
+            
+            if(![tipoCurr.nome isEqualToString:tipoNew.nome]){
+               
+              
+                NSSet *inCombinazioni = vestito.inCombinazioni;
+                
+                for(Combinazione *combinazione in inCombinazioni){
+                    if([combinazione.fattaDi count] == 1){
+                        silenceNotification = YES;  
+                        [self delCombinazioneEntity:combinazione];
+                        silenceNotification = NO;
+                    }
+                }
+                vestito.inCombinazioni = nil;
+                
+            }
+        }
+        
+        
         vestito.tipi = [NSSet setWithArray: tmp];
     }
     if((stiliKeys != nil )&&([stiliKeys count] > 0)){
@@ -325,9 +350,11 @@ static IarmadioDao *singleton;
 
     if(!new){
         [self saveContext];
+        if(!silenceNotification){
         [[NSNotificationCenter defaultCenter]
          postNotificationName:MOD_CLOTH_EVENT
          object:self];
+        }    
     }
     [vestito autorelease];
     return vestito;
@@ -340,7 +367,9 @@ static IarmadioDao *singleton;
     
     for(Combinazione *combinazione in inCombinazioni){
         if([combinazione.fattaDi count] == 1){
+            silenceNotification = YES;
             [self delCombinazioneEntity:combinazione]; 
+            silenceNotification = NO;
         }
     }
     
@@ -362,17 +391,21 @@ static IarmadioDao *singleton;
     
     [self.managedObjectContext deleteObject:vestitoEntity];
     [self saveContext];
+    if(!silenceNotification){
     [[NSNotificationCenter defaultCenter]
      postNotificationName:DEL_CLOTH_EVENT
      object:self];
+    }    
     
 }
 
 - (void)modifyVestitiEntities{
     [self saveContext];
+    if(!silenceNotification){
     [[NSNotificationCenter defaultCenter]
      postNotificationName:MOD_CLOTH_EVENT
      object:self];
+    }    
 }
 
 
@@ -481,10 +514,11 @@ static IarmadioDao *singleton;
     
     
     combinazione = [self modifyCombinazioneEntity:combinazione vestitiEntities:vestitiEntities isNew:YES gradimento:gradimento stagioneKey:stagioneKey stiliKeys:stiliKeys preferito:preferito];
-    
+    if(!silenceNotification){
     [[NSNotificationCenter defaultCenter]
      postNotificationName:ADD_LOOK_EVENT
      object:self];
+    }    
     [combinazione retain];
     [combinazione autorelease];
     return combinazione;    
@@ -515,9 +549,11 @@ static IarmadioDao *singleton;
     [self saveContext];
     
     if(!isnew){
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:MOD_LOOK_EVENT
-     object:self];
+        if(!silenceNotification){
+                [[NSNotificationCenter defaultCenter]
+                    postNotificationName:MOD_LOOK_EVENT
+                    object:self];
+        }      
     }    
     
     return combinazione;
@@ -527,17 +563,21 @@ static IarmadioDao *singleton;
 - (void)delCombinazioneEntity:(Combinazione *)combinazione{
     [self.managedObjectContext deleteObject:combinazione];
     [self saveContext];
+    if(!silenceNotification){
     [[NSNotificationCenter defaultCenter]
      postNotificationName:DEL_LOOK_EVENT
      object:self];
+    }    
 }
 
 
 - (void)modifyCombinazioniEntities{
     [self saveContext];
+    if(!silenceNotification){
     [[NSNotificationCenter defaultCenter]
      postNotificationName:MOD_LOOK_EVENT
      object:self];
+    }    
 }
 
 
@@ -1104,10 +1144,11 @@ static IarmadioDao *singleton;
     }
     
     [self setupDB];
-    
+    if(!silenceNotification){
     [[NSNotificationCenter defaultCenter]
      postNotificationName:MOD_CLOTH_EVENT
      object:self];
+    }   
 }
 
 - (void)saveContext {

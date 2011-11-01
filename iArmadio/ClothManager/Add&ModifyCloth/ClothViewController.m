@@ -242,6 +242,7 @@
     segmentStile = [[NSArray alloc] initWithObjects:self.stile_1,self.stile_2,self.stile_3, nil];
     choiceStile = [[ButtonSegmentControl alloc] init:@"stili"];
     choiceStile.delegate = self;
+    choiceStile.invertHighlight = YES;
     choiceStile.selectedIndex = 0;
     
     
@@ -259,6 +260,7 @@
     segmentStagione = [[NSArray alloc] initWithObjects:self.stagione_1,self.stagione_2,self.stagione_3, nil];
     choiceStagione = [[ButtonSegmentControl alloc] init:@"stagioni"];
     choiceStagione.delegate = self;
+    choiceStagione.invertHighlight = YES;
     choiceStagione.selectedIndex = 0;
     
     [addPreferiti setImage:[dao getImageBundleFromFile:@"bookmark_deselect.png"] forState:UIControlStateNormal];
@@ -527,15 +529,11 @@
     if(isChangeImage){
         currTransform = self.imageView.transform;
         isChangeImage = NO;
+        offsetScaleFactor = lastScaleFactor;
     }
-    
-    float factor = 0;
-    float scaleFactor = ((UISlider *)sender).value;
-    
-    factor = scaleFactor + 1.0;
-    CGAffineTransform transform = CGAffineTransformScale(currTransform,factor,factor);
+    scaleFactor = ((UISlider *)sender).value + 1.0;
+    CGAffineTransform transform = CGAffineTransformScale(currTransform,scaleFactor,scaleFactor);
     self.imageView.transform = transform;
-    lastScaleFactor = factor;
 }
 
 -(IBAction) selectGradimento:(id)sender{

@@ -173,7 +173,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">sfondo_new.png</string>
+							<string key="NSResourceName">sfondo_01_bis.png</string>
 						</object>
 					</object>
 				</object>
@@ -520,7 +520,7 @@
 				<string>caldo_20x20.png</string>
 				<string>caldo_freddo_20x20.png</string>
 				<string>freddo_20x20.png</string>
-				<string>sfondo_new.png</string>
+				<string>sfondo_01_bis.png</string>
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>

@@ -181,7 +181,7 @@
     else{
         Combinazione *combinazione = (Combinazione *)[self.combinazioni objectAtIndex:indexPath.row];
         
-        NSMutableArray *images = [[[NSMutableArray alloc] initWithObjects:@"",@"",@"",@"",@"",@"",@"",@"",@"",nil] autorelease];
+        NSMutableArray *images = [[[NSMutableArray alloc] initWithObjects:@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",nil] autorelease];
         
         
         NSSet *vestitiInCombinazione = combinazione.fattaDi; 

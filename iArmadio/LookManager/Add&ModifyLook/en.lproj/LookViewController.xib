@@ -137,7 +137,7 @@
 					<object class="IBUIImageView" id="789595712">
 						<reference key="NSNextResponder" ref="530873643"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{0, 44}, {300, 440}}</string>
+						<string key="NSFrame">{{0, 44}, {320, 480}}</string>
 						<reference key="NSSuperview" ref="530873643"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="934999655"/>
@@ -154,22 +154,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">look_laterale.png</string>
-						</object>
-					</object>
-					<object class="IBUIImageView" id="524283914">
-						<reference key="NSNextResponder" ref="530873643"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{70, 44}, {250, 960}}</string>
-						<reference key="NSSuperview" ref="530873643"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="27752613"/>
-						<string key="NSReuseIdentifierKey">_NS:567</string>
-						<bool key="IBUIUserInteractionEnabled">NO</bool>
-						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<object class="NSCustomResource" key="IBUIImage">
-							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">look_sinistra.png</string>
+							<string key="NSResourceName">look_base.png</string>
 						</object>
 					</object>
 					<object class="IBUIScrollView" id="934999655">
@@ -178,7 +163,7 @@
 						<string key="NSFrame">{{0, 44}, {85, 436}}</string>
 						<reference key="NSSuperview" ref="530873643"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="524283914"/>
+						<reference key="NSNextKeyView" ref="27752613"/>
 						<string key="NSReuseIdentifierKey">_NS:190</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -193,6 +178,21 @@
 						<int key="NSvFlags">268</int>
 						<object class="NSMutableArray" key="NSSubviews">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBUIImageView" id="524283914">
+								<reference key="NSNextResponder" ref="27752613"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrameSize">{250, 960}</string>
+								<reference key="NSSuperview" ref="27752613"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="191373211"/>
+								<string key="NSReuseIdentifierKey">_NS:567</string>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<object class="NSCustomResource" key="IBUIImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">look_sinistra.png</string>
+								</object>
+							</object>
 							<object class="IBUIView" id="191373211">
 								<reference key="NSNextResponder" ref="27752613"/>
 								<int key="NSvFlags">274</int>
@@ -268,7 +268,7 @@
 										<reference key="IBUINormalTitleShadowColor" ref="514866154"/>
 										<object class="NSCustomResource" key="IBUINormalImage">
 											<string key="NSClassName">NSImage</string>
-											<string key="NSResourceName">02.png</string>
+											<string key="NSResourceName">caldo_freddo.png</string>
 										</object>
 										<reference key="IBUIFontDescription" ref="554317090"/>
 										<reference key="IBUIFont" ref="381565063"/>
@@ -423,6 +423,10 @@
 													<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 												</object>
 												<reference key="IBUINormalTitleShadowColor" ref="514866154"/>
+												<object class="NSCustomResource" key="IBUINormalImage">
+													<string key="NSClassName">NSImage</string>
+													<string key="NSResourceName">cappello.png</string>
+												</object>
 												<reference key="IBUIFontDescription" ref="554317090"/>
 												<reference key="IBUIFont" ref="381565063"/>
 											</object>
@@ -771,10 +775,10 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
 						</object>
-						<string key="NSFrame">{{83, 44}, {250, 436}}</string>
+						<string key="NSFrame">{{83, 44}, {250, 672}}</string>
 						<reference key="NSSuperview" ref="530873643"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="191373211"/>
+						<reference key="NSNextKeyView" ref="524283914"/>
 						<string key="NSReuseIdentifierKey">_NS:190</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -788,7 +792,7 @@
 						<bool key="IBUIScrollEnabled">NO</bool>
 					</object>
 				</object>
-				<string key="NSFrameSize">{320, 577}</string>
+				<string key="NSFrameSize">{320, 480}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="356764722"/>
@@ -798,6 +802,7 @@
 					<bytes key="NSWhite">MQA</bytes>
 					<reference key="NSCustomColorSpace" ref="896737936"/>
 				</object>
+				<bool key="IBUIClipsSubviews">YES</bool>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 		</object>
@@ -843,14 +848,6 @@
 						<reference key="destination" ref="530873643"/>
 					</object>
 					<int key="connectionID">142</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">lookSfondo</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="524283914"/>
-					</object>
-					<int key="connectionID">146</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -1019,6 +1016,14 @@
 						<reference key="destination" ref="27752613"/>
 					</object>
 					<int key="connectionID">177</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">lookSfondo</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="524283914"/>
+					</object>
+					<int key="connectionID">146</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -1218,7 +1223,6 @@
 							<reference ref="356764722"/>
 							<reference ref="27752613"/>
 							<reference ref="789595712"/>
-							<reference ref="524283914"/>
 							<reference ref="934999655"/>
 						</object>
 						<reference key="parent" ref="0"/>
@@ -1258,16 +1262,12 @@
 						<reference key="parent" ref="530873643"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">145</int>
-						<reference key="object" ref="524283914"/>
-						<reference key="parent" ref="530873643"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">134</int>
 						<reference key="object" ref="27752613"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="191373211"/>
+							<reference ref="524283914"/>
 						</object>
 						<reference key="parent" ref="530873643"/>
 					</object>
@@ -1445,6 +1445,11 @@
 						<int key="objectID">181</int>
 						<reference key="object" ref="256173247"/>
 						<reference key="parent" ref="356764722"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">145</int>
+						<reference key="object" ref="524283914"/>
+						<reference key="parent" ref="27752613"/>
 					</object>
 				</object>
 			</object>
@@ -1896,12 +1901,13 @@
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<object class="NSArray" key="dict.sortedKeys">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>02.png</string>
 				<string>bookmark.png</string>
 				<string>caldo.png</string>
+				<string>caldo_freddo.png</string>
+				<string>cappello.png</string>
 				<string>down_arrow_32x32.png</string>
 				<string>freddo.png</string>
-				<string>look_laterale.png</string>
+				<string>look_base.png</string>
 				<string>look_sinistra.png</string>
 				<string>star.png</string>
 				<string>star_gray.png</string>
@@ -1909,9 +1915,10 @@
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>{36, 36}</string>
 				<string>{32, 32}</string>
 				<string>{32, 32}</string>
+				<string>{32, 32}</string>
+				<string>{160, 160}</string>
 				<string>{32, 32}</string>
 				<string>{32, 32}</string>
 				<string>{640, 960}</string>
