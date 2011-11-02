@@ -106,7 +106,7 @@ const GLshort GTextures[] = {
 
 - (void)dealloc
 {
-    NSLog(@"Dealloc FlowCover!"); 
+     
 	if (texture) {
 		glDeleteTextures(1,&texture);
 	}
@@ -230,6 +230,9 @@ const GLshort GTextures[] = {
 
 - (void)dealloc 
 {
+    
+    NSLog(@"Dealloc FlowCover!");
+    
     [EAGLContext setCurrentContext:context];
 
 	[self destroyFrameBuffer];
@@ -238,6 +241,8 @@ const GLshort GTextures[] = {
 	[EAGLContext setCurrentContext:nil];
     
 	[context release];
+    //[delegate release];
+    //delegate = nil;
     context = nil;
     [super dealloc];
 }

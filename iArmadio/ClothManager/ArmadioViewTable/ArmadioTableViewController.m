@@ -68,7 +68,6 @@
         NSArray *tipologie = [dao.category objectForKey:category];
         for(NSString *tmp in tipologie){
             NSInteger count = [[dao getVestitiEntities:[[[NSArray alloc] initWithObjects:tmp, nil] autorelease] filterStagioneKey:nil filterStiliKeys:nil filterGradimento:-1] count];
-            NSLog(@"nome:%@ count:%d",tmp,count);
             [countVestiti setValue:[NSNumber numberWithInt:count] forKey:tmp];
         }    
         
