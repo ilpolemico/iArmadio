@@ -35,10 +35,12 @@ static CurrState *singleton;
     
     if(currStagioneKey != nil){
         [currStagioneKey release];
+        currStagioneKey = nil;
     }
     
     if(currStagioneIndex != nil){
         [currStagioneIndex release];
+        currStagioneIndex = nil;
     }
     
     currStagioneKey = key;
@@ -66,10 +68,12 @@ static CurrState *singleton;
 -(void)setCurrStagioneIndex:(NSNumber *)index{
     if(currStagioneKey != nil){
         [currStagioneKey release];
+        currStagioneKey = nil;
     }
     
     if(currStagioneIndex != nil){
         [currStagioneIndex release];
+        currStagioneIndex = nil;
     }
     
     
@@ -108,12 +112,19 @@ static CurrState *singleton;
 }
 
 -(void)setCurrSection:(NSString *)section{
-    if(![section isEqualToString:currSection]){
-        oldCurrSection = currSection;
+    if(![section isEqualToString:self.currSection]){
+        [currSection release];
+        self.oldCurrSection = currSection;
         currSection = section;
+        [currSection retain];
     }
     
     //NSLog(@"%@ - %@",currSection, oldCurrSection);
+}
+
+
+-(NSString *)currSection:(NSString *)section{
+    return currSection;
 }
 
 

@@ -242,7 +242,6 @@ static Shake2Style *singleton;
 
 -(void) dealloc{
     [singleton release];
-    [dao release];
     [super dealloc];
 }
 

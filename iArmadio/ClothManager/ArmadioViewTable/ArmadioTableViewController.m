@@ -82,6 +82,7 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -119,11 +120,15 @@
     
     NSArray *tmp = [[[NSArray alloc] initWithObjects:[tipologie objectAtIndex:indexPath.row],nil] autorelease];
     
+    
+    NSArray *prova =  [dao getVestitiEntities:tmp filterStagioneKey:nil filterStiliKeys:nil filterGradimento:-1];
+    
+    NSLog(@"%d",[prova retainCount]);
+    
     NSInteger count = [[dao getVestitiEntities:tmp filterStagioneKey:nil filterStiliKeys:nil filterGradimento:-1] count];
     
     
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
-    //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.imageView.image = [dao getImageFromTipo:([dao getTipoEntity:[tipologie objectAtIndex:indexPath.row]])]; 
     cell.textLabel.text = NSLocalizedString([dao getTipoEntity:[tipologie objectAtIndex:indexPath.row]].plural,nil);
     [cell.textLabel setTextColor:[UIColor darkTextColor]];
@@ -144,32 +149,32 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    
     NSString *category = [dao.listCategoryKeys objectAtIndex:indexPath.section];
+    
     NSMutableArray *tipologie = [dao.category objectForKey:category];
-
+    [tipologie retain];
     
     if(delegateController != nil){
         [(SelectTypeViewController *)delegateController selectedIndexPath:indexPath];
     }
     else{
-        
         if(coverviewcontroller != nil){
-            [coverviewcontroller removeNotification];
-            //IN CASO DI PROBLEMI DECOMMENTARE
-            //[coverviewcontroller release];
-            //coverviewcontroller = nil;
+            [coverviewcontroller.openflow release];
+            [coverviewcontroller.openflow.delegate release];
+            [coverviewcontroller release];
+            coverviewcontroller = nil;
         }
-            
-        coverviewcontroller = [[CoverViewController alloc] initWithNibName:@"CoverViewController" bundle:nil getTipologia:[tipologie objectAtIndex:indexPath.row]];
-           
-            
-            [tableView  deselectRowAtIndexPath:indexPath animated:YES];
-            [self.navigationController pushViewController:coverviewcontroller animated:YES];
         
-        [coverviewcontroller release];
-            [CurrState shared].currTipologia = [tipologie objectAtIndex:indexPath.row];
+        
+        coverviewcontroller = [[CoverViewController alloc] initWithNibName:@"CoverViewController" bundle:nil getTipologia:[tipologie objectAtIndex:indexPath.row]];
+            
+        [tableView  deselectRowAtIndexPath:indexPath animated:YES];
+        [self.navigationController pushViewController:coverviewcontroller animated:YES];
+        [CurrState shared].currTipologia = [tipologie objectAtIndex:indexPath.row];
     }
+    
+    [tipologie release];
+    
          
 }
 
@@ -225,6 +230,7 @@
 }
 
 -(void) dealloc{
+    NSLog(@"Dealloc ArmadioTable!");
     [super dealloc];
 }
 

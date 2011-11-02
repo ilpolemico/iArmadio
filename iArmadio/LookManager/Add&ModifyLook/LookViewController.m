@@ -284,6 +284,11 @@ downscroll;
 - (IBAction)selectCloth:(id)sender{
     int index = ((UIButton *)sender).tag;
     currIndex = index;
+    
+    NSLog(@"Index:%d",currIndex);
+    
+   
+    
     if(currButton != nil){
         [currButton setHighlighted:NO];
         [currButton setSelected:NO];
@@ -306,6 +311,10 @@ downscroll;
     
     
     NSArray *tipi = [choiceToTipi objectForKey:[NSString stringWithFormat:@"%d",index,nil]]; 
+    
+    
+     
+    
     int sizeScrollView = imageview_size_height;
     
     
@@ -336,7 +345,12 @@ downscroll;
         
         vestitiForTipi = [dao getVestitiEntities:tipi filterStagioneKey:nil filterStiliKeys:nil filterGradimento:-1 sortOnKeys:orderBy preferiti:NO];
         
+        
+        
         [vestitiForTipi retain];
+        
+        
+        
     } 
     else{
         vestitiForTipi = [[[NSArray alloc] init] autorelease];
@@ -608,6 +622,7 @@ downscroll;
   
 
 -(void) dealloc{
+    NSLog(@"Dealloc LookView");
     [segmentStile release];
     [choiceStile release];
     [segmentStagione release];

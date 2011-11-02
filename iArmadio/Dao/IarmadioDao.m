@@ -240,6 +240,8 @@ static IarmadioDao *singleton;
     NSError *error = nil;
     NSArray *vestiti = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
     
+       
+        
     if( vestiti == nil)
     {
        NSLog(@"GetVestitiEntities error %@, %@", error, [error userInfo]);
@@ -247,9 +249,6 @@ static IarmadioDao *singleton;
     }
     
     [vestiti retain];
-        
-   
-        
     [vestiti autorelease];
     return vestiti;
 }
@@ -320,8 +319,9 @@ static IarmadioDao *singleton;
                
               
                 NSSet *inCombinazioni = vestito.inCombinazioni;
+                NSArray *tmpCombinazioni = [inCombinazioni allObjects];
                 
-                for(Combinazione *combinazione in inCombinazioni){
+                for(Combinazione *combinazione in tmpCombinazioni){
                     if([combinazione.fattaDi count] == 1){
                         silenceNotification = YES;  
                         [self delCombinazioneEntity:combinazione];
@@ -365,7 +365,10 @@ static IarmadioDao *singleton;
     
     NSSet *inCombinazioni = vestitoEntity.inCombinazioni;
     
-    for(Combinazione *combinazione in inCombinazioni){
+    
+    NSArray *tmpCombinazioni = [inCombinazioni allObjects];
+    
+    for(Combinazione *combinazione in tmpCombinazioni){
         if([combinazione.fattaDi count] == 1){
             silenceNotification = YES;
             [self delCombinazioneEntity:combinazione]; 
@@ -563,6 +566,7 @@ static IarmadioDao *singleton;
 - (void)delCombinazioneEntity:(Combinazione *)combinazione{
     [self.managedObjectContext deleteObject:combinazione];
     [self saveContext];
+    
     if(!silenceNotification){
     [[NSNotificationCenter defaultCenter]
      postNotificationName:DEL_LOOK_EVENT

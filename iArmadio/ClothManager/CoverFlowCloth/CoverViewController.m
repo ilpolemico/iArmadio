@@ -30,10 +30,6 @@
             ordinaLabel,
             imageview;
 
-static CGRect frameCover;
-
-
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -99,6 +95,11 @@ static CGRect frameCover;
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
+    NSLog(@"OK release %d",[self retainCount]);
+    if([self.view superview] == nil){
+        NSLog(@"OK release %d",[self retainCount]);
+        [self viewDidUnload];
+    }
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
@@ -127,16 +128,20 @@ static CGRect frameCover;
     
     [self addLocalCurrOrderBy:@"id"];
     
+    [self.openflow emptyCache];
+    
+
+    
     if(vestiti != nil){
         [vestiti release];
+        vestiti = nil;
     }
+    
     
     vestiti = [dao getVestitiEntities:[NSArray arrayWithObjects:tipologia,nil] filterStagioneKey:currstate.currStagioneKey filterStiliKeys:[[[NSArray alloc] initWithObjects:localCurrStile, nil] autorelease] filterGradimento:-1 sortOnKeys:localCurrOrderBy preferiti:NO];
     
     [vestiti retain];
-    
-    
-    [self.openflow emptyCache];
+     
     [self.openflow draw];
         
 }
@@ -144,7 +149,6 @@ static CGRect frameCover;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     dao = [IarmadioDao shared];
     currstate = [CurrState shared];
     self.ordinaLabel.text = NSLocalizedString(self.ordinaLabel.text, nil);
@@ -156,7 +160,7 @@ static CGRect frameCover;
     
     
     self.navigationItem.titleView = segmentcontrol;
-    frameCover = self.openflow.frame;
+    
     
     
     self.navigationItem.rightBarButtonItem = self.addButton;
@@ -183,7 +187,6 @@ static CGRect frameCover;
     self.imageview.layer.shadowOffset = CGSizeMake(0, -7);
     self.imageview.layer.shadowOpacity = 1;
     self.imageview.layer.shadowRadius = 3.0;
-    
 }
 
 
@@ -272,7 +275,6 @@ static CGRect frameCover;
         
     }
     currstate.currSection = SECTION_COVERFLOW;
-    
     captureClothController = [[CaptureClothController alloc] initWithNibName:@"CaptureClothController" bundle:nil parentController:self  iterator:NO];
     [self.view addSubview:captureClothController.view];
 }
@@ -357,7 +359,7 @@ static CGRect frameCover;
         ClothViewController *getviewcontroller = [[ClothViewController alloc] initWithNibName:@"ClothView" bundle:nil getVestito: [vestiti objectAtIndex:image]];
         
         iArmadioAppDelegate *appDelegate = (iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate];
-        
+
         getviewcontroller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
         [appDelegate.tabBarController presentModalViewController:getviewcontroller animated:YES];
         [getviewcontroller release];
@@ -373,24 +375,28 @@ static CGRect frameCover;
 
 
 -(void) viewWillDisappear:(BOOL)animated{
-
-    
 }
 
 -(void) viewWillAppear:(BOOL)animated{
-    [CurrState shared].currSection = SECTION_COVERFLOW;
+    currstate.currSection = SECTION_COVERFLOW;
 }
 
 
 
 -(void) dealloc{
+    NSLog(@"Dealloc coverview!!!");
+    
+    
     if(captureClothController != nil){
         [captureClothController release];
     }    
     [localCurrStile release];
     [localCurrOrderBy release];
     [openflow release];
-    [vestiti release];
+    if(vestiti != nil){
+        [vestiti release];
+    }
+    
     [addButton release];
     [segmentcontrol release];
     [segmentOrderBy release];
@@ -401,14 +407,11 @@ static CGRect frameCover;
     [filterStili release];
     [coverBtn release];
     [coverView release];
-    [currstate release];
-    [dao release];
-    [tipologia release];
     [stagioneKey release];
     [stili release];
     [tipoView release];
-    [tipoLabel release];
     [tipologia release];
+    [tipoLabel release];
     [stile_1 release];
     [stile_2 release];
     [stile_3 release];

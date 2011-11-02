@@ -95,7 +95,7 @@ woody@chaosinmotion.com. Chaos In Motion is at http://www.chaosinmotion.com
  *	and to send a select message
  */
 
-@protocol FlowCoverViewDelegate
+@protocol FlowCoverViewDelegate <NSObject>
 - (int)flowCoverNumberImages:(FlowCoverView *)view;
 - (UIImage *)flowCover:(FlowCoverView *)view cover:(int)cover;
 - (void)flowCover:(FlowCoverView *)view didSelect:(int)cover;

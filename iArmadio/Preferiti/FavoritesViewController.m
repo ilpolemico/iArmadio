@@ -299,7 +299,7 @@
 
 -(void) dealloc{
     if(vestiti != nil){[vestiti release];}
-    [dao release];
+
     [super dealloc];
 }
 

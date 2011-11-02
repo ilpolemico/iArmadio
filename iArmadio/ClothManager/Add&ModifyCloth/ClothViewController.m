@@ -562,23 +562,22 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     modifyImageCloth = NO;
-    
+    if(selectController != nil){
+        if([selectController getIndexPath] != nil){
+            NSString *category = [dao.listCategoryKeys objectAtIndex:[selectController getIndexPath].section];
+            
+            
+            NSArray *tipologie = [dao.category objectForKey:category];
+            
+            
+            Tipologia *entity =  [dao getTipoEntity:[tipologie objectAtIndex:[selectController getIndexPath].row ]];
+            
+            self.tipologiaLabel.text = NSLocalizedString(entity.nome,nil);
+            self.tipologiaSelected = entity.nome;
+            
+            [self.tipologiaBtn setImage:[dao getImageFromTipo:entity] forState:UIControlStateNormal];
      
-    if((selectController != nil)&&([selectController getIndexPath] != nil)){
-        NSString *category = [dao.listCategoryKeys objectAtIndex:[selectController getIndexPath].section];
-        
-        
-        NSArray *tipologie = [dao.category objectForKey:category];
-        
-        
-        Tipologia *entity =  [dao getTipoEntity:[tipologie objectAtIndex:[selectController getIndexPath].row ]];
-        
-        self.tipologiaLabel.text = NSLocalizedString(entity.nome,nil);
-        self.tipologiaSelected = entity.nome;
-        
-        [self.tipologiaBtn setImage:[dao getImageFromTipo:entity] forState:UIControlStateNormal];
- 
-        
+        }
         [selectController release];
         selectController = nil;    
     }
@@ -613,6 +612,9 @@
 }
 
 -(void) dealloc{
+    NSLog(@"Dealloc clothview!!!");
+    
+    
     if(vestito != nil){
         [vestito release];
     }

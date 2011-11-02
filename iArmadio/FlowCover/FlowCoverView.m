@@ -106,6 +106,7 @@ const GLshort GTextures[] = {
 
 - (void)dealloc
 {
+    NSLog(@"Dealloc FlowCover!"); 
 	if (texture) {
 		glDeleteTextures(1,&texture);
 	}

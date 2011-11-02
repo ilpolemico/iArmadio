@@ -52,7 +52,6 @@
 }
 
 -(void)dealloc{
-    [dao release];
     [lookTableViewController release];
     [super dealloc];
 }

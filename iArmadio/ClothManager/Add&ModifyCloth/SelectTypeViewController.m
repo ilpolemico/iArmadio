@@ -73,6 +73,7 @@
 }
 
 - (void) dealloc{
+    NSLog(@"Dealloc selectType!");
     [armadio release];
     [super dealloc];
 
