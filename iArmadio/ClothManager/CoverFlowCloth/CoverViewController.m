@@ -95,11 +95,6 @@
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
-    NSLog(@"OK release %d",[self retainCount]);
-    if([self.view superview] == nil){
-        NSLog(@"OK release %d",[self retainCount]);
-        [self viewDidUnload];
-    }
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
@@ -111,6 +106,8 @@
    //NSLog(@"currSection: %@",currstate.currSection); 
   
     [self reloadVestiti];
+    
+    /*
     if(
        ([currstate.currSection isEqualToString:SECTION_COVERFLOW])
        ||
@@ -120,7 +117,7 @@
         if([pNotification.name isEqualToString:ADD_CLOTH_EVENT]){
             [self addIterator];
         }
-    }    
+    }  */  
 }
 
 - (void)reloadVestiti{
@@ -328,7 +325,7 @@
 
 - (void)addIterator
 {
-    
+    /*
         if(captureClothController != nil){
             [captureClothController.view removeFromSuperview];
             [captureClothController release];
@@ -336,6 +333,7 @@
         }
         captureClothController = [[CaptureClothController alloc] initWithNibName:@"CaptureClothController" bundle:nil parentController:self  iterator:YES];
         [self.view addSubview:captureClothController.view];
+    */ 
 }
 
 

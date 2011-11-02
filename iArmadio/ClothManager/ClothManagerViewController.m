@@ -39,6 +39,7 @@
 {
    
     //NSLog(@"%@",currstate.currSection);
+    /*
     if(
        ([currstate.currSection isEqualToString:SECTION_ARMADIO]) 
         )
@@ -52,7 +53,7 @@
         }
         captureClothController = [[CaptureClothController alloc] initWithNibName:@"CaptureClothController" bundle:nil parentController:self  iterator:YES];
         [self.view addSubview:captureClothController.view];
-    }
+    }*/
     
 }
 
@@ -68,7 +69,7 @@
     dao = [IarmadioDao shared];
     currstate = [CurrState shared];
     [self.view addSubview:navcontroler.view];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addIterator:) name:ADD_CLOTH_EVENT object:nil];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addIterator:) name:ADD_CLOTH_EVENT object:nil];
     
 }
 

@@ -500,6 +500,7 @@
     if(sender.state == UIGestureRecognizerStateBegan){
         currTransform = sender.view.transform;
         isChangeImage = YES;
+        offsetScaleFactor = lastScaleFactor;
     }
  
     else{
@@ -529,11 +530,16 @@
     if(isChangeImage){
         currTransform = self.imageView.transform;
         isChangeImage = NO;
-        offsetScaleFactor = lastScaleFactor;
     }
-    scaleFactor = ((UISlider *)sender).value + 1.0;
+    scaleFactor = ((UISlider *)sender).value + 1.0 - offsetScaleFactor;
+    if(offsetScaleFactor != 0){
+        scaleFactor -= 1; 
+    }
     CGAffineTransform transform = CGAffineTransformScale(currTransform,scaleFactor,scaleFactor);
     self.imageView.transform = transform;
+    lastScaleFactor = ((UISlider *)sender).value;
+    
+    //NSLog(@"offset:%f - scaleFactor:%f - lastScaleFactor:%f ",offsetScaleFactor, scaleFactor, lastScaleFactor);
 }
 
 -(IBAction) selectGradimento:(id)sender{

@@ -20,6 +20,7 @@
     IarmadioDao *dao;
     SelectTypeViewController *delegateController;
     CoverViewController *coverviewcontroller;
+    NSMutableDictionary *countVestiti;
 }
 
 - initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)bundle delegateController:(id)delegateController;

@@ -57,6 +57,24 @@
 
 
 - (void)reloadCassetti:(NSNotification *)pNotification{
+    if(countVestiti != nil){
+        [countVestiti release];
+        countVestiti = nil;
+    }
+    
+    countVestiti  = [[NSMutableDictionary alloc] init];
+    
+    for(NSString *category in dao.listCategoryKeys){
+        NSArray *tipologie = [dao.category objectForKey:category];
+        for(NSString *tmp in tipologie){
+            NSInteger count = [[dao getVestitiEntities:[[[NSArray alloc] initWithObjects:tmp, nil] autorelease] filterStagioneKey:nil filterStiliKeys:nil filterGradimento:-1] count];
+            NSLog(@"nome:%@ count:%d",tmp,count);
+            [countVestiti setValue:[NSNumber numberWithInt:count] forKey:tmp];
+        }    
+        
+    }
+    
+    
     [(UITableView *)self.view reloadData];
 }
 
@@ -74,7 +92,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadCassetti:) name:DEL_CLOTH_EVENT object:nil];
     
-    //[self reloadCassetti];
+    [self reloadCassetti:nil];
    
     
 }
@@ -114,18 +132,10 @@
     }
     
     NSString *category = [dao.listCategoryKeys objectAtIndex:indexPath.section];
-    
-    
     NSMutableArray *tipologie = [dao.category objectForKey:category];
     
-    NSArray *tmp = [[[NSArray alloc] initWithObjects:[tipologie objectAtIndex:indexPath.row],nil] autorelease];
-    
-    
-    NSArray *prova =  [dao getVestitiEntities:tmp filterStagioneKey:nil filterStiliKeys:nil filterGradimento:-1];
-    
-    NSLog(@"%d",[prova retainCount]);
-    
-    NSInteger count = [[dao getVestitiEntities:tmp filterStagioneKey:nil filterStiliKeys:nil filterGradimento:-1] count];
+    NSString *tipologiaKey = [tipologie objectAtIndex:indexPath.row];
+    NSInteger count = [[countVestiti objectForKey:tipologiaKey] intValue];
     
     
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
@@ -231,6 +241,10 @@
 
 -(void) dealloc{
     NSLog(@"Dealloc ArmadioTable!");
+    if(countVestiti != nil){
+        [countVestiti release];
+        countVestiti = nil;
+    }
     [super dealloc];
 }
 

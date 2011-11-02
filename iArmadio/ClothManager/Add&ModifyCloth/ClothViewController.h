@@ -49,7 +49,7 @@
     
     BOOL addCloth;
     BOOL modifyImageCloth;
-    int lastScaleFactor, netRotation;
+    float lastScaleFactor, netRotation;
     CGPoint netTranslation;
     float scaleFactor;
     float offsetScaleFactor;
