@@ -215,7 +215,6 @@ const GLshort GTextures[] = {
         
 		self = [self internalInit];
     }
-    [self retain];
     return self;
 }
 
@@ -224,7 +223,6 @@ const GLshort GTextures[] = {
     if (self = [super initWithCoder:coder]) {
 		self = [self internalInit];
     }
-    [self retain];
     return self;
 }
 

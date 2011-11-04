@@ -103,6 +103,8 @@
 		A3C94F661456C64D00369340 /* gruccia.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F651456C64D00369340 /* gruccia.png */; };
 		A3C94F681456C9B100369340 /* specchiera.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F671456C9B100369340 /* specchiera.png */; };
 		A3C94F6A1456E6E000369340 /* bookmark_deselect.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F691456E6E000369340 /* bookmark_deselect.png */; };
+		A3CA0BD11463D27900D3FDBA /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CA0BD01463D27900D3FDBA /* add.png */; };
+		A3CA0BD41463D36400D3FDBA /* round_add.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CA0BD31463D36400D3FDBA /* round_add.png */; };
 		A3CFBA0B145A9AEC002C060A /* caldo_20x20.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CFBA09145A9AEC002C060A /* caldo_20x20.png */; };
 		A3CFBA0C145A9AEC002C060A /* freddo_20x20.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CFBA0A145A9AEC002C060A /* freddo_20x20.png */; };
 		A3CFBA0F145ADE45002C060A /* calendario.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CFBA0E145ADE45002C060A /* calendario.png */; };
@@ -289,6 +291,8 @@
 		A3C94F651456C64D00369340 /* gruccia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gruccia.png; sourceTree = "<group>"; };
 		A3C94F671456C9B100369340 /* specchiera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = specchiera.png; sourceTree = "<group>"; };
 		A3C94F691456E6E000369340 /* bookmark_deselect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookmark_deselect.png; sourceTree = "<group>"; };
+		A3CA0BD01463D27900D3FDBA /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		A3CA0BD31463D36400D3FDBA /* round_add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = round_add.png; sourceTree = "<group>"; };
 		A3CFBA09145A9AEC002C060A /* caldo_20x20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = caldo_20x20.png; sourceTree = "<group>"; };
 		A3CFBA0A145A9AEC002C060A /* freddo_20x20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = freddo_20x20.png; sourceTree = "<group>"; };
 		A3CFBA0E145ADE45002C060A /* calendario.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendario.png; sourceTree = "<group>"; };
@@ -692,6 +696,8 @@
 		A3EA47801449FD6A0095349B /* icone_interfaccia */ = {
 			isa = PBXGroup;
 			children = (
+				A3CA0BD31463D36400D3FDBA /* round_add.png */,
+				A3CA0BD01463D27900D3FDBA /* add.png */,
 				A3A7956A145F6B7800D1A5D3 /* style.png */,
 				A3CFBA1A145AF67B002C060A /* caldo_freddo_20x20.png */,
 				A3CFBA1B145AF67B002C060A /* caldo_freddo.png */,
@@ -902,6 +908,8 @@
 				A3A79566145F603900D1A5D3 /* crediti.png in Resources */,
 				A3A7956B145F6B7800D1A5D3 /* look_definitivo.png in Resources */,
 				A3A7956C145F6B7800D1A5D3 /* style.png in Resources */,
+				A3CA0BD11463D27900D3FDBA /* add.png in Resources */,
+				A3CA0BD41463D36400D3FDBA /* round_add.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

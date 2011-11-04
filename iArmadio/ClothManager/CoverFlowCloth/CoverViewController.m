@@ -28,7 +28,8 @@
             tipoLabel,
             tipologia,
             ordinaLabel,
-            imageview;
+            imageview,
+            buttonAddCoverFlow;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -339,6 +340,10 @@
 
 - (int)flowCoverNumberImages:(FlowCoverView *)view
 {
+    [self.buttonAddCoverFlow setHidden:YES];
+    if([vestiti count] == 0){
+        [self.buttonAddCoverFlow setHidden:NO];
+    }
 	return [vestiti count];
 }
 
@@ -390,11 +395,9 @@
     }    
     [localCurrStile release];
     [localCurrOrderBy release];
-    [openflow release];
     if(vestiti != nil){
         [vestiti release];
     }
-    
     [addButton release];
     [segmentcontrol release];
     [segmentOrderBy release];

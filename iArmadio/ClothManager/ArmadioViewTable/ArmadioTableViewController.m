@@ -188,13 +188,14 @@
 }
 
 
-
+/*
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     
     
     return NSLocalizedString([dao.listCategoryKeys objectAtIndex:section],nil);
 
-}    
+}   
+*/ 
 
 - (NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath{
 

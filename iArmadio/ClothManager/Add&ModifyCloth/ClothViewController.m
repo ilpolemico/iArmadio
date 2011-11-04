@@ -86,7 +86,10 @@
     
     if(vestito != nil){self.preferito = vestito.preferito;}
     [self initInputType];
-    lastScaleFactor = 0;
+    lastScaleFactor = 1;
+    offsetScaleFactor = 0;
+    lastFactor = 1;
+    lastSliderValue = 0;
     //currTransform = CGAffineTransformMake;
     
     
@@ -103,6 +106,7 @@
    
     
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    currTransformScale = self.imageView.transform;
     
     /*self.captureView.layer.shadowPath = [self renderPaperCurl:self.captureView]; 
     self.captureView.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -141,6 +145,7 @@
     netTranslation.x = 0;
     netTranslation.y = 0;
     currTransform = self.view.transform;
+    currTransformRotatePan = self.view.transform;
     
     
     UIRotationGestureRecognizer *rotateGesture = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(handleRotateGesture:)];
@@ -486,31 +491,32 @@
 
 -(IBAction) handleRotateGesture:(UIGestureRecognizer *)sender{
     if(sender.state == UIGestureRecognizerStateBegan){
-        currTransform = sender.view.transform;
+        currTransform = currTransformRotatePan;
         isChangeImage = YES;
     }  
     else{
+        CGAffineTransform scale = CGAffineTransformMakeScale(lastScaleFactor, lastScaleFactor);
         CGFloat rotation = [(UIRotationGestureRecognizer *)sender rotation];
-        sender.view.transform = CGAffineTransformRotate(currTransform,rotation);
+        currTransformRotatePan = CGAffineTransformRotate(currTransform,rotation);
+        sender.view.transform = CGAffineTransformConcat(scale,currTransformRotatePan);
     }    
 }
 
 -(IBAction) handlePanGesture:(UIGestureRecognizer *)sender{
     
     if(sender.state == UIGestureRecognizerStateBegan){
-        currTransform = sender.view.transform;
+        currTransform = currTransformRotatePan;
         isChangeImage = YES;
-        offsetScaleFactor = lastScaleFactor;
     }
  
     else{
         CGPoint translation = [(UIPanGestureRecognizer *)sender translationInView:imageView];
         
-        CGAffineTransform transform = CGAffineTransformTranslate(currTransform, translation.x, translation.y);
-        sender.view.transform = transform;
-    }
-    
-   
+        CGAffineTransform scale = CGAffineTransformMakeScale(lastScaleFactor, lastScaleFactor);
+        currTransformRotatePan = CGAffineTransformTranslate(currTransform,translation.x, translation.y);
+        
+        sender.view.transform = CGAffineTransformConcat(scale,currTransformRotatePan);
+    }    
     
 }
 
@@ -528,18 +534,19 @@
 
 -(IBAction) changeZoom:(id) sender{
     if(isChangeImage){
-        currTransform = self.imageView.transform;
+        currTransform = currTransformRotatePan;
         isChangeImage = NO;
     }
-    scaleFactor = ((UISlider *)sender).value + 1.0 - offsetScaleFactor;
-    if(offsetScaleFactor != 0){
-        scaleFactor -= 1; 
-    }
-    CGAffineTransform transform = CGAffineTransformScale(currTransform,scaleFactor,scaleFactor);
-    self.imageView.transform = transform;
-    lastScaleFactor = ((UISlider *)sender).value;
-    
-    //NSLog(@"offset:%f - scaleFactor:%f - lastScaleFactor:%f ",offsetScaleFactor, scaleFactor, lastScaleFactor);
+    float sliderValue = (((UISlider *)sender).value);
+    lastScaleFactor = sliderValue + 1;
+    CGAffineTransform transformScale = CGAffineTransformScale(currTransform,lastScaleFactor, lastScaleFactor);
+    self.imageView.transform =  transformScale;
+}
+
+
+- (CGAffineTransform) scale:(CGAffineTransform) _transform factor:(float) factor{
+    CGAffineTransform transform = CGAffineTransformScale(_transform, factor, factor);
+    return transform;
 }
 
 -(IBAction) selectGradimento:(id)sender{

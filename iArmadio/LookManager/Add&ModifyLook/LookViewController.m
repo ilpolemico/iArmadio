@@ -40,7 +40,8 @@ toolbar,
 mainView,
 lookSfondo,
 upscroll,
-downscroll;
+downscroll,
+zoomClothView;
 
 
 
@@ -113,8 +114,8 @@ downscroll;
         [choiceToTipi setValue:tipi forKey:[NSString stringWithFormat:@"%d",choice,nil]]; 
     }
     
-    [self.mainView setContentSize:CGSizeMake(320,700)];
-    self.mainView.bounces = YES;
+    [self.mainView setContentSize:CGSizeMake(242,880)];
+    //self.mainView.bounces = YES;
     
     self.lookSfondo.layer.shadowPath = [UIBezierPath bezierPathWithRect:self.lookSfondo.bounds].CGPath;
     self.lookSfondo.layer.shadowColor = [UIColor grayColor].CGColor;
@@ -245,8 +246,15 @@ downscroll;
 
         [self selectCloth: button];
     }
-        
     
+    for(int i=1;i<=10;i++){
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGestureIconCloth:)];
+    
+        tapGesture.numberOfTapsRequired = 2;
+        SEL selector = NSSelectorFromString([@"choice" stringByAppendingFormat:@"%d",i,nil]);
+        UIButton *button = [self performSelector:selector];
+        [button addGestureRecognizer:tapGesture];
+    }
 }
 
 -(IBAction) addPreferiti:(id)sender{
@@ -285,9 +293,6 @@ downscroll;
     int index = ((UIButton *)sender).tag;
     currIndex = index;
     
-    NSLog(@"Index:%d",currIndex);
-    
-   
     
     if(currButton != nil){
         [currButton setHighlighted:NO];
@@ -322,7 +327,12 @@ downscroll;
     UIButton *button = [[[UIButton alloc] init] autorelease];
     [button setImage:imageTmp forState:UIControlStateNormal];
    
-    [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget : self action : @selector (buttonPressed:)];
+    singleTap.numberOfTapsRequired = 1;
+    [button addGestureRecognizer:singleTap];
+    [singleTap release];
+    
     [button setTag:0];
     
     button.frame = CGRectMake(3,0,imageview_size_width,imageview_size_height);
@@ -380,16 +390,22 @@ downscroll;
          
         button.contentMode = UIViewContentModeScaleAspectFit;
         [button setImage:imageTmp forState:UIControlStateNormal];
-        
-        [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [button setTag:count];
         
-        /*
-        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
         
-        tapGesture.numberOfTapsRequired = 2;
-        [button addGestureRecognizer:tapGesture];
-        [tapGesture release];*/
+        UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
+        
+        doubleTap.numberOfTapsRequired = 2;
+        [button addGestureRecognizer:doubleTap];
+        
+        
+        UITapGestureRecognizer* singleTap = [[UITapGestureRecognizer alloc] initWithTarget : self action : @selector (buttonPressed:)];
+        singleTap.numberOfTapsRequired = 1;
+        [singleTap requireGestureRecognizerToFail : doubleTap];
+        [button addGestureRecognizer:singleTap];
+        
+        [singleTap release];
+        [doubleTap release];
         
         
         button.layer.shadowPath = [UIBezierPath bezierPathWithRect:button.bounds].CGPath;
@@ -413,22 +429,74 @@ downscroll;
 }
 
 
+-(IBAction) handleTapGestureIconCloth:(UIGestureRecognizer *)sender{
+    int tag = sender.view.tag;
+    
+
+    Vestito *vestito = [selectedVestiti objectAtIndex:tag];
+    if ([vestito class] == [Vestito class]){
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hiddenZoomClothView:)];
+        
+        tapGesture.numberOfTapsRequired = 1;
+        [self.zoomClothView addGestureRecognizer:tapGesture];
+        UIImage *tmp = [dao getImageFromVestito:vestito];
+        [((UIImageView *)[self.zoomClothView.subviews objectAtIndex:0]) setImage:tmp];
+        [tapGesture release];
+        [self fadeIn:self.zoomClothView];
+        [self.zoomClothView setHidden:NO];
+        
+    }
+    
+}
+
+- (void) fadeIn:(UIView *)view{
+    view.alpha = 0.0f;
+    view.transform = CGAffineTransformMakeScale(0.1,0.1);
+    [UIView beginAnimations:@"fadeInNewView" context:NULL];
+    [UIView setAnimationDuration:0.5];
+    view.transform = CGAffineTransformMakeScale(1,1);
+    view.alpha = 1.0f;
+    [UIView commitAnimations];
+}
+
+- (void) fadeOut:(UIView *)view{
+    view.alpha = 1.0f;
+    view.transform = CGAffineTransformMakeScale(1,1);
+    [UIView beginAnimations:@"fadeOutNewView" context:NULL];
+    [UIView setAnimationDuration:0.5];
+    view.transform = CGAffineTransformMakeScale(0.1,0.1);
+    view.alpha = 0.0f;
+    [UIView commitAnimations];
+}
+
+
+-(IBAction)hiddenZoomClothView:(UIGestureRecognizer *)sender{
+    [self fadeOut:self.zoomClothView];
+}
+
+
 -(IBAction) handleTapGesture:(UIGestureRecognizer *)sender{
     int tag = sender.view.tag;
     
-    Vestito *vestito = [vestitiForTipi objectAtIndex:tag-1];
     
+    Vestito *vestito = [vestitiForTipi objectAtIndex:tag-1];
     if([vestito class] == [Vestito class]){
-        ClothViewController *getviewcontroller = [[ClothViewController alloc] initWithNibName:@"ClothView" bundle:nil getVestito: vestito];
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hiddenZoomClothView:)];
         
-        getviewcontroller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-        [self presentModalViewController:getviewcontroller animated:YES];
-        [getviewcontroller release];
+        tapGesture.numberOfTapsRequired = 1;
+        [self.zoomClothView addGestureRecognizer:tapGesture];
+        UIImage *tmp = [dao getImageFromVestito:vestito];
+        [((UIImageView *)[self.zoomClothView.subviews objectAtIndex:0]) setImage:tmp];
+        [tapGesture release];
+        [self fadeIn:self.zoomClothView];
+        [self.zoomClothView setHidden:NO];
     }
 }
 
--(IBAction)buttonPressed:(id)sender{
-    int tag = ((UIButton *)sender).tag;
+-(IBAction)buttonPressed:(UIGestureRecognizer *)sender{
+    int tag = ((UIButton *)sender.view).tag;
+    
+    NSLog(@"tag:%d",tag);
     
     [currButton setSelected:NO];
     [currButton setHighlighted:NO];
@@ -611,12 +679,12 @@ downscroll;
 }
 
 - (IBAction) upscrollAction:(id)sender{
-    [self.captureView setContentOffset:CGPointMake(0, 410) animated:YES];
+    //[self.captureView setContentOffset:CGPointMake(0, 410) animated:YES];
     
 };
 
 - (IBAction) downscrollAction:(id)sender{
-     [self.captureView setContentOffset:CGPointMake(0,0) animated:YES];
+     //[self.captureView setContentOffset:CGPointMake(0,0) animated:YES];
 };
 
   

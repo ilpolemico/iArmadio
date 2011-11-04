@@ -189,7 +189,7 @@
 					<object class="IBUIButton" id="948811779">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{245, 89}, {60, 60}}</string>
+						<string key="NSFrame">{{228, 85}, {78, 75}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="661189229"/>
@@ -333,7 +333,7 @@
 								<string key="NSFrame">{{218, 0}, {55, 67}}</string>
 								<reference key="NSSuperview" ref="774189743"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="721175505"/>
+								<reference key="NSNextKeyView" ref="452318532"/>
 								<string key="NSReuseIdentifierKey">_NS:222</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<int key="IBUITag">4</int>
@@ -370,10 +370,10 @@
 					<object class="IBUIButton" id="452318532">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 395}, {31, 37}}</string>
+						<string key="NSFrame">{{18, 395}, {55, 55}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="774189743"/>
+						<reference key="NSNextKeyView" ref="721175505"/>
 						<string key="NSReuseIdentifierKey">_NS:222</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUIContentMode">1</int>
@@ -397,7 +397,7 @@
 					<object class="IBUIButton" id="721175505">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{81, 393}, {30, 39}}</string>
+						<string key="NSFrame">{{81, 393}, {55, 55}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="426382846"/>
@@ -407,7 +407,6 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<string key="IBUINormalTitle">Invern</string>
 						<reference key="IBUIHighlightedTitleColor" ref="516291792"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
@@ -424,9 +423,10 @@
 					<object class="IBUIButton" id="426382846">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{138, 393}, {30, 39}}</string>
+						<string key="NSFrame">{{144, 393}, {55, 55}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:222</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<int key="IBUIContentMode">2</int>
@@ -452,7 +452,7 @@
 						<string key="NSFrame">{{7, 279}, {226, 23}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="452318532"/>
+						<reference key="NSNextKeyView" ref="774189743"/>
 						<string key="NSReuseIdentifierKey">_NS:623</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>

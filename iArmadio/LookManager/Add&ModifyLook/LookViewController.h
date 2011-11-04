@@ -61,6 +61,7 @@
     IBOutlet UIButton *choice9;
     IBOutlet UIButton *choice10;
     IBOutlet UIScrollView *listCloth;
+    IBOutlet UIView *zoomClothView;
     
     IBOutlet UIButton *upscroll;
     IBOutlet UIButton *downscroll;
@@ -121,6 +122,7 @@
 @property (nonatomic, retain )IBOutlet UIButton *choice10;
 @property (nonatomic, retain )IBOutlet UIButton *upscroll;
 @property (nonatomic, retain )IBOutlet UIButton *downscroll;
+@property (nonatomic, retain )IBOutlet UIView *zoomClothView;
 @property (nonatomic, retain )IBOutlet UIScrollView *captureView;
 @property (nonatomic, retain )IBOutlet UIScrollView *listCloth;
 @property (nonatomic, retain )IBOutlet UIToolbar *toolbar;
@@ -131,6 +133,8 @@
 
 
 - (void)initInputType;
+- (void) fadeIn:(UIView *)view;
+- (void) fadeOut:(UIView *)view;
 - (IBAction) upscrollAction:(id)sender;
 - (IBAction) downscrollAction:(id)sender;
 - (IBAction) undoLook:(id)sender;
@@ -140,6 +144,7 @@
 - (IBAction)selectCloth:(id)sender;
 - (IBAction)buttonPressed:(id)sender;
 - (IBAction)selectGradimento:(id)sender;
+-(IBAction)hiddenZoomClothView:(UIView *)sender;
 @end
 
 

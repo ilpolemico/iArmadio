@@ -49,15 +49,18 @@
     
     BOOL addCloth;
     BOOL modifyImageCloth;
-    float lastScaleFactor, netRotation;
+    float lastScaleFactor, netRotation, lastFactor;
     CGPoint netTranslation;
     float scaleFactor;
+    float lastSliderValue;
     float offsetScaleFactor;
     
     CGAffineTransform rotate;
     CGAffineTransform pinch;
     CGAffineTransform pan;
     CGAffineTransform currTransform;
+    CGAffineTransform currTransformScale;
+    CGAffineTransform currTransformRotatePan;
     
     
     
@@ -144,6 +147,7 @@
 -(IBAction) undoCloth:(id) sender;
 -(void)initStagioniEntities:(NSNumber *)stagioneKey;
 -(void) initInputType;
+-(CGAffineTransform) scale:(CGAffineTransform)_transform factor:(float) factor;
 
 
 
