@@ -280,8 +280,9 @@
     }    
 }
 
-
 -(void) dealloc{
+    [addLookBtn release];
+    [segmentControl release];
     [combinazioniForStile release];
     [super dealloc];
 }

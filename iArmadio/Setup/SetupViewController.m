@@ -128,8 +128,11 @@
 }
 
 
-
 - (void)dealloc{
+    [navcontroler release];
+    [viewImpostazioni release];
+    [gps release];
+    [shake release];
     [labelShake release];
     [labelGPS release];
     [super dealloc];

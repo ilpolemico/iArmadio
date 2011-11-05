@@ -241,6 +241,14 @@
 
 -(void) dealloc{
     NSLog(@"Dealloc ArmadioTable!");
+    
+    if(coverviewcontroller != nil){
+        [coverviewcontroller.openflow release];
+        [coverviewcontroller.openflow.delegate release];
+        [coverviewcontroller release];
+    }
+
+    
     if(countVestiti != nil){
         [countVestiti release];
         countVestiti = nil;

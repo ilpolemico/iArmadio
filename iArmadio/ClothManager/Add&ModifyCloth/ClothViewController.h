@@ -13,6 +13,7 @@
 #import "IarmadioDao.h"
 #import "ClothTableViewController.h"
 #import "ButtonSegmentControl.h"
+#import "Tutorial.h"
 
 
 @class SelectTypeViewController;
@@ -22,11 +23,9 @@
     SelectTypeViewController *selectController;
     UIImageView * imageViewSfondo;
     UIImageView * imageView;
-    UIImageView * imageViewReflect;
     IarmadioDao *dao;
     UIImage *newimage;
     Vestito *vestito;
-    IBOutlet UIScrollView *scrollview;
     IBOutlet UINavigationBar *addNavigationBar;
     IBOutlet UIBarButtonItem *saveButton;
     IBOutlet UIBarButtonItem *undoButton;
@@ -84,8 +83,6 @@
     IBOutlet UIButton *addPreferiti;
     
     IBOutlet UIView *captureView;
-    IBOutlet UIView *sfondoView;
-    
     IBOutlet UISlider *sliderZoom;
     
     BOOL isChangeImage;
@@ -93,7 +90,6 @@
 }
 
 @property (nonatomic, retain ) IBOutlet UISlider *sliderZoom;
-@property (nonatomic, retain ) IBOutlet UIView *sfondoView;
 @property (nonatomic, retain ) IBOutlet UIView *captureView;
 @property (nonatomic, retain ) IBOutlet UIView *viewGradimento;
 @property (nonatomic, retain ) NSString *preferito;
@@ -116,7 +112,6 @@
 @property (nonatomic, retain ) IBOutlet NSString *currTipologia;
 @property (nonatomic, retain ) IBOutlet UIToolbar *toolbar;
 @property (nonatomic, retain ) IBOutlet UIBarButtonItem *trash;
-@property (nonatomic, retain) IBOutlet UIImageView *imageViewReflect;
 @property (nonatomic, retain) IBOutlet UIImageView *imageView;
 @property (nonatomic, retain) IBOutlet UIImageView *imageSfondo;
 @property (nonatomic, retain) IBOutlet UIImageView *imageViewGradimento;

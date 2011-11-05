@@ -19,10 +19,7 @@
     NSArray *vestiti;    
     NSArray *combinazioni;
     IBOutlet UINavigationBar *navbar;   
-    IBOutlet UIImageView *imageview;    
 }
-
-@property (nonatomic,retain) IBOutlet UIImageView *imageview;
 @property (nonatomic,retain) IBOutlet UITableView *tableview;
 @property (nonatomic,retain) IBOutlet UINavigationBar *navbar;
 @property (nonatomic,retain) NSArray *vestiti;

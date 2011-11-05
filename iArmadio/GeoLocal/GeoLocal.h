@@ -16,11 +16,10 @@
     
     IarmadioDao *dao;
     MKReverseGeocoder *geoCoder;
-    NSData*responseData;
+    NSData *responseData;
     int temperatura;
     int oldTemperatura;
     NSString *currLocation;
-    NSString *oldLocation;
     CLLocationManager *locationManager;
     BOOL isEnableGPS;
       

@@ -9,7 +9,6 @@
 #import "Shake2Style.h"
 
 @implementation Shake2Style
-@synthesize dao, imageView,vestitoBtn, vestito, currCombinazione, stagione, localita;
 
 
 static Shake2Style *singleton;
@@ -26,7 +25,6 @@ static Shake2Style *singleton;
     if (self) {
         srand(time(NULL));
         dao = [IarmadioDao shared];
-        [dao retain];
     }
     return self;
 }
@@ -199,14 +197,7 @@ static Shake2Style *singleton;
     [appDelegate.window addSubview:self.view];    
 }
 
--(IBAction)selectCloth:(id)sender{
-    ClothViewController *getviewcontroller = [[ClothViewController alloc] initWithNibName:@"ClothView" bundle:nil getVestito:self.vestito];
-    
-    getviewcontroller.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    
-    [self presentModalViewController:getviewcontroller animated:YES];
-    [getviewcontroller release];
-}
+
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -242,6 +233,9 @@ static Shake2Style *singleton;
 
 -(void) dealloc{
     [singleton release];
+    [imageView release];
+    [stagione release];
+    [localita release];
     [super dealloc];
 }
 

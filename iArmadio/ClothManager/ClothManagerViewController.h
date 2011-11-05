@@ -12,6 +12,7 @@
 #import "ClothViewController.h"
 #import "ClothTableViewController.h"
 #import "CaptureClothController.h"
+#import "Tutorial.h"
 
 
 
@@ -24,7 +25,6 @@
     IBOutlet UIBarButtonItem *modifyBtn;
     IBOutlet UIImageView *imageview;
     Tipologia *tipologia;
-    CurrState *currstate;
     CaptureClothController *captureClothController;
     
   
@@ -38,7 +38,7 @@
 
 
 
-- (void)addIterator:(NSNotification *)notification;
+//- (void)addIterator:(NSNotification *)notification;
 - (IBAction) addItem:(id) sender;
 - (IBAction) modify:(id) sender;
 

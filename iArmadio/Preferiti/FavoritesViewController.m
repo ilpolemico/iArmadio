@@ -9,7 +9,7 @@
 #import "FavoritesViewController.h"
 
 @implementation FavoritesViewController
-@synthesize tableview, navbar, vestiti,combinazioni, imageview;
+@synthesize tableview, navbar, vestiti,combinazioni;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -67,7 +67,14 @@
         [key setObject:@"NO" forKey:@"ascending"];
         [orderBy addObject:key];
     }
-   //if(vestiti != nil){[vestiti release];}
+   if(self.vestiti != nil){
+       [self.vestiti release];
+       vestiti = nil;
+   }
+   if(self.combinazioni != nil){
+        [self.combinazioni release];
+        self.combinazioni = nil;
+   }
    self.vestiti = [dao getVestitiEntities:nil filterStagioneKey:nil filterStiliKeys:nil filterGradimento:-1 sortOnKeys:orderBy preferiti:YES];
    
    self.combinazioni = [dao getCombinazioniEntities:-1 filterStagioneKey:nil filterStiliKeys:nil sortOnKeys:orderBy preferiti:YES];
@@ -297,9 +304,16 @@
 }
  */
 
+NSArray *vestiti;    
+NSArray *combinazioni; 
+
+
+
 -(void) dealloc{
     if(vestiti != nil){[vestiti release];}
-
+    if(combinazioni != nil){[combinazioni release];}
+    [navbar release];
+    [tableview release];
     [super dealloc];
 }
 

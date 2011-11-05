@@ -24,8 +24,6 @@
     IBOutlet UIButton *addPreferitiBtn;
     IBOutlet UIScrollView *mainView;
     
-    NSArray *vestiti;
-    NSMutableDictionary *vestitiInScrollView;
     
     //Stili
     ButtonSegmentControl *choiceStile;
@@ -40,13 +38,6 @@
     IBOutlet UIButton *stagione_1;
     IBOutlet UIButton *stagione_2;
     IBOutlet UIButton *stagione_3;
-    
-    //Gradimento
-    ButtonSegmentControl *choiceGradimento;
-    NSArray *segmentGradimento;
-    IBOutlet UIButton *gradimento_1;
-    IBOutlet UIButton *gradimento_2;
-    IBOutlet UIButton *gradimento_3;
     
     
     //Combinazione
@@ -63,8 +54,6 @@
     IBOutlet UIScrollView *listCloth;
     IBOutlet UIView *zoomClothView;
     
-    IBOutlet UIButton *upscroll;
-    IBOutlet UIButton *downscroll;
     
     
     IBOutlet UIScrollView *captureView;
@@ -120,8 +109,6 @@
 @property (nonatomic, retain )IBOutlet UIButton *choice8;
 @property (nonatomic, retain )IBOutlet UIButton *choice9;
 @property (nonatomic, retain )IBOutlet UIButton *choice10;
-@property (nonatomic, retain )IBOutlet UIButton *upscroll;
-@property (nonatomic, retain )IBOutlet UIButton *downscroll;
 @property (nonatomic, retain )IBOutlet UIView *zoomClothView;
 @property (nonatomic, retain )IBOutlet UIScrollView *captureView;
 @property (nonatomic, retain )IBOutlet UIScrollView *listCloth;
@@ -135,8 +122,6 @@
 - (void)initInputType;
 - (void) fadeIn:(UIView *)view;
 - (void) fadeOut:(UIView *)view;
-- (IBAction) upscrollAction:(id)sender;
-- (IBAction) downscrollAction:(id)sender;
 - (IBAction) undoLook:(id)sender;
 - (IBAction) saveLook:(id)sender;
 - (IBAction) deleteLook:(id)sender;
@@ -144,7 +129,7 @@
 - (IBAction)selectCloth:(id)sender;
 - (IBAction)buttonPressed:(id)sender;
 - (IBAction)selectGradimento:(id)sender;
--(IBAction)hiddenZoomClothView:(UIView *)sender;
+- (IBAction)hiddenZoomClothView:(UIView *)sender;
 @end
 
 

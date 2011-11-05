@@ -15,7 +15,6 @@
 
 @synthesize imageView,
             imageSfondo,
-            imageViewReflect,
             stile_1,
             stile_2,
             stile_3,
@@ -39,7 +38,6 @@
             preferito,
             viewGradimento,
             captureView,
-            sfondoView,
             sliderZoom,
             imageViewGradimento;
  
@@ -126,12 +124,6 @@
     
     
      
-    
-    
-    
-    self.imageViewReflect.contentMode = UIViewContentModeScaleAspectFit;
-    
-    
     self.captureView.clipsToBounds = YES;
     //Edit image
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
@@ -242,8 +234,6 @@
 
 
 - (void)initInputType{
-    //Seleziona Stili
-    //NSArray *stiliKeys = [dao listStiliKeys];
     segmentStile = [[NSArray alloc] initWithObjects:self.stile_1,self.stile_2,self.stile_3, nil];
     choiceStile = [[ButtonSegmentControl alloc] init:@"stili"];
     choiceStile.delegate = self;
@@ -251,16 +241,6 @@
     choiceStile.selectedIndex = 0;
     
     
-    //NSArray *stagioniKeys = [dao listStagioniKeys];
-    //Stagione *stagione;
-    //stagione = [dao getStagioneEntity:[stagioniKeys objectAtIndex:0]];
-    
-    //self.stagione_1.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    //[self.stagione_1 setImage:[dao getImageFromStagione:stagione] forState: UIControlStateNormal];
-    //stagione = [dao getStagioneEntity:[stagioniKeys objectAtIndex:1]];
-    //[self.stagione_2 setImage:[dao getImageFromStagione:stagione] forState: UIControlStateNormal];
-    //stagione = [dao getStagioneEntity:[stagioniKeys objectAtIndex:2]];
-    //[self.stagione_3 setImage:[dao getImageFromStagione:stagione] forState: UIControlStateNormal]; 
     
     segmentStagione = [[NSArray alloc] initWithObjects:self.stagione_1,self.stagione_2,self.stagione_3, nil];
     choiceStagione = [[ButtonSegmentControl alloc] init:@"stagioni"];
@@ -525,6 +505,7 @@
     selectController = [[SelectTypeViewController alloc] initWithNibName:@"SelectTypeViewController" bundle:nil];
     
     [self presentModalViewController:selectController animated:YES];
+    
 }
 
 -(IBAction) startChangeZoom:(id) sender{
@@ -595,6 +576,9 @@
         selectController = nil;    
     }
     
+    
+    [[Tutorial shared] actionInfo:ACTION_ADDCLOTH];
+    
     [super viewWillAppear:animated];
 }
 
@@ -631,16 +615,28 @@
     if(vestito != nil){
         [vestito release];
     }
+    
+    if(selectController != nil){
+        [selectController release];
+    }
+    
+    [sliderZoom release];
+    [captureView release];
+    [addPreferiti release];
+    [currStagione release];
+    [currGradimento release];
+    [tipologiaSelected release];
+    [newimage release];
+    [imageViewSfondo release];
     [stile_1 release];
     [stile_2 release];
     [stile_3 release];
     [stagione_1 release];
     [stagione_2 release];
+    [stagione_3 release];
     [currStile release];
-    [currTipologia release];
     [toolbar release];
     [trash release];
-    [imageViewReflect release];
     [imageView release];
     [saveButton release];
     [addNavigationBar release];

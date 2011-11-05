@@ -389,7 +389,6 @@
 -(void) dealloc{
     NSLog(@"Dealloc coverview!!!");
     
-    
     if(captureClothController != nil){
         [captureClothController release];
     }    
@@ -398,6 +397,9 @@
     if(vestiti != nil){
         [vestiti release];
     }
+    [ordinaLabel release];
+    [imageview release];
+    [buttonAddCoverFlow release];
     [addButton release];
     [segmentcontrol release];
     [segmentOrderBy release];
@@ -418,7 +420,7 @@
     [stile_3 release];
     [stile_4 release];
     [super dealloc]; 
-
+    
 }
 
 @end

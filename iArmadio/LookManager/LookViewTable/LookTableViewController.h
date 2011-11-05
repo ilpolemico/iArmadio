@@ -19,12 +19,7 @@
 
 @interface LookTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>{
     IarmadioDao *dao;
-    SelectTypeViewController *delegateController;
-    CoverViewController *coverviewcontroller;
-    
     NSMutableDictionary *combinazioniForStile;
-    
-    
     IBOutlet UISegmentedControl *segmentControl;
     IBOutlet UIButton *addLookBtn;
 }

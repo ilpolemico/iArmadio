@@ -29,7 +29,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //[NSThread sleepForTimeInterval:5.0];
+    [NSThread sleepForTimeInterval:5.0];
     // Override point for customization after application launch.
     // Add the tab bar controller's current view as a subview of the window
     geolocal = [GeoLocal shared];
@@ -60,6 +60,7 @@
 
 - (void)openArmadio{
     [self.tabBarController.view setUserInteractionEnabled:NO];
+    [openView becomeFirstResponder];
     if(openView == nil){
         openView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,320,480)];
         openViewLeft = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,160,480)];
@@ -71,9 +72,6 @@
         openView.delegate = self;
         openView.showsHorizontalScrollIndicator = NO;
         openView.backgroundColor = [UIColor clearColor];
-        
-        
-        
         
         openViewLeft.pagingEnabled = YES;
         openViewLeft.bounces = NO;
@@ -227,6 +225,7 @@
 {
     [window release];
     [openView release];
+    [openViewLeft release];
     [dao release];
     [geolocal release];
     [tabBarController release];

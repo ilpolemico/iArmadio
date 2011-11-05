@@ -9,7 +9,7 @@
 #import "LookManagerViewController.h"
 
 @implementation LookManagerViewController
-@synthesize lookTableViewController, navcontroler, imageview;
+@synthesize navcontroler;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -52,7 +52,7 @@
 }
 
 -(void)dealloc{
-    [lookTableViewController release];
+    [navcontroler release];
     [super dealloc];
 }
 

@@ -39,8 +39,6 @@ combinazione,
 toolbar,
 mainView,
 lookSfondo,
-upscroll,
-downscroll,
 zoomClothView;
 
 
@@ -297,9 +295,12 @@ zoomClothView;
     if(currButton != nil){
         [currButton setHighlighted:NO];
         [currButton setSelected:NO];
+        [currButton release];
+        currButton = nil;
     }
     self.listCloth.contentMode = UIViewContentModeScaleAspectFit;
     currButton = (UIButton *)sender;
+    [currButton retain];
     [self performSelector:@selector(keepHighlightButton:) withObject:(UIButton *)sender afterDelay:0.0];
     
     int scrollview_size_width = self.listCloth.frame.size.width-8;
@@ -496,7 +497,6 @@ zoomClothView;
 -(IBAction)buttonPressed:(UIGestureRecognizer *)sender{
     int tag = ((UIButton *)sender.view).tag;
     
-    NSLog(@"tag:%d",tag);
     
     [currButton setSelected:NO];
     [currButton setHighlighted:NO];
@@ -647,9 +647,6 @@ zoomClothView;
     else if([buttonSegmentControl.tag isEqualToString:@"stagioni"]){
         return segmentStagione;
     }
-    else if([buttonSegmentControl.tag isEqualToString:@"gradimento"]){
-        return segmentGradimento;
-    }
     return nil;
 }
 
@@ -678,29 +675,74 @@ zoomClothView;
     }
 }
 
-- (IBAction) upscrollAction:(id)sender{
-    //[self.captureView setContentOffset:CGPointMake(0, 410) animated:YES];
-    
-};
-
-- (IBAction) downscrollAction:(id)sender{
-     //[self.captureView setContentOffset:CGPointMake(0,0) animated:YES];
-};
-
-  
 
 -(void) dealloc{
     NSLog(@"Dealloc LookView");
-    [segmentStile release];
+    
+    if(preferito != nil){
+    	[preferito release];
+    	preferito = nil;	
+    }
+    
+    if(iconeTipi != nil){
+        [iconeTipi release];
+        iconeTipi = nil;
+    }
+    
+    if(currButton != nil){
+        [currButton release];
+        currButton = nil;
+    }
+    if(vestitiForTipi != nil){
+        [vestitiForTipi release];
+        vestitiForTipi = nil;
+    }
+    
+    if(selectedVestiti != nil){
+        [selectedVestiti release];
+        selectedVestiti = nil;
+    }
+    
+    if(combinazione != nil){
+    	[selectedVestiti release];
+        selectedVestiti = nil;	
+    }
+	
+	[stile_1 release];
+	[stile_2 release];
+	[stile_3 release];
+	[stagione_1 release];
+	[stagione_2 release];
+	[stagione_3 release];
+	[viewGradimento release];
+	[undoBtn release];
+	[saveBtn release];
+	[deleteBtn release];
+	[addPreferitiBtn release];
+	[choice1 release];
+	[choice2 release];
+	[choice3 release];
+	[choice4 release];
+	[choice5 release];
+	[choice6 release];
+	[choice8 release];
+	[choice9 release];
+	[listCloth release];
+	[captureView release];
+	[preferito release];
+	[segmentStagione release];
+	[choiceStagione release];
+	[segmentStile release];
     [choiceStile release];
-    [segmentStagione release];
-    [choiceStagione release];
-    [choiceToTipi release];
-    [selectedVestiti release];
-    [iconeTipi release];
+    
+	
+	[combinazione release];
+	[toolbar release];
+	[mainView release];
+	[lookSfondo release];
+	[zoomClothView release];
     [super dealloc];
-}
-
+}  
 
 
 @end

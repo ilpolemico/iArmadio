@@ -211,7 +211,8 @@ const GLshort GTextures[] = {
 
 - (id)initWithFrame:(CGRect)frame 
 {
-    if (self = [super initWithFrame:frame]) {
+    self = [super initWithFrame:frame];
+    if (self != nil) {
         
 		self = [self internalInit];
     }
@@ -220,7 +221,8 @@ const GLshort GTextures[] = {
 
 - (id)initWithCoder:(NSCoder *)coder 
 {
-    if (self = [super initWithCoder:coder]) {
+    self = [super initWithCoder:coder];
+    if (self != nil) {
 		self = [self internalInit];
     }
     return self;

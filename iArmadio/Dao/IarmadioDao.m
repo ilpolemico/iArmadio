@@ -13,7 +13,7 @@
 
 @implementation IarmadioDao
 
-@synthesize category,listCategoryKeys,localita;
+@synthesize category,listCategoryKeys, localita;
 
 static IarmadioDao *singleton;
 
@@ -688,6 +688,12 @@ static IarmadioDao *singleton;
             abort();
         }
         
+        [stiliEntities release];
+        [listStiliKeys release];
+        
+        stiliEntities = nil;
+        listStiliKeys = nil;
+        
         stiliEntities = [[NSMutableDictionary alloc] init];
         listStiliKeys = [[NSMutableArray alloc] init];
         for (Stile *obj in entities) {
@@ -728,6 +734,11 @@ static IarmadioDao *singleton;
              NSLog(@"stagioniEntities error %@, %@", error, [error userInfo]);
              abort();
         }
+        
+        [stagioniEntities release];
+        stagioniEntities = nil;
+        [listStagioniKeys release];
+        listStagioniKeys = nil;
         
         stagioniEntities = [[NSMutableDictionary alloc] init];
         listStagioniKeys = [[NSMutableArray alloc] init];
@@ -1107,6 +1118,7 @@ static IarmadioDao *singleton;
         [[NSFileManager defaultManager] removeItemAtPath:store.URL.path error:&error];
     }
     
+    
     [persistentStoreCoordinator release];
     [managedObjectContext release];
     [managedObjectModel release];
@@ -1170,6 +1182,7 @@ static IarmadioDao *singleton;
 
 
 - (void)dealloc{
+    [singleton release];
 	[managedObjectContext release];
 	[managedObjectModel release];
     [persistentStoreCoordinator release]; 
@@ -1182,9 +1195,9 @@ static IarmadioDao *singleton;
     [category release];
     [stagioniEntities release];
     [currStagioneKey release];
-    [singleton release];
     [imagesDictionary release];
+    [config release];
+    [localita release];
 	[super dealloc];
 }
-
 @end

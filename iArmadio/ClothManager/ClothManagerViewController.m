@@ -35,11 +35,11 @@
 }
 
 
+/*
 - (void)addIterator:(NSNotification *)notification
 {
    
-    //NSLog(@"%@",currstate.currSection);
-    /*
+    
     if(
        ([currstate.currSection isEqualToString:SECTION_ARMADIO]) 
         )
@@ -53,9 +53,10 @@
         }
         captureClothController = [[CaptureClothController alloc] initWithNibName:@"CaptureClothController" bundle:nil parentController:self  iterator:YES];
         [self.view addSubview:captureClothController.view];
-    }*/
+    }
     
 }
+ */
 
 
 
@@ -67,9 +68,7 @@
     [CurrState shared].currSection = SECTION_CLOTHMANAGERVIEW;
     navcontroler.delegate = self; 
     dao = [IarmadioDao shared];
-    currstate = [CurrState shared];
     [self.view addSubview:navcontroler.view];
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addIterator:) name:ADD_CLOTH_EVENT object:nil];
     
 }
 
@@ -78,6 +77,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [CurrState shared].currSection = SECTION_CLOTHMANAGERVIEW;
+    [[Tutorial shared] actionInfo:ACTION_START];
 }
 
 
@@ -111,6 +111,10 @@
     // e.g. self.myOutlet = nil;
 }
 
+
+
+
+
 - (void)dealloc {
     if(captureClothController != nil){
         [captureClothController release];
@@ -121,6 +125,7 @@
     [addItemBtn release];
     [modifyBtn release];
     [navcontroler release];
+    [imageview release];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super dealloc];
 }

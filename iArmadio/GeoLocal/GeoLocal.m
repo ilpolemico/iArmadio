@@ -27,7 +27,6 @@ int curr_temp;
     self = [super init];
     dao = [IarmadioDao shared];
     currLocation = @"";
-    oldLocation = @"";
     curr_temp = 999;
     oldTemperatura = 999;
     locationManager = [[CLLocationManager alloc] init];
@@ -63,7 +62,7 @@ int curr_temp;
 
 
 -(void)setTemperatura{
-    if(([currLocation length]>0)&&(![currLocation isEqualToString:oldLocation])){
+    if([currLocation length]>0){
         NSString *request = [NSString stringWithFormat:@"http://www.google.com/ig/api?weather=%@",currLocation];
         request =  [request stringByAddingPercentEscapesUsingEncoding:
                     NSASCIIStringEncoding];
@@ -73,13 +72,6 @@ int curr_temp;
         NSURLResponse  *response = nil;
         responseData = [ NSURLConnection sendSynchronousRequest:myRequest returningResponse: &response error: &error ];
        
-        /*
-        NSString *encodingName = [[NSString alloc] initWithString:[response textEncodingName]]; 
-       
-        
-        NSStringEncoding encoding = CFStringConvertEncodingToNSStringEncoding(CFStringConvertIANACharSetNameToEncoding((CFStringRef) encodingName));*/
-        
-        
         
         NSXMLParser *parser = [[NSXMLParser alloc] initWithData:responseData];
         parser.delegate = self;  
@@ -166,6 +158,8 @@ int curr_temp;
 }
 
 -(void)dealloc{
+    if(geoCoder != nil){[geoCoder release];}
+    [currLocation release];
     [locationManager release];
     [singleton release];
     [super dealloc];

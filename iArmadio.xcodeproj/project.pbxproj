@@ -116,6 +116,7 @@
 		A3CFBA1C145AF67C002C060A /* caldo_freddo_20x20.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CFBA1A145AF67B002C060A /* caldo_freddo_20x20.png */; };
 		A3CFBA1D145AF67C002C060A /* caldo_freddo.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CFBA1B145AF67B002C060A /* caldo_freddo.png */; };
 		A3CFBA1F145AF9FD002C060A /* sfondo_new.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CFBA1E145AF9FD002C060A /* sfondo_new.png */; };
+		A3D6DFC914659D4D005E2F86 /* Tutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D6DFC814659D4D005E2F86 /* Tutorial.m */; };
 		A3D7073F144CAB7D00469E06 /* CreditsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3D7073D144CAB7D00469E06 /* CreditsViewController.m */; };
 		A3D70742144CBF7600469E06 /* CreditsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3D70744144CBF7600469E06 /* CreditsViewController.xib */; };
 		A3D81FD71449058D0028DD9F /* TabBarNipple.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D81FD51449058D0028DD9F /* TabBarNipple.png */; };
@@ -304,6 +305,8 @@
 		A3CFBA1A145AF67B002C060A /* caldo_freddo_20x20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = caldo_freddo_20x20.png; sourceTree = "<group>"; };
 		A3CFBA1B145AF67B002C060A /* caldo_freddo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = caldo_freddo.png; sourceTree = "<group>"; };
 		A3CFBA1E145AF9FD002C060A /* sfondo_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sfondo_new.png; sourceTree = "<group>"; };
+		A3D6DFC714659D4D005E2F86 /* Tutorial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tutorial.h; sourceTree = "<group>"; };
+		A3D6DFC814659D4D005E2F86 /* Tutorial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tutorial.m; sourceTree = "<group>"; };
 		A3D7073C144CAB7D00469E06 /* CreditsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsViewController.h; sourceTree = "<group>"; };
 		A3D7073D144CAB7D00469E06 /* CreditsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsViewController.m; sourceTree = "<group>"; };
 		A3D70743144CBF7600469E06 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CreditsViewController.xib; sourceTree = "<group>"; };
@@ -404,6 +407,7 @@
 		A30A32D814308E3100D44356 /* iArmadio */ = {
 			isa = PBXGroup;
 			children = (
+				A3D6DFC514659D24005E2F86 /* Tutorial */,
 				A31C7B99144B171300BD565D /* Configuration */,
 				A31C7B95144B16DB00BD565D /* ButtonSegmentControl */,
 				A3316A97143F0D0E0042446C /* FlowCover */,
@@ -654,6 +658,15 @@
 				A3645A831439C7AA00A13FB5 /* LookManagerViewController.m */,
 			);
 			path = LookManager;
+			sourceTree = "<group>";
+		};
+		A3D6DFC514659D24005E2F86 /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				A3D6DFC714659D4D005E2F86 /* Tutorial.h */,
+				A3D6DFC814659D4D005E2F86 /* Tutorial.m */,
+			);
+			path = Tutorial;
 			sourceTree = "<group>";
 		};
 		A3EA477E1449FD3A0095349B /* images */ = {
@@ -961,6 +974,7 @@
 				A3B10D5C145463CE00C9A881 /* ProprietaCombinazione.m in Sources */,
 				A3B10D6D1454B09700C9A881 /* Combinazione.m in Sources */,
 				A3E44055145B81DC00021751 /* UIImage+Effect.m in Sources */,
+				A3D6DFC914659D4D005E2F86 /* Tutorial.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

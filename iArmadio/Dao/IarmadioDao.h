@@ -49,16 +49,16 @@ static NSString * const CONFIG_PLIST = @"Config";
     NSMutableDictionary *category;
     NSMutableArray *listCategoryKeys;
     NSString *currStagioneKey; 
-    NSString *localita;
     NSDictionary *imagesDictionary;
     NSMutableDictionary *config;
+    NSString *localita;
     BOOL silenceNotification;
 }
 
+@property (nonatomic, retain) NSString *localita;
 @property (nonatomic, retain) NSMutableDictionary *config;
 @property (nonatomic, retain, readonly) NSMutableDictionary *category;
 @property (nonatomic, retain, readonly) NSMutableArray *listCategoryKeys;
-@property (nonatomic, retain) NSString *localita;
 @property (nonatomic, retain, readonly) NSString *currStagioneKey;
 @property (nonatomic, retain, readonly) NSDictionary *imagesDictionary;
 @property (nonatomic, retain, readonly) NSMutableDictionary *stagioniEntities;

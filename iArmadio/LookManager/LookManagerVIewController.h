@@ -13,15 +13,9 @@
 @interface LookManagerViewController : UIViewController{
 
     IarmadioDao *dao;
-    IBOutlet LookTableViewController *lookTableViewController;
     IBOutlet UINavigationController *navcontroler;
-    IBOutlet UIImageView *imageview;
-
-
 }
 
-@property (retain, readonly, nonatomic) IBOutlet UIImageView *imageview;
-@property (retain, readonly, nonatomic) IBOutlet LookTableViewController *lookTableViewController;
 @property (retain, readonly, nonatomic) IBOutlet UINavigationController *navcontroler;
 
 
