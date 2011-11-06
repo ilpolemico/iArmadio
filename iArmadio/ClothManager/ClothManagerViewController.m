@@ -77,7 +77,13 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [CurrState shared].currSection = SECTION_CLOTHMANAGERVIEW;
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
     [[Tutorial shared] actionInfo:ACTION_START];
+    [super viewDidAppear:animated];
+
 }
 
 

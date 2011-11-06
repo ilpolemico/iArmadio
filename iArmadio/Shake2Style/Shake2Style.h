@@ -17,7 +17,9 @@
     IBOutlet UIImageView *imageView;
     IBOutlet UILabel *stagione;
     IBOutlet UILabel *localita;
+    BOOL enableShake;
 }
+@property (nonatomic) BOOL enableShake;
 
 + (Shake2Style *)shared;
 - (Combinazione *)shake2style:(NSArray *)filterStili filterStagione:(NSString *)filterStagione;

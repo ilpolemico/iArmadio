@@ -161,7 +161,6 @@ int curr_temp;
     if(geoCoder != nil){[geoCoder release];}
     [currLocation release];
     [locationManager release];
-    [singleton release];
     [super dealloc];
 }
 

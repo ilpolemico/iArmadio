@@ -9,6 +9,7 @@
 #import "Shake2Style.h"
 
 @implementation Shake2Style
+@synthesize enableShake;
 
 
 static Shake2Style *singleton;
@@ -16,6 +17,7 @@ static Shake2Style *singleton;
 + (Shake2Style *)shared{
     if(singleton == nil){
         singleton = [[Shake2Style alloc] initWithNibName:@"ShakeView" bundle:nil];
+        singleton.enableShake = YES;
     }
     return singleton;
 }
@@ -27,35 +29,6 @@ static Shake2Style *singleton;
         dao = [IarmadioDao shared];
     }
     return self;
-}
-
-
-- (Vestito *)shake2style:(NSArray *)vestiti{
-    
-    if([vestiti count] == 0){ return nil;}
-    
-    int tot = 0;
-    
-    NSMutableArray *pesi = [[NSMutableArray alloc] init];
-    
-    int cont = 0;
-    for(Vestito *c in vestiti){
-        tot += [c.gradimento intValue]+1;
-        [pesi addObject:[NSNumber numberWithInt:tot]];
-    }
-    if(tot==0){tot = 1;}
-    int random = rand() % tot;
-    int index = 0;
-    cont = 0;
-    for(NSNumber *peso in pesi){
-        if(random >= [peso intValue]){index = cont;}
-        else{break;}
-        cont++;
-    }
-    
-    
-    [pesi autorelease];
-    return [vestiti objectAtIndex: index];
 }
 
 
@@ -182,7 +155,11 @@ static Shake2Style *singleton;
        &&
        (![[CurrState shared].currSection isEqualToString:SECTION_LOOKVIEW])
        ){
-        if([[[dao.config objectForKey:@"Settings"] objectForKey:@"shake"] boolValue]){
+        if(
+           ([[[dao.config objectForKey:@"Settings"] objectForKey:@"shake"] boolValue])
+           &&
+           (self.enableShake)
+          ){
            [CurrState shared].currSection = SECTION_SHAKE2STYLE;
            [self choiceStyle];
         }
@@ -232,7 +209,6 @@ static Shake2Style *singleton;
 
 
 -(void) dealloc{
-    [singleton release];
     [imageView release];
     [stagione release];
     [localita release];

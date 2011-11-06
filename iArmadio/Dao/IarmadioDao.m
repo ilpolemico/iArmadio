@@ -56,6 +56,50 @@ static IarmadioDao *singleton;
       return [[[self getImageDocumentFromFile:vestitoEntity.thumbnail] retain] autorelease];
 }
 
+
+- (UIImage *)getImageWithInfoFromVestito:(Vestito *)vestitoEntity{
+    UIImage *image = [[[self getImageDocumentFromFile:vestitoEntity.immagine] retain] autorelease];
+    
+    NSString *preferito = vestitoEntity.preferito;
+    Stagione *stagione = vestitoEntity.perLaStagione;
+    //Stile *stile = [[vestitoEntity.conStile objectEnumerator] nextObject];
+    
+    UIView *viewTmp = [[[UIView alloc] initWithFrame:CGRectMake(0,0,image.size.width, image.size.height)] autorelease]; 
+    
+    viewTmp.contentMode = UIViewContentModeScaleAspectFit;
+    UIGraphicsBeginImageContext(CGSizeMake(viewTmp.frame.size.width,viewTmp.frame.size.height));
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [viewTmp addSubview:[[[UIImageView alloc] initWithImage:image] autorelease]];
+    
+    int offset = 0;
+    
+    
+    if((preferito != nil)&&(preferito.length > 0)){
+        
+        UIImageView *tmp = [[[UIImageView alloc] initWithImage:[self getImageBundleFromFile:@"bookmark.png"]] autorelease];
+        tmp.frame = CGRectMake(offset, 0, 40, 40);
+        tmp.contentMode = UIViewContentModeScaleAspectFit;
+        
+        [viewTmp addSubview:tmp];
+        offset += 40;
+    }
+    
+    if(stagione != nil){
+        UIImageView *tmp = [[[UIImageView alloc] initWithImage:[self getImageFromStagione:stagione]] autorelease];
+        
+        tmp.frame = CGRectMake(offset, 0, 30, 30);
+        tmp.contentMode = UIViewContentModeScaleAspectFit;
+        [viewTmp addSubview:tmp];
+        //offset += 40;
+    }
+    
+    [viewTmp.layer renderInContext:context];
+    UIImage *snapShotImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return snapShotImage;
+}
+
 - (UIImage *)getThumbnailWithInfoFromVestito:(Vestito *)vestitoEntity{
     UIImage *thumbnail = [[[self getImageDocumentFromFile:vestitoEntity.thumbnail] retain] autorelease];
     
@@ -1154,9 +1198,6 @@ static IarmadioDao *singleton;
    
     for (NSString *file in [fm contentsOfDirectoryAtPath:directory error:&error]) {
          [fm removeItemAtPath:[NSString stringWithFormat:@"%@%@", directory, file] error:&error];
-        
-        
-       
     }
     
     [self setupDB];
@@ -1182,7 +1223,6 @@ static IarmadioDao *singleton;
 
 
 - (void)dealloc{
-    [singleton release];
 	[managedObjectContext release];
 	[managedObjectModel release];
     [persistentStoreCoordinator release]; 

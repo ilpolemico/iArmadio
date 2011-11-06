@@ -83,6 +83,7 @@ static NSString * const CONFIG_PLIST = @"Config";
 - (Stile *)getStileEntity:(NSString *)stileKeys;
 - (Stagione *)getStagioneEntity:(NSString *)stagioneKeys;
 - (UIImage *)getImageFromVestito:(Vestito *)vestitoEntity;
+- (UIImage *)getImageWithInfoFromVestito:(Vestito *)vestitoEntity;
 - (UIImage *)getThumbnailFromVestito:(Vestito *)vestitoEntity;
 - (UIImage *)getThumbnailWithInfoFromVestito:(Vestito *)vestitoEntity;
 - (UIImage *)getImageFromTipo:(Tipologia *)tipologiaEntity;

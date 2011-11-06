@@ -129,9 +129,6 @@ static CurrState *singleton;
 
 
 - (void)dealloc{
-    
-    
-     [singleton release];
      [currStagioneKey release];
      [currSection release];
      [oldCurrSection release];
