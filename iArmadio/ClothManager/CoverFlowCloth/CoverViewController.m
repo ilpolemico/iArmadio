@@ -27,7 +27,6 @@
             tipoView,
             tipoLabel,
             tipologia,
-            ordinaLabel,
             imageview,
             buttonAddCoverFlow;
 
@@ -149,7 +148,6 @@
     [super viewDidLoad];
     dao = [IarmadioDao shared];
     currstate = [CurrState shared];
-    self.ordinaLabel.text = NSLocalizedString(self.ordinaLabel.text, nil);
     currstate.currSection = SECTION_COVERFLOW;
     [self initInputType];
     
@@ -397,7 +395,6 @@
     if(vestiti != nil){
         [vestiti release];
     }
-    [ordinaLabel release];
     [imageview release];
     [buttonAddCoverFlow release];
     [addButton release];
@@ -419,6 +416,7 @@
     [stile_2 release];
     [stile_3 release];
     [stile_4 release];
+    [openflow release];
     [super dealloc]; 
     
 }
