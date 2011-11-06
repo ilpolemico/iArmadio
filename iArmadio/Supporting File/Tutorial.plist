@@ -2,14 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Settings</key>
-	<dict>
-		<key>gps</key>
-		<true/>
-		<key>shake</key>
-		<true/>
-		<key>tutorial</key>
-		<true/>
-	</dict>
+	<key>startApp</key>
+	<string>Benvenuto il WhatDoWear.</string>
+	<key>addCloth</key>
+	<string>Aggiungi il vestito</string>
 </dict>
 </plist>
