@@ -136,13 +136,13 @@
     NSString *tipologiaKey = [tipologie objectAtIndex:indexPath.row];
     NSInteger count = [[countVestiti objectForKey:tipologiaKey] intValue];
     
-    
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
     cell.imageView.image = [dao getImageFromTipo:([dao getTipoEntity:[tipologie objectAtIndex:indexPath.row]])]; 
     cell.textLabel.text = NSLocalizedString([dao getTipoEntity:[tipologie objectAtIndex:indexPath.row]].plural,nil);
     [cell.textLabel setTextColor:[UIColor darkTextColor]];
-    [cell.textLabel setFont:[UIFont fontWithName:@"MarkerFelt-Wide" size:18 ]];
-    [cell.detailTextLabel setFont:[UIFont fontWithName:@"MarkerFelt-Wide" size:12 ]];
+    [cell.textLabel setFont:[UIFont fontWithName:@"STHeitiSC-Medium" size:16 ]];
+    [cell.detailTextLabel setFont:[UIFont  fontWithName:@"STHeitiSC-Medium" size:12 ]];
+    cell.detailTextLabel.textColor = [UIColor darkGrayColor];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", count];
     
     
@@ -168,8 +168,6 @@
     }
     else{
         if(coverviewcontroller != nil){
-            [coverviewcontroller.openflow release];
-            [coverviewcontroller.openflow.delegate release];
             [coverviewcontroller release];
             coverviewcontroller = nil;
         }
@@ -243,8 +241,6 @@
     NSLog(@"Dealloc ArmadioTable!");
     
     if(coverviewcontroller != nil){
-        [coverviewcontroller.openflow release];
-        [coverviewcontroller.openflow.delegate release];
         [coverviewcontroller release];
     }
 
