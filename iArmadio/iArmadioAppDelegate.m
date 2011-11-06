@@ -29,11 +29,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [NSThread sleepForTimeInterval:5.0];
+    [NSThread sleepForTimeInterval:4.0];
+    
+    
+    
     // Override point for customization after application launch.
     // Add the tab bar controller's current view as a subview of the window
     geolocal = [GeoLocal shared];
     dao = [IarmadioDao shared];
+    currstate = [CurrState shared];
+    tutorial = [Tutorial shared];
     [dao setupDB];
     shake2style = [Shake2Style shared];
     [self.tabBarController.view setUserInteractionEnabled:YES];
@@ -60,7 +65,7 @@
 
 - (void)openArmadio{
     [self.tabBarController.view setUserInteractionEnabled:NO];
-    [openView becomeFirstResponder];
+    shake2style.enableShake = NO;
     if(openView == nil){
         openView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,320,480)];
         openViewLeft = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0,160,480)];
@@ -124,6 +129,7 @@
             openViewLeft.contentOffset = CGPointMake(160,0);
             [UIView commitAnimations];
             [shake2style becomeFirstResponder];
+            shake2style.enableShake = YES;
         }
        
     }
@@ -150,7 +156,7 @@
      If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
      */
     [geolocal disableGPS];
-    [self openArmadio];
+    //[self openArmadio];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -169,7 +175,7 @@
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
-    [self openArmadio];
+    //[self openArmadio];
 }
 
 
@@ -228,6 +234,9 @@
     [openViewLeft release];
     [dao release];
     [geolocal release];
+    [currstate release];
+    [tutorial release];
+    [shake2style release];
     [tabBarController release];
     [tabBarArrow release];
     [super dealloc];

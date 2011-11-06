@@ -213,8 +213,7 @@ const GLshort GTextures[] = {
 {
     self = [super initWithFrame:frame];
     if (self != nil) {
-        
-		self = [self internalInit];
+    	[self internalInit];
     }
     return self;
 }
@@ -223,7 +222,7 @@ const GLshort GTextures[] = {
 {
     self = [super initWithCoder:coder];
     if (self != nil) {
-		self = [self internalInit];
+		[self internalInit];
     }
     return self;
 }
@@ -241,8 +240,6 @@ const GLshort GTextures[] = {
 	[EAGLContext setCurrentContext:nil];
     
 	[context release];
-    //[delegate release];
-    //delegate = nil;
     context = nil;
     [super dealloc];
 }
@@ -257,7 +254,7 @@ const GLshort GTextures[] = {
 {
 	if (delegate) {
 		return [delegate flowCoverNumberImages:self];
-	} else {
+  	} else {
 		return 0;		// test
 	}
 }
@@ -266,7 +263,7 @@ const GLshort GTextures[] = {
 {
 	if (delegate) {
 		return [delegate flowCover:self cover:image];
-	} else {
+  	} else {
 		return nil;		// should never happen
 	}
 }
@@ -616,6 +613,10 @@ static void *GData = NULL;
 		
 		[self startAnimation:speed];
 	}
+}
+
+- (void)viewDidUnload
+{  
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event

@@ -186,22 +186,7 @@
     
     
     
-	if (UIImageOrientationLeft == self.imageOrientation)
-	{
-        self = [self rotateInRadians:M_PI_2];
-	}
-	else if (UIImageOrientationRight == self.imageOrientation)
-	{
-        
-        CGContextRotateCTM(bmContext, -M_PI_2);
-        CGContextTranslateCTM(bmContext, -destWidth, 0);
-		
-	}
-	else if (UIImageOrientationDown == self.imageOrientation)
-	{
-		CGContextTranslateCTM(bmContext, destWidth, destHeight);
-		CGContextRotateCTM(bmContext, -M_PI);
-	}
+	
      
 	/// Image quality
 	CGContextSetShouldAntialias(bmContext, true);

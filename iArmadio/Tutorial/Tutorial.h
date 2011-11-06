@@ -7,11 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "IarmadioDao.h"
+
+static NSString * const TUTORIAL_PLIST = @"Tutorial";
+
+#define ACTION_START @"startApp"
+#define ACTION_ADDCLOTH @"addCloth"
 
 @interface Tutorial : NSObject{
+    NSMutableDictionary *tutorial;
+    IarmadioDao *dao;
 }
 
+
 +(Tutorial *)shared;
--(void) actionInfo:(NSString *)action;
+- (void) actionInfo:(NSString *)action;
+- (void)loadTutorialDictionary;
+- (void) showInfo:(NSString *)info;
 
 @end

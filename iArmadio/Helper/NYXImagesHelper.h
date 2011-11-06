@@ -52,5 +52,5 @@ static inline CGFloat NYXRadiansToDegrees(const CGFloat radians)
 }
 
 CGContextRef NYXImageCreateARGBBitmapContext(const size_t width, const size_t height, const size_t bytesPerRow);
-CGContextRef NYXCreateBitmapContext(const int pixelsWide, const int pixelsHigh);
+//CGContextRef NYXCreateBitmapContext(const int pixelsWide, const int pixelsHigh);
 CGImageRef NYXCreateGradientImage(const size_t pixelsWide, const size_t pixelsHigh, const CGFloat fromAlpha, const CGFloat toAlpha);

@@ -38,8 +38,7 @@
 #define SECTION_MAIN_WINDOW @"MainWindow"
 
 
-#define ACTION_START @"startApp"
-#define ACTION_ADDCLOTH @"addCloth"
+
 
 
 @interface Configuration : NSObject

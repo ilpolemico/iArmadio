@@ -81,7 +81,7 @@ woody@chaosinmotion.com. Chaos In Motion is at http://www.chaosinmotion.com
     GLuint depthRenderbuffer;
 }
 
-@property (retain, nonatomic) IBOutlet id<FlowCoverViewDelegate> delegate;
+@property (assign,nonatomic) IBOutlet id<FlowCoverViewDelegate> delegate;
 
 - (void)draw;					// Draw the FlowCover view with current state
 - (void) emptyCache;
