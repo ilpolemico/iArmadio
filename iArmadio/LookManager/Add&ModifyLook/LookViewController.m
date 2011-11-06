@@ -247,7 +247,7 @@ zoomClothView;
     
     for(int i=1;i<=10;i++){
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGestureIconCloth:)];
-    
+        
         tapGesture.numberOfTapsRequired = 2;
         SEL selector = NSSelectorFromString([@"choice" stringByAppendingFormat:@"%d",i,nil]);
         UIButton *button = [self performSelector:selector];
@@ -419,11 +419,11 @@ zoomClothView;
         [self.listCloth addSubview:button];
         
         
-        sizeScrollView += imageview_size_height;
+        sizeScrollView += imageview_size_height+10;
       
         count++;
     }
-    
+    sizeScrollView += 10;
     [self.listCloth setContentSize: CGSizeMake(scrollview_size_width,sizeScrollView)];
     currChoice = index;
     
@@ -440,7 +440,7 @@ zoomClothView;
         
         tapGesture.numberOfTapsRequired = 1;
         [self.zoomClothView addGestureRecognizer:tapGesture];
-        UIImage *tmp = [dao getImageFromVestito:vestito];
+        UIImage *tmp = [dao getImageWithInfoFromVestito:vestito];
         [((UIImageView *)[self.zoomClothView.subviews objectAtIndex:0]) setImage:tmp];
         [tapGesture release];
         [self fadeIn:self.zoomClothView];
@@ -486,7 +486,7 @@ zoomClothView;
         
         tapGesture.numberOfTapsRequired = 1;
         [self.zoomClothView addGestureRecognizer:tapGesture];
-        UIImage *tmp = [dao getImageFromVestito:vestito];
+        UIImage *tmp = [dao getImageWithInfoFromVestito:vestito];
         [((UIImageView *)[self.zoomClothView.subviews objectAtIndex:0]) setImage:tmp];
         [tapGesture release];
         [self fadeIn:self.zoomClothView];
