@@ -52,11 +52,11 @@ static Shake2Style *singleton;
         [pesi addObject:[NSNumber numberWithInt:tot]];
     }
     if(tot==0){tot = 1;}
-    int random = rand() % tot;
+    int random = arc4random_uniform(tot+1);
     int index = 0;
     cont = 0;
     for(NSNumber *peso in pesi){
-        if(random >= [peso intValue]){index = cont;}
+        if(random > [peso intValue]){index = cont;}
         else{break;}
         cont++;
     }
