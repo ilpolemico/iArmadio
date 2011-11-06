@@ -10,6 +10,7 @@
 #import "IarmadioDao.h"
 #import "GeoLocal.h"
 #import "CreditsViewController.h"
+#import "Tutorial.h"
 
 @interface SetupViewController : UIViewController{
     IarmadioDao *dao;
@@ -19,6 +20,7 @@
     IBOutlet UIView *viewImpostazioni;
     IBOutlet UISwitch *gps;
     IBOutlet UISwitch *shake;
+    IBOutlet UISwitch *tutorial;
 }
 
 @property (retain,nonatomic) IBOutlet UINavigationController *navcontroler;
@@ -27,10 +29,12 @@
 @property (retain,nonatomic) IBOutlet UILabel *labelShake;
 @property (retain,nonatomic) IBOutlet UISwitch *gps;
 @property (retain,nonatomic) IBOutlet UISwitch *shake;
+@property (retain,nonatomic) IBOutlet UISwitch *tutorial;
 
 -(IBAction)credits:(id)sender;
 -(IBAction)enableGPS:(id)sender;
 -(IBAction)enableShake:(id)sender;
+-(IBAction)enableTutorial:(id)sender;
 -(IBAction)reset:(id)sender;
 
 @end

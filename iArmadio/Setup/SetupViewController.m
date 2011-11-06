@@ -10,7 +10,7 @@
 
 @implementation SetupViewController
 
-@synthesize navcontroler, viewImpostazioni, labelGPS, labelShake, gps, shake;
+@synthesize navcontroler, viewImpostazioni, labelGPS, labelShake, tutorial, gps, shake;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,7 +35,7 @@
     NSMutableDictionary *options = [dao.config objectForKey:@"Settings"];
     gps.on = [[options objectForKey:@"gps"] boolValue];
     shake.on = [[options objectForKey:@"shake"] boolValue];
-    
+    tutorial.on = [[options objectForKey:@"tutorial"] boolValue];
 }
 
 - (void)viewDidLoad
@@ -53,8 +53,6 @@
     
     self.labelGPS.text = NSLocalizedString(self.labelGPS.text, nil);
     self.labelShake.text = NSLocalizedString(self.labelShake.text, nil);
-    
- 
      
 }
 
@@ -105,6 +103,21 @@
     
     [options setValue:[NSNumber numberWithBool:((UISwitch *)sender).isOn] forKey:@"shake"];
     dao.config = settings;
+    [settings release];
+}
+
+
+-(IBAction)enableTutorial:(id)sender{
+    NSMutableDictionary *settings = [dao.config copy];
+    NSMutableDictionary *options = [settings objectForKey:@"Settings"];
+    
+    [options setValue:[NSNumber numberWithBool:((UISwitch *)sender).isOn] forKey:@"tutorial"];
+    dao.config = settings;
+    
+    if(((UISwitch *)sender).isOn){
+        [[Tutorial shared] loadTutorialDictionary];
+    }
+    
     [settings release];
 }
 
