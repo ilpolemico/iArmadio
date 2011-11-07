@@ -1086,6 +1086,7 @@ static IarmadioDao *singleton;
         currStagioneKey = @"calda-fredda";
     }
     
+    NSLog(@"CurrStagione:%@",currStagioneKey);
     
 }
 

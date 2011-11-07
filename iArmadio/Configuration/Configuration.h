@@ -16,6 +16,7 @@
 #define CLOTH_NORMAL_SIZE_Y 400
 
 #define MAX_CLOTH 100
+#define MAX_LOOK 1000
 
 
 

@@ -366,7 +366,9 @@
    }
    
     
-    NSString *scelta_stagione = [[dao listStagioniKeys] objectAtIndex:choiceStagione.selectedIndex] ;
+    NSString *scelta_stagione = [[dao listStagioniKeys] objectAtIndex:choiceStagione.selectedIndex];
+    
+    
     
     if(addCloth){ 
         
@@ -383,14 +385,16 @@
         }  
         
         
-        
+        [CurrState shared].currStagioneKey = scelta_stagione;
         vestito = [dao addVestitoEntity:snapShotImage gradimento:gradimento tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili preferito:self.preferito];
         [vestito retain];
+        
         
     }
     else{
         if(vestito != nil){[vestito autorelease];}
         vestito.preferito = self.preferito;
+        [CurrState shared].currStagioneKey = scelta_stagione;
         vestito = [dao modifyVestitoEntity:vestito image:snapShotImage  isNew:NO gradimento:gradimento tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili];
             modifyImageCloth = NO;
         [vestito retain];

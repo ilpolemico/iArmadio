@@ -215,6 +215,7 @@ zoomClothView;
     
     if(self.combinazione != nil){
         stili = combinazione.conStile;
+        stagione = combinazione.perLaStagione;
         choiceStagione.selectedIndex = [stagione.id intValue];
         Stile *tmp = [[stili objectEnumerator] nextObject];    
         choiceStile.selectedIndex = [tmp.id intValue]-1;
@@ -606,12 +607,26 @@ zoomClothView;
     
     NSString *scelta_stagione = [[dao listStagioniKeys] objectAtIndex:choiceStagione.selectedIndex] ;
     if(!self.combinazione){
+        if([[dao getCombinazioniEntities:0 filterStagioneKey:nil filterStiliKeys:nil] count]+1 > MAX_LOOK){
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:
+                                  NSLocalizedString(@"Numero massimo superato",nil) message: NSLocalizedString(@"Il numero massimo di look è stato raggiunto",nil) delegate:self cancelButtonTitle: NSLocalizedString(@"Annulla",nil) otherButtonTitles:nil, nil];
+            
+            [alert show];
+            [alert release];
+            return;
+        }  
+
+        
+        [CurrState shared].currStagioneKey = scelta_stagione;
         [dao addCombinazioneEntity:vestitiInCombinazione gradimento:gradimento stagioneKey:scelta_stagione stiliKeys:stili preferito:self.preferito];
     }   
     else{
+        [CurrState shared].currStagioneKey = scelta_stagione;
         [dao modifyCombinazioneEntity:self.combinazione  vestitiEntities:vestitiInCombinazione  isNew:NO gradimento:gradimento stagioneKey:scelta_stagione stiliKeys:stili preferito:self.preferito];
     
     }
+    
     [self dismissModalViewControllerAnimated:YES];
 }
 

@@ -64,6 +64,11 @@
     [key setObject:@"NO" forKey:@"ascending"];
     [keys addObject:key];
     
+    
+    [self.view setUserInteractionEnabled:FALSE];
+    segmentControl.selectedSegmentIndex = [[CurrState shared].currStagioneIndex intValue];
+    [self.view setUserInteractionEnabled:TRUE];
+    
     if(combinazioniForStile != nil){
         [combinazioniForStile release];
         combinazioniForStile = nil;

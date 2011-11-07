@@ -104,7 +104,11 @@
 
 - (void)reloadVestiti:(NSNotification *)pNotification{
    //NSLog(@"currSection: %@",currstate.currSection); 
-  
+    [self.view setUserInteractionEnabled:FALSE];
+    segmentcontrol.selectedSegmentIndex = [currstate.currStagioneIndex intValue];
+    
+    [self.view setUserInteractionEnabled:TRUE];
+    
     [self reloadVestiti];
     
     /*
