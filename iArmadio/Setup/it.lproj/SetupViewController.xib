@@ -247,6 +247,7 @@
 ZWF0aS4KQ29uIGlsIGdwcyBhdHRpdmF0byBuZSB2ZXJyw6AgcHJvcG9zdG8gdW5vIGFkYXR0byBhbCBj
 bGltYSwgYWx0cmltZW50aSBuZSB2ZXJyw6AgcHJvcG9zdG8gdW5vIGluIGJhc2UgYWxsYSBkYXRhIGNv
 cnJlbnRlA</string>
+									<int key="IBUITextAlignment">1</int>
 									<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 										<int key="IBUIAutocapitalizationType">2</int>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -287,6 +288,7 @@ cnJlbnRlA</string>
 									<bool key="IBUIBouncesZoom">NO</bool>
 									<bool key="IBUIEditable">NO</bool>
 									<string key="IBUIText">Attenzione: Abilitando il GPS la batteria del dispositivo si scaricherà piu' rapidamente</string>
+									<int key="IBUITextAlignment">1</int>
 									<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 										<int key="IBUIAutocapitalizationType">2</int>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>

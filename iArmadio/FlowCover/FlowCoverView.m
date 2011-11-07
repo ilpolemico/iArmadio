@@ -48,7 +48,7 @@ woody@chaosinmotion.com. Chaos In Motion is at http://www.chaosinmotion.com
 
 #define TEXTURESIZE			256		// width and height of texture; power of 2, 256 max
 #define MAXTILES			100		// maximum allocated 256x256 tiles in cache
-#define VISTILES			3		// # tiles left and right of center tile visible on screen
+#define VISTILES			10		// # tiles left and right of center tile visible on screen
 
 /*
  *	Parameters to tweak layout and animation behaviors
@@ -56,8 +56,8 @@ woody@chaosinmotion.com. Chaos In Motion is at http://www.chaosinmotion.com
 
 #define SPREADIMAGE			0.1		// spread between images (screen measured from -1 to 1)
 #define FLANKSPREAD			0.4		// flank spread out; this is how much an image moves way from center
-#define FRICTION			1.0	// friction
-#define MAXSPEED			5.0	// throttle speed to this value
+#define FRICTION			100.0	// friction
+#define MAXSPEED			10.0	// throttle speed to this value
 
 /************************************************************************/
 /*																		*/

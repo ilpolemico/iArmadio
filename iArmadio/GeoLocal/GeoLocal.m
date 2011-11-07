@@ -80,7 +80,12 @@ int curr_temp;
         
         oldTemperatura = curr_temp;
         [dao setCurrStagioneKeyFromTemp:curr_temp]; 
-        lastUpdate = [NSDate date];
+        
+        if(self.lastUpdate != nil){
+            [self.lastUpdate release];
+            self.lastUpdate = nil;
+        }
+        self.lastUpdate = [NSDate date];
     }
 }
 

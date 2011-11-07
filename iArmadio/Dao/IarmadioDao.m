@@ -1092,17 +1092,17 @@ static IarmadioDao *singleton;
 
 
 - (NSString *)currStagioneKey{
-    NSDate* currdate = [NSDate date];
-    
-    NSDateComponents *comps = [[NSDateComponents alloc] init];
-    [comps setMonth:1];
-    NSCalendar *gregorian = [[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] autorelease];
-    [gregorian setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
-    NSDate *date = [gregorian dateByAddingComponents:comps toDate:[GeoLocal shared].lastUpdate  options:0];
-    [comps release];
-    
-    if([date compare:currdate] == NSOrderedDescending){
-        [self setCurrStagioneKeyFromTemp:999];
+    if([GeoLocal shared].lastUpdate != nil){
+        NSDate *currdate = [NSDate date];
+        NSDateComponents *comps = [[NSDateComponents alloc] init];
+        [comps setDay:1];
+        NSCalendar *gregorian = [[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] autorelease];
+        [gregorian setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+        NSDate *date = [gregorian dateByAddingComponents:comps toDate:[GeoLocal shared].lastUpdate  options:0];
+        [comps release];
+        if([date compare:currdate] == NSOrderedDescending){
+            [self setCurrStagioneKeyFromTemp:999];
+        }
     }
     else if(currStagioneKey == nil){
         [self setCurrStagioneKeyFromTemp:999];
