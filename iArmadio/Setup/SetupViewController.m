@@ -33,8 +33,8 @@
 
 - (void) viewDidAppear:(BOOL)animated{
     NSMutableDictionary *options = [dao.config objectForKey:@"Settings"];
-    gps.on = [[options objectForKey:@"gps"] boolValue];
     shake.on = [[options objectForKey:@"shake"] boolValue];
+    gps.on = [[options objectForKey:@"gps"] boolValue];
     tutorial.on = [[options objectForKey:@"tutorial"] boolValue];
 }
 
@@ -46,9 +46,15 @@
     
     [self.view addSubview:navcontroler.view];
     
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 30)];
+    label.text = NSLocalizedString(@"Impostazioni", nil);
+    label.textColor = [UIColor whiteColor];
+    label.textAlignment = UITextAlignmentCenter;
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont fontWithName:@"STHeitiSC-Medium" size: 22.0];
+    [ self.navcontroler.navigationBar.topItem setTitleView:label];
+    [label release];
     
-    // Do any additional setup after loading the view from its nib.
-    self.navcontroler.navigationBar.topItem.title =  NSLocalizedString(@"Impostazioni", nil);
     self.navcontroler.navigationBar.topItem.rightBarButtonItem.title = NSLocalizedString(@"Credits",nil);
     
     self.labelGPS.text = NSLocalizedString(self.labelGPS.text, nil);
@@ -103,6 +109,18 @@
     
     [options setValue:[NSNumber numberWithBool:((UISwitch *)sender).isOn] forKey:@"shake"];
     dao.config = settings;
+    if(!((UISwitch *)sender).isOn){
+        gps.on = NO;
+        [gps setEnabled:NO];
+        [options setValue:[NSNumber numberWithBool:((UISwitch *)sender).isOn] forKey:@"gps"];
+        [[GeoLocal shared] disableGPS];
+    }
+    else{
+        gps.on = YES;
+        [gps setEnabled:YES];
+        [options setValue:[NSNumber numberWithBool:((UISwitch *)sender).isOn] forKey:@"gps"];
+        [[GeoLocal shared] enableGPS];
+    }
     [settings release];
 }
 

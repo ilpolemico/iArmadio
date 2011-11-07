@@ -100,7 +100,7 @@
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 									<object class="NSCustomResource" key="IBUIImage">
 										<string key="NSClassName">NSImage</string>
-										<string key="NSResourceName">crediti.png</string>
+										<string key="NSResourceName">crediti_02.png</string>
 									</object>
 								</object>
 								<object class="IBUILabel" id="183678667">
@@ -124,14 +124,14 @@
 									<nil key="IBUIHighlightedColor"/>
 									<int key="IBUIBaselineAdjustment">1</int>
 									<float key="IBUIMinimumFontSize">10</float>
-									<object class="IBUIFontDescription" key="IBUIFontDescription" id="280277804">
-										<string key="name">Helvetica</string>
-										<string key="family">Helvetica</string>
-										<int key="traits">0</int>
+									<object class="IBUIFontDescription" key="IBUIFontDescription" id="974641091">
+										<string key="name">STHeitiTC-Medium</string>
+										<string key="family">Heiti TC</string>
+										<int key="traits">2</int>
 										<double key="pointSize">17</double>
 									</object>
-									<object class="NSFont" key="IBUIFont" id="616644841">
-										<string key="NSName">Helvetica</string>
+									<object class="NSFont" key="IBUIFont" id="372187455">
+										<string key="NSName">STHeitiTC-Medium</string>
 										<double key="NSSize">17</double>
 										<int key="NSfFlags">16</int>
 									</object>
@@ -154,8 +154,8 @@
 									<nil key="IBUIHighlightedColor"/>
 									<int key="IBUIBaselineAdjustment">1</int>
 									<float key="IBUIMinimumFontSize">10</float>
-									<reference key="IBUIFontDescription" ref="280277804"/>
-									<reference key="IBUIFont" ref="616644841"/>
+									<reference key="IBUIFontDescription" ref="974641091"/>
+									<reference key="IBUIFont" ref="372187455"/>
 								</object>
 								<object class="IBUISwitch" id="98000420">
 									<reference key="NSNextResponder" ref="191373211"/>
@@ -203,8 +203,8 @@
 									<nil key="IBUIHighlightedColor"/>
 									<int key="IBUIBaselineAdjustment">1</int>
 									<float key="IBUIMinimumFontSize">10</float>
-									<reference key="IBUIFontDescription" ref="280277804"/>
-									<reference key="IBUIFont" ref="616644841"/>
+									<reference key="IBUIFontDescription" ref="974641091"/>
+									<reference key="IBUIFont" ref="372187455"/>
 								</object>
 								<object class="IBUISwitch" id="616436138">
 									<reference key="NSNextResponder" ref="191373211"/>
@@ -244,19 +244,21 @@
 									<bool key="IBUIBouncesZoom">NO</bool>
 									<bool key="IBUIEditable">NO</bool>
 									<string type="base64-UTF8" key="IBUIText">QWJpbGl0YW5kbyBsbyBzaGFrZSBsJ2FwcCB2aSBwcm9wb3Jyw6AgdW4gbG9vayB0cmEgcXVlbGxpIGNy
-ZWF0aS4KU2UgaWwgZ3BzIMOoIGFiaWxpdGF0byB2ZXJyw6AgcHJvcG9zdG8gdW4gbG9vayBwZXIgaWwg
-Y2xpbWEgY29ycmVudGUsIGFsdHJpbWVudGkgbmUgdmVycsOgIHByb3Bvc3RvIHVubyBpbiBiYXNlIGFs
-bGEgZGF0YSBjb3JyZW50ZQ</string>
+ZWF0aS4KQ29uIGlsIGdwcyBhdHRpdmF0byBuZSB2ZXJyw6AgcHJvcG9zdG8gdW5vIGFkYXR0byBhbCBj
+bGltYSwgYWx0cmltZW50aSBuZSB2ZXJyw6AgcHJvcG9zdG8gdW5vIGluIGJhc2UgYWxsYSBkYXRhIGNv
+cnJlbnRlA</string>
 									<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 										<int key="IBUIAutocapitalizationType">2</int>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 									</object>
-									<object class="IBUIFontDescription" key="IBUIFontDescription" id="474265468">
-										<int key="type">1</int>
+									<object class="IBUIFontDescription" key="IBUIFontDescription" id="16579536">
+										<string key="name">STHeitiTC-Medium</string>
+										<string key="family">Heiti TC</string>
+										<int key="traits">2</int>
 										<double key="pointSize">14</double>
 									</object>
-									<object class="NSFont" key="IBUIFont" id="400248446">
-										<string key="NSName">Helvetica</string>
+									<object class="NSFont" key="IBUIFont" id="229066638">
+										<string key="NSName">STHeitiTC-Medium</string>
 										<double key="NSSize">14</double>
 										<int key="NSfFlags">16</int>
 									</object>
@@ -264,7 +266,7 @@ bGEgZGF0YSBjb3JyZW50ZQ</string>
 								<object class="IBUITextView" id="354951957">
 									<reference key="NSNextResponder" ref="191373211"/>
 									<int key="NSvFlags">292</int>
-									<string key="NSFrame">{{75, 236}, {182, 82}}</string>
+									<string key="NSFrame">{{69, 236}, {182, 82}}</string>
 									<reference key="NSSuperview" ref="191373211"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="98000420"/>
@@ -289,8 +291,8 @@ bGEgZGF0YSBjb3JyZW50ZQ</string>
 										<int key="IBUIAutocapitalizationType">2</int>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 									</object>
-									<reference key="IBUIFontDescription" ref="474265468"/>
-									<reference key="IBUIFont" ref="400248446"/>
+									<reference key="IBUIFontDescription" ref="16579536"/>
+									<reference key="IBUIFont" ref="229066638"/>
 								</object>
 							</object>
 							<string key="NSFrame">{{0, 44}, {320, 392}}</string>
@@ -794,7 +796,7 @@ bGEgZGF0YSBjb3JyZW50ZQ</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">crediti.png</string>
+			<string key="NS.key.0">crediti_02.png</string>
 			<string key="NS.object.0">{640, 960}</string>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">933</string>

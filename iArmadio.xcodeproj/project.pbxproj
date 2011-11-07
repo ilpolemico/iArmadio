@@ -33,7 +33,6 @@
 		A32BA5371433117B0019979B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A32BA5361433117B0019979B /* QuartzCore.framework */; };
 		A32BA5A2143357050019979B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A32BA5A1143357050019979B /* MobileCoreServices.framework */; };
 		A32BA5A4143357370019979B /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A32BA5A3143357370019979B /* ImageIO.framework */; };
-		A32BA5B0143375530019979B /* CoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A32BA5AE143375530019979B /* CoverViewController.xib */; };
 		A3316A9C143F0D0E0042446C /* DataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A3316A99143F0D0E0042446C /* DataCache.m */; };
 		A3316A9D143F0D0E0042446C /* FlowCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3316A9B143F0D0E0042446C /* FlowCoverView.m */; };
 		A3316AA1143F10370042446C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3316AA0143F10370042446C /* OpenGLES.framework */; };
@@ -133,6 +132,8 @@
 		A3F14748144F08E3007779DF /* LookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F14746144F08E3007779DF /* LookViewController.m */; };
 		A3F1474E144F0FB6007779DF /* LookTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3F1474B144F0FB6007779DF /* LookTableView.xib */; };
 		A3F1474F144F0FB6007779DF /* LookTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F1474D144F0FB6007779DF /* LookTableViewController.m */; };
+		A3FA6C01146747B700E4F03E /* crediti_02.png in Resources */ = {isa = PBXBuildFile; fileRef = A3FA6C00146747B700E4F03E /* crediti_02.png */; };
+		A3FA6C031467496A00E4F03E /* CoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3FA6C051467496A00E4F03E /* CoverViewController.xib */; };
 		A3FB194714462726003620C5 /* images.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3FB194614462725003620C5 /* images.plist */; };
 		A3FB91D41438FF8F009AF9B4 /* ArmadioTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3FB91D31438FF8E009AF9B4 /* ArmadioTableView.xib */; };
 		A3FBCA90144C11C80071A213 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3FBCA92144C11C80071A213 /* Localizable.strings */; };
@@ -206,7 +207,6 @@
 		A32BA5A814336F830019979B /* ArmadioTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArmadioTableViewController.m; sourceTree = "<group>"; };
 		A32BA5AC143375530019979B /* CoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoverViewController.h; sourceTree = "<group>"; };
 		A32BA5AD143375530019979B /* CoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoverViewController.m; sourceTree = "<group>"; };
-		A32BA5AE143375530019979B /* CoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoverViewController.xib; sourceTree = "<group>"; };
 		A32C974C1438AFD70038612E /* CurrState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrState.h; sourceTree = "<group>"; };
 		A32C974D1438AFD70038612E /* CurrState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrState.m; sourceTree = "<group>"; };
 		A3316A98143F0D0E0042446C /* DataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataCache.h; sourceTree = "<group>"; };
@@ -317,6 +317,8 @@
 		A3F1474B144F0FB6007779DF /* LookTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LookTableView.xib; sourceTree = "<group>"; };
 		A3F1474C144F0FB6007779DF /* LookTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookTableViewController.h; sourceTree = "<group>"; };
 		A3F1474D144F0FB6007779DF /* LookTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookTableViewController.m; sourceTree = "<group>"; };
+		A3FA6C00146747B700E4F03E /* crediti_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crediti_02.png; sourceTree = "<group>"; };
+		A3FA6C041467496A00E4F03E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CoverViewController.xib; sourceTree = "<group>"; };
 		A3FB194614462725003620C5 /* images.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = images.plist; sourceTree = "<group>"; };
 		A3FB91D31438FF8E009AF9B4 /* ArmadioTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArmadioTableView.xib; sourceTree = "<group>"; };
 		A3FBCA91144C11C80071A213 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -606,7 +608,7 @@
 			children = (
 				A32BA5AC143375530019979B /* CoverViewController.h */,
 				A32BA5AD143375530019979B /* CoverViewController.m */,
-				A32BA5AE143375530019979B /* CoverViewController.xib */,
+				A3FA6C051467496A00E4F03E /* CoverViewController.xib */,
 			);
 			path = CoverFlowCloth;
 			sourceTree = "<group>";
@@ -714,6 +716,7 @@
 		A3EA47811449FD940095349B /* background */ = {
 			isa = PBXGroup;
 			children = (
+				A3FA6C00146747B700E4F03E /* crediti_02.png */,
 				A37B5EC914670DFD0074D683 /* anta_dx.png */,
 				A3A79569145F6B7800D1A5D3 /* look_definitivo.png */,
 				A3A79564145F603900D1A5D3 /* crediti.png */,
@@ -811,7 +814,7 @@
 				A30A333B14308E3100D44356 /* stagione.plist in Resources */,
 				A30A333C14308E3100D44356 /* stile.plist in Resources */,
 				A30A333E14308E3100D44356 /* tipologia.plist in Resources */,
-				A32BA5B0143375530019979B /* CoverViewController.xib in Resources */,
+				A3FA6C031467496A00E4F03E /* CoverViewController.xib in Resources */,
 				A3FB91D41438FF8F009AF9B4 /* ArmadioTableView.xib in Resources */,
 				A3645A861439C7AA00A13FB5 /* LookManagerView.xib in Resources */,
 				A3A5E267145E00ED00D4E362 /* SelectTypeViewController.xib in Resources */,
@@ -882,6 +885,7 @@
 				A3A56B641466E29000908EF7 /* Tutorial.plist in Resources */,
 				A37B5ECA14670DFD0074D683 /* anta_dx.png in Resources */,
 				A369475A14672297003D11D7 /* emptyCloth.png in Resources */,
+				A3FA6C01146747B700E4F03E /* crediti_02.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -989,6 +993,14 @@
 				A3D70745144CBF8B00469E06 /* it */,
 			);
 			name = CreditsViewController.xib;
+			sourceTree = "<group>";
+		};
+		A3FA6C051467496A00E4F03E /* CoverViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3FA6C041467496A00E4F03E /* en */,
+			);
+			name = CoverViewController.xib;
 			sourceTree = "<group>";
 		};
 		A3FBCA92144C11C80071A213 /* Localizable.strings */ = {

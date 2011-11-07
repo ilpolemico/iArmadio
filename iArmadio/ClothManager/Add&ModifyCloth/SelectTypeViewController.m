@@ -53,7 +53,7 @@
     
     armadio = [[ArmadioTableViewController alloc] initWithNibName:@"ArmadioTableView" bundle:nil delegateController:self];
     
-    armadio.view.frame = CGRectMake(0,44,320,420);
+    armadio.view.frame = CGRectMake(0,44,320,436);
    
     [self.view addSubview:armadio.view];
     

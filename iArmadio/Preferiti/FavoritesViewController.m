@@ -53,7 +53,16 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadVestitiPreferiti:) name:DEL_LOOK_EVENT object:nil];
     
-    self.navbar.topItem.title=  NSLocalizedString(@"Preferiti", nil);
+    
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 30)];
+    label.text = NSLocalizedString(@"Preferiti", nil);
+    label.textColor = [UIColor whiteColor];
+    label.textAlignment = UITextAlignmentCenter;
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont fontWithName:@"STHeitiSC-Medium" size: 22.0];
+    [self.navbar.topItem setTitleView:label];
+    [label release];
     
 }
 

@@ -45,13 +45,14 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrameSize">{337, 467}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="801406982"/>
 						<string key="NSReuseIdentifierKey">_NS:567</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">crediti.png</string>
+							<string key="NSResourceName">crediti_02.png</string>
 						</object>
 					</object>
 					<object class="IBUILabel" id="801406982">
@@ -59,6 +60,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{133, 144}, {54, 21}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:311</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -89,6 +91,7 @@
 				</object>
 				<string key="NSFrame">{{0, 44}, {320, 436}}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="609218751"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -207,7 +210,7 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">crediti.png</string>
+			<string key="NS.key.0">crediti_02.png</string>
 			<string key="NS.object.0">{640, 960}</string>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">933</string>

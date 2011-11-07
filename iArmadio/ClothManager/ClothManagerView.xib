@@ -57,7 +57,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">sfondo_01_bis.png</string>
+							<string key="NSResourceName">sfondo_new.png</string>
 						</object>
 					</object>
 				</object>
@@ -399,7 +399,7 @@
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">sfondo_01_bis.png</string>
+			<string key="NS.key.0">sfondo_new.png</string>
 			<string key="NS.object.0">{640, 960}</string>
 		</object>
 		<string key="IBCocoaTouchPluginVersion">933</string>

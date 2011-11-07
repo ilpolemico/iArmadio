@@ -47,7 +47,7 @@
 					<object class="IBUIImageView" id="871655855">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{-7, 0}, {320, 480}}</string>
+						<string key="NSFrameSize">{320, 480}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="750960540"/>
@@ -189,7 +189,7 @@
 					<object class="IBUIButton" id="948811779">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{228, 85}, {78, 75}}</string>
+						<string key="NSFrame">{{235, 85}, {78, 75}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="661189229"/>
@@ -215,14 +215,14 @@
 					<object class="IBUILabel" id="661189229">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{254, 169}, {42, 21}}</string>
+						<string key="NSFrame">{{237, 173}, {78, 31}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="275471768"/>
 						<string key="NSReuseIdentifierKey">_NS:311</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
-						<int key="IBUIContentMode">7</int>
+						<int key="IBUIContentMode">4</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">Label</string>
@@ -233,13 +233,16 @@
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
 						<float key="IBUIMinimumFontSize">10</float>
+						<int key="IBUITextAlignment">1</int>
 						<object class="IBUIFontDescription" key="IBUIFontDescription">
-							<int key="type">1</int>
-							<double key="pointSize">17</double>
+							<string key="name">STHeitiTC-Medium</string>
+							<string key="family">Heiti TC</string>
+							<int key="traits">2</int>
+							<double key="pointSize">16</double>
 						</object>
 						<object class="NSFont" key="IBUIFont">
-							<string key="NSName">Helvetica</string>
-							<double key="NSSize">17</double>
+							<string key="NSName">STHeitiTC-Medium</string>
+							<double key="NSSize">16</double>
 							<int key="NSfFlags">16</int>
 						</object>
 					</object>
@@ -721,7 +724,6 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="750960540"/>
-							<reference ref="661189229"/>
 							<reference ref="948811779"/>
 							<reference ref="545272345"/>
 							<reference ref="275471768"/>
@@ -729,6 +731,7 @@
 							<reference ref="871655855"/>
 							<reference ref="452318532"/>
 							<reference ref="721175505"/>
+							<reference ref="661189229"/>
 							<reference ref="426382846"/>
 						</object>
 						<reference key="parent" ref="0"/>
@@ -1057,10 +1060,7 @@
 							<string>imageSfondo</string>
 							<string>imageView</string>
 							<string>imageViewGradimento</string>
-							<string>imageViewReflect</string>
 							<string>saveButton</string>
-							<string>scrollview</string>
-							<string>sfondoView</string>
 							<string>sliderZoom</string>
 							<string>stagioneLabel</string>
 							<string>stagione_1</string>
@@ -1088,10 +1088,7 @@
 							<string>UIImageView</string>
 							<string>UIImageView</string>
 							<string>UIImageView</string>
-							<string>UIImageView</string>
 							<string>UIBarButtonItem</string>
-							<string>UIScrollView</string>
-							<string>UIView</string>
 							<string>UISlider</string>
 							<string>UILabel</string>
 							<string>UIButton</string>
@@ -1122,10 +1119,7 @@
 							<string>imageSfondo</string>
 							<string>imageView</string>
 							<string>imageViewGradimento</string>
-							<string>imageViewReflect</string>
 							<string>saveButton</string>
-							<string>scrollview</string>
-							<string>sfondoView</string>
 							<string>sliderZoom</string>
 							<string>stagioneLabel</string>
 							<string>stagione_1</string>
@@ -1181,20 +1175,8 @@
 								<string key="candidateClassName">UIImageView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">imageViewReflect</string>
-								<string key="candidateClassName">UIImageView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
 								<string key="name">saveButton</string>
 								<string key="candidateClassName">UIBarButtonItem</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">scrollview</string>
-								<string key="candidateClassName">UIScrollView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">sfondoView</string>
-								<string key="candidateClassName">UIView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">sliderZoom</string>

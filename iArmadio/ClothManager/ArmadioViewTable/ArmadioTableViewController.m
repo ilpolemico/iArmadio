@@ -83,7 +83,16 @@
     [super viewDidLoad];
     dao = [IarmadioDao shared]; 
     self.view.backgroundColor = [UIColor clearColor];
-    self.navigationItem.title =  NSLocalizedString(@"armadio", nil); 
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 120, 30)];
+    label.text = NSLocalizedString(@"Armadio", nil);
+    label.textColor = [UIColor whiteColor];
+    label.textAlignment = UITextAlignmentCenter;
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont fontWithName:@"STHeitiSC-Medium" size: 22.0];
+    [self.navigationController.navigationBar.topItem setTitleView:label];
+    [label release];
+    
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadCassetti:) name:ADD_CLOTH_EVENT object:nil];
     
@@ -140,8 +149,8 @@
     cell.imageView.image = [dao getImageFromTipo:([dao getTipoEntity:[tipologie objectAtIndex:indexPath.row]])]; 
     cell.textLabel.text = NSLocalizedString([dao getTipoEntity:[tipologie objectAtIndex:indexPath.row]].plural,nil);
     [cell.textLabel setTextColor:[UIColor darkTextColor]];
-    [cell.textLabel setFont:[UIFont fontWithName:@"STHeitiSC-Medium" size:16 ]];
-    [cell.detailTextLabel setFont:[UIFont  fontWithName:@"STHeitiSC-Medium" size:12 ]];
+    [cell.textLabel setFont:[UIFont fontWithName:@"STHeitiSC-Medium" size:18 ]];
+    [cell.detailTextLabel setFont:[UIFont  fontWithName:@"STHeitiSC-Medium" size:14 ]];
     cell.detailTextLabel.textColor = [UIColor darkGrayColor];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", count];
     

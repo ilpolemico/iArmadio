@@ -50,6 +50,7 @@ static Shake2Style *singleton;
     for(Combinazione *c in combinazioni){
         tot += [c.gradimento intValue]+1;
         [pesi addObject:[NSNumber numberWithInt:tot]];
+        NSLog(@"tot:%d",tot);
     }
     if(tot==0){tot = 1;}
     int random = arc4random_uniform(tot+1);
@@ -63,6 +64,8 @@ static Shake2Style *singleton;
     
     
     [pesi autorelease];
+    NSLog(@"count combinazioni:%d random:%d index:%d",
+          [combinazioni count] ,random, index);
     return [combinazioni objectAtIndex: index];
 }
 
