@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>startApp</key>
+	<string>?Benvenuto il WhatDoWear.</string>
+	<key>addCloth</key>
+	<string>?Aggiungi il vestito</string>
+	<key>coverFlow</key>
+	<string>?Istruzioni coverFlow</string>
+	<key>lookTable</key>
+	<string>?Istruzioni lookTable</string>
+	<key>lookView</key>
+	<string>?Istruzioni lookView</string>
+	<key>preferiti</key>
+	<string>?Istruzioni preferiti</string>
+</dict>
+</plist>

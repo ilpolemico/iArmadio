@@ -137,6 +137,7 @@
 
 -(void)setHiddenOpenViewLeft:(NSString *)animationID finished:(NSNumber *) finished context:(void *) context {
     [openViewLeft setHidden:YES];
+    [[Tutorial shared] actionInfo:ACTION_START];
 }
 
 

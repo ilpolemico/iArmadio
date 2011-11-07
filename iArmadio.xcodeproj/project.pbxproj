@@ -27,7 +27,6 @@
 		A31C7BA1144B17A900BD565D /* CaptureClothController.m in Sources */ = {isa = PBXBuildFile; fileRef = A31C7B9F144B17A900BD565D /* CaptureClothController.m */; };
 		A31C7BA2144B17A900BD565D /* CaptureClothController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A31C7BA0144B17A900BD565D /* CaptureClothController.xib */; };
 		A3297D85143DE31300EBF25A /* SetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3297D7F143DE31300EBF25A /* SetupViewController.m */; };
-		A3297D86143DE31300EBF25A /* SetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3297D80143DE31300EBF25A /* SetupViewController.xib */; };
 		A3297D87143DE31300EBF25A /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3297D83143DE31300EBF25A /* FavoritesViewController.m */; };
 		A3297D88143DE31300EBF25A /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3297D84143DE31300EBF25A /* FavoritesViewController.xib */; };
 		A32BA5371433117B0019979B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A32BA5361433117B0019979B /* QuartzCore.framework */; };
@@ -63,7 +62,6 @@
 		A37B5ECA14670DFD0074D683 /* anta_dx.png in Resources */ = {isa = PBXBuildFile; fileRef = A37B5EC914670DFD0074D683 /* anta_dx.png */; };
 		A3816AEB143B5E57009643B4 /* SelectTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3816AE9143B5E57009643B4 /* SelectTypeViewController.m */; };
 		A3A19EE614486191008E283D /* cappotto.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A19EE414486191008E283D /* cappotto.png */; };
-		A3A56B641466E29000908EF7 /* Tutorial.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3A56B631466E29000908EF7 /* Tutorial.plist */; };
 		A3A5E262145D837500D4E362 /* borsa.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A5E25E145D837500D4E362 /* borsa.png */; };
 		A3A5E263145D837500D4E362 /* giacca.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A5E25F145D837500D4E362 /* giacca.png */; };
 		A3A5E264145D837500D4E362 /* camicia.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A5E260145D837500D4E362 /* camicia.png */; };
@@ -129,6 +127,8 @@
 		A3EB90FD14575A7000B92E33 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = A3EB90FC14575A7000B92E33 /* star.png */; };
 		A3EB910014575A9800B92E33 /* star_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = A3EB90FF14575A9800B92E33 /* star_gray.png */; };
 		A3EB91021457695D00B92E33 /* bookmark.png in Resources */ = {isa = PBXBuildFile; fileRef = A3EB91011457695D00B92E33 /* bookmark.png */; };
+		A3EBC6FE1467DE50009D99B4 /* Tutorial.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3EBC7001467DE50009D99B4 /* Tutorial.plist */; };
+		A3EBC7031467E62D009D99B4 /* SetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3EBC7051467E62D009D99B4 /* SetupViewController.xib */; };
 		A3F14748144F08E3007779DF /* LookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F14746144F08E3007779DF /* LookViewController.m */; };
 		A3F1474E144F0FB6007779DF /* LookTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3F1474B144F0FB6007779DF /* LookTableView.xib */; };
 		A3F1474F144F0FB6007779DF /* LookTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F1474D144F0FB6007779DF /* LookTableViewController.m */; };
@@ -182,7 +182,6 @@
 		A31C7BA0144B17A900BD565D /* CaptureClothController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CaptureClothController.xib; sourceTree = "<group>"; };
 		A3297D7E143DE31300EBF25A /* SetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupViewController.h; sourceTree = "<group>"; };
 		A3297D7F143DE31300EBF25A /* SetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupViewController.m; sourceTree = "<group>"; };
-		A3297D80143DE31300EBF25A /* SetupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetupViewController.xib; sourceTree = "<group>"; };
 		A3297D82143DE31300EBF25A /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
 		A3297D83143DE31300EBF25A /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
 		A3297D84143DE31300EBF25A /* FavoritesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
@@ -228,7 +227,6 @@
 		A3816AE8143B5E57009643B4 /* SelectTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectTypeViewController.h; sourceTree = "<group>"; };
 		A3816AE9143B5E57009643B4 /* SelectTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectTypeViewController.m; sourceTree = "<group>"; };
 		A3A19EE414486191008E283D /* cappotto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cappotto.png; sourceTree = "<group>"; };
-		A3A56B631466E29000908EF7 /* Tutorial.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Tutorial.plist; sourceTree = "<group>"; };
 		A3A5E25E145D837500D4E362 /* borsa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = borsa.png; sourceTree = "<group>"; };
 		A3A5E25F145D837500D4E362 /* giacca.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = giacca.png; sourceTree = "<group>"; };
 		A3A5E260145D837500D4E362 /* camicia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camicia.png; sourceTree = "<group>"; };
@@ -312,6 +310,10 @@
 		A3EB90FC14575A7000B92E33 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		A3EB90FF14575A9800B92E33 /* star_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_gray.png; sourceTree = "<group>"; };
 		A3EB91011457695D00B92E33 /* bookmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bookmark.png; sourceTree = "<group>"; };
+		A3EBC6FF1467DE50009D99B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Tutorial.plist; sourceTree = "<group>"; };
+		A3EBC7021467DE63009D99B4 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = it; path = it.lproj/Tutorial.plist; sourceTree = "<group>"; };
+		A3EBC7041467E62D009D99B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SetupViewController.xib; sourceTree = "<group>"; };
+		A3EBC7061467E63C009D99B4 /* it */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = it; path = it.lproj/SetupViewController.xib; sourceTree = "<group>"; };
 		A3F14745144F08E3007779DF /* LookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookViewController.h; sourceTree = "<group>"; };
 		A3F14746144F08E3007779DF /* LookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookViewController.m; sourceTree = "<group>"; };
 		A3F1474B144F0FB6007779DF /* LookTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LookTableView.xib; sourceTree = "<group>"; };
@@ -504,7 +506,7 @@
 				A30A331C14308E3100D44356 /* tipologia.plist */,
 				A3FBCA92144C11C80071A213 /* Localizable.strings */,
 				A3A89064144D7F320064D79B /* Config.plist */,
-				A3A56B631466E29000908EF7 /* Tutorial.plist */,
+				A3EBC7001467DE50009D99B4 /* Tutorial.plist */,
 			);
 			path = "Supporting File";
 			sourceTree = "<group>";
@@ -542,7 +544,7 @@
 			children = (
 				A3297D7E143DE31300EBF25A /* SetupViewController.h */,
 				A3297D7F143DE31300EBF25A /* SetupViewController.m */,
-				A3297D80143DE31300EBF25A /* SetupViewController.xib */,
+				A3EBC7051467E62D009D99B4 /* SetupViewController.xib */,
 				A3D7073C144CAB7D00469E06 /* CreditsViewController.h */,
 				A3D7073D144CAB7D00469E06 /* CreditsViewController.m */,
 				A3D70744144CBF7600469E06 /* CreditsViewController.xib */,
@@ -818,7 +820,7 @@
 				A3FB91D41438FF8F009AF9B4 /* ArmadioTableView.xib in Resources */,
 				A3645A861439C7AA00A13FB5 /* LookManagerView.xib in Resources */,
 				A3A5E267145E00ED00D4E362 /* SelectTypeViewController.xib in Resources */,
-				A3297D86143DE31300EBF25A /* SetupViewController.xib in Resources */,
+				A3EBC7031467E62D009D99B4 /* SetupViewController.xib in Resources */,
 				A3297D88143DE31300EBF25A /* FavoritesViewController.xib in Resources */,
 				A3FB194714462726003620C5 /* images.plist in Resources */,
 				A3A19EE614486191008E283D /* cappotto.png in Resources */,
@@ -882,7 +884,7 @@
 				A3A7956B145F6B7800D1A5D3 /* look_definitivo.png in Resources */,
 				A3A7956C145F6B7800D1A5D3 /* style.png in Resources */,
 				A3CA0BD41463D36400D3FDBA /* round_add.png in Resources */,
-				A3A56B641466E29000908EF7 /* Tutorial.plist in Resources */,
+				A3EBC6FE1467DE50009D99B4 /* Tutorial.plist in Resources */,
 				A37B5ECA14670DFD0074D683 /* anta_dx.png in Resources */,
 				A369475A14672297003D11D7 /* emptyCloth.png in Resources */,
 				A3FA6C01146747B700E4F03E /* crediti_02.png in Resources */,
@@ -993,6 +995,24 @@
 				A3D70745144CBF8B00469E06 /* it */,
 			);
 			name = CreditsViewController.xib;
+			sourceTree = "<group>";
+		};
+		A3EBC7001467DE50009D99B4 /* Tutorial.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3EBC6FF1467DE50009D99B4 /* en */,
+				A3EBC7021467DE63009D99B4 /* it */,
+			);
+			name = Tutorial.plist;
+			sourceTree = "<group>";
+		};
+		A3EBC7051467E62D009D99B4 /* SetupViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3EBC7041467E62D009D99B4 /* en */,
+				A3EBC7061467E63C009D99B4 /* it */,
+			);
+			name = SetupViewController.xib;
 			sourceTree = "<group>";
 		};
 		A3FA6C051467496A00E4F03E /* CoverViewController.xib */ = {

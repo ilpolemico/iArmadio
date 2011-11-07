@@ -52,7 +52,8 @@
     label.textAlignment = UITextAlignmentCenter;
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont fontWithName:@"STHeitiSC-Medium" size: 22.0];
-    [ self.navcontroler.navigationBar.topItem setTitleView:label];
+    [self.navcontroler.navigationBar.topItem setTitleView:label];
+    self.navigationController.navigationBar.topItem.title = NSLocalizedString(@"Impostazioni", nil);
     [label release];
     
     self.navcontroler.navigationBar.topItem.rightBarButtonItem.title = NSLocalizedString(@"Credits",nil);

@@ -17,6 +17,7 @@
 #import "Vestito.h"
 #import "ProprietaCombinazione.h"
 #import "CurrState.h"
+#import "GeoLocal.h"
 #import "NYXImagesUtilities.h"
 
 

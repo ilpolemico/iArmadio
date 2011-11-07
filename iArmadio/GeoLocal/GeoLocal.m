@@ -9,7 +9,7 @@
 #import "GeoLocal.h"
 
 @implementation GeoLocal
-@synthesize isEnableGPS;
+@synthesize isEnableGPS,lastUpdate;
 
 static GeoLocal *singleton;
 BOOL currentConditions;
@@ -80,6 +80,7 @@ int curr_temp;
         
         oldTemperatura = curr_temp;
         [dao setCurrStagioneKeyFromTemp:curr_temp]; 
+        lastUpdate = [NSDate date];
     }
 }
 

@@ -55,6 +55,7 @@ static Tutorial *singleton;
     }    
     NSString *path=[[NSBundle mainBundle] pathForResource:TUTORIAL_PLIST ofType:@"plist"];
     tutorial=[NSMutableDictionary dictionaryWithContentsOfFile:path];
+    NSLog(@"tutorial : %@",tutorial);
     [tutorial retain];
 }
 

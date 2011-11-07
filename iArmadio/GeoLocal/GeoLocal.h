@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "IarmadioDao.h"
-
+@class IarmadioDao;
 
 
 @interface GeoLocal: NSObject  <MKMapViewDelegate, CLLocationManagerDelegate, MKReverseGeocoderDelegate, NSXMLParserDelegate> { 
@@ -22,9 +22,12 @@
     NSString *currLocation;
     CLLocationManager *locationManager;
     BOOL isEnableGPS;
+    NSDate *lastUpdate;
+    
       
 }
 
+@property (nonatomic, retain) NSDate *lastUpdate;
 @property (nonatomic) BOOL isEnableGPS;
 @property (nonatomic,retain, readonly) MKReverseGeocoder *geoCoder;
 

@@ -89,6 +89,12 @@ zoomClothView;
     
 }
 
+
+- (void)viewWillAppear:(BOOL)animated{
+    [[Tutorial shared] actionInfo:ACTION_LOOKVIEW];
+
+}
+
 - (void)reloadLook:(NSNotification *)pNotification{
     [self initInputType];
         

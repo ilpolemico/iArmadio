@@ -380,6 +380,7 @@
 
 -(void) viewWillAppear:(BOOL)animated{
     currstate.currSection = SECTION_COVERFLOW;
+    [[Tutorial shared] actionInfo:ACTION_COVERFLOW];
 }
 
 

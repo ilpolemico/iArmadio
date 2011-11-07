@@ -81,7 +81,6 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated{
-    [[Tutorial shared] actionInfo:ACTION_START];
     [super viewDidAppear:animated];
 
 }

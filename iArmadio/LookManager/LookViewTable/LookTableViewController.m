@@ -24,6 +24,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [CurrState shared].currSection = SECTION_LOOKTABLEVIEW;
+    [[Tutorial shared] actionInfo:ACTION_LOOKTABLE];
     [super viewDidAppear:animated];
      
 }

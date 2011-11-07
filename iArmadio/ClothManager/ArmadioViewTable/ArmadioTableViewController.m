@@ -91,6 +91,7 @@
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont fontWithName:@"STHeitiSC-Medium" size: 22.0];
     [self.navigationController.navigationBar.topItem setTitleView:label];
+    self.navigationController.navigationBar.topItem.title = NSLocalizedString(@"Armadio", nil);
     [label release];
     
     

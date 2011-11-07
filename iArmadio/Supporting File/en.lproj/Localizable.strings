@@ -6,7 +6,8 @@
   Copyright 2011 __MyCompanyName__. All rights reserved.
 */
 
-
+"Istruzioni" = "?Istruzioni";
+"Prosegui" = "?Prosegui";
 "Impostazioni" = "?Impostazioni";
 "Credits" = "?Credits";
 "Abilita GPS" = "?Abilita GPS";
@@ -22,10 +23,10 @@
 "elegante" = "?elegante";
 
 //CaptureCloth
-"Aggiungi vestito" = "Add dress";
-"Aggiungi un altro vestito" = "Add another dress";
-"Fotocamera" = "Camera";
-"Album" = "Album";
+"Aggiungi vestito" = "?Add dress";
+"Aggiungi un altro vestito" = "?Add another dress";
+"Fotocamera" = "?Camera";
+"Album" = "?Album";
 
 //ClothView
 "Cancel" = "?Cancel";

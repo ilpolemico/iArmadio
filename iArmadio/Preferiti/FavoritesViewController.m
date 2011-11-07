@@ -20,6 +20,11 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [[Tutorial shared] actionInfo:ACTION_PREFERITI];
+    [super viewWillAppear:animated];
+}
+
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.

@@ -57,7 +57,7 @@ static Shake2Style *singleton;
     int index = 0;
     cont = 0;
     for(NSNumber *peso in pesi){
-        if(random > [peso intValue]){index = cont;}
+        if((random > [peso intValue])||(cont == [pesi count]-1)){index = cont;}
         else{break;}
         cont++;
     }

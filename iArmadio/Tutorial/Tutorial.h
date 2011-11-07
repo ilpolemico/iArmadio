@@ -13,6 +13,11 @@ static NSString * const TUTORIAL_PLIST = @"Tutorial";
 
 #define ACTION_START @"startApp"
 #define ACTION_ADDCLOTH @"addCloth"
+#define ACTION_LOOKVIEW @"lookView"
+#define ACTION_LOOKTABLE @"lookTable"
+#define ACTION_COVERFLOW @"coverFlow"
+#define ACTION_PREFERITI @"preferiti"
+
 
 @interface Tutorial : NSObject{
     NSMutableDictionary *tutorial;
