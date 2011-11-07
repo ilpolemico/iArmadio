@@ -160,6 +160,7 @@ int curr_temp;
 
 -(void)dealloc{
     if(geoCoder != nil){[geoCoder release];}
+    [lastUpdate release];
     [currLocation release];
     [locationManager release];
     [super dealloc];

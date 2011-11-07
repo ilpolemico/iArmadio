@@ -48,7 +48,7 @@ static Shake2Style *singleton;
     
     int cont = 0;
     for(Combinazione *c in combinazioni){
-        tot += [c.gradimento intValue]+1;
+        tot += [c.gradimento intValue]+2;
         [pesi addObject:[NSNumber numberWithInt:tot]];
         NSLog(@"tot:%d",tot);
     }
@@ -57,7 +57,7 @@ static Shake2Style *singleton;
     int index = 0;
     cont = 0;
     for(NSNumber *peso in pesi){
-        if((random > [peso intValue])||(cont == [pesi count]-1)){index = cont;}
+        if((random > [peso intValue])&&(cont < [pesi count]-1)){index = cont;}
         else{break;}
         cont++;
     }
