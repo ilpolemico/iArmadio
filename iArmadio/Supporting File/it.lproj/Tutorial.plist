@@ -5,7 +5,7 @@
 	<key>startApp</key>
 	<string>Benvenuto il WhatDoWear: Puoi iniziare ad aggiungere nuovi vestiti nella sezione: Armadio. Se vuoi disabilitare questo tutorial vai in impostazioni.</string>
 	<key>addCloth</key>
-	<string>Aggiungi il vestito: Da questa maschera puoi modificare l'immagine (zoom, sposta, ruota) e inserire gli attributi di questo vestito. Se vuoi puoi anche mettere un segnalibro schiacciando sul simbolo nella barra in alto</string>
+	<string>Aggiungi il vestito: Da questa maschera puoi modificare l'immagine (zoom, sposta, ruota) e inserire i suoi attributi. Se vuoi puoi anche mettere un segnalibro schiacciando sul simbolo nella barra in alto</string>
 	<key>coverFlow</key>
 	<string>Qui puoi vedere tutti gli abiti del tipo selezionato. Nella toolbar in alto puoi selezionare i vestiti catalogati per: caldo, freddo, caldo e freddo, tutti. Oppure ordinarli per data o preferenza </string>
 	<key>lookTable</key>
