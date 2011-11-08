@@ -10,10 +10,10 @@
 	<string>Qui puoi vedere tutti gli abiti del tipo selezionato. Nella toolbar in alto puoi selezionare i vestiti catalogati per: il caldo, il freddo, sia caldo che freddo, tutti. Oppure ordinarli per data o preferenza 
 	Schiacciando sul tasto + puoi aggiungere un nuovo vestito al tuo armadio</string>
 	<key>lookTable</key>
-	<string>In questa tabella puoi vedere i tuoi look catalogati in 3 categorie: sportivo, casual, elegante </string>
+	<string>In questa tabella puoi vedere i tuoi look catalogati per: sportivo, casual, elegante </string>
 	<key>lookView</key>
 	<string>Crea un look aggiungendo i vestiti presenti nell'armadio. Se fai un doppio click su un vestito puoi ingrandirlo.
-		Schiacciando sul pulsante:"tag" o trascinando verso l'alto il look puoi vedere/modificare le proprietà del look	</string>
+		Schiacciando sul pulsante:"tag" o trascinando verso l'alto il look puoi vedere/modificare le sue proprietà</string>
 	<key>preferiti</key>
 	<string>Se vuoi aggiungere dei vestiti o look nei bookmark è sufficiente selezionare l'icona "segnalibro" nella toolbar in alto nella scheda del vestito o del look</string>
 </dict>
