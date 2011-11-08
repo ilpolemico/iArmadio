@@ -3,16 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>startApp</key>
-	<string>Benvenuto il WhatDoWear.</string>
+	<string>Benvenuto il WhatDoWear: Puoi iniziare ad aggiungere nuovi vestiti. Se vuoi disabilitare questo tutorial vai in impostazioni.</string>
 	<key>addCloth</key>
-	<string>Aggiungi il vestito</string>
+	<string>Aggiungi il vestito: Da questa maschera puoi modificare l'immagine (zoom, sposta, ruota) e inserire gli attributi di questo vestito. Se vuoi puoi anche mettere un segnalibro schiacciando sul simbolo nella barra in alto</string>
 	<key>coverFlow</key>
-	<string>Istruzioni coverFlow</string>
+	<string>Qua puoi vedere tutti gli abiti dello stesso tipo. Nella toolbar in alto puoi selezionare i vestiti per quando è: caldo, freddo, mezzastagione, tutti. Oppure ordinarli per data o preferenza </string>
 	<key>lookTable</key>
-	<string>Istruzioni lookTable</string>
+	<string>In questa tabella puoi vedere i tuoi look catalogati in 3 categorie: sportivo, casual, elegante </string>
 	<key>lookView</key>
-	<string>Istruzioni lookView</string>
+	<string>Crea un look aggiungendo i vestiti presenti nell'armadio. Se fai un doppio click su un vestito puoi ingrandirlo</string>
 	<key>preferiti</key>
-	<string>Istruzioni preferiti</string>
+	<string>Se vuoi aggiungere dei vestiti o look nei bookmark è sufficiente selezionare l'icona "segnalibro" nella toolbar in alto nella scheda del vestito o del look</string>
 </dict>
 </plist>
