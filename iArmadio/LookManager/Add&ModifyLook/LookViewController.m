@@ -91,11 +91,10 @@ labelnote;
     
 }
 
-
-- (void)viewWillAppear:(BOOL)animated{
+- (void)viewDidAppear:(BOOL)animated{
     [[Tutorial shared] actionInfo:ACTION_LOOKVIEW];
-
 }
+
 
 - (void)reloadLook:(NSNotification *)pNotification{
     [self initInputType];
@@ -642,11 +641,12 @@ labelnote;
         [dao modifyCombinazioneEntity:self.combinazione  vestitiEntities:vestitiInCombinazione  isNew:NO gradimento:gradimento stagioneKey:scelta_stagione stiliKeys:stili preferito:self.preferito note:self.note.text];
     
     }
-    
+    [CurrState shared].currSection = [CurrState shared].oldCurrSection;
     [self dismissModalViewControllerAnimated:YES];
 }
 
 -(IBAction) undoLook:(id) sender {
+    [CurrState shared].currSection = [CurrState shared].oldCurrSection;
     [self dismissModalViewControllerAnimated:YES];
 }
 
@@ -669,6 +669,7 @@ labelnote;
         [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
         [UIView setAnimationDuration:1];
         [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.view.superview cache:YES];
+        [CurrState shared].currSection = [CurrState shared].oldCurrSection;
         [self dismissModalViewControllerAnimated:NO];
         [UIView commitAnimations];
     }

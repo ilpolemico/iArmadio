@@ -82,8 +82,8 @@ int curr_temp;
         [dao setCurrStagioneKeyFromTemp:curr_temp]; 
         
         if(self.lastUpdate != nil){
-            [self.lastUpdate release];
-            self.lastUpdate = nil;
+            [lastUpdate release];
+            lastUpdate = nil;
         }
         self.lastUpdate = [NSDate date];
     }

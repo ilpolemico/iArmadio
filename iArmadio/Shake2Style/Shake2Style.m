@@ -53,7 +53,7 @@ static Shake2Style *singleton;
         NSLog(@"tot:%d",tot);
     }
     if(tot==0){tot = 1;}
-    int random = arc4random_uniform(tot+1);
+    int random = arc4random()%(tot+1);
     random++;
     int index = 0;
     cont = 0;
@@ -115,7 +115,8 @@ static Shake2Style *singleton;
         
         
         [appDelegate.tabBarController presentModalViewController:lookviewcontroller animated:YES];
-        [lookviewcontroller release];  
+        [lookviewcontroller release];
+        [CurrState shared].currSection = [CurrState shared].oldCurrSection;
     }
     else{
     
@@ -123,7 +124,7 @@ static Shake2Style *singleton;
         
         [alert show];
         [alert release];
-    
+        [CurrState shared].currSection = [CurrState shared].oldCurrSection;
     }
 }
 

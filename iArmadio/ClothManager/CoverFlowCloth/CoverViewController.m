@@ -81,14 +81,6 @@
     }
 }
 
-- (NSMutableArray *)localCurrOrderBy{
-    if(localCurrOrderBy == nil){
-        localCurrOrderBy = [[NSMutableArray alloc] init];
-    }
-    
-    return localCurrOrderBy; 
-    
-}
 
 
 
@@ -187,6 +179,7 @@
     self.imageview.layer.shadowOffset = CGSizeMake(0, -7);
     self.imageview.layer.shadowOpacity = 1;
     self.imageview.layer.shadowRadius = 3.0;
+    [[Tutorial shared] actionInfo:ACTION_COVERFLOW];
 }
 
 
@@ -237,8 +230,6 @@
 
 }
 
-- (void)viewDidAppear:(BOOL)animated{
-}
 
 - (void)viewDidUnload
 {
@@ -384,7 +375,8 @@
 
 -(void) viewWillAppear:(BOOL)animated{
     currstate.currSection = SECTION_COVERFLOW;
-    [[Tutorial shared] actionInfo:ACTION_COVERFLOW];
+    
+    
 }
 
 
@@ -396,6 +388,7 @@
         [captureClothController release];
     }    
     [localCurrStile release];
+    
     [localCurrOrderBy release];
     if(vestiti != nil){
         [vestiti release];

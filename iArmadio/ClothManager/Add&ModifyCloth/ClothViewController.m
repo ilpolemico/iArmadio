@@ -343,6 +343,7 @@
         [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
         [UIView setAnimationDuration:1];
         [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.view.superview cache:YES];
+        [CurrState shared].currSection = [CurrState shared].oldCurrSection;
         [self dismissModalViewControllerAnimated:NO];
         [UIView commitAnimations];
     }
@@ -406,14 +407,14 @@
     [tipi release];
     [stili release];
      
-    
+    [CurrState shared].currSection = [CurrState shared].oldCurrSection;
     [self dismissModalViewControllerAnimated:YES];
 }
 
 
 
 -(IBAction) undoCloth:(id) sender{
-   //[CurrState shared].currSection = [CurrState shared].oldCurrSection;
+   [CurrState shared].currSection = [CurrState shared].oldCurrSection;
    [self dismissModalViewControllerAnimated:YES];
 }
 
@@ -552,6 +553,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated{
+    [[Tutorial shared] actionInfo:ACTION_ADDCLOTH];
 }
 
 
@@ -583,7 +585,7 @@
     }
     
     
-    [[Tutorial shared] actionInfo:ACTION_ADDCLOTH];
+    
     
     [super viewWillAppear:animated];
 }

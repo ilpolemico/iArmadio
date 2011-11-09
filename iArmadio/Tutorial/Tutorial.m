@@ -30,6 +30,8 @@ static Tutorial *singleton;
     NSMutableDictionary *config = [dao.config objectForKey:@"Settings"];
     BOOL tutorialEnable = [[config objectForKey:@"tutorial"] boolValue];
     
+    
+    
     if(tutorialEnable){
         NSString *info = [tutorial objectForKey:action];
         
@@ -59,7 +61,9 @@ static Tutorial *singleton;
 }
 
 -(void) dealloc{
-    [tutorial release];
+    if(tutorial != nil){
+        [tutorial release];
+    }
     [super dealloc];
 }
 

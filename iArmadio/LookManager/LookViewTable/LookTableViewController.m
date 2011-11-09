@@ -24,7 +24,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [CurrState shared].currSection = SECTION_LOOKTABLEVIEW;
-    [[Tutorial shared] actionInfo:ACTION_LOOKTABLE];
+    
     [super viewDidAppear:animated];
      
 }
@@ -111,6 +111,7 @@
     [self.view setUserInteractionEnabled:TRUE];
     
     [self reloadLook:nil];
+    [[Tutorial shared] actionInfo:ACTION_LOOKTABLE];
 }
 
 - (void)viewDidUnload

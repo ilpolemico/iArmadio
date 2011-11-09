@@ -91,7 +91,6 @@
 
 
 @property (nonatomic, retain) IBOutlet NSString *localCurrStile;
-@property (nonatomic, retain, readonly) IBOutlet NSMutableArray *localCurrOrderBy;
 
 
 

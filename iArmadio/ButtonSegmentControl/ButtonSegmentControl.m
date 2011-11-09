@@ -76,7 +76,6 @@
 - (void) dealloc{
     NSLog(@"Dealloc ButtonSegment!");
     [tag release];
-    [(NSObject *)delegate release];
     [super dealloc];
 }
 
