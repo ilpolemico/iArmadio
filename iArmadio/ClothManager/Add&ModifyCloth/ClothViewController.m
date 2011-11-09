@@ -39,7 +39,8 @@
             viewGradimento,
             captureView,
             sliderZoom,
-            imageViewGradimento;
+            imageViewGradimento,
+            note;
  
 
 
@@ -172,6 +173,7 @@
         [self.imageView setImage:[dao getImageFromVestito:vestito]];
         //[self.imageViewReflect setImage:[[dao getImageFromVestito:vestito] reflectedImageWithHeight:200 fromAlpha:0.5 toAlpha:0]];
        self.preferito = vestito.preferito;
+       self.note.text = vestito.note; 
     }
     
     
@@ -386,7 +388,7 @@
         
         
         [CurrState shared].currStagioneKey = scelta_stagione;
-        vestito = [dao addVestitoEntity:snapShotImage gradimento:gradimento tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili preferito:self.preferito];
+        vestito = [dao addVestitoEntity:snapShotImage gradimento:gradimento tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili preferito:self.preferito note:self.note.text];
         [vestito retain];
         
         
@@ -395,7 +397,7 @@
         if(vestito != nil){[vestito autorelease];}
         vestito.preferito = self.preferito;
         [CurrState shared].currStagioneKey = scelta_stagione;
-        vestito = [dao modifyVestitoEntity:vestito image:snapShotImage  isNew:NO gradimento:gradimento tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili];
+        vestito = [dao modifyVestitoEntity:vestito image:snapShotImage  isNew:NO gradimento:gradimento tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili note:self.note.text];
             modifyImageCloth = NO;
         [vestito retain];
     }
@@ -612,6 +614,29 @@
     }  
 }
 
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField { //Keyboard becomes visible
+    self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y-215, 
+                                  self.view.frame.size.width, self.view.frame.size.height); //resize
+}
+
+
+-(void)textFieldDidEndEditing:(UITextField *)textField { //keyboard will hide
+    self.view.frame = CGRectMake(self.view.frame.origin.x, 0, 
+                                 self.view.frame.size.width, self.view.frame.size.height); //resize
+}
+
+-(IBAction)  doneEditing: (id) sender{
+	[sender resignFirstResponder];
+}
+
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSUInteger newLength = [textField.text length] + [string length] - range.length;
+    return (newLength >= 40) ? NO : YES;
+}
+
+
 -(void) dealloc{
     NSLog(@"Dealloc clothview!!!");
     
@@ -653,6 +678,7 @@
     [choiceStagione release];
     [viewGradimento release];
     [preferito release];
+    [note release];
     [super dealloc];
 }
 

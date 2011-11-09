@@ -15,7 +15,7 @@
 
 
 
-@interface LookViewController : UIViewController <UINavigationControllerDelegate, UIScrollViewDelegate, ButtonSegmentDelegate> {
+@interface LookViewController : UIViewController <UINavigationControllerDelegate, UIScrollViewDelegate, ButtonSegmentDelegate, UITextFieldDelegate> {
     
     IarmadioDao *dao;
     IBOutlet UIBarButtonItem *undoBtn;
@@ -82,6 +82,10 @@
 
     
     int currIndex;
+    
+    
+    IBOutlet UITextField *note;
+    IBOutlet UILabel *labelnote;
 }
 
 @property (nonatomic, retain )Combinazione *combinazione;
@@ -115,7 +119,9 @@
 @property (nonatomic, retain )IBOutlet UIToolbar *toolbar;
 @property (nonatomic, retain )NSString *preferito;
 @property (nonatomic, retain )IBOutlet UIScrollView *mainView;
-@property (nonatomic, retain )IBOutlet IBOutlet UIImageView *lookSfondo;
+@property (nonatomic, retain )IBOutlet UIImageView *lookSfondo;
+@property (nonatomic, retain )IBOutlet UITextField *note;
+@property (nonatomic, retain )IBOutlet UILabel *labelnote;
 
 
 
@@ -130,6 +136,8 @@
 - (IBAction)buttonPressed:(id)sender;
 - (IBAction)selectGradimento:(id)sender;
 - (IBAction)hiddenZoomClothView:(UIView *)sender;
+-(IBAction) doneEditing: (id) sender;
+- (IBAction) scrollViewAction:(id)sender;
 @end
 
 

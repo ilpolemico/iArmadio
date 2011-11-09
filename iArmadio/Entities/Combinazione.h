@@ -2,7 +2,7 @@
 //  Combinazione.h
 //  iArmadio
 //
-//  Created by Casa Fortunato on 23/10/11.
+//  Created by Casa Fortunato on 09/11/11.
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSString * id;
 @property (nonatomic, retain) NSString * lookSnapshot;
 @property (nonatomic, retain) NSString * preferito;
+@property (nonatomic, retain) NSString * note;
 @property (nonatomic, retain) NSSet *conStile;
 @property (nonatomic, retain) NSSet *fattaDi;
 @property (nonatomic, retain) Stagione *perLaStagione;

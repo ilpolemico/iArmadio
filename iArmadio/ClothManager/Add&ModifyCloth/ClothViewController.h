@@ -18,7 +18,7 @@
 
 @class SelectTypeViewController;
 
-@interface ClothViewController : UIViewController <UIScrollViewDelegate,UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, ButtonSegmentDelegate> {
+@interface ClothViewController : UIViewController <UIScrollViewDelegate,UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIAlertViewDelegate, ButtonSegmentDelegate, UITextFieldDelegate> {
     
     SelectTypeViewController *selectController;
     UIImageView * imageViewSfondo;
@@ -85,6 +85,8 @@
     IBOutlet UIView *captureView;
     IBOutlet UISlider *sliderZoom;
     
+    IBOutlet UITextField *note;
+    
     BOOL isChangeImage;
       
 }
@@ -123,6 +125,7 @@
 @property (nonatomic, retain) IBOutlet UIButton *tipologiaBtn;
 @property (nonatomic, retain) IBOutlet UILabel  *tipologiaLabel;
 @property (nonatomic, retain) NSString *tipologiaSelected;
+@property (nonatomic, retain ) IBOutlet UITextField *note;
 
 
 
@@ -140,6 +143,7 @@
 -(IBAction) saveCloth:(id) sender;
 -(IBAction) deleteCloth:(id) sender;
 -(IBAction) undoCloth:(id) sender;
+-(IBAction) doneEditing: (id) sender;
 -(void)initStagioniEntities:(NSNumber *)stagioneKey;
 -(void) initInputType;
 -(CGAffineTransform) scale:(CGAffineTransform)_transform factor:(float) factor;

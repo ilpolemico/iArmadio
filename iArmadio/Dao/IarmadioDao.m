@@ -298,7 +298,7 @@ static IarmadioDao *singleton;
 }
 
 
-- (Vestito *)addVestitoEntity:(UIImage *)image gradimento:(NSInteger)gradimento  tipiKeys:(NSArray *)tipiKeys stagioneKey:(NSString *)stagioneKey stiliKeys:(NSArray *)stiliKeys preferito:(NSString *)preferito; {
+- (Vestito *)addVestitoEntity:(UIImage *)image gradimento:(NSInteger)gradimento  tipiKeys:(NSArray *)tipiKeys stagioneKey:(NSString *)stagioneKey stiliKeys:(NSArray *)stiliKeys preferito:(NSString *)preferito note:(NSString *)note {
     NSString *imageFilename; 
     NSString *thumbnailFilename; 
     
@@ -315,7 +315,7 @@ static IarmadioDao *singleton;
         [vestito setValue:preferito forKey:@"preferito"];
     }
     
-    vestito = [self modifyVestitoEntity:vestito image:image isNew:YES gradimento:gradimento  tipiKeys:tipiKeys stagioneKey:stagioneKey stiliKeys:stiliKeys];
+    vestito = [self modifyVestitoEntity:vestito image:image isNew:YES gradimento:gradimento  tipiKeys:tipiKeys stagioneKey:stagioneKey stiliKeys:stiliKeys note:note];
     
     [self saveContext];
     
@@ -332,7 +332,7 @@ static IarmadioDao *singleton;
 
 }
 
-- (Vestito *)modifyVestitoEntity:(Vestito *)vestito image:(UIImage *)image  isNew:(BOOL)new gradimento:(NSInteger)gradimento  tipiKeys:(NSArray *)tipiKeys stagioneKey:(NSString *)stagioneKey stiliKeys:(NSArray *)stiliKeys {
+- (Vestito *)modifyVestitoEntity:(Vestito *)vestito image:(UIImage *)image  isNew:(BOOL)new gradimento:(NSInteger)gradimento  tipiKeys:(NSArray *)tipiKeys stagioneKey:(NSString *)stagioneKey stiliKeys:(NSArray *)stiliKeys note:(NSString *)note {
     [vestito retain];
     if(image != nil){
         NSData *imageData = UIImagePNGRepresentation(image);
@@ -348,6 +348,8 @@ static IarmadioDao *singleton;
     
 
     [vestito setValue:[NSNumber numberWithInteger:gradimento] forKey:@"gradimento"];
+    [vestito setValue:note forKey:@"note"];
+    
     
     if((tipiKeys != nil )&&([tipiKeys count] > 0)){
         NSMutableArray *tmp = [[[NSMutableArray alloc] init] autorelease];
@@ -551,7 +553,7 @@ static IarmadioDao *singleton;
 }
 
 
-- (Combinazione *)addCombinazioneEntity:(NSArray *)vestitiEntities  gradimento:(NSInteger)gradimento stagioneKey:(NSString *)stagioneKey stiliKeys:(NSArray *)stiliKeys preferito:(NSString *)preferito;{
+- (Combinazione *)addCombinazioneEntity:(NSArray *)vestitiEntities  gradimento:(NSInteger)gradimento stagioneKey:(NSString *)stagioneKey stiliKeys:(NSArray *)stiliKeys preferito:(NSString *)preferito note:(NSString *)note{
     
     Combinazione *combinazione = [NSEntityDescription insertNewObjectForEntityForName:@"Combinazione" inManagedObjectContext:self.managedObjectContext];
     
@@ -560,7 +562,7 @@ static IarmadioDao *singleton;
     [combinazione setValue:[NSNumber numberWithInteger:gradimento] forKey:@"gradimento"];
     
     
-    combinazione = [self modifyCombinazioneEntity:combinazione vestitiEntities:vestitiEntities isNew:YES gradimento:gradimento stagioneKey:stagioneKey stiliKeys:stiliKeys preferito:preferito];
+    combinazione = [self modifyCombinazioneEntity:combinazione vestitiEntities:vestitiEntities isNew:YES gradimento:gradimento stagioneKey:stagioneKey stiliKeys:stiliKeys preferito:preferito  note:note];
     if(!silenceNotification){
     [[NSNotificationCenter defaultCenter]
      postNotificationName:ADD_LOOK_EVENT
@@ -571,9 +573,10 @@ static IarmadioDao *singleton;
     return combinazione;    
 }
 
-- (Combinazione *)modifyCombinazioneEntity:(Combinazione *)combinazione vestitiEntities:(NSArray *)vestitiEntities isNew:(BOOL)isnew gradimento:(NSInteger)gradimento stagioneKey:(NSString *)stagioneKey stiliKeys:(NSArray *)stiliKeys preferito:(NSString *)preferito{
+- (Combinazione *)modifyCombinazioneEntity:(Combinazione *)combinazione vestitiEntities:(NSArray *)vestitiEntities isNew:(BOOL)isnew gradimento:(NSInteger)gradimento stagioneKey:(NSString *)stagioneKey stiliKeys:(NSArray *)stiliKeys preferito:(NSString *)preferito note:(NSString *)note;{
     
     combinazione.preferito = preferito;
+    combinazione.note = note;
     if(preferito != nil){ [combinazione setValue:preferito forKey:@"preferito"];}
     else{
         
@@ -1086,7 +1089,7 @@ static IarmadioDao *singleton;
         currStagioneKey = @"calda-fredda";
     }
     
-    NSLog(@"CurrStagione:%@",currStagioneKey);
+    NSLog(@"CurrStagione:%@ %d",currStagioneKey,temperatura);
     
 }
 

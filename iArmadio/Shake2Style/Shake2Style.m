@@ -101,10 +101,10 @@ static Shake2Style *singleton;
     Combinazione *combinazione=[self shake2style:stili filterStagione:dao.currStagioneKey];
     
        
-
+    /*
     if(combinazione == nil){
          combinazione=[self shake2style:stili filterStagione:nil];
-    } 
+    } */
    
     
     if(combinazione != nil){
@@ -119,7 +119,7 @@ static Shake2Style *singleton;
     }
     else{
     
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString( @"Shake2Style",nil) message:NSLocalizedString(@"Non ci sono combinazioni disponibili!",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Annulla",nil) otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString( @"Shake2Style",nil) message:NSLocalizedString(@"Non ci sono combinazioni disponibili per la stagione corrente!",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Annulla",nil) otherButtonTitles:nil];
         
         [alert show];
         [alert release];

@@ -4,6 +4,7 @@
         <attribute name="gradimento" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="id" attributeType="String"/>
         <attribute name="lookSnapshot" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="preferito" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="conStile" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Stile" inverseName="combinazione" inverseEntity="Stile"/>
         <relationship name="fattaDi" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Vestito" inverseName="inCombinazioni" inverseEntity="Vestito"/>
@@ -56,6 +57,7 @@
         <attribute name="gradimento" optional="YES" attributeType="Integer 16" defaultValueString="0"/>
         <attribute name="id" attributeType="String"/>
         <attribute name="immagine" attributeType="String"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="preferito" optional="YES" attributeType="String"/>
         <attribute name="thumbnail" optional="YES" attributeType="String"/>
         <relationship name="conProprieta" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ProprietaVestito" inverseName="delVestito" inverseEntity="ProprietaVestito"/>
@@ -65,13 +67,13 @@
         <relationship name="tipi" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tipologia" inverseName="vestiti" inverseEntity="Tipologia"/>
     </entity>
     <elements>
-        <element name="Combinazione" positionX="927" positionY="234" width="128" height="150"/>
+        <element name="Combinazione" positionX="927" positionY="234" width="128" height="165"/>
         <element name="Proprieta" positionX="513" positionY="-0" width="128" height="75"/>
         <element name="ProprietaCombinazione" positionX="736" positionY="117" width="128" height="60"/>
         <element name="ProprietaVestito" positionX="252" positionY="108" width="128" height="90"/>
         <element name="Stagione" positionX="765" positionY="432" width="128" height="210"/>
         <element name="Stile" positionX="160" positionY="192" width="128" height="120"/>
         <element name="Tipologia" positionX="243" positionY="351" width="128" height="180"/>
-        <element name="Vestito" positionX="504" positionY="261" width="128" height="195"/>
+        <element name="Vestito" positionX="504" positionY="261" width="128" height="210"/>
     </elements>
 </model>

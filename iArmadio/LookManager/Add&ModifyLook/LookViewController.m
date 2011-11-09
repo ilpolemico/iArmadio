@@ -39,7 +39,9 @@ combinazione,
 toolbar,
 mainView,
 lookSfondo,
-zoomClothView;
+zoomClothView,
+note,
+labelnote;
 
 
 
@@ -165,7 +167,7 @@ zoomClothView;
         }
         
         NSNumber *grad = combinazione.gradimento;
-        
+        self.note.text = self.combinazione.note;
         if(grad != nil){
             gradimento = grad.intValue;
             
@@ -450,6 +452,7 @@ zoomClothView;
         UIImage *tmp = [dao getImageWithInfoFromVestito:vestito];
         [((UIImageView *)[self.zoomClothView.subviews objectAtIndex:0]) setImage:tmp];
         [tapGesture release];
+        self.labelnote.text = vestito.note;
         [self fadeIn:self.zoomClothView];
         [self.zoomClothView setHidden:NO];
         
@@ -529,6 +532,19 @@ zoomClothView;
         [selectedVestiti replaceObjectAtIndex:currChoice withObject:vestito];
     }
 }
+
+
+- (IBAction) scrollViewAction:(id)sender{
+    CGPoint point =  self.captureView.contentOffset;
+    if( point.y != 0){
+        [self.captureView setContentOffset:CGPointMake(0,0) animated:YES];
+        
+    }
+    else{
+        [self.captureView setContentOffset:CGPointMake(0, 440) animated:YES];
+    }
+    
+};
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
@@ -619,11 +635,11 @@ zoomClothView;
 
         
         [CurrState shared].currStagioneKey = scelta_stagione;
-        [dao addCombinazioneEntity:vestitiInCombinazione gradimento:gradimento stagioneKey:scelta_stagione stiliKeys:stili preferito:self.preferito];
+        [dao addCombinazioneEntity:vestitiInCombinazione gradimento:gradimento stagioneKey:scelta_stagione stiliKeys:stili preferito:self.preferito note:self.note.text];
     }   
     else{
         [CurrState shared].currStagioneKey = scelta_stagione;
-        [dao modifyCombinazioneEntity:self.combinazione  vestitiEntities:vestitiInCombinazione  isNew:NO gradimento:gradimento stagioneKey:scelta_stagione stiliKeys:stili preferito:self.preferito];
+        [dao modifyCombinazioneEntity:self.combinazione  vestitiEntities:vestitiInCombinazione  isNew:NO gradimento:gradimento stagioneKey:scelta_stagione stiliKeys:stili preferito:self.preferito note:self.note.text];
     
     }
     
@@ -697,6 +713,22 @@ zoomClothView;
 }
 
 
+-(void)textFieldDidBeginEditing:(UITextField *)textField { //Keyboard becomes visible
+    self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y-215, 
+                                 self.view.frame.size.width, self.view.frame.size.height); //resize
+}
+
+
+-(void)textFieldDidEndEditing:(UITextField *)textField { //keyboard will hide
+    self.view.frame = CGRectMake(self.view.frame.origin.x, 0, 
+                                 self.view.frame.size.width, self.view.frame.size.height); //resize
+}
+
+-(IBAction)  doneEditing: (id) sender{
+	[sender resignFirstResponder];
+}
+
+
 -(void) dealloc{
     NSLog(@"Dealloc LookView");
     
@@ -762,6 +794,8 @@ zoomClothView;
 	[mainView release];
 	[lookSfondo release];
 	[zoomClothView release];
+    [note release];
+    [labelnote release];
     [super dealloc];
 }  
 

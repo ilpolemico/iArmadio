@@ -38,6 +38,7 @@
     geolocal = [GeoLocal shared];
     dao = [IarmadioDao shared];
     currstate = [CurrState shared];
+    currstate.currStagioneKey = dao.currStagioneKey;
     tutorial = [Tutorial shared];
     [dao setupDB];
     shake2style = [Shake2Style shared];

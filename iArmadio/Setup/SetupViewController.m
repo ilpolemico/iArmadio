@@ -32,8 +32,18 @@
 #pragma mark - View lifecycle
 
 - (void) viewDidAppear:(BOOL)animated{
+
+}
+
+- (void) viewWillAppear:(BOOL)animated{
     NSMutableDictionary *options = [dao.config objectForKey:@"Settings"];
     shake.on = [[options objectForKey:@"shake"] boolValue];
+    if(!shake.isOn){
+        gps.on = NO;
+        [gps setEnabled:NO];
+        [options setValue:[NSNumber numberWithBool:gps.isOn] forKey:@"gps"];
+        [[GeoLocal shared] disableGPS];
+    }
     gps.on = [[options objectForKey:@"gps"] boolValue];
     tutorial.on = [[options objectForKey:@"tutorial"] boolValue];
 }

@@ -77,11 +77,9 @@
 		A3B10D46145463CC00C9A881 /* ProprietaVestito.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B10D45145463CC00C9A881 /* ProprietaVestito.m */; };
 		A3B10D4A145463CD00C9A881 /* Proprieta.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B10D49145463CD00C9A881 /* Proprieta.m */; };
 		A3B10D4D145463CD00C9A881 /* Stile.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B10D4C145463CD00C9A881 /* Stile.m */; };
-		A3B10D53145463CE00C9A881 /* Vestito.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B10D52145463CE00C9A881 /* Vestito.m */; };
 		A3B10D56145463CE00C9A881 /* Tipologia.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B10D55145463CE00C9A881 /* Tipologia.m */; };
 		A3B10D59145463CE00C9A881 /* Stagione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B10D58145463CE00C9A881 /* Stagione.m */; };
 		A3B10D5C145463CE00C9A881 /* ProprietaCombinazione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B10D5B145463CE00C9A881 /* ProprietaCombinazione.m */; };
-		A3B10D6D1454B09700C9A881 /* Combinazione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B10D6C1454B09700C9A881 /* Combinazione.m */; };
 		A3C333AA145E39DE00C45138 /* look_laterale.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C333A8145E39DE00C45138 /* look_laterale.png */; };
 		A3C333AB145E39DE00C45138 /* look_sinistra.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C333A9145E39DE00C45138 /* look_sinistra.png */; };
 		A3C94F491456B2BA00369340 /* scarpe.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C94F481456B2BA00369340 /* scarpe.png */; };
@@ -132,6 +130,10 @@
 		A3F14748144F08E3007779DF /* LookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F14746144F08E3007779DF /* LookViewController.m */; };
 		A3F1474E144F0FB6007779DF /* LookTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3F1474B144F0FB6007779DF /* LookTableView.xib */; };
 		A3F1474F144F0FB6007779DF /* LookTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F1474D144F0FB6007779DF /* LookTableViewController.m */; };
+		A3F6132B1469DD00001775C3 /* tag.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F6132A1469DD00001775C3 /* tag.png */; };
+		A3F613321469E4BE001775C3 /* notebook.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F613311469E4BE001775C3 /* notebook.png */; };
+		A3F613361469ED72001775C3 /* Combinazione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F613351469ED72001775C3 /* Combinazione.m */; };
+		A3F613391469ED73001775C3 /* Vestito.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F613381469ED73001775C3 /* Vestito.m */; };
 		A3FA6C01146747B700E4F03E /* crediti_02.png in Resources */ = {isa = PBXBuildFile; fileRef = A3FA6C00146747B700E4F03E /* crediti_02.png */; };
 		A3FA6C031467496A00E4F03E /* CoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3FA6C051467496A00E4F03E /* CoverViewController.xib */; };
 		A3FB194714462726003620C5 /* images.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3FB194614462725003620C5 /* images.plist */; };
@@ -249,16 +251,12 @@
 		A3B10D49145463CD00C9A881 /* Proprieta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Proprieta.m; sourceTree = "<group>"; };
 		A3B10D4B145463CD00C9A881 /* Stile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stile.h; sourceTree = "<group>"; };
 		A3B10D4C145463CD00C9A881 /* Stile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stile.m; sourceTree = "<group>"; };
-		A3B10D51145463CE00C9A881 /* Vestito.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vestito.h; sourceTree = "<group>"; };
-		A3B10D52145463CE00C9A881 /* Vestito.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vestito.m; sourceTree = "<group>"; };
 		A3B10D54145463CE00C9A881 /* Tipologia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tipologia.h; sourceTree = "<group>"; };
 		A3B10D55145463CE00C9A881 /* Tipologia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tipologia.m; sourceTree = "<group>"; };
 		A3B10D57145463CE00C9A881 /* Stagione.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stagione.h; sourceTree = "<group>"; };
 		A3B10D58145463CE00C9A881 /* Stagione.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stagione.m; sourceTree = "<group>"; };
 		A3B10D5A145463CE00C9A881 /* ProprietaCombinazione.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProprietaCombinazione.h; sourceTree = "<group>"; };
 		A3B10D5B145463CE00C9A881 /* ProprietaCombinazione.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProprietaCombinazione.m; sourceTree = "<group>"; };
-		A3B10D6B1454B09700C9A881 /* Combinazione.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Combinazione.h; sourceTree = "<group>"; };
-		A3B10D6C1454B09700C9A881 /* Combinazione.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Combinazione.m; sourceTree = "<group>"; };
 		A3C333A8145E39DE00C45138 /* look_laterale.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = look_laterale.png; sourceTree = "<group>"; };
 		A3C333A9145E39DE00C45138 /* look_sinistra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = look_sinistra.png; sourceTree = "<group>"; };
 		A3C94F481456B2BA00369340 /* scarpe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scarpe.png; sourceTree = "<group>"; };
@@ -319,6 +317,12 @@
 		A3F1474B144F0FB6007779DF /* LookTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LookTableView.xib; sourceTree = "<group>"; };
 		A3F1474C144F0FB6007779DF /* LookTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LookTableViewController.h; sourceTree = "<group>"; };
 		A3F1474D144F0FB6007779DF /* LookTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LookTableViewController.m; sourceTree = "<group>"; };
+		A3F6132A1469DD00001775C3 /* tag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tag.png; sourceTree = "<group>"; };
+		A3F613311469E4BE001775C3 /* notebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notebook.png; sourceTree = "<group>"; };
+		A3F613341469ED72001775C3 /* Combinazione.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Combinazione.h; sourceTree = "<group>"; };
+		A3F613351469ED72001775C3 /* Combinazione.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Combinazione.m; sourceTree = "<group>"; };
+		A3F613371469ED73001775C3 /* Vestito.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vestito.h; sourceTree = "<group>"; };
+		A3F613381469ED73001775C3 /* Vestito.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vestito.m; sourceTree = "<group>"; };
 		A3FA6C00146747B700E4F03E /* crediti_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crediti_02.png; sourceTree = "<group>"; };
 		A3FA6C041467496A00E4F03E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CoverViewController.xib; sourceTree = "<group>"; };
 		A3FB194614462725003620C5 /* images.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = images.plist; sourceTree = "<group>"; };
@@ -455,16 +459,16 @@
 		A30A32F014308E3100D44356 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				A3B10D6B1454B09700C9A881 /* Combinazione.h */,
-				A3B10D6C1454B09700C9A881 /* Combinazione.m */,
+				A3F613371469ED73001775C3 /* Vestito.h */,
+				A3F613381469ED73001775C3 /* Vestito.m */,
+				A3F613341469ED72001775C3 /* Combinazione.h */,
+				A3F613351469ED72001775C3 /* Combinazione.m */,
 				A3B10D5A145463CE00C9A881 /* ProprietaCombinazione.h */,
 				A3B10D5B145463CE00C9A881 /* ProprietaCombinazione.m */,
 				A3B10D57145463CE00C9A881 /* Stagione.h */,
 				A3B10D58145463CE00C9A881 /* Stagione.m */,
 				A3B10D54145463CE00C9A881 /* Tipologia.h */,
 				A3B10D55145463CE00C9A881 /* Tipologia.m */,
-				A3B10D51145463CE00C9A881 /* Vestito.h */,
-				A3B10D52145463CE00C9A881 /* Vestito.m */,
 				A3B10D4B145463CD00C9A881 /* Stile.h */,
 				A3B10D4C145463CD00C9A881 /* Stile.m */,
 				A3B10D48145463CD00C9A881 /* Proprieta.h */,
@@ -687,6 +691,8 @@
 		A3EA47801449FD6A0095349B /* icone_interfaccia */ = {
 			isa = PBXGroup;
 			children = (
+				A3F613311469E4BE001775C3 /* notebook.png */,
+				A3F6132A1469DD00001775C3 /* tag.png */,
 				A3CA0BD31463D36400D3FDBA /* round_add.png */,
 				A3A7956A145F6B7800D1A5D3 /* style.png */,
 				A3CFBA1A145AF67B002C060A /* caldo_freddo_20x20.png */,
@@ -888,6 +894,8 @@
 				A37B5ECA14670DFD0074D683 /* anta_dx.png in Resources */,
 				A369475A14672297003D11D7 /* emptyCloth.png in Resources */,
 				A3FA6C01146747B700E4F03E /* crediti_02.png in Resources */,
+				A3F6132B1469DD00001775C3 /* tag.png in Resources */,
+				A3F613321469E4BE001775C3 /* notebook.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -931,13 +939,13 @@
 				A3B10D46145463CC00C9A881 /* ProprietaVestito.m in Sources */,
 				A3B10D4A145463CD00C9A881 /* Proprieta.m in Sources */,
 				A3B10D4D145463CD00C9A881 /* Stile.m in Sources */,
-				A3B10D53145463CE00C9A881 /* Vestito.m in Sources */,
 				A3B10D56145463CE00C9A881 /* Tipologia.m in Sources */,
 				A3B10D59145463CE00C9A881 /* Stagione.m in Sources */,
 				A3B10D5C145463CE00C9A881 /* ProprietaCombinazione.m in Sources */,
-				A3B10D6D1454B09700C9A881 /* Combinazione.m in Sources */,
 				A3E44055145B81DC00021751 /* UIImage+Effect.m in Sources */,
 				A3D6DFC914659D4D005E2F86 /* Tutorial.m in Sources */,
+				A3F613361469ED72001775C3 /* Combinazione.m in Sources */,
+				A3F613391469ED73001775C3 /* Vestito.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
