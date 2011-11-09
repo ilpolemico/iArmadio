@@ -234,7 +234,7 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -383,7 +383,7 @@
 
 -(void) dealloc{
     NSLog(@"Dealloc coverview!!!");
-    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     if(captureClothController != nil){
         [captureClothController release];
     }    

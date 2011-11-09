@@ -36,7 +36,7 @@ int curr_temp;
     
     
     if([self isEnableGPS]){
-        [locationManager startMonitoringSignificantLocationChanges];
+        [self enableGPS];        
     }    
     
     return self;
@@ -51,12 +51,22 @@ int curr_temp;
 -(void)enableGPS{
 
     locationManager.delegate=self;
-    [locationManager startMonitoringSignificantLocationChanges];
+    if([CLLocationManager significantLocationChangeMonitoringAvailable]){
+        [locationManager startMonitoringSignificantLocationChanges];
+    }
+    else{
+        [locationManager startUpdatingLocation];
+    }
 }
 
 -(void)disableGPS{
-    //NSLog(@"Disable GPS");
-    [locationManager stopMonitoringSignificantLocationChanges];
+    if([CLLocationManager significantLocationChangeMonitoringAvailable]){
+        [locationManager stopMonitoringSignificantLocationChanges];
+    }
+    else{
+        [locationManager stopUpdatingLocation];
+    }
+    
     locationManager.delegate=nil;
 }
 

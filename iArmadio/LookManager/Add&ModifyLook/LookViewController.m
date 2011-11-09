@@ -273,6 +273,7 @@ labelnote;
 - (void)keepHighlightButton{
     if(!addPreferitiBtn.selected){
         [addPreferitiBtn setSelected:YES];
+        [addPreferitiBtn setHighlighted:YES];
         NSDate* date = [NSDate date];
         NSDateFormatter* formatter = [[[NSDateFormatter alloc] init] autorelease];
         [formatter setDateFormat:@"yyyy-MM-dd-hh-mm-ss"];
@@ -282,6 +283,7 @@ labelnote;
         self.preferito = [str stringByAppendingString:millisecondi];
     } else {
         [addPreferitiBtn setSelected:NO];
+        [addPreferitiBtn setHighlighted:NO];
         self.preferito = nil;
     }
     
@@ -402,6 +404,7 @@ labelnote;
         [button setTag:count];
         
         
+        
         UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
         
         doubleTap.numberOfTapsRequired = 2;
@@ -441,7 +444,7 @@ labelnote;
 -(IBAction) handleTapGestureIconCloth:(UIGestureRecognizer *)sender{
     int tag = sender.view.tag;
     
-
+    [((UIButton *)sender.view) setHighlighted:YES];
     Vestito *vestito = [selectedVestiti objectAtIndex:tag];
     if ([vestito class] == [Vestito class]){
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hiddenZoomClothView:)];
@@ -506,6 +509,7 @@ labelnote;
 -(IBAction)buttonPressed:(UIGestureRecognizer *)sender{
     int tag = ((UIButton *)sender.view).tag;
     
+    [((UIButton *)sender.view) setHighlighted:YES];
     
     [currButton setSelected:NO];
     [currButton setHighlighted:NO];
