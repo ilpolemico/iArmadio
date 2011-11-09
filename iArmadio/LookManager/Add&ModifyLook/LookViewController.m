@@ -293,7 +293,7 @@ labelnote;
 
 - (void)keepHighlightButton:(id)button{
         [((UIButton *)button) setSelected:YES];
-        [((UIButton *)button) setHighlighted:YES];
+        //[((UIButton *)button) setHighlighted:YES];
 }
 
 
@@ -311,7 +311,8 @@ labelnote;
     self.listCloth.contentMode = UIViewContentModeScaleAspectFit;
     currButton = (UIButton *)sender;
     [currButton retain];
-    [self performSelector:@selector(keepHighlightButton:) withObject:(UIButton *)sender afterDelay:0.0];
+    //[((UIButton *)sender) setSelected:YES];
+    //[self performSelector:@selector(keepHighlightButton:) withObject:(UIButton *)sender afterDelay:0.0];
     
     int scrollview_size_width = self.listCloth.frame.size.width-8;
     //int scrollview_size_height = self.listCloth.frame.size.height;
@@ -394,6 +395,8 @@ labelnote;
         
         UIButton *button = [[[UIButton alloc] init] autorelease];
         [button addSubview:imageview];
+        button.adjustsImageWhenHighlighted = YES;
+        
         
         
         
@@ -444,7 +447,7 @@ labelnote;
 -(IBAction) handleTapGestureIconCloth:(UIGestureRecognizer *)sender{
     int tag = sender.view.tag;
     
-    [((UIButton *)sender.view) setHighlighted:YES];
+    //[((UIButton *)sender.view) setHighlighted:YES];
     Vestito *vestito = [selectedVestiti objectAtIndex:tag];
     if ([vestito class] == [Vestito class]){
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hiddenZoomClothView:)];
@@ -509,7 +512,6 @@ labelnote;
 -(IBAction)buttonPressed:(UIGestureRecognizer *)sender{
     int tag = ((UIButton *)sender.view).tag;
     
-    [((UIButton *)sender.view) setHighlighted:YES];
     
     [currButton setSelected:NO];
     [currButton setHighlighted:NO];

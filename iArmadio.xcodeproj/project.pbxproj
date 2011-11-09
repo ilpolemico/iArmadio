@@ -216,6 +216,7 @@
 		A3316A9B143F0D0E0042446C /* FlowCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlowCoverView.m; sourceTree = "<group>"; };
 		A3316AA0143F10370042446C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		A3438134145E2DCC005A45D1 /* sfondo_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sfondo_03.png; sourceTree = "<group>"; };
+		A34AF26A146AEE070019DEB4 /* iArmadio copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "iArmadio copy-Info.plist"; path = "/Users/luke/Documents/iArmadio/iArmadio copy-Info.plist"; sourceTree = "<absolute>"; };
 		A357353B1426850F008A742D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A357353D142686F8008A742D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A357D7141435B7BC00594E69 /* FileSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileSystem.h; sourceTree = "<group>"; };
@@ -360,6 +361,7 @@
 				A30A32D814308E3100D44356 /* iArmadio */,
 				9CD1ACAE1412840600441AB7 /* Frameworks */,
 				9CD1ACAC1412840600441AB7 /* Products */,
+				A34AF26A146AEE070019DEB4 /* iArmadio copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1098,6 +1100,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				CODE_SIGN_IDENTITY = "iPhone Developer: Luca Fortunato (45SRM5RB6Z)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Luca Fortunato (45SRM5RB6Z)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iArmadio/iArmadio-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1116,6 +1124,8 @@
 				OTHER_LDFLAGS = "";
 				"OTHER_LDFLAGS[arch=*]" = "";
 				PRODUCT_NAME = WhatDoWear;
+				PROVISIONING_PROFILE = "E56B5DE3-F08D-4CC3-8ED3-FD4F4896DD40";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E56B5DE3-F08D-4CC3-8ED3-FD4F4896DD40";
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/**";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1125,6 +1135,75 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iArmadio/iArmadio-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)";
+				INFOPLIST_FILE = "iArmadio/iArmadio-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"$(inherited)",
+				);
+				OTHER_CFLAGS = "";
+				"OTHER_CFLAGS[arch=*]" = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"-Dmacintosh=1",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"-Dmacintosh=1",
+				);
+				OTHER_LDFLAGS = "";
+				"OTHER_LDFLAGS[arch=*]" = "";
+				PRODUCT_NAME = WhatDoWear;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/**";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A3DEA86E146AD68400243324 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Luca Fortunato";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Luca Fortunato";
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "(*) *.nib *.lproj *.framework *.gch *.xcode* .DS_Store CVS .svn .git .hg";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_NAME = WhatDoWear;
+				PROVISIONING_PROFILE = "7827D732-76FC-4DA1-8B7C-94654EBA30A4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7827D732-76FC-4DA1-8B7C-94654EBA30A4";
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Distribution;
+		};
+		A3DEA86F146AD68400243324 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv6,
+					armv7,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iArmadio/iArmadio-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1150,7 +1229,7 @@
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/**";
 				WRAPPER_EXTENSION = app;
 			};
-			name = Release;
+			name = Distribution;
 		};
 /* End XCBuildConfiguration section */
 
@@ -1160,18 +1239,20 @@
 			buildConfigurations = (
 				9CD1ACD01412840600441AB7 /* Debug */,
 				9CD1ACD11412840600441AB7 /* Release */,
+				A3DEA86E146AD68400243324 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Distribution;
 		};
 		9CD1ACD21412840600441AB7 /* Build configuration list for PBXNativeTarget "iArmadio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9CD1ACD31412840600441AB7 /* Debug */,
 				9CD1ACD41412840600441AB7 /* Release */,
+				A3DEA86F146AD68400243324 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Distribution;
 		};
 /* End XCConfigurationList section */
 
