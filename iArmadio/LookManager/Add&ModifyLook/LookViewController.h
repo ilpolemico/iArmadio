@@ -2,17 +2,15 @@
 //  SecondViewController.h
 //  iArmadio
 //
-//  Created by William Pompei on 03/09/11.
+//  Created by Luca Fortunato
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "IarmadioDao.h"
 #import "ButtonSegmentControl.h"
-#import "ClothViewController.h"
 #import "UIImage+Effect.h"
 #import "Shake2Style.h"
-
 
 
 @interface LookViewController : UIViewController < UINavigationControllerDelegate, UIScrollViewDelegate, ButtonSegmentDelegate, UITextFieldDelegate> {
@@ -139,6 +137,8 @@
 -(IBAction) doneEditing: (id) sender;
 - (IBAction) scrollViewAction:(id)sender;
 - (void)changeVestito:(int) tag;
+- (void)switchVestito:(UIButton *)button image:(UIImage *)image;
+
 @end
 
 

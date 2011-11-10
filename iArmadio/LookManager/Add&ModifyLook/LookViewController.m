@@ -2,7 +2,7 @@
 //  SecondViewController.m
 //  iArmadio
 //
-//  Created by William Pompei on 03/09/11.
+//  Created by Luca Fortunato
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -446,15 +446,20 @@ labelnote;
 - (void)getVestitiShake:(NSArray *)vestiti{
     for(Vestito *vestito in vestiti){
         Tipologia *tipo = [[vestito.tipi allObjects] objectAtIndex:0];
-        NSLog(@"%@",tipo.choice);
         currChoice = [tipo.choice intValue];
-        [self changeVestito:[tipo.choice intValue]];
+        SEL selector = NSSelectorFromString([@"choice" stringByAppendingFormat:@"%d",[tipo.choice intValue],nil]);
+            
+        UIButton *button = [self performSelector:selector];
+        [self switchVestito:button image:[dao getImageFromVestito:vestito]];
+        [selectedVestiti replaceObjectAtIndex:[tipo.choice intValue] withObject:vestito];
     }
 }
 
+
+
 - (NSArray *)setCategoryShake{
     NSMutableArray *category = [[[NSMutableArray alloc] init] autorelease];
-    int i = 1;
+    int i = 0;
     for(Vestito *vestito in selectedVestiti){
         if ([vestito class] != [Vestito class]){
             NSArray *tipi = [choiceToTipi objectForKey:[NSString stringWithFormat:@"%d",i]];
@@ -495,7 +500,7 @@ labelnote;
     view.alpha = 0.0f;
     view.transform = CGAffineTransformMakeScale(0.1,0.1);
     [UIView beginAnimations:@"fadeInNewView" context:NULL];
-    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationDuration:0.4];
     view.transform = CGAffineTransformMakeScale(1,1);
     view.alpha = 1.0f;
     [UIView commitAnimations];
@@ -505,11 +510,22 @@ labelnote;
     view.alpha = 1.0f;
     view.transform = CGAffineTransformMakeScale(1,1);
     [UIView beginAnimations:@"fadeOutNewView" context:NULL];
-    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationDuration:0.4];
     view.transform = CGAffineTransformMakeScale(0.1,0.1);
     view.alpha = 0.0f;
     [UIView commitAnimations];
 }
+
+- (void) switchVestito:(UIButton *)button image:(UIImage *)image{
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:button cache:YES];
+    button.contentMode = UIViewContentModeScaleAspectFit;
+    [button setImage:image  forState:UIControlStateNormal];
+    [UIView commitAnimations];
+}
+
 
 
 -(IBAction)hiddenZoomClothView:(UIGestureRecognizer *)sender{
@@ -548,9 +564,7 @@ labelnote;
     
     
     if(tag == 0){
-        
-        [button setImage: [iconeTipi objectAtIndex:currChoice] 
-                forState:UIControlStateNormal];
+        [self switchVestito:button image:[iconeTipi objectAtIndex:currChoice]]; 
         [selectedVestiti replaceObjectAtIndex:currChoice withObject:@""];
         return;
     }
@@ -558,37 +572,8 @@ labelnote;
     if([vestitiForTipi count] > 0){
         Vestito *vestito = [vestitiForTipi objectAtIndex:tag-1];
         UIImage *tmp = [dao getImageFromVestito:vestito];
-        [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-        [UIView setAnimationDuration:0.5];
-        [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:button cache:YES];
-        button.contentMode = UIViewContentModeScaleAspectFit;
-        [button setImage:tmp  forState:UIControlStateNormal];
+        [self switchVestito:button image:tmp];        
         [selectedVestiti replaceObjectAtIndex:currChoice withObject:vestito];
-        
-        [UIView commitAnimations];
-    }
-
-    if(tag == 0){
-        
-        [button setImage: [iconeTipi objectAtIndex:currChoice] 
-                forState:UIControlStateNormal];
-        [selectedVestiti replaceObjectAtIndex:currChoice withObject:@""];
-        return;
-    }
-    
-    if([vestitiForTipi count] > 0){
-        Vestito *vestito = [vestitiForTipi objectAtIndex:tag-1];
-        UIImage *tmp = [dao getImageFromVestito:vestito];
-        [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-        [UIView setAnimationDuration:0.5];
-        [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:button cache:YES];
-        button.contentMode = UIViewContentModeScaleAspectFit;
-        [button setImage:tmp  forState:UIControlStateNormal];
-        [selectedVestiti replaceObjectAtIndex:currChoice withObject:vestito];
-        
-        [UIView commitAnimations];
     }
 
 

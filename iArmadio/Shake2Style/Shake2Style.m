@@ -65,7 +65,7 @@ static Shake2Style *singleton;
     
     
     [pesi autorelease];
-    NSLog(@"count combinazioni:%d random:%d index:%d",
+    NSLog(@"count vestiti:%d random:%d index:%d",
           [vestiti count] ,random, index);
     return [vestiti objectAtIndex: index];
 }
@@ -212,10 +212,10 @@ static Shake2Style *singleton;
            }
            else{
                NSArray *categories = [self.delegate setCategoryShake];
-               NSLog(@"Categories: %@",categories);
+               //NSLog(@"Categories: %@",categories);
                NSMutableArray *vestiti = [[[NSMutableArray alloc] init] autorelease];
                for(NSArray *tipi in categories){
-                   NSLog(@"Tipi: %@",tipi);
+                   //NSLog(@"Tipi: %@",tipi);
                    Vestito *vestito = [self shake2styleVestiti:tipi filterStagione:dao.currStagioneKey];
                    if(vestito != nil){
                        [vestiti addObject:vestito];
@@ -270,9 +270,6 @@ static Shake2Style *singleton;
 
 
 -(void) dealloc{
-    [imageView release];
-    [stagione release];
-    [localita release];
     [super dealloc];
 }
 

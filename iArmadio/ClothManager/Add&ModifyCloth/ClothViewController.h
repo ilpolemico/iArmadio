@@ -2,7 +2,7 @@
 //  SecondViewController.h
 //  iArmadio
 //
-//  Created by William Pompei on 03/09/11.
+//  Created by Luca Fortunato
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
