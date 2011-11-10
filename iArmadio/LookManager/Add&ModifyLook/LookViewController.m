@@ -55,6 +55,7 @@ labelnote;
     
     
     dao = [IarmadioDao shared];
+    [Shake2Style shared].delegate = self;
     [CurrState shared].currSection = SECTION_LOOKVIEW;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLook:) name:ADD_CLOTH_EVENT object:nil];
@@ -98,8 +99,6 @@ labelnote;
 
 - (void)reloadLook:(NSNotification *)pNotification{
     [self initInputType];
-        
-
 }
 
 - (void)initInputType{
@@ -160,7 +159,7 @@ labelnote;
             SEL selector = NSSelectorFromString([@"choice" stringByAppendingFormat:@"%d",[tipo.choice intValue],nil]);
             
             UIButton *button = [self performSelector:selector];
-            button.imageView.contentMode = UIViewContentModeScaleAspectFit;
+            button.contentMode = UIViewContentModeScaleAspectFit;
             [button  setImage:[dao getImageFromVestito:vestito] forState:UIControlStateNormal];
             [selectedVestiti replaceObjectAtIndex:[tipo.choice intValue] withObject:vestito];
         }
@@ -349,7 +348,7 @@ labelnote;
     [button setTag:0];
     
     button.frame = CGRectMake(3,0,imageview_size_width,imageview_size_height);
-    button.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    button.contentMode = UIViewContentModeScaleAspectFit;
     [self.listCloth addSubview:button];
 
     int count = 1;
@@ -444,6 +443,32 @@ labelnote;
     
 }
 
+- (void)getVestitiShake:(NSArray *)vestiti{
+    for(Vestito *vestito in vestiti){
+        Tipologia *tipo = [[vestito.tipi allObjects] objectAtIndex:0];
+        NSLog(@"%@",tipo.choice);
+        currChoice = [tipo.choice intValue];
+        [self changeVestito:[tipo.choice intValue]];
+    }
+}
+
+- (NSArray *)setCategoryShake{
+    NSMutableArray *category = [[[NSMutableArray alloc] init] autorelease];
+    int i = 1;
+    for(Vestito *vestito in selectedVestiti){
+        if ([vestito class] != [Vestito class]){
+            NSArray *tipi = [choiceToTipi objectForKey:[NSString stringWithFormat:@"%d",i]];
+            if(tipi != nil){
+                [category addObject:tipi];
+            }    
+        }
+        i++;
+    }
+    return category;
+}
+
+
+
 
 -(IBAction) handleTapGestureIconCloth:(UIGestureRecognizer *)sender{
     int tag = sender.view.tag;
@@ -513,34 +538,62 @@ labelnote;
 
 -(IBAction)buttonPressed:(UIGestureRecognizer *)sender{
     int tag = ((UIButton *)sender.view).tag;
-    
-    
-    //[currButton setSelected:NO];
-    //[currButton setHighlighted:NO];
-   
-    
+    [self changeVestito:tag];   
+}
+
+- (void)changeVestito:(int) tag{
     SEL selector = NSSelectorFromString([@"choice" stringByAppendingFormat:@"%d",currChoice,nil]);
     UIButton *button = [self performSelector:selector];
-    button.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    button.contentMode = UIViewContentModeScaleAspectFit;
     
     
     if(tag == 0){
-         
-         [button setImage: [iconeTipi objectAtIndex:currChoice] 
-                  forState:UIControlStateNormal];
-         [selectedVestiti replaceObjectAtIndex:currChoice withObject:@""];
-         return;
-     }
+        
+        [button setImage: [iconeTipi objectAtIndex:currChoice] 
+                forState:UIControlStateNormal];
+        [selectedVestiti replaceObjectAtIndex:currChoice withObject:@""];
+        return;
+    }
     
     if([vestitiForTipi count] > 0){
         Vestito *vestito = [vestitiForTipi objectAtIndex:tag-1];
         UIImage *tmp = [dao getImageFromVestito:vestito];
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+        [UIView setAnimationDuration:0.5];
+        [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:button cache:YES];
         button.contentMode = UIViewContentModeScaleAspectFit;
         [button setImage:tmp  forState:UIControlStateNormal];
         [selectedVestiti replaceObjectAtIndex:currChoice withObject:vestito];
+        
+        [UIView commitAnimations];
     }
-}
 
+    if(tag == 0){
+        
+        [button setImage: [iconeTipi objectAtIndex:currChoice] 
+                forState:UIControlStateNormal];
+        [selectedVestiti replaceObjectAtIndex:currChoice withObject:@""];
+        return;
+    }
+    
+    if([vestitiForTipi count] > 0){
+        Vestito *vestito = [vestitiForTipi objectAtIndex:tag-1];
+        UIImage *tmp = [dao getImageFromVestito:vestito];
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+        [UIView setAnimationDuration:0.5];
+        [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:button cache:YES];
+        button.contentMode = UIViewContentModeScaleAspectFit;
+        [button setImage:tmp  forState:UIControlStateNormal];
+        [selectedVestiti replaceObjectAtIndex:currChoice withObject:vestito];
+        
+        [UIView commitAnimations];
+    }
+
+
+
+}
 
 - (IBAction) scrollViewAction:(id)sender{
     CGPoint point =  self.captureView.contentOffset;

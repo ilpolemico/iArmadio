@@ -13,11 +13,10 @@
 #import "LookViewController.h"
 #import <AudioToolbox/AudioServices.h>
 
-@protocol ShakeDelegate
-@required
-- (void)getVestitiShake:(NSArray *)vestiti;
-- (NSArray *)setCategoryShake;
-@end
+@protocol Shake2Delegate;
+
+
+
 
 @interface Shake2Style : UIViewController <UIActionSheetDelegate>{
     IarmadioDao *dao;
@@ -25,14 +24,23 @@
     IBOutlet UILabel *stagione;
     IBOutlet UILabel *localita;
     BOOL enableShake;
-    id <ShakeDelegate> delegate;
+    id <Shake2Delegate> delegate;
 }
 @property (assign, nonatomic) id delegate;
 @property (nonatomic) BOOL enableShake;
 
 + (Shake2Style *)shared;
 - (Combinazione *)shake2style:(NSArray *)filterStili filterStagione:(NSString *)filterStagione;
+- (Vestito *)shake2styleVestiti:(NSArray *)tipi filterStagione:(NSString *)filterStagione;
+
 
 -(IBAction)done:(id)sender;
 
+@end
+
+
+@protocol Shake2Delegate
+@required
+- (void)getVestitiShake:(NSArray *)vestiti;
+- (NSArray *)setCategoryShake;
 @end

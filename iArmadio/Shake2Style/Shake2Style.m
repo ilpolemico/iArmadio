@@ -32,6 +32,44 @@ static Shake2Style *singleton;
 }
 
 
+- (Vestito *)shake2styleVestiti:(NSArray *)tipi filterStagione:(NSString *)filterStagione{
+    
+    
+    
+    NSArray *vestiti = [dao getVestitiEntities:tipi  filterStagioneKey:filterStagione filterStiliKeys:nil filterGradimento:0];
+    
+    
+    if([vestiti count] == 0){ return nil;}
+    
+    int tot = 0;
+    
+    NSMutableArray *pesi = [[NSMutableArray alloc] init];
+    
+    int cont = 0;
+    for(Vestito *c in vestiti){
+        tot += [c.gradimento intValue]+2;
+        [pesi addObject:[NSNumber numberWithInt:tot]];
+        NSLog(@"tot:%d",tot);
+    }
+    if(tot==0){tot = 1;}
+    int random = arc4random()%(tot+1);
+    random++;
+    int index = 0;
+    cont = 0;
+    for(NSNumber *peso in pesi){
+        index = cont;
+        if(!((random > [peso intValue])&&(cont < [pesi count]-1)))
+            break;
+        cont++;
+    }
+    
+    
+    [pesi autorelease];
+    NSLog(@"count combinazioni:%d random:%d index:%d",
+          [vestiti count] ,random, index);
+    return [vestiti objectAtIndex: index];
+}
+
 
 - (Combinazione *)shake2style:(NSArray *)filterStili filterStagione:(NSString *)filterStagione{
     
@@ -173,7 +211,17 @@ static Shake2Style *singleton;
                [self choiceStyle];
            }
            else{
-               //NSArray *category = [self.delegate setCategoryShake];
+               NSArray *categories = [self.delegate setCategoryShake];
+               NSLog(@"Categories: %@",categories);
+               NSMutableArray *vestiti = [[[NSMutableArray alloc] init] autorelease];
+               for(NSArray *tipi in categories){
+                   NSLog(@"Tipi: %@",tipi);
+                   Vestito *vestito = [self shake2styleVestiti:tipi filterStagione:dao.currStagioneKey];
+                   if(vestito != nil){
+                       [vestiti addObject:vestito];
+                   }
+               }
+               [self.delegate getVestitiShake:vestiti];
            }
         }
     }

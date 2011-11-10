@@ -11,11 +11,11 @@
 #import "ButtonSegmentControl.h"
 #import "ClothViewController.h"
 #import "UIImage+Effect.h"
+#import "Shake2Style.h"
 
 
 
-
-@interface LookViewController : UIViewController <UINavigationControllerDelegate, UIScrollViewDelegate, ButtonSegmentDelegate, UITextFieldDelegate> {
+@interface LookViewController : UIViewController < UINavigationControllerDelegate, UIScrollViewDelegate, ButtonSegmentDelegate, UITextFieldDelegate> {
     
     IarmadioDao *dao;
     IBOutlet UIBarButtonItem *undoBtn;
@@ -138,6 +138,7 @@
 - (IBAction)hiddenZoomClothView:(UIView *)sender;
 -(IBAction) doneEditing: (id) sender;
 - (IBAction) scrollViewAction:(id)sender;
+- (void)changeVestito:(int) tag;
 @end
 
 
