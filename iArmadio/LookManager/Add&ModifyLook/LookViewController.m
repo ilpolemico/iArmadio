@@ -273,7 +273,7 @@ labelnote;
 - (void)keepHighlightButton{
     if(!addPreferitiBtn.selected){
         [addPreferitiBtn setSelected:YES];
-        [addPreferitiBtn setHighlighted:YES];
+        //[addPreferitiBtn setHighlighted:YES];
         NSDate* date = [NSDate date];
         NSDateFormatter* formatter = [[[NSDateFormatter alloc] init] autorelease];
         [formatter setDateFormat:@"yyyy-MM-dd-hh-mm-ss"];
@@ -283,7 +283,7 @@ labelnote;
         self.preferito = [str stringByAppendingString:millisecondi];
     } else {
         [addPreferitiBtn setSelected:NO];
-        [addPreferitiBtn setHighlighted:NO];
+        //[addPreferitiBtn setHighlighted:NO];
         self.preferito = nil;
     }
     
@@ -303,8 +303,8 @@ labelnote;
     
     
     if(currButton != nil){
-        [currButton setHighlighted:NO];
-        [currButton setSelected:NO];
+        //[currButton setHighlighted:NO];
+        //[currButton setSelected:NO];
         [currButton release];
         currButton = nil;
     }
@@ -338,6 +338,7 @@ labelnote;
     UIImage *imageTmp = [dao getImageBundleFromFile:@"emptyCloth.png"];
     UIButton *button = [[[UIButton alloc] init] autorelease];
     [button setImage:imageTmp forState:UIControlStateNormal];
+    button.adjustsImageWhenHighlighted = YES;
    
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget : self action : @selector (buttonPressed:)];
@@ -509,12 +510,13 @@ labelnote;
     }
 }
 
+
 -(IBAction)buttonPressed:(UIGestureRecognizer *)sender{
     int tag = ((UIButton *)sender.view).tag;
     
     
-    [currButton setSelected:NO];
-    [currButton setHighlighted:NO];
+    //[currButton setSelected:NO];
+    //[currButton setHighlighted:NO];
    
     
     SEL selector = NSSelectorFromString([@"choice" stringByAppendingFormat:@"%d",currChoice,nil]);
@@ -532,7 +534,8 @@ labelnote;
     
     if([vestitiForTipi count] > 0){
         Vestito *vestito = [vestitiForTipi objectAtIndex:tag-1];
-        UIImage *tmp = [[dao getImageFromVestito:vestito] scaleToFitSize:CGSizeMake(button.frame.size.width,button.frame.size.height)];
+        UIImage *tmp = [dao getImageFromVestito:vestito];
+        button.contentMode = UIViewContentModeScaleAspectFit;
         [button setImage:tmp  forState:UIControlStateNormal];
         [selectedVestiti replaceObjectAtIndex:currChoice withObject:vestito];
     }
@@ -738,7 +741,7 @@ labelnote;
 
 -(void) dealloc{
     NSLog(@"Dealloc LookView");
-    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     if(preferito != nil){
     	[preferito release];
     	preferito = nil;	

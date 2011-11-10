@@ -320,12 +320,6 @@
 }
 
 
-
-
-- (void) motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
-   
-}
-
 -(IBAction) deleteCloth:(id) sender {
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString( @"Cancella",nil) message:NSLocalizedString(@"Vuoi cancellare il vestito",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Annulla",nil) otherButtonTitles:NSLocalizedString( @"Cancella",nil), nil];
@@ -355,13 +349,13 @@
    NSString *nametipo = self.tipologiaSelected; 
    NSArray *tipi = [[NSArray alloc] initWithObjects:nametipo,nil];
     
-        
-    UIGraphicsBeginImageContext(CGSizeMake(self.captureView.frame.size.width,self.captureView.frame.size.height));
+    UIGraphicsBeginImageContextWithOptions(self.captureView.bounds.size, self.captureView.opaque,0.0);    
     CGContextRef context = UIGraphicsGetCurrentContext();
     [self.captureView.layer renderInContext:context];
     UIImage *snapShotImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-
+    
+    
    
    NSMutableArray *stili = [[NSMutableArray alloc] init];
    if(choiceStile.selectedIndex < [dao.listStiliKeys count]){
@@ -642,7 +636,7 @@
 -(void) dealloc{
     NSLog(@"Dealloc clothview!!!");
     
-    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     if(vestito != nil){
         [vestito release];
     }

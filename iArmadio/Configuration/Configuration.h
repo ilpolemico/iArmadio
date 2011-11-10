@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 
-#define CLOTH_THUMBNAIL_SIZE_X 200
-#define CLOTH_THUMBNAIL_SIZE_Y 200
+#define CLOTH_THUMBNAIL_SIZE_X 300
+#define CLOTH_THUMBNAIL_SIZE_Y 300
 
 #define CLOTH_NORMAL_SIZE_X 400
 #define CLOTH_NORMAL_SIZE_Y 400

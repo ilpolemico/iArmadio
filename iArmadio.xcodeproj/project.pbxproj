@@ -35,6 +35,8 @@
 		A3316A9C143F0D0E0042446C /* DataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A3316A99143F0D0E0042446C /* DataCache.m */; };
 		A3316A9D143F0D0E0042446C /* FlowCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3316A9B143F0D0E0042446C /* FlowCoverView.m */; };
 		A3316AA1143F10370042446C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3316AA0143F10370042446C /* OpenGLES.framework */; };
+		A332F20C146B3C1900617F16 /* CoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A332F20E146B3C1900617F16 /* CoverViewController.xib */; };
+		A332F210146B452B00617F16 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A332F20F146B452B00617F16 /* AudioToolbox.framework */; };
 		A3438135145E2DCC005A45D1 /* sfondo_03.png in Resources */ = {isa = PBXBuildFile; fileRef = A3438134145E2DCC005A45D1 /* sfondo_03.png */; };
 		A357353C1426850F008A742D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A357353B1426850F008A742D /* MapKit.framework */; };
 		A357353E142686F8008A742D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A357353D142686F8008A742D /* CoreLocation.framework */; };
@@ -135,7 +137,6 @@
 		A3F613361469ED72001775C3 /* Combinazione.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F613351469ED72001775C3 /* Combinazione.m */; };
 		A3F613391469ED73001775C3 /* Vestito.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F613381469ED73001775C3 /* Vestito.m */; };
 		A3FA6C01146747B700E4F03E /* crediti_02.png in Resources */ = {isa = PBXBuildFile; fileRef = A3FA6C00146747B700E4F03E /* crediti_02.png */; };
-		A3FA6C031467496A00E4F03E /* CoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3FA6C051467496A00E4F03E /* CoverViewController.xib */; };
 		A3FB194714462726003620C5 /* images.plist in Resources */ = {isa = PBXBuildFile; fileRef = A3FB194614462725003620C5 /* images.plist */; };
 		A3FB91D41438FF8F009AF9B4 /* ArmadioTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3FB91D31438FF8E009AF9B4 /* ArmadioTableView.xib */; };
 		A3FBCA90144C11C80071A213 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A3FBCA92144C11C80071A213 /* Localizable.strings */; };
@@ -215,6 +216,8 @@
 		A3316A9A143F0D0E0042446C /* FlowCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlowCoverView.h; sourceTree = "<group>"; };
 		A3316A9B143F0D0E0042446C /* FlowCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlowCoverView.m; sourceTree = "<group>"; };
 		A3316AA0143F10370042446C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		A332F20D146B3C1900617F16 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CoverViewController.xib; sourceTree = "<group>"; };
+		A332F20F146B452B00617F16 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A3438134145E2DCC005A45D1 /* sfondo_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sfondo_03.png; sourceTree = "<group>"; };
 		A34AF26A146AEE070019DEB4 /* iArmadio copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "iArmadio copy-Info.plist"; path = "/Users/luke/Documents/iArmadio/iArmadio copy-Info.plist"; sourceTree = "<absolute>"; };
 		A357353B1426850F008A742D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -325,7 +328,6 @@
 		A3F613371469ED73001775C3 /* Vestito.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vestito.h; sourceTree = "<group>"; };
 		A3F613381469ED73001775C3 /* Vestito.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vestito.m; sourceTree = "<group>"; };
 		A3FA6C00146747B700E4F03E /* crediti_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crediti_02.png; sourceTree = "<group>"; };
-		A3FA6C041467496A00E4F03E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CoverViewController.xib; sourceTree = "<group>"; };
 		A3FB194614462725003620C5 /* images.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = images.plist; sourceTree = "<group>"; };
 		A3FB91D31438FF8E009AF9B4 /* ArmadioTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArmadioTableView.xib; sourceTree = "<group>"; };
 		A3FBCA91144C11C80071A213 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A332F210146B452B00617F16 /* AudioToolbox.framework in Frameworks */,
 				A3316AA1143F10370042446C /* OpenGLES.framework in Frameworks */,
 				A32BA5A4143357370019979B /* ImageIO.framework in Frameworks */,
 				A32BA5A2143357050019979B /* MobileCoreServices.framework in Frameworks */,
@@ -376,6 +379,7 @@
 		9CD1ACAE1412840600441AB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A332F20F146B452B00617F16 /* AudioToolbox.framework */,
 				A3316AA0143F10370042446C /* OpenGLES.framework */,
 				A32BA5A3143357370019979B /* ImageIO.framework */,
 				A32BA5A1143357050019979B /* MobileCoreServices.framework */,
@@ -616,7 +620,7 @@
 			children = (
 				A32BA5AC143375530019979B /* CoverViewController.h */,
 				A32BA5AD143375530019979B /* CoverViewController.m */,
-				A3FA6C051467496A00E4F03E /* CoverViewController.xib */,
+				A332F20E146B3C1900617F16 /* CoverViewController.xib */,
 			);
 			path = CoverFlowCloth;
 			sourceTree = "<group>";
@@ -824,7 +828,7 @@
 				A30A333B14308E3100D44356 /* stagione.plist in Resources */,
 				A30A333C14308E3100D44356 /* stile.plist in Resources */,
 				A30A333E14308E3100D44356 /* tipologia.plist in Resources */,
-				A3FA6C031467496A00E4F03E /* CoverViewController.xib in Resources */,
+				A332F20C146B3C1900617F16 /* CoverViewController.xib in Resources */,
 				A3FB91D41438FF8F009AF9B4 /* ArmadioTableView.xib in Resources */,
 				A3645A861439C7AA00A13FB5 /* LookManagerView.xib in Resources */,
 				A3A5E267145E00ED00D4E362 /* SelectTypeViewController.xib in Resources */,
@@ -972,6 +976,14 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
+		A332F20E146B3C1900617F16 /* CoverViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A332F20D146B3C1900617F16 /* en */,
+			);
+			name = CoverViewController.xib;
+			sourceTree = "<group>";
+		};
 		A3A5E269145E00ED00D4E362 /* SelectTypeViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1023,14 +1035,6 @@
 				A3EBC7061467E63C009D99B4 /* it */,
 			);
 			name = SetupViewController.xib;
-			sourceTree = "<group>";
-		};
-		A3FA6C051467496A00E4F03E /* CoverViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A3FA6C041467496A00E4F03E /* en */,
-			);
-			name = CoverViewController.xib;
 			sourceTree = "<group>";
 		};
 		A3FBCA92144C11C80071A213 /* Localizable.strings */ = {
@@ -1101,8 +1105,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = (
-					armv6,
 					armv7,
+					armv6,
 				);
 				CODE_SIGN_IDENTITY = "iPhone Developer: Luca Fortunato (45SRM5RB6Z)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Luca Fortunato (45SRM5RB6Z)";
@@ -1136,8 +1140,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = (
-					armv6,
 					armv7,
+					armv6,
 				);
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
@@ -1201,8 +1205,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = (
-					armv6,
 					armv7,
+					armv6,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iArmadio/iArmadio-Prefix.pch";

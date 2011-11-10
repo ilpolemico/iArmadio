@@ -9,7 +9,7 @@
 #import "Shake2Style.h"
 
 @implementation Shake2Style
-@synthesize enableShake;
+@synthesize enableShake, delegate;
 
 
 static Shake2Style *singleton;
@@ -153,21 +153,28 @@ static Shake2Style *singleton;
 }
 
 
--(void) motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event{
+-(void) motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
     if(
+       (event.type == UIEventSubtypeMotionShake)
+       &&
        (![[CurrState shared].currSection isEqualToString:SECTION_SHAKE2STYLE])
        &&
        (![[CurrState shared].currSection isEqualToString:SECTION_CLOTHVIEW])
-       &&
-       (![[CurrState shared].currSection isEqualToString:SECTION_LOOKVIEW])
+      
        ){
         if(
            ([[[dao.config objectForKey:@"Settings"] objectForKey:@"shake"] boolValue])
            &&
            (self.enableShake)
           ){
-           [CurrState shared].currSection = SECTION_SHAKE2STYLE;
-           [self choiceStyle];
+           AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+           if(![[CurrState shared].currSection isEqualToString:SECTION_LOOKVIEW]) {
+               [CurrState shared].currSection = SECTION_SHAKE2STYLE;
+               [self choiceStyle];
+           }
+           else{
+               //NSArray *category = [self.delegate setCategoryShake];
+           }
         }
     }
 }

@@ -11,6 +11,13 @@
 #import "iArmadioAppDelegate.h"
 #import "ClothViewController.h"
 #import "LookViewController.h"
+#import <AudioToolbox/AudioServices.h>
+
+@protocol ShakeDelegate
+@required
+- (void)getVestitiShake:(NSArray *)vestiti;
+- (NSArray *)setCategoryShake;
+@end
 
 @interface Shake2Style : UIViewController <UIActionSheetDelegate>{
     IarmadioDao *dao;
@@ -18,7 +25,9 @@
     IBOutlet UILabel *stagione;
     IBOutlet UILabel *localita;
     BOOL enableShake;
+    id <ShakeDelegate> delegate;
 }
+@property (assign, nonatomic) id delegate;
 @property (nonatomic) BOOL enableShake;
 
 + (Shake2Style *)shared;
