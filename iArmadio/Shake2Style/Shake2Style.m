@@ -195,7 +195,7 @@ static Shake2Style *singleton;
        &&
        (self.enableShake)
        &&
-       [[[config objectForKey:@"Settings"] objectForKey:@"shake"] boolValue];
+       ([[[dao.config objectForKey:@"Settings"] objectForKey:@"shake"] boolValue])
        ){
            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
            if(![[CurrState shared].currSection isEqualToString:ENABLE_SHAKE_IN_LOOK]) {
