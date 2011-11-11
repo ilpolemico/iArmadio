@@ -321,10 +321,9 @@
 
 -(IBAction) deleteCloth:(id) sender {
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString( @"Cancella",nil) message:NSLocalizedString(@"Vuoi cancellare il vestito",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Annulla",nil) otherButtonTitles:NSLocalizedString( @"Cancella",nil), nil];
+    UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:NSLocalizedString( @"Cancella",nil) message:NSLocalizedString(@"Vuoi cancellare il vestito",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Annulla",nil) otherButtonTitles:NSLocalizedString( @"Cancella",nil), nil] autorelease];
     
     [alert show];
-    [alert release];
     
 }
 
@@ -369,11 +368,10 @@
         
         if([[dao getVestitiEntities:tipi filterStagioneKey:nil filterStiliKeys:nil filterGradimento:-1] count]+1 > MAX_CLOTH){
             
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:
-                                  NSLocalizedString(@"Numero massimo superato",nil) message: NSLocalizedString(@"Il numero massimo dei capi per questo tipo è stato raggiunto",nil) delegate:self cancelButtonTitle: NSLocalizedString(@"Annulla",nil) otherButtonTitles:nil, nil];
+            UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:
+                                  NSLocalizedString(@"Numero massimo superato",nil) message: NSLocalizedString(@"Il numero massimo dei capi per questo tipo è stato raggiunto",nil) delegate:self cancelButtonTitle: NSLocalizedString(@"Annulla",nil) otherButtonTitles:nil, nil] autorelease];
             
             [alert show];
-            [alert release];
             [tipi release];
             [stili release];
             return;

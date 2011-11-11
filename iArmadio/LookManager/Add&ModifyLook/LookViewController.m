@@ -654,10 +654,9 @@ labelnote;
     }
     
     if([vestitiInCombinazione count] == 0){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString( @"Salvataggio",nil) message:NSLocalizedString(@"Non puo' essere salvato un look senza vestiti",nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"Annulla",nil) otherButtonTitles:nil];
+        UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:NSLocalizedString( @"Salvataggio",nil) message:NSLocalizedString(@"Non puo' essere salvato un look senza vestiti",nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"Annulla",nil) otherButtonTitles:nil] autorelease];
         
         [alert show];
-        [alert release];
         return;
     }
     
@@ -672,11 +671,10 @@ labelnote;
     if(!self.combinazione){
         if([[dao getCombinazioniEntities:0 filterStagioneKey:nil filterStiliKeys:nil] count]+1 > MAX_LOOK){
             
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:
-                                  NSLocalizedString(@"Numero massimo superato",nil) message: NSLocalizedString(@"Il numero massimo di look è stato raggiunto",nil) delegate:self cancelButtonTitle: NSLocalizedString(@"Annulla",nil) otherButtonTitles:nil, nil];
+            UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:
+                                  NSLocalizedString(@"Numero massimo superato",nil) message: NSLocalizedString(@"Il numero massimo di look è stato raggiunto",nil) delegate:self cancelButtonTitle: NSLocalizedString(@"Annulla",nil) otherButtonTitles:nil, nil] autorelease];
             
             [alert show];
-            [alert release];
             return;
         }  
 
@@ -701,10 +699,9 @@ labelnote;
 
 -(IBAction) deleteLook:(id) sender {
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString( @"Cancella",nil) message:NSLocalizedString(@"Vuoi cancellare il look",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Annulla",nil) otherButtonTitles:NSLocalizedString( @"Cancella",nil), nil];
+    UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:NSLocalizedString( @"Cancella",nil) message:NSLocalizedString(@"Vuoi cancellare il look",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Annulla",nil) otherButtonTitles:NSLocalizedString( @"Cancella",nil), nil] autorelease];
     
     [alert show];
-    [alert release];
     
 }
 

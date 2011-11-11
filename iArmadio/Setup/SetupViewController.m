@@ -150,12 +150,9 @@
 
 
 -(IBAction)reset:(id)sender{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString( @"Cancellare tutte le impostazioni",nil) message:NSLocalizedString(@"Vuoi cancellare tutte le impostazioni? In questo modo cancellerai anche tutti i vestiti",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Annulla",nil) otherButtonTitles:NSLocalizedString( @"Cancella",nil), nil];
+    UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:NSLocalizedString( @"Cancellare tutte le impostazioni",nil) message:NSLocalizedString(@"Vuoi cancellare tutte le impostazioni? In questo modo cancellerai anche tutti i vestiti",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Annulla",nil) otherButtonTitles:NSLocalizedString( @"Cancella",nil), nil] autorelease];
     
     [alert show];
-    [alert release];
-
-
 }
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{

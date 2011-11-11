@@ -43,9 +43,8 @@ static Tutorial *singleton;
 }
 
 - (void) showInfo:(NSString *)info{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString( @"Istruzioni",nil) message:NSLocalizedString(info,nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Prosegui",nil) otherButtonTitles:nil];
+    UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:NSLocalizedString( @"Istruzioni",nil) message:NSLocalizedString(info,nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Prosegui",nil) otherButtonTitles:nil] autorelease];
     [alert show];
-    [alert release];
 }
 
 

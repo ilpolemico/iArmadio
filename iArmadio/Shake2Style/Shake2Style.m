@@ -157,10 +157,9 @@ static Shake2Style *singleton;
     }
     else{
     
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString( @"Shake2Style",nil) message:NSLocalizedString(@"Non ci sono combinazioni disponibili per la stagione corrente!",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Annulla",nil) otherButtonTitles:nil];
+        UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:NSLocalizedString( @"Shake2Style",nil) message:NSLocalizedString(@"Non ci sono combinazioni disponibili per la stagione corrente!",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Annulla",nil) otherButtonTitles:nil] autorelease];
         
         [alert show];
-        [alert release];
     }
 }
 
