@@ -194,6 +194,8 @@ static Shake2Style *singleton;
        (![[CurrState shared].currSection isEqualToString:DISABLE_SHAKE])
        &&
        (self.enableShake)
+       &&
+       [[[config objectForKey:@"Settings"] objectForKey:@"shake"] boolValue];
        ){
            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
            if(![[CurrState shared].currSection isEqualToString:ENABLE_SHAKE_IN_LOOK]) {
