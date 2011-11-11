@@ -23,7 +23,6 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [CurrState shared].currSection = SECTION_ARMADIO;
     [super viewDidAppear:animated];
      
 }

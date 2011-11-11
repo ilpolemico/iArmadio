@@ -19,6 +19,11 @@
 #define MAX_LOOK 1000
 
 
+#define DISABLE_SHAKE   @"NoShake"
+#define ENABLE_SHAKE   @"Shake"
+#define ENABLE_SHAKE_IN_LOOK  @"ShakeInLook"
+
+
 
 #define SECTION_ARMADIO   @"ArmadioTableView"
 #define SECTION_COVERFLOW @"CoverView"

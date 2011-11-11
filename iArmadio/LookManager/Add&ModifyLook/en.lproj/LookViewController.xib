@@ -341,7 +341,7 @@
 								<reference key="IBUINormalTitleShadowColor" ref="514866154"/>
 								<object class="NSCustomResource" key="IBUINormalImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">sciarpa.png</string>
+									<string key="NSResourceName">cravatta_sciarpa.png</string>
 								</object>
 								<reference key="IBUIFontDescription" ref="554317090"/>
 								<reference key="IBUIFont" ref="377923903"/>
@@ -424,7 +424,7 @@
 								<reference key="IBUINormalTitleShadowColor" ref="514866154"/>
 								<object class="NSCustomResource" key="IBUINormalImage">
 									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">pantaloni.png</string>
+									<string key="NSResourceName">gonna_pantalone.png</string>
 								</object>
 								<reference key="IBUIFontDescription" ref="554317090"/>
 								<reference key="IBUIFont" ref="377923903"/>
@@ -2122,15 +2122,15 @@
 				<string>caldo_freddo.png</string>
 				<string>cappello.png</string>
 				<string>cappotto.png</string>
+				<string>cravatta_sciarpa.png</string>
 				<string>freddo.png</string>
+				<string>gonna_pantalone.png</string>
 				<string>look_base.png</string>
 				<string>look_definitivo.png</string>
 				<string>maglietta.png</string>
 				<string>maglione.png</string>
 				<string>notebook.png</string>
-				<string>pantaloni.png</string>
 				<string>scarpe.png</string>
-				<string>sciarpa.png</string>
 				<string>star.png</string>
 				<string>star_gray.png</string>
 				<string>style.png</string>
@@ -2145,14 +2145,14 @@
 				<string>{32, 32}</string>
 				<string>{160, 160}</string>
 				<string>{160, 160}</string>
+				<string>{160, 160}</string>
 				<string>{32, 32}</string>
+				<string>{160, 160}</string>
 				<string>{640, 960}</string>
 				<string>{490, 1920}</string>
 				<string>{160, 160}</string>
 				<string>{160, 160}</string>
 				<string>{32, 32}</string>
-				<string>{160, 160}</string>
-				<string>{160, 160}</string>
 				<string>{160, 160}</string>
 				<string>{32, 32}</string>
 				<string>{32, 32}</string>

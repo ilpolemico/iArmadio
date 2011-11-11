@@ -38,6 +38,7 @@
 - (void) viewWillAppear:(BOOL)animated{
     NSMutableDictionary *options = [dao.config objectForKey:@"Settings"];
     shake.on = [[options objectForKey:@"shake"] boolValue];
+    [Shake2Style shared].enableShake = shake.on;
     if(!shake.isOn){
         gps.on = NO;
         [gps setEnabled:NO];
@@ -52,7 +53,6 @@
 {
     [super viewDidLoad];
     dao = [IarmadioDao shared]; 
-    [CurrState shared].currSection = SECTION_PREFERENCE;
     
     [self.view addSubview:navcontroler.view];
     
@@ -120,6 +120,7 @@
     
     [options setValue:[NSNumber numberWithBool:((UISwitch *)sender).isOn] forKey:@"shake"];
     dao.config = settings;
+    [Shake2Style shared].enableShake = ((UISwitch *)sender).isOn;
     if(!((UISwitch *)sender).isOn){
         gps.on = NO;
         [gps setEnabled:NO];

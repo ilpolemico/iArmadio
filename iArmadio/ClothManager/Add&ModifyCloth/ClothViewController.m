@@ -80,7 +80,6 @@
     
     isChangeImage = NO;
     dao = [IarmadioDao shared];
-    [CurrState shared].currSection = SECTION_CLOTHVIEW;
     gradimento = 1;
     
     if(vestito != nil){self.preferito = vestito.preferito;}
@@ -331,15 +330,14 @@
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if(buttonIndex != 0){
-        //[CurrState shared].currSection = [CurrState shared].oldCurrSection;
         [dao delVestitoEntity:vestito];
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
         [UIView setAnimationDuration:1];
         [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.view.superview cache:YES];
-        [CurrState shared].currSection = [CurrState shared].oldCurrSection;
         [self dismissModalViewControllerAnimated:NO];
         [UIView commitAnimations];
+        [CurrState shared].currSection = ENABLE_SHAKE;
     }
      
 }
@@ -401,14 +399,14 @@
     [tipi release];
     [stili release];
      
-    [CurrState shared].currSection = [CurrState shared].oldCurrSection;
+    [CurrState shared].currSection = ENABLE_SHAKE;
     [self dismissModalViewControllerAnimated:YES];
 }
 
 
 
 -(IBAction) undoCloth:(id) sender{
-   [CurrState shared].currSection = [CurrState shared].oldCurrSection;
+   [CurrState shared].currSection = ENABLE_SHAKE;
    [self dismissModalViewControllerAnimated:YES];
 }
 

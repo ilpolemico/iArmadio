@@ -29,7 +29,6 @@
         captureClothController = nil;
         
     }
-    [CurrState shared].currSection = SECTION_ARMADIO;
     captureClothController = [[CaptureClothController alloc] initWithNibName:@"CaptureClothController" bundle:nil parentController:self  iterator:NO];
     [self.view addSubview:captureClothController.view];
 }
@@ -65,7 +64,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [CurrState shared].currSection = SECTION_CLOTHMANAGERVIEW;
     navcontroler.delegate = self; 
     dao = [IarmadioDao shared];
     [self.view addSubview:navcontroler.view];
@@ -76,7 +74,6 @@
 
 
 - (void)viewWillAppear:(BOOL)animated{
-    [CurrState shared].currSection = SECTION_CLOTHMANAGERVIEW;
     [super viewWillAppear:animated];
 }
 

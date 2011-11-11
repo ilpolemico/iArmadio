@@ -144,7 +144,6 @@
     [super viewDidLoad];
     dao = [IarmadioDao shared];
     currstate = [CurrState shared];
-    currstate.currSection = SECTION_COVERFLOW;
     [self initInputType];
     
     
@@ -265,7 +264,6 @@
         captureClothController = nil;
         
     }
-    currstate.currSection = SECTION_COVERFLOW;
     captureClothController = [[CaptureClothController alloc] initWithNibName:@"CaptureClothController" bundle:nil parentController:self  iterator:NO];
     [self.view addSubview:captureClothController.view];
 }
@@ -374,9 +372,7 @@
 }
 
 -(void) viewWillAppear:(BOOL)animated{
-    currstate.currSection = SECTION_COVERFLOW;
-    
-    
+
 }
 
 

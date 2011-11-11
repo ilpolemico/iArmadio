@@ -56,7 +56,7 @@ labelnote;
     
     dao = [IarmadioDao shared];
     [Shake2Style shared].delegate = self;
-    [CurrState shared].currSection = SECTION_LOOKVIEW;
+    [CurrState shared].currSection = ENABLE_SHAKE_IN_LOOK;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadLook:) name:ADD_CLOTH_EVENT object:nil];
     
@@ -83,11 +83,11 @@ labelnote;
     [iconeTipi replaceObjectAtIndex:1 withObject:[dao getImageBundleFromFile:@"cappotto.png"]];
     [iconeTipi replaceObjectAtIndex:2 withObject:[dao getImageBundleFromFile:@"maglione.png"]];
     [iconeTipi replaceObjectAtIndex:3 withObject:[dao getImageBundleFromFile:@"maglietta.png"]];
-    [iconeTipi replaceObjectAtIndex:4 withObject:[dao getImageBundleFromFile:@"pantaloni.png"]];
+    [iconeTipi replaceObjectAtIndex:4 withObject:[dao getImageBundleFromFile:@"gonna_pantalone.png"]];
     [iconeTipi replaceObjectAtIndex:5 withObject:[dao getImageBundleFromFile:@"scarpe.png"]];
     [iconeTipi replaceObjectAtIndex:6 withObject:[dao getImageBundleFromFile:@"cappello.png"]];
     [iconeTipi replaceObjectAtIndex:7 withObject:@""];
-    [iconeTipi replaceObjectAtIndex:8 withObject:[dao getImageBundleFromFile:@"sciarpa.png"]];
+    [iconeTipi replaceObjectAtIndex:8 withObject:[dao getImageBundleFromFile:@"cravatta_sciarpa.png"]];
     [iconeTipi replaceObjectAtIndex:9 withObject:[dao getImageBundleFromFile:@"borsa.png"]];
     
 }
@@ -688,12 +688,12 @@ labelnote;
         [dao modifyCombinazioneEntity:self.combinazione  vestitiEntities:vestitiInCombinazione  isNew:NO gradimento:gradimento stagioneKey:scelta_stagione stiliKeys:stili preferito:self.preferito note:self.note.text];
     
     }
-    [CurrState shared].currSection = [CurrState shared].oldCurrSection;
+    [CurrState shared].currSection = ENABLE_SHAKE;
     [self dismissModalViewControllerAnimated:YES];
 }
 
 -(IBAction) undoLook:(id) sender {
-    [CurrState shared].currSection = [CurrState shared].oldCurrSection;
+    [CurrState shared].currSection = ENABLE_SHAKE;
     [self dismissModalViewControllerAnimated:YES];
 }
 
@@ -716,7 +716,7 @@ labelnote;
         [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
         [UIView setAnimationDuration:1];
         [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.view.superview cache:YES];
-        [CurrState shared].currSection = [CurrState shared].oldCurrSection;
+        [CurrState shared].currSection = ENABLE_SHAKE;
         [self dismissModalViewControllerAnimated:NO];
         [UIView commitAnimations];
     }

@@ -23,8 +23,6 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [CurrState shared].currSection = SECTION_LOOKTABLEVIEW;
-    
     [super viewDidAppear:animated];
      
 }
@@ -139,13 +137,17 @@
     return [[combinazioniForStile objectForKey:stile] count];
 }
 
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    NSString *CellIdentifier = [NSString stringWithFormat:@"%d_%d",indexPath.section,indexPath.row,nil];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+    if (cell != nil) {
+        return cell;
     }
+    
+    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     
     NSString *stile = [dao.listStiliKeys objectAtIndex:indexPath.section];
     
@@ -179,13 +181,13 @@
             imageview.frame = CGRectMake(offset_x,offset_y,40,40);
             imageview.contentMode = UIViewContentModeScaleAspectFit;
             
+            
             imageview.layer.shadowColor = [UIColor blackColor].CGColor;
             imageview.layer.shadowOpacity = 0.7f;
             imageview.layer.shadowOffset = CGSizeMake(3.0f, 3.0f);
             imageview.layer.shadowRadius = 2.0f;
             imageview.layer.masksToBounds = NO;
             imageview.layer.shadowPath = [imageview renderPaperCurl];
-            
             
             [cell addSubview:imageview];
             

@@ -131,12 +131,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    static NSString *CellIdentifier = @"Cell";
+    NSString *CellIdentifier = [NSString stringWithFormat:@"%d_%d",indexPath.section,indexPath.row,nil];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+    if (cell != nil) {
+        return cell;
     }
-    
     
     
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
@@ -157,7 +156,7 @@
         UIImage *imageVestito = [[dao getThumbnailFromVestito:vestito] scaleToFitSize:CGSizeMake(60,60)];
         UIImageView *imageView = [[[UIImageView alloc] initWithImage:imageVestito]  autorelease];
         
-       
+        
         imageView.layer.shadowColor = [UIColor blackColor].CGColor;
         imageView.layer.shadowOpacity = 0.7f;
         imageView.layer.shadowOffset = CGSizeMake(5.0f, 5.0f);

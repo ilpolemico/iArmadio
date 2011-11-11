@@ -154,7 +154,6 @@ static Shake2Style *singleton;
         
         [appDelegate.tabBarController presentModalViewController:lookviewcontroller animated:YES];
         [lookviewcontroller release];
-        [CurrState shared].currSection = [CurrState shared].oldCurrSection;
     }
     else{
     
@@ -162,7 +161,6 @@ static Shake2Style *singleton;
         
         [alert show];
         [alert release];
-        [CurrState shared].currSection = [CurrState shared].oldCurrSection;
     }
 }
 
@@ -181,7 +179,6 @@ static Shake2Style *singleton;
         [self shake:nil];
     }
     else{
-        [CurrState shared].currSection = [CurrState shared].oldCurrSection;
         [self dismissModalViewControllerAnimated:YES];
     }    
 }
@@ -195,19 +192,12 @@ static Shake2Style *singleton;
     if(
        (event.type == UIEventSubtypeMotionShake)
        &&
-       (![[CurrState shared].currSection isEqualToString:SECTION_SHAKE2STYLE])
+       (![[CurrState shared].currSection isEqualToString:DISABLE_SHAKE])
        &&
-       (![[CurrState shared].currSection isEqualToString:SECTION_CLOTHVIEW])
-      
+       (self.enableShake)
        ){
-        if(
-           ([[[dao.config objectForKey:@"Settings"] objectForKey:@"shake"] boolValue])
-           &&
-           (self.enableShake)
-          ){
            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-           if(![[CurrState shared].currSection isEqualToString:SECTION_LOOKVIEW]) {
-               [CurrState shared].currSection = SECTION_SHAKE2STYLE;
+           if(![[CurrState shared].currSection isEqualToString:ENABLE_SHAKE_IN_LOOK]) {
                [self choiceStyle];
            }
            else{
@@ -224,16 +214,9 @@ static Shake2Style *singleton;
                [self.delegate getVestitiShake:vestiti];
            }
         }
-    }
 }
 
 
--(IBAction)done:(id)sender{
-    [CurrState shared].currSection = [CurrState shared].oldCurrSection;
-    [self dismissModalViewControllerAnimated:YES];
-    iArmadioAppDelegate *appDelegate =  ((iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate]);
-    [appDelegate.window addSubview:self.view];    
-}
 
 
 

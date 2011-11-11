@@ -35,8 +35,6 @@
 - (Vestito *)shake2styleVestiti:(NSArray *)tipi filterStagione:(NSString *)filterStagione;
 
 
--(IBAction)done:(id)sender;
-
 @end
 
 

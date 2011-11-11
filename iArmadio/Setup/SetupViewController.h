@@ -11,6 +11,7 @@
 #import "GeoLocal.h"
 #import "CreditsViewController.h"
 #import "Tutorial.h"
+#import "Shake2Style.h"
 
 @interface SetupViewController : UIViewController{
     IarmadioDao *dao;

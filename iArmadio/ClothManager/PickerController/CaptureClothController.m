@@ -33,7 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [CurrState shared].currSection = DISABLE_SHAKE;
     NSString *title = NSLocalizedString(@"Aggiungi vestito",nil);
     if(iterator){title = NSLocalizedString(@"Aggiungi un altro vestito",nil);}
     
@@ -89,6 +89,7 @@
     } 
     else{
         [self dismissModalViewControllerAnimated:YES];
+        [CurrState shared].currSection = ENABLE_SHAKE;
     }    
 }
 
