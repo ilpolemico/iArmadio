@@ -26,6 +26,21 @@
 	return path.CGPath;
 }
 
+- (UIView *)shadow:(UIImage *)image{
+    UIView *shadow = [[[UIView alloc] initWithFrame:CGRectMake(5,5,image.size.width,image.size.height)] autorelease];
+    shadow.backgroundColor = [UIColor grayColor];
+    shadow.alpha = 0.5;
+    
+    //UIView *imagewithshadow = [[[UIView alloc] initWithFrame:CGRectMake(0,0,image.size.width+5,image.size.height+5)] autorelease];
+    //imagewithshadow.backgroundColor = [UIColor clearColor];
+    
+    UIImageView *imageView = [[[UIImageView alloc] initWithImage:image] autorelease];
+    
+    [self  addSubview:shadow];
+    [self  addSubview:imageView];
+    
+    return self;
+}
 
 
 @end

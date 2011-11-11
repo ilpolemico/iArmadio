@@ -71,8 +71,6 @@
         }    
         
     }
-    
-    
     [(UITableView *)self.view reloadData];
 }
 
@@ -133,12 +131,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    //NSString *CellIdentifier = [NSString stringWithFormat:@"%d_%d",indexPath.section,indexPath.row,nil];
+    NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView  dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
     
+   
     NSString *category = [dao.listCategoryKeys objectAtIndex:indexPath.section];
     NSMutableArray *tipologie = [dao.category objectForKey:category];
     
@@ -153,10 +156,6 @@
     [cell.detailTextLabel setFont:[UIFont  fontWithName:@"STHeitiSC-Medium" size:14 ]];
     cell.detailTextLabel.textColor = [UIColor darkGrayColor];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", count];
-    
-    
-    
-    
     
     return cell;
 }

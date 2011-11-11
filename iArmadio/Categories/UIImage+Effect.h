@@ -10,4 +10,5 @@
 
 @interface UIView (UIImage_Effect)
 - (CGPathRef)renderPaperCurl;
+- (UIView *) shadow: (UIImage *)image;
 @end

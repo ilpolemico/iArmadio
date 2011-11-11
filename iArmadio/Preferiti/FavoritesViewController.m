@@ -128,12 +128,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    NSString *CellIdentifier = [NSString stringWithFormat:@"%d_%d",indexPath.section,indexPath.row,nil];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell != nil) {
-        return cell;
-    }
+    //NSString *CellIdentifier = [NSString stringWithFormat:@"%d_%d",indexPath.section,indexPath.row,nil];
     
+    NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+    }
     
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
     [cell.textLabel setTextColor:[UIColor darkTextColor]];
@@ -151,15 +152,19 @@
         Vestito *vestito = (Vestito *)[self.vestiti objectAtIndex:indexPath.row];
         UIView *vestitoView = [[[UIView alloc] init] autorelease];
         UIImage *imageVestito = [[dao getThumbnailFromVestito:vestito] scaleToFitSize:CGSizeMake(60,60)];
-        UIImageView *imageView = [[[UIImageView alloc] initWithImage:imageVestito]  autorelease];
+        //UIImageView *imageView = [[[UIImageView alloc] initWithImage:imageVestito]  autorelease];
         
+        UIView *imageView = [[[UIImageView alloc] init]  autorelease];
+        [imageView shadow:imageVestito];
         
+        /*
         imageView.layer.shadowColor = [UIColor blackColor].CGColor;
         imageView.layer.shadowOpacity = 0.7f;
         imageView.layer.shadowOffset = CGSizeMake(5.0f, 5.0f);
         imageView.layer.shadowRadius = 2.0f;
         imageView.layer.masksToBounds = NO;
         imageView.layer.shadowPath = [imageView renderPaperCurl];
+         */
         
         imageView.frame = CGRectMake(offset,5,60,60);
         [vestitoView addSubview:imageView];
@@ -222,16 +227,20 @@
         
         for(UIImage *image in images){
             if ([image class] == [UIImage class]){
-                UIImageView *_imageview = [[[UIImageView alloc] initWithImage:image] autorelease];
+                //UIImageView *_imageview = [[[UIImageView alloc] initWithImage:image] autorelease];
+                
+                UIView *_imageview = [[[UIImageView alloc] init]  autorelease];
+                [_imageview shadow:[image scaleToFitSize:CGSizeMake(40,40)]];
                 _imageview.frame = CGRectMake(offset_x,offset_y,40,40);
                 _imageview.contentMode = UIViewContentModeScaleAspectFit; 
-                
+                /*
                 _imageview.layer.shadowColor = [UIColor blackColor].CGColor;
                 _imageview.layer.shadowOpacity = 0.7f;
                 _imageview.layer.shadowOffset = CGSizeMake(3.0f, 3.0f);
                 _imageview.layer.shadowRadius = 2.0f;
                 _imageview.layer.masksToBounds = NO;
                 _imageview.layer.shadowPath = [_imageview renderPaperCurl];
+                 */
                 [cell addSubview:_imageview];
                 
                 offset_x += _imageview.frame.size.width + 10;

@@ -79,7 +79,7 @@
      
 
        NSArray *combinazioni = [dao getCombinazioniEntities:-1 filterStagioneKey:[CurrState shared].currStagioneKey filterStiliKeys:[NSArray arrayWithObject:stile] sortOnKeys:keys preferiti:NO ];
-       [combinazioniForStile setValue:combinazioni forKey:stile] ;
+       [combinazioniForStile setValue:combinazioni forKey:stile];
     }
     [(UITableView *)self.view reloadData];
 }
@@ -141,13 +141,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *CellIdentifier = [NSString stringWithFormat:@"%d_%d",indexPath.section,indexPath.row,nil];
+    //NSString *CellIdentifier = [NSString stringWithFormat:@"%d_%d",indexPath.section,indexPath.row,nil];
+    NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell != nil) {
-        return cell;
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+    
     
     NSString *stile = [dao.listStiliKeys objectAtIndex:indexPath.section];
     
@@ -177,17 +178,21 @@
     
     for(UIImage *image in images){
         if ([image class] == [UIImage class]){
-            UIImageView *imageview = [[[UIImageView alloc] initWithImage:image] autorelease];
+            //UIImageView *imageview = [[[UIImageView alloc] initWithImage:image] autorelease];
+            UIView *imageview = [[[UIImageView alloc] init]  autorelease];
+            [imageview shadow:[image scaleToFitSize:CGSizeMake(40,40)]];
+            
             imageview.frame = CGRectMake(offset_x,offset_y,40,40);
             imageview.contentMode = UIViewContentModeScaleAspectFit;
             
-            
+            /*
             imageview.layer.shadowColor = [UIColor blackColor].CGColor;
             imageview.layer.shadowOpacity = 0.7f;
             imageview.layer.shadowOffset = CGSizeMake(3.0f, 3.0f);
             imageview.layer.shadowRadius = 2.0f;
             imageview.layer.masksToBounds = NO;
             imageview.layer.shadowPath = [imageview renderPaperCurl];
+            */ 
             
             [cell addSubview:imageview];
             
