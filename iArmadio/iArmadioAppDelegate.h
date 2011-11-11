@@ -31,6 +31,8 @@
     UIScrollView *openView;
     UIScrollView *openViewLeft;
     int lastTranslation;
+    UILabel *blinkLabel;
+    NSTimer *timerblink;
 }
 
 
@@ -39,8 +41,7 @@
 @property (nonatomic, retain, readonly) IarmadioDao *dao;
 @property (nonatomic, retain) UIImageView* tabBarArrow;
 
-
-
+- (void)blinkingLabel:(NSTimer *)timer;
 -(void)openArmadio;
 
 

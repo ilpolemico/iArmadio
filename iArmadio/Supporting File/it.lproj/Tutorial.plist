@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-        <key>startApp</key>
-        <string>Benvenuto il WhatDoWear: Puoi iniziare ad aggiungere nuovi vestiti nella sezione: Armadio. Se vuoi disabilitare questo tutorial vai in impostazioni.</string>
-        <key>addCloth</key>
-        <string>Aggiungi il vestito: Da questa maschera puoi modificare l'immagine (zoom, muovi, ruota) e inserire i suoi attributi. Puoi mettere un segnalibro schiacciando sul simbolo nella barra in alto</string>
-        <key>coverFlow</key>
-        <string>Qui puoi vedere tutti gli abiti del tipo selezionato. Nella toolbar in alto puoi selezionare i vestiti catalogati per: il caldo, il freddo, sia caldo che freddo, tutti. Oppure ordinarli per data o preferenza 
+<dict>
+	<key>startApp</key>
+	<string>Benvenuto il WhatDoWear: Puoi iniziare ad aggiungere nuovi vestiti nella sezione: Armadio. Se vuoi disabilitare questo tutorial vai in impostazioni.</string>
+	<key>addCloth</key>
+	<string>Aggiungi il vestito: Da questa maschera puoi modificare l&apos;immagine (zoom, muovi, ruota) e inserire i suoi attributi. Puoi mettere un segnalibro schiacciando sul simbolo nella barra in alto</string>
+	<key>coverFlow</key>
+	<string>Qui puoi vedere tutti gli abiti del tipo selezionato. Nella toolbar in alto puoi selezionare i vestiti catalogati per: il caldo, il freddo, sia caldo che freddo, tutti. Oppure ordinarli per data o preferenza 
             Schiacciando sul tasto + puoi aggiungere un nuovo vestito al tuo armadio</string>
-        <key>lookTable</key>
-        <string>In questa tabella puoi vedere i tuoi look catalogati come: sportivi, casual, eleganti. Puoi filtrarli per clima come per i vestiti </string>
-        <key>lookView</key>
-        <string>Crea un look aggiungendo i vestiti presenti nell'armadio. Se fai un doppio click su un vestito puoi ingrandirlo.
-            Schiacciando sul pulsante:"tag" o trascinando verso l'alto il look puoi vedere/modificare le sue proprietà</string>
-        <key>preferiti</key>
-        <string>Se vuoi aggiungere dei vestiti o look nei bookmark è sufficiente selezionare l'icona "segnalibro" nella toolbar in alto nella scheda del vestito o del look</string>
-    </dict>
+	<key>lookTable</key>
+	<string>In questa tabella puoi vedere i tuoi look catalogati come: sportivi, casual, eleganti. Puoi filtrarli per clima come per i vestiti </string>
+	<key>lookView</key>
+	<string>Crea un look aggiungendo i vestiti presenti nell&apos;armadio. Se fai un doppio click su un vestito puoi ingrandirlo.
+            Schiacciando sul pulsante:&quot;tag&quot; o trascinando verso l&apos;alto il look puoi vedere/modificare le sue proprietà</string>
+	<key>preferiti</key>
+	<string>Se vuoi aggiungere dei vestiti o look nei bookmark è sufficiente selezionare l&apos;icona &quot;segnalibro&quot; nella toolbar in alto nella scheda del vestito o del look</string>
+</dict>
 </plist>

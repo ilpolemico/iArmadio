@@ -31,9 +31,6 @@
 
 #pragma mark - View lifecycle
 
-- (void) viewDidAppear:(BOOL)animated{
-
-}
 
 - (void) viewWillAppear:(BOOL)animated{
     NSMutableDictionary *options = [dao.config objectForKey:@"Settings"];

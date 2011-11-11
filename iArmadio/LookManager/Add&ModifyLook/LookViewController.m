@@ -93,6 +93,7 @@ labelnote;
 }
 
 - (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
     [[Tutorial shared] actionInfo:ACTION_LOOKVIEW];
 }
 

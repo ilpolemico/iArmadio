@@ -105,15 +105,37 @@
         openimageleft.frame = CGRectMake(0, 0, 160,480);
         [openViewLeft addSubview:openimageleft];
         
+        blinkLabel = [[UILabel alloc] initWithFrame:CGRectMake(190, 252, 32, 32)];
+        blinkLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"left_arrow.png"]];
+        
         [self.window addSubview:openViewLeft];
         [self.window addSubview:openView];
+        [openView addSubview:blinkLabel];
+        
+        
+
     }    
     [openView setHidden:NO];
     [openViewLeft setHidden:NO];
     openView.contentOffset = CGPointMake(0,0);
     openViewLeft.contentOffset = CGPointMake(0,0);
+    timerblink = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blinkingLabel:) userInfo:nil repeats:YES];
+    [timerblink retain];
 }
 
+
+
+- (void)blinkingLabel:(NSTimer *)timer
+{
+    [UIView beginAnimations:@"blinkLabel" context:nil];
+    [UIView setAnimationDuration:0.5f];
+    [UIView setAnimationDelegate:self];
+    if ([blinkLabel alpha] == 1.0f)
+        [blinkLabel setAlpha:0.0f];
+    else
+        [blinkLabel setAlpha:1.0f];
+    [UIView commitAnimations];
+}
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -131,6 +153,9 @@
             [UIView commitAnimations];
             [shake2style becomeFirstResponder];
             shake2style.enableShake = YES;
+            [timerblink invalidate];
+            [timerblink release];
+            timerblink = nil;
         }
        
     }

@@ -368,13 +368,6 @@
 }
 
 
--(void) viewWillDisappear:(BOOL)animated{
-}
-
--(void) viewWillAppear:(BOOL)animated{
-
-}
-
 
 
 -(void) dealloc{

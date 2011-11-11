@@ -20,10 +20,7 @@
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [[Tutorial shared] actionInfo:ACTION_PREFERITI];
-    [super viewWillAppear:animated];
-}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -68,7 +65,7 @@
     label.font = [UIFont fontWithName:@"STHeitiSC-Medium" size: 22.0];
     [self.navbar.topItem setTitleView:label];
     [label release];
-    
+    [[Tutorial shared] actionInfo:ACTION_PREFERITI];
 }
 
 

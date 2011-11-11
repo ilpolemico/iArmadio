@@ -47,7 +47,7 @@
 						<string key="NSFrameSize">{337, 467}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="801406982"/>
+						<reference key="NSNextKeyView" ref="144895507"/>
 						<string key="NSReuseIdentifierKey">_NS:567</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -59,10 +59,10 @@
 					<object class="IBUILabel" id="801406982">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{77, 19}, {183, 29}}</string>
+						<string key="NSFrame">{{77, 2}, {183, 29}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="144895507"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:311</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -93,10 +93,10 @@
 					<object class="IBUITextView" id="144895507">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{77, 48}, {183, 388}}</string>
+						<string key="NSFrame">{{71, 25}, {189, 388}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
+						<reference key="NSNextKeyView" ref="801406982"/>
 						<string key="NSReuseIdentifierKey">_NS:639</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
@@ -112,15 +112,18 @@
 						<bool key="IBUIDelaysContentTouches">NO</bool>
 						<bool key="IBUICanCancelContentTouches">NO</bool>
 						<bool key="IBUIBouncesZoom">NO</bool>
-						<string type="base64-UTF8" key="IBUIText">ICAgICAgICAgICAgIFJhZGljYWwgQml0CgpTdmlsdXBwbyBlIFByb2dldHRvIGRpOgoJTHVjYSBGb3J0
-dW5hdG8KCkdyYWZpY2E6CglHcmV0YSBHaGVkaW5pCglNYXJjbyBDb3JyYWRpbmkKCklkZWF0byBkYToK
-CUx1Y2EgRm9ydHVuYXRvCglBbmRyZWEgUXVhcnRhCgpSaW5ncmF6aWFtZW50aToKV2lsbGlhbSBQb21w
-ZWkgcGVyIHN1cHBvcnRvIHRlY25pY28gZSBtb3JhbGUKCkdyZXRhIEdoZWRpbmkgcGVyIHN1cHBvcnRv
-IG1vcmFsZQ</string>
+						<bool key="IBUIEditable">NO</bool>
+						<string type="base64-UTF8" key="IBUIText">ICAgICAgICAgICAgIFJhZGljYWwgQml0CgpJZGVhdG8gZGE6CgkgIEx1Y2EgRm9ydHVuYXRvCiAgICB0
+d2l0dGVyLmNvbS9SYWRpY2FsQml0CgkKICAgICAgICAgQW5kcmVhIFF1YXJ0YQogICB3d3cuYW5kcmVh
+cXVhcnRhLml0CgpTdmlsdXBwYXRvIGRhOgoJTHVjYSBGb3J0dW5hdG8KCkdyYWZpY2E6CglHcmV0YSBH
+aGVkaW5pCgkKICAgICAgICBNYXJjbyBDb3JyYWRpbmkKICAgICAgd3d3Lm1hc2F5dW1lLml0CgpSaW5n
+cmF6aWFtZW50aSBzcGVjaWFsaTogCkdyZXRhIEdoZWRpbmkgZSBXaWxsaWFtIFBvbXBlaSBwZXIgaWwg
+c3VwcG9ydG8gbW9yYWxlIGUgdGVjbmljbw</string>
 						<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 							<int key="IBUIAutocapitalizationType">2</int>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						</object>
+						<int key="IBUIDataDetectorTypes">2</int>
 						<object class="IBUIFontDescription" key="IBUIFontDescription">
 							<string key="name">STHeitiTC-Medium</string>
 							<string key="family">Heiti TC</string>
