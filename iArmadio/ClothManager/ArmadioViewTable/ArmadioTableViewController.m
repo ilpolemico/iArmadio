@@ -66,7 +66,7 @@
     for(NSString *category in dao.listCategoryKeys){
         NSArray *tipologie = [dao.category objectForKey:category];
         for(NSString *tmp in tipologie){
-            NSInteger count = [[dao getVestitiEntities:[[[NSArray alloc] initWithObjects:tmp, nil] autorelease] filterStagioneKey:nil filterStiliKeys:nil filterGradimento:-1] count];
+            NSInteger count = [dao countVestiti:tmp];
             [countVestiti setValue:[NSNumber numberWithInt:count] forKey:tmp];
         }    
         
@@ -98,9 +98,12 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadCassetti:) name:DEL_CLOTH_EVENT object:nil];
     
-    [self reloadCassetti:nil];
-   
+    cacheImage = [[NSMutableDictionary alloc] init];
+    for(NSString *tipo in dao.listTipiKeys){
+        [cacheImage setValue:[dao getImageFromTipo:[dao getTipoEntity:tipo]] forKey:tipo]  ;
+    }
     
+    [self reloadCassetti:nil];
 }
 
 - (void)viewDidUnload
@@ -131,7 +134,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //NSString *CellIdentifier = [NSString stringWithFormat:@"%d_%d",indexPath.section,indexPath.row,nil];
     NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView  dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -139,22 +141,23 @@
     
     if (cell == nil) {
          cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+         cell.selectionStyle = UITableViewCellSelectionStyleGray; 
+        [cell.textLabel setTextColor:[UIColor darkTextColor]];
+        [cell.textLabel setFont:[UIFont fontWithName:@"STHeitiSC-Medium" size:18 ]];
+        [cell.detailTextLabel setFont:[UIFont  fontWithName:@"STHeitiSC-Medium" size:14 ]];
+        cell.detailTextLabel.textColor = [UIColor darkGrayColor];
     }
     
    
     NSString *category = [dao.listCategoryKeys objectAtIndex:indexPath.section];
     NSMutableArray *tipologie = [dao.category objectForKey:category];
-    
     NSString *tipologiaKey = [tipologie objectAtIndex:indexPath.row];
     NSInteger count = [[countVestiti objectForKey:tipologiaKey] intValue];
     
-    cell.selectionStyle = UITableViewCellSelectionStyleGray;
-    cell.imageView.image = [dao getImageFromTipo:([dao getTipoEntity:[tipologie objectAtIndex:indexPath.row]])]; 
+    
+    cell.imageView.image = [cacheImage objectForKey:tipologiaKey];
     cell.textLabel.text = NSLocalizedString([dao getTipoEntity:[tipologie objectAtIndex:indexPath.row]].plural,nil);
-    [cell.textLabel setTextColor:[UIColor darkTextColor]];
-    [cell.textLabel setFont:[UIFont fontWithName:@"STHeitiSC-Medium" size:18 ]];
-    [cell.detailTextLabel setFont:[UIFont  fontWithName:@"STHeitiSC-Medium" size:14 ]];
-    cell.detailTextLabel.textColor = [UIColor darkGrayColor];
+
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%d", count];
     
     return cell;
@@ -252,6 +255,7 @@
         [coverviewcontroller release];
     }
 
+    [cacheImage release];
     
     if(countVestiti != nil){
         [countVestiti release];

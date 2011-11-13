@@ -13,7 +13,7 @@
 
 @implementation IarmadioDao
 
-@synthesize category,listCategoryKeys, localita;
+@synthesize category,listCategoryKeys, localita, cacheImage;
 
 static IarmadioDao *singleton;
 
@@ -24,13 +24,46 @@ static IarmadioDao *singleton;
     return singleton;
 }
 
+- (BOOL)isConcurrent
+{
+    return YES;
+}
+
 - (IarmadioDao*)initDao{
     srand(time(NULL));
     singleton = self;
     silenceNotification = NO;
-    return self;
+    self.cacheImage = [[[NSMutableDictionary alloc] init] autorelease];
+    [self loadSmallImages];
+    /*
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    NSInvocationOperation *operation = [[NSInvocationOperation alloc] 
+                                        initWithTarget:self
+                                        selector:@selector(loadSmallImages:) 
+                                        object:nil];
+    [queue addOperation:operation]; 
+    [operation release];
+    [queue release];
+    */
+    return singleton;
 }
 
+- (void) loadSmallImages{
+    UIImage *image;
+    int countCache = 0;
+    //NSLog(@"%d",countCache);
+    NSArray *vestiti = [self getVestitiEntities:nil filterStagioneKey:nil filterStiliKeys:nil filterGradimento:0];
+    for(Vestito *vestito in vestiti){
+        image = [self getThumbnailFromVestito:vestito];
+        [self.cacheImage setValue:[image scaleToFitSize:CGSizeMake(CLOTH_SMALL_SIZE_X,CLOTH_SMALL_SIZE_Y)] forKey:vestito.thumbnail];
+        countCache++;
+        NSLog(@"%d",countCache);
+        if(countCache > 500) break;
+    } 
+    
+    
+
+}
 
 - (NSDictionary *)imagesDictionary{
     if(imagesDictionary == nil){
@@ -150,6 +183,19 @@ static IarmadioDao *singleton;
     return snapShotImage;
 }
 
+- (UIImage *)getSmallImageFromVestito:(Vestito *)vestitoEntity{
+    
+    UIImage *image = [self.cacheImage objectForKey:vestitoEntity.thumbnail]; 
+    if(image == nil){
+        NSString *filename = [self filePathDocuments:vestitoEntity.thumbnail];
+        image = [[UIImage imageWithContentsOfFile:filename] scaleToFitSize:CGSizeMake(CLOTH_SMALL_SIZE_X,CLOTH_SMALL_SIZE_Y)];
+        [self.cacheImage setValue:image forKey:vestitoEntity.thumbnail]; 
+    }
+    return image;
+
+
+}
+
 - (UIImage *)getImageFromTipo:(Tipologia *)tipologiaEntity{
     return [[[self getImageBundleFromFile:tipologiaEntity.icon] retain] autorelease];
 }
@@ -157,7 +203,6 @@ static IarmadioDao *singleton;
 - (UIImage *)getImageFromGradimento:(int)gradimento{
     UIImage *image;
     NSString *filename = [NSString stringWithFormat:@"icon-%dstar-002@x.png",gradimento+1];
-    //NSLog(@"%@",filename);
     image = [self getImageBundleFromFile:filename];
     return image;
 }
@@ -173,12 +218,19 @@ static IarmadioDao *singleton;
 
 - (UIImage *)getImageBundleFromFile:(NSString *)file{
     NSString *filename = [self filePathBundle:file];
-    return [UIImage imageWithContentsOfFile:filename];
+    //UIImage *image = [self.cacheImage objectForKey:filename]; 
+    //if(image == nil){
+    UIImage *image = [UIImage imageWithContentsOfFile:filename];
+    //    [cacheImage setValue:image forKey:filename]; 
+    //}
+    return image;
 }
 
 - (UIImage *)getImageDocumentFromFile:(NSString *)file{
     NSString *filename = [self filePathDocuments:file];
-    return [UIImage imageWithContentsOfFile:filename];
+    UIImage *image;
+    image = [UIImage imageWithContentsOfFile:filename];
+    return image;
 }
 
 - (NSString *)getNewID{
@@ -340,13 +392,11 @@ static IarmadioDao *singleton;
         
         NSData *thumbnailData = UIImagePNGRepresentation([image thumbnail]);
         [thumbnailData writeToFile:[self filePathDocuments:vestito.thumbnail] atomically:YES];
+        
+        [self.cacheImage setValue:[[image thumbnail] scaleToFitSize:CGSizeMake(CLOTH_SMALL_SIZE_X,CLOTH_SMALL_SIZE_Y)] forKey:vestito.thumbnail];
     
     }
     
-  
-    
-    
-
     [vestito setValue:[NSNumber numberWithInteger:gradimento] forKey:@"gradimento"];
     [vestito setValue:note forKey:@"note"];
     
@@ -429,6 +479,7 @@ static IarmadioDao *singleton;
             removeItemAtPath:[self filePathDocuments:vestitoEntity.immagine]
             error:nil
         ];
+        [self.cacheImage  removeObjectForKey:[self filePathDocuments:vestitoEntity.immagine]];
     }
     
     if((vestitoEntity.thumbnail != nil)&&([vestitoEntity.thumbnail length] > 0)){ 
@@ -436,6 +487,7 @@ static IarmadioDao *singleton;
          removeItemAtPath:[self filePathDocuments:vestitoEntity.thumbnail]
          error:nil
          ];
+        [self.cacheImage  removeObjectForKey:[self filePathDocuments:vestitoEntity.thumbnail]];
     }
     
     [self.managedObjectContext deleteObject:vestitoEntity];
@@ -1030,6 +1082,9 @@ static IarmadioDao *singleton;
      NSString *pathDocumentSettings= [self filePathDocuments:[CONFIG_PLIST stringByAppendingString:@".plist"]];
 
     [config writeToFile:pathDocumentSettings atomically:YES];
+    
+    NSLog(@"%@",config);
+    
 }
 
 -(void)setupDB
@@ -1194,6 +1249,7 @@ static IarmadioDao *singleton;
     [category release];
     [stagioniEntities release];
     [currStagioneKey release];
+    [self flushCacheImage];
     stiliEntities = nil;
     tipiEntities = nil;
     listTipiKeys = nil;
@@ -1222,6 +1278,14 @@ static IarmadioDao *singleton;
     }   
 }
 
+- (void)flushCacheImage{
+    [self.cacheImage removeAllObjects];
+}
+
+- (NSMutableDictionary *)getCache{
+    return self.cacheImage;  
+}
+
 - (void)saveContext {
     
     NSError *error = nil;
@@ -1233,6 +1297,40 @@ static IarmadioDao *singleton;
     }
     
 } 
+
+- (int)countVestiti:(NSString *)tipologiaKey{
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity: [NSEntityDescription entityForName: @"Vestito" inManagedObjectContext: self.managedObjectContext]];
+    
+    if(tipologiaKey != nil){
+        NSMutableArray *predicates = [[[NSMutableArray alloc] init] autorelease];     
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY tipi.nome == %@",tipologiaKey];
+        [predicates addObject:predicate];
+        [request setPredicate: predicate];
+    }
+    
+    NSError *error = nil;
+    NSUInteger count = [self.managedObjectContext countForFetchRequest: request error: &error];
+    
+    [request release];
+    
+    return count;
+
+}
+
+
+- (int)countLook{
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity: [NSEntityDescription entityForName: @"Combinazione" inManagedObjectContext: self.managedObjectContext]];
+    
+    NSError *error = nil;
+    NSUInteger count = [self.managedObjectContext countForFetchRequest: request error: &error];
+    
+    [request release];
+    
+    return count;
+
+}
 
 
 
@@ -1252,6 +1350,7 @@ static IarmadioDao *singleton;
     [imagesDictionary release];
     [config release];
     [localita release];
+    [cacheImage release];
 	[super dealloc];
 }
 @end

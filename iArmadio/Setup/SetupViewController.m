@@ -34,6 +34,7 @@
 
 - (void) viewWillAppear:(BOOL)animated{
     NSMutableDictionary *options = [dao.config objectForKey:@"Settings"];
+    [options removeObjectForKey:@"Tutorial"];
     shake.on = [[options objectForKey:@"shake"] boolValue];
     [Shake2Style shared].enableShake = shake.on;
     if(!shake.isOn){
@@ -44,6 +45,8 @@
     }
     gps.on = [[options objectForKey:@"gps"] boolValue];
     tutorial.on = [[options objectForKey:@"tutorial"] boolValue];
+    
+    
 }
 
 - (void)viewDidLoad
@@ -116,7 +119,7 @@
     NSMutableDictionary *options = [settings objectForKey:@"Settings"];
     
     [options setValue:[NSNumber numberWithBool:((UISwitch *)sender).isOn] forKey:@"shake"];
-    dao.config = settings;
+    
     [Shake2Style shared].enableShake = ((UISwitch *)sender).isOn;
     if(!((UISwitch *)sender).isOn){
         gps.on = NO;
@@ -130,6 +133,7 @@
         [options setValue:[NSNumber numberWithBool:((UISwitch *)sender).isOn] forKey:@"gps"];
         [[GeoLocal shared] enableGPS];
     }
+    dao.config = settings;
     [settings release];
 }
 
@@ -137,14 +141,14 @@
 -(IBAction)enableTutorial:(id)sender{
     NSMutableDictionary *settings = [dao.config copy];
     NSMutableDictionary *options = [settings objectForKey:@"Settings"];
+    NSMutableDictionary *tutorial_step = [settings objectForKey:@"Tutorial"];
     
     [options setValue:[NSNumber numberWithBool:((UISwitch *)sender).isOn] forKey:@"tutorial"];
-    dao.config = settings;
-    
     if(((UISwitch *)sender).isOn){
         [[Tutorial shared] loadTutorialDictionary];
+        [tutorial_step removeAllObjects];
     }
-    
+    dao.config = settings;
     [settings release];
 }
 

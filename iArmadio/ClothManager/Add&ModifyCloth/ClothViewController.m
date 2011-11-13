@@ -366,7 +366,7 @@
     
     if(addCloth){ 
         
-        if([[dao getVestitiEntities:tipi filterStagioneKey:nil filterStiliKeys:nil filterGradimento:-1] count]+1 > MAX_CLOTH){
+        if([dao countVestiti:nil]+1 > MAX_CLOTH){
             
             UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:
                                   NSLocalizedString(@"Numero massimo superato",nil) message: NSLocalizedString(@"Il numero massimo dei capi per questo tipo è stato raggiunto",nil) delegate:self cancelButtonTitle: NSLocalizedString(@"Annulla",nil) otherButtonTitles:nil, nil] autorelease];
@@ -391,6 +391,7 @@
         vestito = [dao modifyVestitoEntity:vestito image:snapShotImage  isNew:NO gradimento:gradimento tipiKeys:tipi stagioneKey:scelta_stagione stiliKeys:stili note:self.note.text];
             modifyImageCloth = NO;
         [vestito retain];
+        
     }
     
     
@@ -609,18 +610,28 @@
 
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField { //Keyboard becomes visible
+    [UIView beginAnimations:@"slideUp" context:NULL];
+    [UIView setAnimationDuration:0.2];
+    
     self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y-215, 
-                                  self.view.frame.size.width, self.view.frame.size.height); //resize
+                                 self.view.frame.size.width, self.view.frame.size.height); //resize
+    [UIView commitAnimations];
+
 }
 
 
 -(void)textFieldDidEndEditing:(UITextField *)textField { //keyboard will hide
+    [UIView beginAnimations:@"slideDown" context:NULL];
+    [UIView setAnimationDuration:0.2];
+    
     self.view.frame = CGRectMake(self.view.frame.origin.x, 0, 
                                  self.view.frame.size.width, self.view.frame.size.height); //resize
+    [UIView commitAnimations];
 }
 
 -(IBAction)  doneEditing: (id) sender{
 	[sender resignFirstResponder];
+    [[Shake2Style shared] becomeFirstResponder];
 }
 
 

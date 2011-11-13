@@ -54,8 +54,10 @@ static NSString * const CONFIG_PLIST = @"Config";
     NSMutableDictionary *config;
     NSString *localita;
     BOOL silenceNotification;
+    NSMutableDictionary *cacheImage;
 }
 
+@property (atomic, retain) NSMutableDictionary *cacheImage;
 @property (nonatomic, retain) NSString *localita;
 @property (nonatomic, retain) NSMutableDictionary *config;
 @property (nonatomic, retain, readonly) NSMutableDictionary *category;
@@ -87,6 +89,7 @@ static NSString * const CONFIG_PLIST = @"Config";
 - (UIImage *)getImageWithInfoFromVestito:(Vestito *)vestitoEntity;
 - (UIImage *)getThumbnailFromVestito:(Vestito *)vestitoEntity;
 - (UIImage *)getThumbnailWithInfoFromVestito:(Vestito *)vestitoEntity;
+- (UIImage *)getSmallImageFromVestito:(Vestito *)vestitoEntity;
 - (UIImage *)getImageFromTipo:(Tipologia *)tipologiaEntity;
 - (UIImage *)getImageFromStile:(Stile *)stileEntity;
 - (UIImage *)getImageFromStagione:(Stagione *)stagioneEntity;
@@ -94,6 +97,9 @@ static NSString * const CONFIG_PLIST = @"Config";
 - (UIImage *)getImageBundleFromFile:(NSString *)file;
 - (UIImage *)getImageDocumentFromFile:(NSString *)file;
 - (UIImage *)getImageFromSection:(NSString *)section type:(NSString *)type;
+- (int)countVestiti:(NSString *)tipologiaKey;
+- (int)countLook;
+- (void) loadSmallImages;
 
 
 - (Stagione *)getStagioneWithID:(NSString *)id;
@@ -127,6 +133,9 @@ static NSString * const CONFIG_PLIST = @"Config";
 - (void)delCombinazioneEntity:(Combinazione *)Combinazione;
 
 - (void)deleteSQLDB;
+
+- (void)flushCacheImage;
+- (NSMutableDictionary *)getCache;
 
 
 

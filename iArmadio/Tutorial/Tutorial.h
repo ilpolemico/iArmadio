@@ -11,12 +11,12 @@
 
 static NSString * const TUTORIAL_PLIST = @"Tutorial";
 
-#define ACTION_START @"startApp"
-#define ACTION_ADDCLOTH @"addCloth"
-#define ACTION_LOOKVIEW @"lookView"
-#define ACTION_LOOKTABLE @"lookTable"
-#define ACTION_COVERFLOW @"coverFlow"
-#define ACTION_PREFERITI @"preferiti"
+#define ACTION_START @"action_startApp"
+#define ACTION_ADDCLOTH @"action_addCloth"
+#define ACTION_LOOKVIEW @"action_lookView"
+#define ACTION_LOOKTABLE @"action_lookTable"
+#define ACTION_COVERFLOW @"action_coverFlow"
+#define ACTION_PREFERITI @"action_preferiti"
 
 
 @interface Tutorial : NSObject{

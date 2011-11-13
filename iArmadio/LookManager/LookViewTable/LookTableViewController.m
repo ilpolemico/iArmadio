@@ -24,7 +24,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-     
+    
 }
 
 
@@ -76,10 +76,10 @@
     
     for(NSString *stile in dao.listStiliKeys){
         
-     
-
-       NSArray *combinazioni = [dao getCombinazioniEntities:-1 filterStagioneKey:[CurrState shared].currStagioneKey filterStiliKeys:[NSArray arrayWithObject:stile] sortOnKeys:keys preferiti:NO ];
-       [combinazioniForStile setValue:combinazioni forKey:stile];
+        
+        
+        NSArray *combinazioni = [dao getCombinazioniEntities:-1 filterStagioneKey:[CurrState shared].currStagioneKey filterStiliKeys:[NSArray arrayWithObject:stile] sortOnKeys:keys preferiti:NO ];
+        [combinazioniForStile setValue:combinazioni forKey:stile];
     }
     [(UITableView *)self.view reloadData];
 }
@@ -115,7 +115,7 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-
+    
 }
 
 
@@ -141,58 +141,43 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //NSString *CellIdentifier = [NSString stringWithFormat:@"%d_%d",indexPath.section,indexPath.row,nil];
     NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        cell.selectionStyle = UITableViewCellSelectionStyleGray;
+        [cell.textLabel setTextColor:[UIColor darkTextColor]];
+        [cell.textLabel setFont:[UIFont fontWithName:@"MarkerFelt-Wide" size:18 ]];
+        [cell.detailTextLabel setFont:[UIFont fontWithName:@"MarkerFelt-Wide" size:12 ]];
     }
     
-    
-    
     NSString *stile = [dao.listStiliKeys objectAtIndex:indexPath.section];
-    
     Combinazione *combinazione =  ((Combinazione *)[[combinazioniForStile objectForKey:stile] objectAtIndex:indexPath.row]);
-    cell.selectionStyle = UITableViewCellSelectionStyleGray;
-    cell.textLabel.text = combinazione.id ;
-    [cell.textLabel setTextColor:[UIColor darkTextColor]];
-    [cell.textLabel setFont:[UIFont fontWithName:@"MarkerFelt-Wide" size:18 ]];
-    [cell.detailTextLabel setFont:[UIFont fontWithName:@"MarkerFelt-Wide" size:12 ]];
-    
     NSMutableArray *images = [[[NSMutableArray alloc] initWithObjects:@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",@"",nil] autorelease];
-    
     
     NSSet *vestitiInCombinazione = combinazione.fattaDi; 
     for(Vestito *vestito in vestitiInCombinazione){
         Tipologia *tipo = ([[vestito.tipi objectEnumerator] nextObject]);
-        [images replaceObjectAtIndex:[tipo.choice intValue] withObject:[dao getImageFromVestito:vestito]];
+        [images replaceObjectAtIndex:[tipo.choice intValue] withObject:[dao getSmallImageFromVestito:vestito]];
+        //[images replaceObjectAtIndex:[tipo.choice intValue] withObject:[dao getImageBundleFromFile:@"left_arrow.png"]];
     }
     
     int offset_x = 8;
     int offset_y = 8;
     int count = 0;
-  
+    
     for (UIView *view in cell.subviews) {
         [view removeFromSuperview];
     }
     
     for(UIImage *image in images){
         if ([image class] == [UIImage class]){
-            //UIImageView *imageview = [[[UIImageView alloc] initWithImage:image] autorelease];
-            UIView *imageview = [[[UIImageView alloc] init]  autorelease];
-            [imageview shadow:[image scaleToFitSize:CGSizeMake(40,40)]];
+            UIImageView *imageview = [[[UIImageView alloc] initWithImage:image] autorelease];
+            //UIView *imageview = [[[UIImageView alloc] init]  autorelease];
+            //[imageview shadow:[image scaleToFitSize:CGSizeMake(40,40)]];
             
             imageview.frame = CGRectMake(offset_x,offset_y,40,40);
             imageview.contentMode = UIViewContentModeScaleAspectFit;
-            
-            /*
-            imageview.layer.shadowColor = [UIColor blackColor].CGColor;
-            imageview.layer.shadowOpacity = 0.7f;
-            imageview.layer.shadowOffset = CGSizeMake(3.0f, 3.0f);
-            imageview.layer.shadowRadius = 2.0f;
-            imageview.layer.masksToBounds = NO;
-            imageview.layer.shadowPath = [imageview renderPaperCurl];
-            */ 
             
             [cell addSubview:imageview];
             
@@ -203,7 +188,7 @@
                 offset_y += imageview.frame.size.height+10;
             }
             count++;
-           
+            
         }
     }
     
@@ -219,7 +204,7 @@
     
     NSString *stile = [dao.listStiliKeys objectAtIndex:indexPath.section];
     Combinazione *combinazione = [[combinazioniForStile objectForKey:stile] objectAtIndex:indexPath.row];
-
+    
     
     LookViewController *lookviewcontroller = [[LookViewController alloc] initWithNibName:@"LookViewController" bundle:nil];
     lookviewcontroller.combinazione = combinazione;       
@@ -229,17 +214,17 @@
     
     
     [appDelegate.tabBarController presentModalViewController:lookviewcontroller animated:YES];
-   
+    
     
     [lookviewcontroller release];
-         
+    
 }
 
 
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     return NSLocalizedString([dao.listStiliKeys objectAtIndex:section],nil);
-
+    
 }   
 
 
@@ -269,7 +254,7 @@
 
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
-
+    
     return (toInterfaceOrientation == UIInterfaceOrientationPortrait);
 }
 

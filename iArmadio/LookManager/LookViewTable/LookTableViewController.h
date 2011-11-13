@@ -19,6 +19,7 @@
 
 @interface LookTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate>{
     IarmadioDao *dao;
+    NSMutableDictionary *cacheLook;
     NSMutableDictionary *combinazioniForStile;
     IBOutlet UISegmentedControl *segmentControl;
     IBOutlet UIButton *addLookBtn;

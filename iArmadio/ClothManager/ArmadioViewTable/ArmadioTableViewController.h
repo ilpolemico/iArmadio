@@ -21,6 +21,7 @@
     SelectTypeViewController *delegateController;
     CoverViewController *coverviewcontroller;
     NSMutableDictionary *countVestiti;
+    NSMutableDictionary *cacheImage;
 }
 
 - initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)bundle delegateController:(id)delegateController;

@@ -134,12 +134,13 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        cell.selectionStyle = UITableViewCellSelectionStyleGray;
+        [cell.textLabel setTextColor:[UIColor darkTextColor]];
+        [cell.textLabel setFont:[UIFont fontWithName:@"MarkerFelt-Wide" size:18 ]];
+        [cell.detailTextLabel setFont:[UIFont fontWithName:@"MarkerFelt-Wide" size:12 ]];
     }
     
-    cell.selectionStyle = UITableViewCellSelectionStyleGray;
-    [cell.textLabel setTextColor:[UIColor darkTextColor]];
-    [cell.textLabel setFont:[UIFont fontWithName:@"MarkerFelt-Wide" size:18 ]];
-    [cell.detailTextLabel setFont:[UIFont fontWithName:@"MarkerFelt-Wide" size:12 ]];
+ 
     
 
     if(indexPath.section == 0){
@@ -151,20 +152,14 @@
         int offset = 5;
         Vestito *vestito = (Vestito *)[self.vestiti objectAtIndex:indexPath.row];
         UIView *vestitoView = [[[UIView alloc] init] autorelease];
-        UIImage *imageVestito = [[dao getThumbnailFromVestito:vestito] scaleToFitSize:CGSizeMake(60,60)];
-        //UIImageView *imageView = [[[UIImageView alloc] initWithImage:imageVestito]  autorelease];
+        UIImage *imageVestito = [dao getSmallImageFromVestito:vestito];
         
-        UIView *imageView = [[[UIImageView alloc] init]  autorelease];
-        [imageView shadow:imageVestito];
         
-        /*
-        imageView.layer.shadowColor = [UIColor blackColor].CGColor;
-        imageView.layer.shadowOpacity = 0.7f;
-        imageView.layer.shadowOffset = CGSizeMake(5.0f, 5.0f);
-        imageView.layer.shadowRadius = 2.0f;
-        imageView.layer.masksToBounds = NO;
-        imageView.layer.shadowPath = [imageView renderPaperCurl];
-         */
+        UIImageView *imageView = [[[UIImageView alloc] initWithImage:imageVestito]  autorelease];
+        
+        //UIView *imageView = [[[UIImageView alloc] init]  autorelease];
+        //[imageView shadow:imageVestito];
+        
         
         imageView.frame = CGRectMake(offset,5,60,60);
         [vestitoView addSubview:imageView];
@@ -195,7 +190,7 @@
             else{
                 UIImageView *image = [[[UIImageView alloc] initWithImage:start_off] autorelease];
                 image.frame = CGRectMake(offset,imageView.frame.size.height/2-stagioneView.frame.size.height/2,20,20);
-                [gradimentoView addSubview:image];
+                //[gradimentoView addSubview:image];
             }
         }
         
@@ -213,7 +208,7 @@
         NSSet *vestitiInCombinazione = combinazione.fattaDi; 
         for(Vestito *vestito in vestitiInCombinazione){
             Tipologia *tipo = ([[vestito.tipi objectEnumerator] nextObject]);
-            [images replaceObjectAtIndex:[tipo.choice intValue] withObject:[dao getImageFromVestito:vestito]];
+            [images replaceObjectAtIndex:[tipo.choice intValue] withObject:[dao getSmallImageFromVestito:vestito]];
         }
         
         
@@ -227,20 +222,11 @@
         
         for(UIImage *image in images){
             if ([image class] == [UIImage class]){
-                //UIImageView *_imageview = [[[UIImageView alloc] initWithImage:image] autorelease];
+                UIImageView *_imageview = [[[UIImageView alloc] initWithImage:image] autorelease];
                 
-                UIView *_imageview = [[[UIImageView alloc] init]  autorelease];
-                [_imageview shadow:[image scaleToFitSize:CGSizeMake(40,40)]];
+                /*UIView *_imageview = [[[UIImageView alloc] init]  autorelease];
+                [_imageview shadow:[image scaleToFitSize:CGSizeMake(40,40)]];*/
                 _imageview.frame = CGRectMake(offset_x,offset_y,40,40);
-                _imageview.contentMode = UIViewContentModeScaleAspectFit; 
-                /*
-                _imageview.layer.shadowColor = [UIColor blackColor].CGColor;
-                _imageview.layer.shadowOpacity = 0.7f;
-                _imageview.layer.shadowOffset = CGSizeMake(3.0f, 3.0f);
-                _imageview.layer.shadowRadius = 2.0f;
-                _imageview.layer.masksToBounds = NO;
-                _imageview.layer.shadowPath = [_imageview renderPaperCurl];
-                 */
                 [cell addSubview:_imageview];
                 
                 offset_x += _imageview.frame.size.width + 10;

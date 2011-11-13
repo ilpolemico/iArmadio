@@ -26,20 +26,25 @@ static Tutorial *singleton;
 }
 
 -(void)actionInfo:(NSString *)action{
-    
-    NSMutableDictionary *config = [dao.config objectForKey:@"Settings"];
-    BOOL tutorialEnable = [[config objectForKey:@"tutorial"] boolValue];
-    
-    
+    NSMutableDictionary *config = [dao.config copy];
+    NSMutableDictionary *options = [config objectForKey:@"Settings"];
+    NSMutableDictionary *config_tutorial = [config objectForKey:@"Tutorial"];
+    if(config_tutorial == nil){
+        config_tutorial = [[[NSMutableDictionary alloc] init] autorelease];
+        [config setValue:config_tutorial forKey:@"Tutorial"];
+    }
+    BOOL tutorialEnable = [[options objectForKey:@"tutorial"] boolValue];
     
     if(tutorialEnable){
         NSString *info = [tutorial objectForKey:action];
-        
-        if(info != nil){
+        if((info != nil)&&([config_tutorial objectForKey:action] == nil)){
             [self showInfo:info];
             [tutorial removeObjectForKey:action];
+            [config_tutorial setValue:@"1" forKey:action];
+            dao.config = config;
         }
     }
+    [config release];
 }
 
 - (void) showInfo:(NSString *)info{

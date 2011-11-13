@@ -384,6 +384,7 @@ labelnote;
         UIImage *imageTmp = [dao getThumbnailWithInfoFromVestito:vestito];
         UIImageView *imageview = [[[UIImageView alloc] initWithImage:imageTmp] autorelease];
         
+        /*
         imageview.layer.shadowColor = [UIColor blackColor].CGColor;
         imageview.layer.shadowOpacity = 0.7f;
         imageview.layer.shadowOffset = CGSizeMake(3.0f, 3.0f);
@@ -391,7 +392,7 @@ labelnote;
         imageview.layer.masksToBounds = NO;
         imageview.layer.shadowPath = [button renderPaperCurl];
         imageview.frame = CGRectMake(0,0,imageview_size_width,imageview_size_height);
-        
+        */
         
         
         UIButton *button = [[[UIButton alloc] init] autorelease];
@@ -669,8 +670,7 @@ labelnote;
     
     NSString *scelta_stagione = [[dao listStagioniKeys] objectAtIndex:choiceStagione.selectedIndex] ;
     if(!self.combinazione){
-        if([[dao getCombinazioniEntities:0 filterStagioneKey:nil filterStiliKeys:nil] count]+1 > MAX_LOOK){
-            
+        if([dao countLook]+1 > MAX_LOOK){
             UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:
                                   NSLocalizedString(@"Numero massimo superato",nil) message: NSLocalizedString(@"Il numero massimo di look è stato raggiunto",nil) delegate:self cancelButtonTitle: NSLocalizedString(@"Annulla",nil) otherButtonTitles:nil, nil] autorelease];
             
@@ -760,18 +760,32 @@ labelnote;
 
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField { //Keyboard becomes visible
+    
+    [UIView beginAnimations:@"slideUp" context:NULL];
+    [UIView setAnimationDuration:0.2];
+    
     self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y-215, 
                                  self.view.frame.size.width, self.view.frame.size.height); //resize
+    [UIView commitAnimations];
+    
+    
 }
 
 
 -(void)textFieldDidEndEditing:(UITextField *)textField { //keyboard will hide
+    
+    [UIView beginAnimations:@"slideDown" context:NULL];
+    [UIView setAnimationDuration:0.2];
+    
     self.view.frame = CGRectMake(self.view.frame.origin.x, 0, 
                                  self.view.frame.size.width, self.view.frame.size.height); //resize
+    [UIView commitAnimations];
+    
 }
 
 -(IBAction)  doneEditing: (id) sender{
 	[sender resignFirstResponder];
+    [[Shake2Style shared] becomeFirstResponder];
 }
 
 
