@@ -188,8 +188,8 @@
                 [gradimentoView addSubview:image];
             }
             else{
-                UIImageView *image = [[[UIImageView alloc] initWithImage:start_off] autorelease];
-                image.frame = CGRectMake(offset,imageView.frame.size.height/2-stagioneView.frame.size.height/2,20,20);
+                //UIImageView *image = [[[UIImageView alloc] initWithImage:start_off] autorelease];
+                //image.frame = CGRectMake(offset,imageView.frame.size.height/2-stagioneView.frame.size.height/2,20,20);
                 //[gradimentoView addSubview:image];
             }
         }

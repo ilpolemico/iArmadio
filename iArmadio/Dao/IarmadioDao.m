@@ -57,7 +57,7 @@ static IarmadioDao *singleton;
         image = [self getThumbnailFromVestito:vestito];
         [self.cacheImage setValue:[image scaleToFitSize:CGSizeMake(CLOTH_SMALL_SIZE_X,CLOTH_SMALL_SIZE_Y)] forKey:vestito.thumbnail];
         countCache++;
-        NSLog(@"%d",countCache);
+        //NSLog(@"%d",countCache);
         if(countCache > 500) break;
     } 
     

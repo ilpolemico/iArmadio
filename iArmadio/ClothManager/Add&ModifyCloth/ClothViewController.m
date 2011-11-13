@@ -55,6 +55,7 @@
     currGradimento = nil;
     currStagione = nil;
     preferito = @"";
+    
     return self;
 }
 
@@ -77,7 +78,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [CurrState shared].currSection = DISABLE_SHAKE;
     isChangeImage = NO;
     dao = [IarmadioDao shared];
     gradimento = 1;

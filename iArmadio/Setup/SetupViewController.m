@@ -33,6 +33,7 @@
 
 
 - (void) viewWillAppear:(BOOL)animated{
+    
     NSMutableDictionary *options = [dao.config objectForKey:@"Settings"];
     [options removeObjectForKey:@"Tutorial"];
     shake.on = [[options objectForKey:@"shake"] boolValue];
@@ -70,6 +71,7 @@
     
     self.labelGPS.text = NSLocalizedString(self.labelGPS.text, nil);
     self.labelShake.text = NSLocalizedString(self.labelShake.text, nil);
+    
      
 }
 

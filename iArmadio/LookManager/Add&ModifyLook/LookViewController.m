@@ -384,7 +384,7 @@ labelnote;
         UIImage *imageTmp = [dao getThumbnailWithInfoFromVestito:vestito];
         UIImageView *imageview = [[[UIImageView alloc] initWithImage:imageTmp] autorelease];
         
-        /*
+        
         imageview.layer.shadowColor = [UIColor blackColor].CGColor;
         imageview.layer.shadowOpacity = 0.7f;
         imageview.layer.shadowOffset = CGSizeMake(3.0f, 3.0f);
@@ -392,7 +392,7 @@ labelnote;
         imageview.layer.masksToBounds = NO;
         imageview.layer.shadowPath = [button renderPaperCurl];
         imageview.frame = CGRectMake(0,0,imageview_size_width,imageview_size_height);
-        */
+        
         
         
         UIButton *button = [[[UIButton alloc] init] autorelease];
