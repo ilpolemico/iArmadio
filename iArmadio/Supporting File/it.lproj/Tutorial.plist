@@ -12,7 +12,7 @@
 	<key>action_lookTable</key>
 	<string>In questa tabella puoi vedere i tuoi look catalogati come: sportivi, casual, eleganti. Puoi filtrarli per clima come per i vestiti </string>
 	<key>action_lookView</key>
-	<string>Crea un look aggiungendo i vestiti presenti nell&apos;armadio singolarmente oppure fai uno shake! Se fai un doppio click su un vestito puoi ingrandirlo.
+	<string>Crea un look aggiungendo i vestiti presenti nell&apos;armadio singolarmente oppure fai uno shake! Ti verranno proposti vestiti per il clima attuale.Se fai un doppio click su un vestito puoi ingrandirlo.
             Schiacciando sul pulsante:&quot;tag&quot; o trascinando verso l&apos;alto il look puoi vedere/modificare le sue proprietà</string>
 	<key>action_preferiti</key>
 	<string>Se vuoi aggiungere dei vestiti o look nei bookmark è sufficiente selezionare l&apos;icona &quot;segnalibro&quot; nella toolbar in alto nella scheda del vestito o del look</string>
