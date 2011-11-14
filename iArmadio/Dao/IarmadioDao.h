@@ -135,7 +135,7 @@ static NSString * const CONFIG_PLIST = @"Config";
 - (void)deleteSQLDB;
 
 - (void)flushCacheImage;
-- (NSMutableDictionary *)getCache;
+
 
 
 

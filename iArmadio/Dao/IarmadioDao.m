@@ -58,7 +58,7 @@ static IarmadioDao *singleton;
         [self.cacheImage setValue:[image scaleToFitSize:CGSizeMake(CLOTH_SMALL_SIZE_X,CLOTH_SMALL_SIZE_Y)] forKey:vestito.thumbnail];
         countCache++;
         //NSLog(@"%d",countCache);
-        if(countCache > 500) break;
+        if(countCache > 250) break;
     } 
     
     
@@ -1082,9 +1082,7 @@ static IarmadioDao *singleton;
      NSString *pathDocumentSettings= [self filePathDocuments:[CONFIG_PLIST stringByAppendingString:@".plist"]];
 
     [config writeToFile:pathDocumentSettings atomically:YES];
-    
-    NSLog(@"%@",config);
-    
+        
 }
 
 -(void)setupDB
@@ -1100,7 +1098,7 @@ static IarmadioDao *singleton;
 
 
 -(void)debugDB{
-    NSLog(@"Inzio test DB...");
+    NSLog(@"Inizio test DB...");
     
 }
 
@@ -1118,38 +1116,48 @@ static IarmadioDao *singleton;
     if(temperatura != 999){
         predicate = [NSPredicate predicateWithFormat:@"temp_min <= %d AND temp_max >=%d",temperatura,temperatura];
         [predicates addObject:predicate];
+        [fetchRequest setPredicate:[NSCompoundPredicate andPredicateWithSubpredicates:predicates]];
+        
+        NSError *error = nil;
+        NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error]; 
+        if([results count] > 0){
+            if(!currStagioneKey){ [currStagioneKey release];} 
+            currStagioneKey = ((Stagione *)[results objectAtIndex:0]).stagione;
+            [currStagioneKey retain];
+        }
+        else{
+            currStagioneKey = @"calda-fredda";
+        }
+
     }
     else{
-        NSDate* date = [NSDate date];
-        NSDateFormatter* formatter = [[[NSDateFormatter alloc] init] autorelease];
-        [formatter setDateFormat:@"MM-dd"];
-        NSString *filterdate = [formatter stringFromDate:date];
-        predicate = [NSPredicate predicateWithFormat:@"(date_from <= %@ AND date_to >=%@) OR (date_from_2 <= %@ AND date_to_2 >=%@)",filterdate,filterdate,filterdate,filterdate];
-        [predicates addObject:predicate];
+        if(
+           (![[[self.config objectForKey:@"Settings"] objectForKey:@"gps"] boolValue])  &&
+           ([[[self.config objectForKey:@"Settings"] objectForKey:@"shake"] boolValue])
+           ) 
+        {
+            if([[[self.config objectForKey:@"Settings"] objectForKey:@"caldo"] boolValue]){
+                currStagioneKey = @"calda";
+            }
+            else{
+                currStagioneKey = @"fredda";
+            }
+        } 
+        else{
+            currStagioneKey = @"calda-fredda";
+        }
     }
     
-    [fetchRequest setPredicate:[NSCompoundPredicate andPredicateWithSubpredicates:predicates]];
+     
     
-    NSError *error = nil;
-    NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error]; 
-    
-    
-    
-    if([results count] > 0){
-        if(!currStagioneKey){ [currStagioneKey release];} 
-       currStagioneKey = ((Stagione *)[results objectAtIndex:0]).stagione;
-        [currStagioneKey retain];
-    }
-    else{
-        currStagioneKey = @"calda-fredda";
-    }
-    
+        
     NSLog(@"CurrStagione:%@ %d",currStagioneKey,temperatura);
     
 }
 
 
 - (NSString *)currStagioneKey{
+    /*
     if([GeoLocal shared].lastUpdate != nil){
         NSDate *currdate = [NSDate date];
         NSDateComponents *comps = [[NSDateComponents alloc] init];
@@ -1164,7 +1172,10 @@ static IarmadioDao *singleton;
     }
     else if(currStagioneKey == nil){
         [self setCurrStagioneKeyFromTemp:999];
-    }
+    }*/
+    
+    if(currStagioneKey == nil)
+        [self setCurrStagioneKeyFromTemp:999];
     return currStagioneKey;
 }
 

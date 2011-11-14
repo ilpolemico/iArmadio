@@ -4,6 +4,8 @@
 <dict>
 	<key>Settings</key>
 	<dict>
+		<key>caldo</key>
+		<false/>
 		<key>gps</key>
 		<true/>
 		<key>shake</key>
@@ -11,5 +13,7 @@
 		<key>tutorial</key>
 		<true/>
 	</dict>
+	<key>Tutorial</key>
+	<dict/>
 </dict>
 </plist>

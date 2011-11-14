@@ -29,10 +29,6 @@ static Tutorial *singleton;
     NSMutableDictionary *config = [dao.config copy];
     NSMutableDictionary *options = [config objectForKey:@"Settings"];
     NSMutableDictionary *config_tutorial = [config objectForKey:@"Tutorial"];
-    if(config_tutorial == nil){
-        config_tutorial = [[[NSMutableDictionary alloc] init] autorelease];
-        [config setValue:config_tutorial forKey:@"Tutorial"];
-    }
     BOOL tutorialEnable = [[options objectForKey:@"tutorial"] boolValue];
     
     if(tutorialEnable){

@@ -10,7 +10,7 @@
 
 @implementation SetupViewController
 
-@synthesize navcontroler, viewImpostazioni, labelGPS, labelShake, tutorial, gps, shake;
+@synthesize navcontroler, viewImpostazioni, labelGPS, labelShake, tutorial, gps, shake, clima;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,19 +35,25 @@
 - (void) viewWillAppear:(BOOL)animated{
     
     NSMutableDictionary *options = [dao.config objectForKey:@"Settings"];
-    [options removeObjectForKey:@"Tutorial"];
     shake.on = [[options objectForKey:@"shake"] boolValue];
     [Shake2Style shared].enableShake = shake.on;
     if(!shake.isOn){
         gps.on = NO;
         [gps setEnabled:NO];
+        clima.on = NO;
+        [clima setEnabled:NO];
         [options setValue:[NSNumber numberWithBool:gps.isOn] forKey:@"gps"];
         [[GeoLocal shared] disableGPS];
     }
-    gps.on = [[options objectForKey:@"gps"] boolValue];
+    else{
+        gps.on = [[options objectForKey:@"gps"] boolValue];
+        if(gps.on){
+            clima.on = NO;
+            [clima setEnabled:NO];
+        }
+    };
+    clima.on = [[options objectForKey:@"caldo"] boolValue];
     tutorial.on = [[options objectForKey:@"tutorial"] boolValue];
-    
-    
 }
 
 - (void)viewDidLoad
@@ -69,8 +75,8 @@
     
     self.navcontroler.navigationBar.topItem.rightBarButtonItem.title = NSLocalizedString(@"Credits",nil);
     
-    self.labelGPS.text = NSLocalizedString(self.labelGPS.text, nil);
-    self.labelShake.text = NSLocalizedString(self.labelShake.text, nil);
+    //self.labelGPS.text = NSLocalizedString(self.labelGPS.text, nil);
+    //self.labelShake.text = NSLocalizedString(self.labelShake.text, nil);
     
      
 }
@@ -99,13 +105,7 @@
 
 }
 -(IBAction)enableGPS:(id)sender{
-    if(((UISwitch *)sender).isOn){
-        [[GeoLocal shared] enableGPS];
-        
-    }
-    else{
-        [[GeoLocal shared] disableGPS];
-    }
+    
 
     NSMutableDictionary *settings = [dao.config copy];
     NSMutableDictionary *options = [settings objectForKey:@"Settings"];
@@ -113,8 +113,31 @@
     [options setValue:[NSNumber numberWithBool:((UISwitch *)sender).isOn] forKey:@"gps"];
     dao.config = settings;
     [settings release];
-
+    
+    if(((UISwitch *)sender).isOn){
+        [[GeoLocal shared] enableGPS];
+        [clima setEnabled:NO];
+        
+    }
+    else{
+        [[GeoLocal shared] disableGPS];
+        [clima setEnabled:YES];
+        [dao setCurrStagioneKeyFromTemp:999];
+    }
 }
+
+-(IBAction)isCaldo:(id)sender{
+    NSMutableDictionary *settings = [dao.config copy];
+    NSMutableDictionary *options = [settings objectForKey:@"Settings"];
+    
+    [options setValue:[NSNumber numberWithBool:((UISwitch *)sender).isOn] forKey:@"caldo"];
+    dao.config = settings;
+    [dao setCurrStagioneKeyFromTemp:999];
+    [settings release];
+    
+    
+}
+
 
 -(IBAction)enableShake:(id)sender{
     NSMutableDictionary *settings = [dao.config copy];
@@ -126,12 +149,18 @@
     if(!((UISwitch *)sender).isOn){
         gps.on = NO;
         [gps setEnabled:NO];
+        clima.on = NO;
+        [clima setEnabled:NO];
+        
+        [options setValue:[NSNumber numberWithBool:((UISwitch *)sender).isOn] forKey:@"clima"];
         [options setValue:[NSNumber numberWithBool:((UISwitch *)sender).isOn] forKey:@"gps"];
         [[GeoLocal shared] disableGPS];
     }
     else{
         gps.on = YES;
         [gps setEnabled:YES];
+        [clima setEnabled:NO];
+        [options setValue:[NSNumber numberWithBool:((UISwitch *)sender).isOn] forKey:@"clima"];
         [options setValue:[NSNumber numberWithBool:((UISwitch *)sender).isOn] forKey:@"gps"];
         [[GeoLocal shared] enableGPS];
     }
@@ -150,7 +179,7 @@
         [[Tutorial shared] loadTutorialDictionary];
         [tutorial_step removeAllObjects];
     }
-    dao.config = settings;
+   dao.config = settings;
     [settings release];
 }
 
@@ -164,6 +193,10 @@
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if(buttonIndex != 0){
         [dao deleteSQLDB];
+        shake.on = YES;
+        gps.on = YES;
+        gps.enabled = YES;
+        tutorial.on = YES;
         [[GeoLocal shared] enableGPS];
         [self viewDidAppear:NO];
     }

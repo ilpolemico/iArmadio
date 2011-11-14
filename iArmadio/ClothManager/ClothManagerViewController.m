@@ -98,7 +98,7 @@
     [super didReceiveMemoryWarning];
     NSLog(@"flushCache");
     [dao flushCacheImage];
-    NSLog(@"cache:%@",[dao getCache]);
+    NSLog(@"cache:%@",dao.cacheImage);
     // Release any cached data, images, etc. that aren't in use.
 }
 

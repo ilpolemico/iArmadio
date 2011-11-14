@@ -49,31 +49,37 @@ int curr_temp;
 }
 
 -(void)enableGPS{
-
     locationManager.delegate=self;
-    if([CLLocationManager significantLocationChangeMonitoringAvailable]){
+    
+    [locationManager startUpdatingLocation];
+    /*if([CLLocationManager significantLocationChangeMonitoringAvailable]){
         [locationManager startMonitoringSignificantLocationChanges];
     }
     else{
         [locationManager startUpdatingLocation];
     }
+    */
 }
 
 -(void)disableGPS{
-    if([CLLocationManager significantLocationChangeMonitoringAvailable]){
+    [locationManager stopUpdatingLocation];
+    /*if([CLLocationManager significantLocationChangeMonitoringAvailable]){
         [locationManager stopMonitoringSignificantLocationChanges];
     }
     else{
         [locationManager stopUpdatingLocation];
     }
-    
+    */
     locationManager.delegate=nil;
 }
 
 
 -(void)setTemperatura{
     if([currLocation length]>0){
-        NSString *request = [NSString stringWithFormat:@"http://www.google.com/ig/api?weather=%@",currLocation];
+        NSString *request = [NSString stringWithFormat:@"http://www.google.com/ig/api?weather=%@",currLocation,nil];
+
+        
+        
         request =  [request stringByAddingPercentEscapesUsingEncoding:
                     NSASCIIStringEncoding];
         NSURLRequest *myRequest = [ [[NSURLRequest alloc] initWithURL: [NSURL URLWithString:request]] autorelease];
@@ -82,15 +88,17 @@ int curr_temp;
         NSURLResponse  *response = nil;
         responseData = [ NSURLConnection sendSynchronousRequest:myRequest returningResponse: &response error: &error ];
        
+        NSString *dataString = [[[NSString alloc] initWithData:responseData encoding:NSASCIIStringEncoding] autorelease];
         
-        NSXMLParser *parser = [[NSXMLParser alloc] initWithData:responseData];
+        NSData *data = [dataString dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:YES]; 
+        
+        NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
         parser.delegate = self;  
         [parser parse];
         [parser release];
         
         oldTemperatura = curr_temp;
         [dao setCurrStagioneKeyFromTemp:curr_temp]; 
-        
         if(self.lastUpdate != nil){
             [lastUpdate release];
             lastUpdate = nil;
@@ -108,7 +116,7 @@ int curr_temp;
     else if (currentConditions){
         if([elementName isEqualToString:@"temp_c"]){
             curr_temp =[((NSString *)[attributeDict objectForKey:@"data"]) intValue];
-            
+            currentConditions = NO;
         }
         
     }
@@ -156,7 +164,6 @@ int curr_temp;
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation 
 {
     if(!geoCoder){
-        //NSLog(@"%@",newLocation);
         geoCoder = [[MKReverseGeocoder alloc] initWithCoordinate:newLocation.coordinate];
         [geoCoder setDelegate:self];
         [geoCoder start];

@@ -174,7 +174,7 @@
         
         
         UIImage *start_on = [[dao getImageBundleFromFile:@"star.png"] scaleToFitSize:CGSizeMake(20,20)];
-        UIImage *start_off = [[dao getImageBundleFromFile:@"star_gray.png"] scaleToFitSize:CGSizeMake(20,20)];
+        //UIImage *start_off = [[dao getImageBundleFromFile:@"star_gray.png"] scaleToFitSize:CGSizeMake(20,20)];
         
         UIImageView *gradimentoView = [[[UIImageView alloc] init] autorelease];
         

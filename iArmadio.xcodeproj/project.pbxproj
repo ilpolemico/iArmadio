@@ -146,7 +146,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9CD1ACAB1412840600441AB7 /* WhatDoWear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatDoWear.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CD1ACAB1412840600441AB7 /* ShakeUStyle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShakeUStyle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD1ACAF1412840600441AB7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9CD1ACB11412840600441AB7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9CD1ACB31412840600441AB7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -377,7 +377,7 @@
 		9CD1ACAC1412840600441AB7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9CD1ACAB1412840600441AB7 /* WhatDoWear.app */,
+				9CD1ACAB1412840600441AB7 /* ShakeUStyle.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -794,7 +794,7 @@
 			);
 			name = iArmadio;
 			productName = iArmadio;
-			productReference = 9CD1ACAB1412840600441AB7 /* WhatDoWear.app */;
+			productReference = 9CD1ACAB1412840600441AB7 /* ShakeUStyle.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1139,7 +1139,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				"OTHER_LDFLAGS[arch=*]" = "";
-				PRODUCT_NAME = WhatDoWear;
+				PRODUCT_NAME = ShakeUStyle;
 				PROVISIONING_PROFILE = "E56B5DE3-F08D-4CC3-8ED3-FD4F4896DD40";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E56B5DE3-F08D-4CC3-8ED3-FD4F4896DD40";
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/**";
@@ -1178,7 +1178,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				"OTHER_LDFLAGS[arch=*]" = "";
-				PRODUCT_NAME = WhatDoWear;
+				PRODUCT_NAME = ShakeUStyle;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/**";
@@ -1241,7 +1241,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				"OTHER_LDFLAGS[arch=*]" = "";
-				PRODUCT_NAME = WhatDoWear;
+				PRODUCT_NAME = ShakeUStyle;
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/**";
 				WRAPPER_EXTENSION = app;
 			};
