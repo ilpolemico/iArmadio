@@ -29,7 +29,6 @@
 
 @property (nonatomic, retain) NSDate *lastUpdate;
 @property (nonatomic) BOOL isEnableGPS;
-@property (nonatomic,retain, readonly) MKReverseGeocoder *geoCoder;
 
 
 + (GeoLocal *)shared;

@@ -27,6 +27,8 @@ int curr_temp;
     self = [super init];
     dao = [IarmadioDao shared];
     currLocation = @"";
+    [currLocation retain];
+    NSLog(@"retain count:%d",[currLocation retainCount]);
     curr_temp = 999;
     oldTemperatura = 999;
     locationManager = [[CLLocationManager alloc] init];
@@ -51,6 +53,7 @@ int curr_temp;
 -(void)enableGPS{
     [currLocation release];
     currLocation = @"";
+    [currLocation retain];
     locationManager.delegate=self;
     
     [locationManager startUpdatingLocation];
@@ -141,23 +144,25 @@ int curr_temp;
 
 -(void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFindPlacemark:(MKPlacemark *)placemark { 
     
+    
     [currLocation release];
     currLocation = placemark.locality;
+    [currLocation retain];
     dao.localita = currLocation;
     [self setTemperatura];
-    [currLocation retain];
     [geoCoder release];
     geoCoder = nil;
 }
 
 - (void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFailWithError:(NSError *)error
 {
-    NSLog(@"reverseGeocoder:%@ didFailWithError:%@", geocoder, error);
+    //NSLog(@"reverseGeocoder:%@ didFailWithError:%@", geocoder, error);
     [geoCoder autorelease];
     geoCoder = nil;
+    
     [currLocation release];
-    currLocation = nil;
     currLocation = @"";
+    [currLocation retain];
 }
 
 

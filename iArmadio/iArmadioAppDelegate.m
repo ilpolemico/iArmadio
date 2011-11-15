@@ -46,7 +46,7 @@
     [self.window addSubview:shake2style.view];
        
     
-
+    
     NSArray *array = self.tabBarController.tabBar.items;
     for(UITabBarItem *item in array){
         item.title = NSLocalizedString(item.title,nil);
@@ -59,18 +59,26 @@
         count++;
     }    
     self.tabBarController.selectedIndex = 0;
+     
     
-    CoverViewController *coverviewcontroller = [[CoverViewController alloc] initWithNibName:@"CoverViewController" bundle:nil getTipologia:@"pantaloni"];
-    [coverviewcontroller release];
+    CoverViewController *coverviewcontroller = [[CoverViewController alloc] initWithNibName:@"CoverViewController" bundle:nil];
+    [self.window addSubview:coverviewcontroller.view];
+    [coverviewcontroller.view removeFromSuperview];
+    //[coverviewcontroller release];
+    
     
     LookViewController *lookviewcontroller = [[LookViewController alloc] initWithNibName:@"LookViewController" bundle:nil];
-    [lookviewcontroller release];
+    [self.window addSubview:lookviewcontroller.view];
+    [lookviewcontroller.view removeFromSuperview];
+    //[lookviewcontroller release];
+    
     
     ClothViewController *addviewcontroller = [[ClothViewController alloc] initWithNibName:@"ClothView" bundle:nil setImage: nil];
+    [self.window addSubview:addviewcontroller.view];
+    [addviewcontroller.view removeFromSuperview];
+    //[addviewcontroller release];
     
-    [addviewcontroller release];
-    
-
+    [CurrState shared].currSection = ENABLE_SHAKE;
 
     
     [self.window addSubview:tabBarController.view];
