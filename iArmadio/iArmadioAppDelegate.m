@@ -56,10 +56,23 @@
     NSArray *myViewControllers = self.tabBarController.viewControllers;
     for (UIViewController *viewController in myViewControllers){
         self.tabBarController.selectedIndex = count;
-        //viewController.view;
         count++;
     }    
     self.tabBarController.selectedIndex = 0;
+    
+    CoverViewController *coverviewcontroller = [[CoverViewController alloc] initWithNibName:@"CoverViewController" bundle:nil getTipologia:@"pantaloni"];
+    [coverviewcontroller release];
+    
+    LookViewController *lookviewcontroller = [[LookViewController alloc] initWithNibName:@"LookViewController" bundle:nil];
+    [lookviewcontroller release];
+    
+    ClothViewController *addviewcontroller = [[ClothViewController alloc] initWithNibName:@"ClothView" bundle:nil setImage: nil];
+    
+    [addviewcontroller release];
+    
+
+
+    
     [self.window addSubview:tabBarController.view];
     
     [self addTabBarArrow];

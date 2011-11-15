@@ -35,23 +35,22 @@ static IarmadioDao *singleton;
     silenceNotification = NO;
     self.cacheImage = [[[NSMutableDictionary alloc] init] autorelease];
     [self loadSmallImages];
-    /*
-    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    /*NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     NSInvocationOperation *operation = [[NSInvocationOperation alloc] 
                                         initWithTarget:self
                                         selector:@selector(loadSmallImages:) 
                                         object:nil];
-    [queue addOperation:operation]; 
+    [queue addOperation:operation];
     [operation release];
-    [queue release];
-    */
+    [queue release];*/
+    
     return singleton;
 }
 
 - (void) loadSmallImages{
     UIImage *image;
     int countCache = 0;
-    //NSLog(@"%d",countCache);
+    NSLog(@"%d",countCache);
     NSArray *vestiti = [self getVestitiEntities:nil filterStagioneKey:nil filterStiliKeys:nil filterGradimento:0];
     for(Vestito *vestito in vestiti){
         image = [self getThumbnailFromVestito:vestito];
