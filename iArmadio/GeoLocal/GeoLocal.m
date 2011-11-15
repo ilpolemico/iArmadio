@@ -169,8 +169,6 @@ int curr_temp;
         [geoCoder start];
          
     }
-    //[locationManager stopUpdatingLocation];
-    
 }
 
 // this delegate method is called if an error occurs in locating your current location

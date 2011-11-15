@@ -134,9 +134,13 @@
     vestiti = [dao getVestitiEntities:[NSArray arrayWithObjects:tipologia,nil] filterStagioneKey:currstate.currStagioneKey filterStiliKeys:[[[NSArray alloc] initWithObjects:localCurrStile, nil] autorelease] filterGradimento:-1 sortOnKeys:localCurrOrderBy preferiti:NO];
     
     [vestiti retain];
-     
     [self.openflow draw];
         
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [[Tutorial shared] actionInfo:ACTION_COVERFLOW];
 }
 
 - (void)viewDidLoad
@@ -178,8 +182,7 @@
     self.imageview.layer.shadowOffset = CGSizeMake(0, -7);
     self.imageview.layer.shadowOpacity = 1;
     self.imageview.layer.shadowRadius = 3.0;
-    [[Tutorial shared] actionInfo:ACTION_COVERFLOW];
-}
+    }
 
 
 - (NSArray *)buttons:(ButtonSegmentControl *)buttonSegmentControl{
