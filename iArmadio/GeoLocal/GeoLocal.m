@@ -49,6 +49,8 @@ int curr_temp;
 }
 
 -(void)enableGPS{
+    [currLocation release];
+    currLocation = @"";
     locationManager.delegate=self;
     
     [locationManager startUpdatingLocation];
@@ -153,6 +155,9 @@ int curr_temp;
     NSLog(@"reverseGeocoder:%@ didFailWithError:%@", geocoder, error);
     [geoCoder autorelease];
     geoCoder = nil;
+    [currLocation release];
+    currLocation = nil;
+    currLocation = @"";
 }
 
 
@@ -163,6 +168,15 @@ int curr_temp;
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation 
 {
+    
+    if(
+       (newLocation.coordinate.latitude == oldLocation.coordinate.latitude)&&
+       (newLocation.coordinate.longitude == oldLocation.coordinate.longitude)&&
+       (![currLocation isEqualToString:@""])
+    ){
+        return;
+    }
+    
     if(!geoCoder){
         geoCoder = [[MKReverseGeocoder alloc] initWithCoordinate:newLocation.coordinate];
         [geoCoder setDelegate:self];
