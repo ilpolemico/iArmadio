@@ -155,10 +155,10 @@
         UIImage *imageVestito = [dao getSmallImageFromVestito:vestito];
         
         
-        UIImageView *imageView = [[[UIImageView alloc] initWithImage:imageVestito]  autorelease];
+        //UIImageView *imageView = [[[UIImageView alloc] initWithImage:imageVestito]  autorelease];
         
-        //UIView *imageView = [[[UIImageView alloc] init]  autorelease];
-        //[imageView shadow:imageVestito];
+        UIView *imageView = [[[UIImageView alloc] init]  autorelease];
+        [imageView shadow:imageVestito];
         
         
         imageView.frame = CGRectMake(offset,5,60,60);
@@ -222,17 +222,17 @@
         
         for(UIImage *image in images){
             if ([image class] == [UIImage class]){
-                UIImageView *_imageview = [[[UIImageView alloc] initWithImage:image] autorelease];
+                //UIImageView *_imageview = [[[UIImageView alloc] initWithImage:image] autorelease];
                 
-                /*UIView *_imageview = [[[UIImageView alloc] init]  autorelease];
-                [_imageview shadow:[image scaleToFitSize:CGSizeMake(40,40)]];*/
+                UIView *_imageview = [[[UIImageView alloc] init]  autorelease];
+                [_imageview shadow:image];
                 _imageview.frame = CGRectMake(offset_x,offset_y,40,40);
                 [cell addSubview:_imageview];
                 
-                offset_x += _imageview.frame.size.width + 10;
+                offset_x += _imageview.frame.size.width + 14;
                 if(count == 3){
                     offset_x = 8;
-                    offset_y += _imageview.frame.size.height+10;
+                    offset_y += _imageview.frame.size.height+14;
                 }
                 count++;
             }

@@ -172,20 +172,20 @@
     
     for(UIImage *image in images){
         if ([image class] == [UIImage class]){
-            UIImageView *imageview = [[[UIImageView alloc] initWithImage:image] autorelease];
-            //UIView *imageview = [[[UIImageView alloc] init]  autorelease];
-            //[imageview shadow:[image scaleToFitSize:CGSizeMake(40,40)]];
+            //UIImageView *imageview = [[[UIImageView alloc] initWithImage:image] autorelease];
+            UIView *imageview = [[[UIImageView alloc] init]  autorelease];
+            [imageview shadow:image];
             
             imageview.frame = CGRectMake(offset_x,offset_y,40,40);
             imageview.contentMode = UIViewContentModeScaleAspectFit;
             
             [cell addSubview:imageview];
             
-            offset_x += imageview.frame.size.width+10;
+            offset_x += imageview.frame.size.width+14;
             
             if(count == 3){
                 offset_x = 8;
-                offset_y += imageview.frame.size.height+10;
+                offset_y += imageview.frame.size.height+14;
             }
             count++;
             
