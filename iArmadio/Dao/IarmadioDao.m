@@ -34,14 +34,15 @@ static IarmadioDao *singleton;
     singleton = self;
     silenceNotification = NO;
     self.cacheImage = [[[NSMutableDictionary alloc] init] autorelease];
-    //[self loadSmallImages];
-    NSOperationQueue *queue = [NSOperationQueue new];
+    [self loadSmallImages];
+    /*NSOperationQueue *queue = [NSOperationQueue new];
     NSInvocationOperation *operation = [[NSInvocationOperation alloc] 
                                         initWithTarget:self
                                         selector:@selector(loadSmallImages) 
                                         object:nil];
     [queue addOperation:operation];
     [operation release];
+    */
     return singleton;
 }
 

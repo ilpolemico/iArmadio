@@ -247,6 +247,7 @@
 								<reference key="NSNextKeyView" ref="98695348"/>
 								<string key="NSReuseIdentifierKey">_NS:225</string>
 								<bool key="IBUIOpaque">NO</bool>
+								<float key="IBUIAlpha">0.5</float>
 								<int key="IBUITag">1</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
@@ -273,6 +274,7 @@
 								<reference key="NSNextKeyView" ref="933697093"/>
 								<string key="NSReuseIdentifierKey">_NS:225</string>
 								<bool key="IBUIOpaque">NO</bool>
+								<float key="IBUIAlpha">0.5</float>
 								<int key="IBUIContentMode">1</int>
 								<int key="IBUITag">2</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -300,6 +302,7 @@
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="173549355"/>
 								<string key="NSReuseIdentifierKey">_NS:225</string>
+								<float key="IBUIAlpha">0.5</float>
 								<int key="IBUIContentMode">1</int>
 								<int key="IBUITag">6</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -327,6 +330,7 @@
 								<reference key="NSNextKeyView" ref="247526032"/>
 								<string key="NSReuseIdentifierKey">_NS:225</string>
 								<bool key="IBUIOpaque">NO</bool>
+								<float key="IBUIAlpha">0.5</float>
 								<int key="IBUIContentMode">1</int>
 								<int key="IBUITag">8</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -355,6 +359,7 @@
 								<reference key="NSNextKeyView" ref="191373211"/>
 								<string key="NSReuseIdentifierKey">_NS:225</string>
 								<bool key="IBUIOpaque">NO</bool>
+								<float key="IBUIAlpha">0.5</float>
 								<int key="IBUIContentMode">1</int>
 								<int key="IBUITag">9</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -382,6 +387,7 @@
 								<reference key="NSNextKeyView" ref="54093754"/>
 								<string key="NSReuseIdentifierKey">_NS:225</string>
 								<bool key="IBUIOpaque">NO</bool>
+								<float key="IBUIAlpha">0.5</float>
 								<int key="IBUIContentMode">1</int>
 								<int key="IBUITag">3</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -410,6 +416,7 @@
 								<reference key="NSNextKeyView" ref="401567190"/>
 								<string key="NSReuseIdentifierKey">_NS:225</string>
 								<bool key="IBUIOpaque">NO</bool>
+								<float key="IBUIAlpha">0.5</float>
 								<int key="IBUIContentMode">1</int>
 								<int key="IBUITag">4</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -438,6 +445,7 @@
 								<reference key="NSNextKeyView" ref="896195927"/>
 								<string key="NSReuseIdentifierKey">_NS:225</string>
 								<bool key="IBUIOpaque">NO</bool>
+								<float key="IBUIAlpha">0.5</float>
 								<int key="IBUIContentMode">1</int>
 								<int key="IBUITag">5</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -781,6 +789,7 @@
 										<string key="NSFrame">{{6, 391}, {230, 31}}</string>
 										<reference key="NSSuperview" ref="191373211"/>
 										<reference key="NSWindow"/>
+										<reference key="NSNextKeyView"/>
 										<string key="NSReuseIdentifierKey">_NS:304</string>
 										<object class="NSColor" key="IBUIBackgroundColor">
 											<int key="NSColorSpace">1</int>

@@ -161,6 +161,7 @@ labelnote;
             
             UIButton *button = [self performSelector:selector];
             button.contentMode = UIViewContentModeScaleAspectFit;
+            button.alpha = 1;
             [button  setImage:[dao getImageFromVestito:vestito] forState:UIControlStateNormal];
             [selectedVestiti replaceObjectAtIndex:[tipo.choice intValue] withObject:vestito];
         }
@@ -452,6 +453,7 @@ labelnote;
         SEL selector = NSSelectorFromString([@"choice" stringByAppendingFormat:@"%d",[tipo.choice intValue],nil]);
             
         UIButton *button = [self performSelector:selector];
+        button.alpha = 1;
         [self switchVestito:button image:[dao getImageFromVestito:vestito]];
         [selectedVestiti replaceObjectAtIndex:[tipo.choice intValue] withObject:vestito];
     }
@@ -566,7 +568,8 @@ labelnote;
     
     
     if(tag == 0){
-        [self switchVestito:button image:[iconeTipi objectAtIndex:currChoice]]; 
+        button.alpha = 0.5;
+        [self switchVestito:button image:[iconeTipi objectAtIndex:currChoice] ]; 
         [selectedVestiti replaceObjectAtIndex:currChoice withObject:@""];
         return;
     }
@@ -574,6 +577,7 @@ labelnote;
     if([vestitiForTipi count] > 0){
         Vestito *vestito = [vestitiForTipi objectAtIndex:tag-1];
         UIImage *tmp = [dao getImageFromVestito:vestito];
+        button.alpha = 1;
         [self switchVestito:button image:tmp];        
         [selectedVestiti replaceObjectAtIndex:currChoice withObject:vestito];
     }
