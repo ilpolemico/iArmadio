@@ -643,7 +643,7 @@
 
 
 -(void) dealloc{
-    NSLog(@"Dealloc clothview!!!");
+    //NSLog(@"Dealloc clothview!!!");
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     if(vestito != nil){

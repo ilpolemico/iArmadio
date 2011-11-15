@@ -73,7 +73,7 @@
 }
 
 - (void) dealloc{
-    NSLog(@"Dealloc selectType!");
+    //NSLog(@"Dealloc selectType!");
     [imageview release];
     [navigationBar release];
     [armadio release];

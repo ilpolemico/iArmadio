@@ -51,7 +51,15 @@
     for(UITabBarItem *item in array){
         item.title = NSLocalizedString(item.title,nil);
     }
-
+    
+    int count = 0;
+    NSArray *myViewControllers = self.tabBarController.viewControllers;
+    for (UIViewController *viewController in myViewControllers){
+        self.tabBarController.selectedIndex = count;
+        //viewController.view;
+        count++;
+    }    
+    self.tabBarController.selectedIndex = 0;
     [self.window addSubview:tabBarController.view];
     
     [self addTabBarArrow];

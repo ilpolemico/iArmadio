@@ -188,6 +188,7 @@ static Shake2Style *singleton;
 
 
 -(void) motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
+    NSLog(@"currSection:%@ EnableShake:%@",[CurrState shared].currSection,[[dao.config objectForKey:@"Settings"] objectForKey:@"shake"]);
     if(
        (event.type == UIEventSubtypeMotionShake)
        &&

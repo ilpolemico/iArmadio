@@ -249,7 +249,7 @@
 }
 
 -(void) dealloc{
-    NSLog(@"Dealloc ArmadioTable!");
+    //NSLog(@"Dealloc ArmadioTable!");
     
     if(coverviewcontroller != nil){
         [coverviewcontroller release];

@@ -371,7 +371,7 @@
 
 
 -(void) dealloc{
-    NSLog(@"Dealloc coverview!!!");
+    //NSLog(@"Dealloc coverview!!!");
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     if(captureClothController != nil){
         [captureClothController release];

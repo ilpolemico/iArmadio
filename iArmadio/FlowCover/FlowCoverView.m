@@ -191,7 +191,7 @@ const GLshort GTextures[] = {
 - (void)dealloc 
 {
     
-    NSLog(@"Dealloc FlowCover!");
+    //NSLog(@"Dealloc FlowCover!");
     
     [EAGLContext setCurrentContext:context];
 

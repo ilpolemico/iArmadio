@@ -790,7 +790,7 @@ labelnote;
 
 
 -(void) dealloc{
-    NSLog(@"Dealloc LookView");
+    //NSLog(@"Dealloc LookView");
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     if(preferito != nil){
     	[preferito release];
