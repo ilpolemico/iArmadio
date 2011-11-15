@@ -90,6 +90,7 @@
     else{
         [self dismissModalViewControllerAnimated:YES];
         [CurrState shared].currSection = ENABLE_SHAKE;
+        [[Shake2Style shared] becomeFirstResponder];
     }    
 }
 

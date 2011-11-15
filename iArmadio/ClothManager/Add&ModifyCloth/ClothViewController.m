@@ -338,6 +338,7 @@
         [self dismissModalViewControllerAnimated:NO];
         [UIView commitAnimations];
         [CurrState shared].currSection = ENABLE_SHAKE;
+        [[Shake2Style shared] becomeFirstResponder];
     }
      
 }
@@ -401,6 +402,7 @@
      
     [CurrState shared].currSection = ENABLE_SHAKE;
     [self dismissModalViewControllerAnimated:YES];
+    [[Shake2Style shared] becomeFirstResponder];
 }
 
 
@@ -408,6 +410,7 @@
 -(IBAction) undoCloth:(id) sender{
    [CurrState shared].currSection = ENABLE_SHAKE;
    [self dismissModalViewControllerAnimated:YES];
+   [[Shake2Style shared] becomeFirstResponder];
 }
 
 
@@ -453,6 +456,7 @@
                   editingInfo:(NSDictionary *)editingInfo 
 {
 	[picker dismissModalViewControllerAnimated:NO];
+    [[Shake2Style shared] becomeFirstResponder];
     [self.imageView setImage:image];
     self.imageView.transform = CGAffineTransformIdentity;
     self.sliderZoom.value = 0;
