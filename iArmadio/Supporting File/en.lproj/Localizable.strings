@@ -6,51 +6,53 @@
   Copyright 2011 __MyCompanyName__. All rights reserved.
 */
 
-"Istruzioni" = "?Istruzioni";
-"Prosegui" = "?Prosegui";
-"Impostazioni" = "?Impostazioni";
-"Credits" = "?Credits";
-"Abilita GPS" = "?Abilita GPS";
-"Abilita Shake" = "?Abilita Shake";
-"Il numero massimo di look è stato raggiunto" = "?Il numero massimo di look è stato raggiunto";
+"Istruzioni" = "Instructions";
+"Prosegui" = "Continue";
+"Impostazioni" = "Settings";
+"Credits" = "Credits";
+"Abilita GPS" = "Enable GPS";
+"Abilita Shake" = "Enable Shake";
+"Il numero massimo di look è stato raggiunto" = "The look max number
+was reached";
 
-"Cancellare tutte le impostazioni" = "?Cancellare tutte le impostazioni";
-"Vuoi cancellare tutte le impostazioni? In questo modo cancellerai anche tutti i vestiti" = "?Vuoi cancellare tutte le impostazioni? In questo modo cancellerai anche tutti i vestiti";
+"Cancellare tutte le impostazioni" = "Delete all preferences and settings";
+"Vuoi cancellare tutte le impostazioni? In questo modo cancellerai
+anche tutti i vestiti" = "Do you want erase all the settings? You erase
+too all dresses and looks";
 
 
 //Stili
-"sportivo" = "?sportivo";
-"casual" = "?casual";
-"elegante" = "?elegante";
-"tutte" = "?tutte";
+"sportivo" = "sporting";
+"casual" = "casual";
+"elegante" = "elegant";
+"tutte" = "all";
 
 //CaptureCloth
-"Aggiungi vestito" = "?Add dress";
-"Aggiungi un altro vestito" = "?Add another dress";
-"Fotocamera" = "?Camera";
-"Album" = "?Album";
+"Aggiungi vestito" = "Add dress";
+"Aggiungi un altro vestito" = "Add another dress";
+"Fotocamera" = "Camera";
+"Album" = "Album";
 
 //ClothView
-"Cancel" = "?Cancel";
+"Cancel" = "Cancel";
 "Cancella" = "Delete";
 "Annulla" = "Cancel";
-"Vuoi cancellare il vestito" = "?Vuoi cancellare il vestito";
-"Cambia Immagine Vestito" = "?Cambia Immagine Vestito";
+"Vuoi cancellare il vestito" = "Do you want erase this dress?";
+"Numero massimo superato" = "Max number reached";
+"Il numero massimo dei capi per questo tipo è stato raggiunto" = "The
+dress max number, for this kind, was reached";
+"Cambia Immagine Vestito" = "Change dress picture";
 
-"Numero massimo superato" = "?Numero massimo superato";
-"Il numero massimo dei capi per questo tipo è stato raggiunto" = "?Il numero massimo dei capi per questo tipo è stato raggiunto";
-"Cambia Immagine Vestito" = "?Cambia Immagine Vestito";
-
-"Stile" = "?Stile";
-"Piace" = "?Piace";
-"Stagione" = "?Stagione";
-"Scegli tipo vestito" = "?Scegli tipo vestito";
+"Stile" = "Style";
+"Piace" = "Like";
+"Stagione" = "Season";
+"Scegli tipo vestito" = "Choose dress type";
 
 
-"Look" = "?Look";
-"Preferiti" = "?Preferiti";
+"Look" = "Look";
+"Preferiti" = "Bookmark";
 
-"look" = "?look";
+"look" = "look";
 
 
 
@@ -61,65 +63,66 @@
 "armadio" = "wardrobe";
 
 //LookView
-"Vuoi cancellare il look" = "?Vuoi cancellare il look";
-"Abiti" = "?Abiti";
-"Look" = "?Look";
+"Vuoi cancellare il look" = "Do you want erase this look?";
+"Abiti" = "Clothes";
+"Look" = "Look";
 
 //Vestiti
-"calzature" = "?calzature";
-"stivali" = "?stivali";
-"scarpe" = "?shoes";
-"abiti" = "?dress";
-"soprabiti" = "?soprabiti";
-"tailer" = "?tailer";
+"calzature" = "footwear";
+"stivali" = "boots";
+"scarpe" = "shoes";
+"abiti" = "dress";
+"soprabiti" = "coats";
+"tailer" = "tailer";
 
 
 //Abiti
-"gonna" = "?gonna";
-"gonne" = "?gonne";
-"pantalone" = "?pantalone";
-"pantaloni" = "?pantaloni";
-"camicia" = "?camicia";
-"camicie" = "?camicie";
-"maglietta" = "?maglietta";
-"magliette" = "?magliette";
-"maglione" = "?maglione";
-"maglioni" = "?maglioni";
-"completo" = "?completo";
-"completi" = "?completi";
-"vestitino" = "?vestitino";
-"pantaloncino" = "?pantaloncino";
-"pantaloncini" = "?pantaloncini";
+"gonna" = "skirt";
+"gonne" = "skirts";
+"pantalone" = "pants";
+"pantaloni" = "pants";
+"camicia" = "shirt";
+"camicie" = "shirts";
+"maglietta" = "t-shirt";
+"magliette" = "t-shirts";
+"maglione" = "sweater";
+"maglioni" = "sweaters";
+"completo" = "full dress";
+"completi" = "full dress";
+"vestitino" = "dress";
+"pantaloncino" = "shorts";
+"pantaloncini" = "shorts";
 
 
 //Accessori
-"sciarpa" = "?sciarpa";
-"sciarpe" = "?sciarpe";
-"accessori" = "?accessori";
-"cravatta" = "?cravatta";
-"cravatte" = "?cravatte";
-"cintura" = "?cintura";
-"cinture" = "?cinture";
-"borsa" = "?borsa";
-"borse" = "?borse";
-"cappello" = "?cappello";
-"cappelli" = "?cappelli";
-"calze" = "?calze";
+"sciarpa" = "scarf";
+"sciarpe" = "scarves";
+"accessori" = "accessories";
+"cravatta" = "tie";
+"cravatte" = "ties";
+"cintura" = "belt";
+"cinture" = "belts";
+"borsa" = "bag";
+"borse" = "bags";
+"cappello" = "hat";
+"cappelli" = "hats";
+"calze" = "socks";
 
 
 
 //Soprabiti
-"cappotto" = "?cappotto";
-"cappotti" = "?cappotti";
-"giacca" = "?giacca"; 
-"giacche" = "?giacche";
-"giubetto" = "?giubetto";
-"giubetti" = "?giubetti";
-"felpa" = "?felpa";
-"felpe" = "?felpe";
+"cappotto" = "coat";
+"cappotti" = "coats";
+"giacca" = "jacket";
+"giacche" = "jackets";
+"giubetto" = "vest";
+"giubetti" = "vest";
+"felpa" = "sweatshirt";
+"felpe" = "sweatshirts";
 
 //Shake
-"Non ci sono combinazioni disponibili per la stagione corrente!" = "?Non ci sono combinazioni disponibili per la stagione corrente!";
+"Non ci sono combinazioni disponibili per la stagione corrente!" =
+"There aren't looks available for the current season!";
 
 
 

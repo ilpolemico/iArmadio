@@ -2,19 +2,30 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>startApp</key>
-	<string>Benvenuto il WhatDoWear: Puoi iniziare ad aggiungere nuovi vestiti nella sezione: Armadio. Se vuoi disabilitare questo tutorial vai in impostazioni.</string>
-	<key>addCloth</key>
-	<string>Aggiungi il vestito: Da questa maschera puoi modificare l&apos;immagine (zoom, muovi, ruota) e inserire i suoi attributi. Puoi mettere un segnalibro schiacciando sul simbolo nella barra in alto</string>
-	<key>coverFlow</key>
-	<string>Qui puoi vedere tutti gli abiti del tipo selezionato. Nella toolbar in alto puoi selezionare i vestiti catalogati per: il caldo, il freddo, sia caldo che freddo, tutti. Oppure ordinarli per data o preferenza 
-            Schiacciando sul tasto + puoi aggiungere un nuovo vestito al tuo armadio</string>
-	<key>lookTable</key>
-	<string>In questa tabella puoi vedere i tuoi look catalogati come: sportivi, casual, eleganti. Puoi filtrarli per clima come per i vestiti </string>
-	<key>lookView</key>
-	<string>Crea un look aggiungendo i vestiti presenti nell&apos;armadio. Oppure fai un shake. Se fai un doppio click su un vestito puoi ingrandirlo.
-            Schiacciando sul pulsante:&quot;tag&quot; o trascinando verso l&apos;alto il look puoi vedere/modificare le sue proprietà</string>
-	<key>preferiti</key>
-	<string>Se vuoi aggiungere dei vestiti o look nei bookmark è sufficiente selezionare l&apos;icona &quot;segnalibro&quot; nella toolbar in alto nella scheda del vestito o del look</string>
+	<key>action_startApp_no</key>
+	<string>Welcome to WhatDoWear: you can start adding new dresses in the
+        section: wardrobe. If you want disable this tutorial go to
+        settings</string>
+	<key>action_addCloth</key>
+	<string>Add the dress: From this form you can modify the picture
+        (zoom, move, rotate) and insert its properties. You can put a
+        bookmark pushing button on the up toolbar</string>
+	<key>action_coverFlow</key>
+	<string>There you can see all the dresses of selected type. In the up
+        toolbar you can select the dresses catalogue by: hot, cold, both hot
+        and cold and all.Otherwise you can order they by data or preference.
+        If you push the button + you can add new dress into your wardrobe.</string>
+	<key>action_lookTable_no</key>
+	<string>In this table you can see your look which are catalogue by:
+        sporting, casual, elegant. You can also filter they by temperature</string>
+	<key>action_lookView</key>
+	<string>Create a look add the dresses present in wardrobe. Otherwise you can
+        shake your phone. If you do a double tap on a dress, this will go
+        zoom.
+        If you push the tag button or drag up the look,
+        you can see/modify its properties</string>
+	<key>action_preferiti_no</key>
+	<string>If you want add a dress or look in bookmark, you can select the
+        bookmark icon in the up toolbar of the dress or look form</string>
 </dict>
 </plist>

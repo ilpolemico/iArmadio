@@ -28,7 +28,6 @@ int curr_temp;
     dao = [IarmadioDao shared];
     currLocation = @"";
     [currLocation retain];
-    NSLog(@"retain count:%d",[currLocation retainCount]);
     curr_temp = 999;
     oldTemperatura = 999;
     locationManager = [[CLLocationManager alloc] init];

@@ -1066,7 +1066,9 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "(*) *.nib *.lproj *.framework *.gch *.xcode* .DS_Store CVS .svn .git .hg";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1094,6 +1096,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "(*) *.nib *.lproj *.framework *.gch *.xcode* .DS_Store CVS .svn .git .hg";
@@ -1121,6 +1124,7 @@
 					armv6,
 				);
 				CODE_SIGN_IDENTITY = "iPhone Developer: Luca Fortunato (45SRM5RB6Z)";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: Luca Fortunato (45SRM5RB6Z)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Luca Fortunato (45SRM5RB6Z)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iArmadio/iArmadio-Prefix.pch";
@@ -1140,8 +1144,9 @@
 				OTHER_LDFLAGS = "";
 				"OTHER_LDFLAGS[arch=*]" = "";
 				PRODUCT_NAME = ShakeUStyle;
-				PROVISIONING_PROFILE = "E56B5DE3-F08D-4CC3-8ED3-FD4F4896DD40";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E56B5DE3-F08D-4CC3-8ED3-FD4F4896DD40";
+				PROVISIONING_PROFILE = "273D3B8F-E72A-4C36-9FA6-1856F12F8344";
+				"PROVISIONING_PROFILE[sdk=*]" = "273D3B8F-E72A-4C36-9FA6-1856F12F8344";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "273D3B8F-E72A-4C36-9FA6-1856F12F8344";
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/**";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1155,7 +1160,7 @@
 					armv7,
 					armv6,
 				);
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Luca Fortunato (45SRM5RB6Z)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iArmadio/iArmadio-Prefix.pch";
@@ -1179,7 +1184,7 @@
 				OTHER_LDFLAGS = "";
 				"OTHER_LDFLAGS[arch=*]" = "";
 				PRODUCT_NAME = ShakeUStyle;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "273D3B8F-E72A-4C36-9FA6-1856F12F8344";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/**";
 				WRAPPER_EXTENSION = app;
@@ -1191,8 +1196,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Luca Fortunato";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Luca Fortunato";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "(*) *.nib *.lproj *.framework *.gch *.xcode* .DS_Store CVS .svn .git .hg";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1204,8 +1209,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = WhatDoWear;
-				PROVISIONING_PROFILE = "7827D732-76FC-4DA1-8B7C-94654EBA30A4";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7827D732-76FC-4DA1-8B7C-94654EBA30A4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
@@ -1220,6 +1224,7 @@
 					armv7,
 					armv6,
 				);
+				CODE_SIGN_IDENTITY = "iPhone Developer: Luca Fortunato (45SRM5RB6Z)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iArmadio/iArmadio-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1242,6 +1247,7 @@
 				OTHER_LDFLAGS = "";
 				"OTHER_LDFLAGS[arch=*]" = "";
 				PRODUCT_NAME = ShakeUStyle;
+				PROVISIONING_PROFILE = "273D3B8F-E72A-4C36-9FA6-1856F12F8344";
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/**";
 				WRAPPER_EXTENSION = app;
 			};
