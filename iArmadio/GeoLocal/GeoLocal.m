@@ -173,11 +173,17 @@ int curr_temp;
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation 
 {
+    NSDate *currdate = [NSDate date];
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    [comps setHour:1];
+    NSCalendar *gregorian = [[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] autorelease];
+    [gregorian setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+    NSDate *date = [gregorian dateByAddingComponents:comps toDate:lastUpdate  options:0];
+    [comps release];
     
     if(
-       (newLocation.coordinate.latitude == oldLocation.coordinate.latitude)&&
-       (newLocation.coordinate.longitude == oldLocation.coordinate.longitude)&&
-       (![currLocation isEqualToString:@""])
+       (![currLocation isEqualToString:@""])&&
+       ([date compare:currdate] == NSOrderedDescending)
     ){
         return;
     }

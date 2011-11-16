@@ -34,7 +34,7 @@ static IarmadioDao *singleton;
     singleton = self;
     silenceNotification = NO;
     self.cacheImage = [[[NSMutableDictionary alloc] init] autorelease];
-    [self loadSmallImages];
+    //[self loadSmallImages];
     /*NSOperationQueue *queue = [NSOperationQueue new];
     NSInvocationOperation *operation = [[NSInvocationOperation alloc] 
                                         initWithTarget:self
@@ -53,7 +53,7 @@ static IarmadioDao *singleton;
     NSArray *vestiti = [self getVestitiEntities:nil filterStagioneKey:nil filterStiliKeys:nil filterGradimento:0];
     for(Vestito *vestito in vestiti){
         image = [self getThumbnailFromVestito:vestito];
-        [self.cacheImage setValue:[image scaleToFitSize:CGSizeMake(CLOTH_SMALL_SIZE_X,CLOTH_SMALL_SIZE_Y)] forKey:vestito.thumbnail];
+        [self.cacheImage setValue:[image scaleToFitSize:CGSizeMake(CLOTH_SMALL_SIZE_X,CLOTH_SMALL_SIZE_Y)] forKey:vestito.immagine];
         countCache++;
         //NSLog(@"%d",countCache);
         if(countCache > 250) break;
@@ -183,11 +183,11 @@ static IarmadioDao *singleton;
 
 - (UIImage *)getSmallImageFromVestito:(Vestito *)vestitoEntity{
     
-    UIImage *image = [self.cacheImage objectForKey:vestitoEntity.thumbnail]; 
+    UIImage *image = [self.cacheImage objectForKey:vestitoEntity.immagine]; 
     if(image == nil){
         NSString *filename = [self filePathDocuments:vestitoEntity.thumbnail];
         image = [[UIImage imageWithContentsOfFile:filename] scaleToFitSize:CGSizeMake(CLOTH_SMALL_SIZE_X,CLOTH_SMALL_SIZE_Y)];
-        [self.cacheImage setValue:image forKey:vestitoEntity.thumbnail]; 
+        [self.cacheImage setValue:image forKey:vestitoEntity.immagine]; 
     }
     return image;
 
@@ -390,8 +390,8 @@ static IarmadioDao *singleton;
         
         NSData *thumbnailData = UIImagePNGRepresentation([image thumbnail]);
         [thumbnailData writeToFile:[self filePathDocuments:vestito.thumbnail] atomically:YES];
-        
-        [self.cacheImage setValue:[[image thumbnail] scaleToFitSize:CGSizeMake(CLOTH_SMALL_SIZE_X,CLOTH_SMALL_SIZE_Y)] forKey:vestito.thumbnail];
+        [self.cacheImage removeObjectForKey:vestito.immagine];
+        [self.cacheImage setValue:[[image thumbnail] scaleToFitSize:CGSizeMake(CLOTH_SMALL_SIZE_X,CLOTH_SMALL_SIZE_Y)] forKey:vestito.immagine];
     
     }
     
@@ -477,7 +477,7 @@ static IarmadioDao *singleton;
             removeItemAtPath:[self filePathDocuments:vestitoEntity.immagine]
             error:nil
         ];
-        [self.cacheImage  removeObjectForKey:[self filePathDocuments:vestitoEntity.immagine]];
+        [self.cacheImage removeObjectForKey:vestitoEntity.immagine];
     }
     
     if((vestitoEntity.thumbnail != nil)&&([vestitoEntity.thumbnail length] > 0)){ 
@@ -485,7 +485,6 @@ static IarmadioDao *singleton;
          removeItemAtPath:[self filePathDocuments:vestitoEntity.thumbnail]
          error:nil
          ];
-        [self.cacheImage  removeObjectForKey:[self filePathDocuments:vestitoEntity.thumbnail]];
     }
     
     [self.managedObjectContext deleteObject:vestitoEntity];
