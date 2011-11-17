@@ -1138,11 +1138,15 @@ static IarmadioDao *singleton;
            ([[[self.config objectForKey:@"Settings"] objectForKey:@"shake"] boolValue])
            ) 
         {
-            if([[[self.config objectForKey:@"Settings"] objectForKey:@"caldo"] boolValue]){
+            int indexStagione = [[[self.config objectForKey:@"Settings"] objectForKey:@"clima"] intValue];  	
+            if(indexStagione == 0){
                 currStagioneKey = @"calda";
             }
-            else{
+            else if(indexStagione == 1){
                 currStagioneKey = @"fredda";
+            }
+            else{
+            	currStagioneKey = @"calda-fredda";
             }
         } 
         else{
