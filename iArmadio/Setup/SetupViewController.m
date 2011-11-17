@@ -40,7 +40,6 @@
     if(!shake.isOn){
         gps.on = NO;
         [gps setEnabled:NO];
-        clima.on = NO;
         [clima setEnabled:NO];
         [options setValue:[NSNumber numberWithBool:gps.isOn] forKey:@"gps"];
         [[GeoLocal shared] disableGPS];
@@ -48,11 +47,10 @@
     else{
         gps.on = [[options objectForKey:@"gps"] boolValue];
         if(gps.on){
-            clima.on = NO;
             [clima setEnabled:NO];
         }
     };
-    clima.on = [[options objectForKey:@"caldo"] boolValue];
+    clima.selectedIndex = [[options objectForKey:@"customStagione"] intValue];
     tutorial.on = [[options objectForKey:@"tutorial"] boolValue];
 }
 
@@ -126,16 +124,15 @@
     }
 }
 
--(IBAction)isCaldo:(id)sender{
+-(IBAction)setStagione:(id)sender{
     NSMutableDictionary *settings = [dao.config copy];
     NSMutableDictionary *options = [settings objectForKey:@"Settings"];
     
-    [options setValue:[NSNumber numberWithBool:((UISwitch *)sender).isOn] forKey:@"caldo"];
+    [options setValue:[NSNumber numberWithInt:[((UISegmentControl *)sender).selectedIndex+1]] forKey:@"customStagione"];
     dao.config = settings;
     [dao setCurrStagioneKeyFromTemp:999];
     [settings release];
-    
-    
+       
 }
 
 
@@ -149,10 +146,7 @@
     if(!((UISwitch *)sender).isOn){
         gps.on = NO;
         [gps setEnabled:NO];
-        clima.on = NO;
         [clima setEnabled:NO];
-        
-        [options setValue:[NSNumber numberWithBool:((UISwitch *)sender).isOn] forKey:@"clima"];
         [options setValue:[NSNumber numberWithBool:((UISwitch *)sender).isOn] forKey:@"gps"];
         [[GeoLocal shared] disableGPS];
     }
@@ -160,7 +154,6 @@
         gps.on = YES;
         [gps setEnabled:YES];
         [clima setEnabled:NO];
-        [options setValue:[NSNumber numberWithBool:((UISwitch *)sender).isOn] forKey:@"clima"];
         [options setValue:[NSNumber numberWithBool:((UISwitch *)sender).isOn] forKey:@"gps"];
         [[GeoLocal shared] enableGPS];
     }
@@ -197,6 +190,7 @@
         gps.on = YES;
         gps.enabled = YES;
         tutorial.on = YES;
+        clima.enabled = NO;
         [[GeoLocal shared] enableGPS];
         [self viewDidAppear:NO];
     }
@@ -209,6 +203,7 @@
     [viewImpostazioni release];
     [gps release];
     [shake release];
+    [clima release];
     [labelShake release];
     [labelGPS release];
     [super dealloc];
