@@ -437,7 +437,7 @@
     }   
     
     if (buttonIndex == 0) {
-#if !(TARGET_IPHONE_SIMULATOR)
+#if !((TARGET_IPHONE_SIMULATOR))
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
 #else
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;

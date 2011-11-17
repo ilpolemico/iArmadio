@@ -31,7 +31,7 @@
     UIScrollView *openView;
     UIScrollView *openViewLeft;
     int lastTranslation;
-    UILabel *blinkLabel;
+    UIImageView *blinkLabel;
     NSTimer *timerblink;
 }
 

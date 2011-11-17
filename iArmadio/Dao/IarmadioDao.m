@@ -1138,7 +1138,7 @@ static IarmadioDao *singleton;
            ([[[self.config objectForKey:@"Settings"] objectForKey:@"shake"] boolValue])
            ) 
         {
-            int indexStagione = [[[self.config objectForKey:@"Settings"] objectForKey:@"clima"] intValue];  	
+            int indexStagione = [[[self.config objectForKey:@"Settings"] objectForKey:@"customStagione"] intValue];  	
             if(indexStagione == 0){
                 currStagioneKey = @"calda";
             }
@@ -1157,7 +1157,7 @@ static IarmadioDao *singleton;
      
     
         
-    //NSLog(@"CurrStagione:%@ %d",currStagioneKey,temperatura);
+    NSLog(@"CurrStagione:%@ %d",currStagioneKey,temperatura);
     
 }
 

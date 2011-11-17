@@ -9,7 +9,7 @@
 		<key>id</key>
 		<integer>0</integer>
 		<key>temp_min</key>
-		<integer>16</integer>
+		<integer>14</integer>
 		<key>temp_max</key>
 		<integer>999</integer>
 		<key>date_from</key>
@@ -26,7 +26,7 @@
 		<key>temp_min</key>
 		<integer>-999</integer>
 		<key>temp_max</key>
-		<integer>15</integer>
+		<integer>18</integer>
 		<key>date_from</key>
 		<string>01-01</string>
 		<key>date_from_2</key>

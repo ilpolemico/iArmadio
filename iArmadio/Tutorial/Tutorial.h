@@ -22,8 +22,10 @@ static NSString * const TUTORIAL_PLIST = @"Tutorial";
 @interface Tutorial : NSObject{
     NSMutableDictionary *tutorial;
     IarmadioDao *dao;
+    BOOL enable;
 }
 
+@property (assign, nonatomic) BOOL enable;
 
 +(Tutorial *)shared;
 - (void) actionInfo:(NSString *)action;

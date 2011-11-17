@@ -116,9 +116,9 @@
 		A3D70742144CBF7600469E06 /* CreditsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3D70744144CBF7600469E06 /* CreditsViewController.xib */; };
 		A3D81FD71449058D0028DD9F /* TabBarNipple.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D81FD51449058D0028DD9F /* TabBarNipple.png */; };
 		A3D81FD81449058D0028DD9F /* TabBarNipple@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D81FD61449058D0028DD9F /* TabBarNipple@2x.png */; };
+		A3DFACBC14754AC90088E805 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A66D681444DB3D0098F97C /* Default.png */; };
+		A3DFACBD14754AD60088E805 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3A66D6B1444DB3D0098F97C /* Default@2x.png */; };
 		A3E44055145B81DC00021751 /* UIImage+Effect.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E44054145B81DC00021751 /* UIImage+Effect.m */; };
-		A3E44058145B85D500021751 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E44057145B85D500021751 /* Default.png */; };
-		A3E4405A145B85E000021751 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E44059145B85DF00021751 /* Default@2x.png */; };
 		A3E846BE14562B4800426764 /* vestito.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E846BA14562B4800426764 /* vestito.png */; };
 		A3E846C114562B4800426764 /* maglietta.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E846BD14562B4800426764 /* maglietta.png */; };
 		A3E9CBF6145F421200F18342 /* anta_sx.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E9CBF4145F421200F18342 /* anta_sx.png */; };
@@ -304,8 +304,6 @@
 		A3D81FD61449058D0028DD9F /* TabBarNipple@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabBarNipple@2x.png"; sourceTree = "<group>"; };
 		A3E44053145B81DC00021751 /* UIImage+Effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Effect.h"; sourceTree = "<group>"; };
 		A3E44054145B81DC00021751 /* UIImage+Effect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Effect.m"; sourceTree = "<group>"; };
-		A3E44057145B85D500021751 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		A3E44059145B85DF00021751 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A3E846BA14562B4800426764 /* vestito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vestito.png; sourceTree = "<group>"; };
 		A3E846BD14562B4800426764 /* maglietta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maglietta.png; sourceTree = "<group>"; };
 		A3E9CBF4145F421200F18342 /* anta_sx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = anta_sx.png; sourceTree = "<group>"; };
@@ -365,8 +363,6 @@
 		9CD1ACA01412840500441AB7 = {
 			isa = PBXGroup;
 			children = (
-				A3E44059145B85DF00021751 /* Default@2x.png */,
-				A3E44057145B85D500021751 /* Default.png */,
 				A30A32D814308E3100D44356 /* iArmadio */,
 				9CD1ACAE1412840600441AB7 /* Frameworks */,
 				9CD1ACAC1412840600441AB7 /* Products */,
@@ -888,8 +884,6 @@
 				A3CFBA1C145AF67C002C060A /* caldo_freddo_20x20.png in Resources */,
 				A3CFBA1D145AF67C002C060A /* caldo_freddo.png in Resources */,
 				A3CFBA1F145AF9FD002C060A /* sfondo_new.png in Resources */,
-				A3E44058145B85D500021751 /* Default.png in Resources */,
-				A3E4405A145B85E000021751 /* Default@2x.png in Resources */,
 				A3A5E262145D837500D4E362 /* borsa.png in Resources */,
 				A3A5E263145D837500D4E362 /* giacca.png in Resources */,
 				A3A5E264145D837500D4E362 /* camicia.png in Resources */,
@@ -914,6 +908,8 @@
 				A3CA7296146D255900D9E4BE /* cravatta_sciarpa.png in Resources */,
 				A3CA7297146D255900D9E4BE /* gonna_pantalone.png in Resources */,
 				A3CA729C146D3F8600D9E4BE /* left_arrow.png in Resources */,
+				A3DFACBC14754AC90088E805 /* Default.png in Resources */,
+				A3DFACBD14754AD60088E805 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@
 
 @implementation SetupViewController
 
-@synthesize navcontroler, viewImpostazioni, labelGPS, labelShake, tutorial, gps, shake, clima;
+@synthesize navcontroler, viewImpostazioni, labelGPS, labelShake, tutorial, gps, shake, clima, selectClima;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,33 +33,55 @@
 
 
 - (void) viewWillAppear:(BOOL)animated{
-    
+   
     NSMutableDictionary *options = [dao.config objectForKey:@"Settings"];
     shake.on = [[options objectForKey:@"shake"] boolValue];
     [Shake2Style shared].enableShake = shake.on;
     if(!shake.isOn){
         gps.on = NO;
         [gps setEnabled:NO];
-        [clima setEnabled:NO];
+        self.clima.enabled = NO;
+        self.selectClima.alpha = 0.2;
+        [self.clima setEnabled:NO forSegmentAtIndex:0];
+        [self.clima setEnabled:NO forSegmentAtIndex:1];
+        [self.clima setEnabled:NO forSegmentAtIndex:2];
         [options setValue:[NSNumber numberWithBool:gps.isOn] forKey:@"gps"];
         [[GeoLocal shared] disableGPS];
     }
     else{
         gps.on = [[options objectForKey:@"gps"] boolValue];
         if(gps.on){
-            [clima setEnabled:NO];
+            self.clima.enabled = NO;
+            self.selectClima.alpha = 0.2;
+            [self.clima setEnabled:NO forSegmentAtIndex:0];
+            [self.clima setEnabled:NO forSegmentAtIndex:1];
+            [self.clima setEnabled:NO forSegmentAtIndex:2];
+        }
+        else{
+            self.clima.enabled = YES;
+            self.selectClima.alpha = 1;
+            [self.clima setEnabled:YES forSegmentAtIndex:0];
+            [self.clima setEnabled:YES forSegmentAtIndex:1];
+            [self.clima setEnabled:YES forSegmentAtIndex:2];
         }
     };
-    clima.selectedSegmentIndex = [[options objectForKey:@"customStagione"] intValue];
+    self.clima.selectedSegmentIndex = [[options objectForKey:@"customStagione"] intValue];
     tutorial.on = [[options objectForKey:@"tutorial"] boolValue];
+    
+    
+    
+    
+    
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    dao = [IarmadioDao shared]; 
     
+    [super viewDidLoad];
+    
+    dao = [IarmadioDao shared]; 
     [self.view addSubview:navcontroler.view];
+    
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 30)];
     label.text = NSLocalizedString(@"Impostazioni", nil);
@@ -73,8 +95,10 @@
     
     self.navcontroler.navigationBar.topItem.rightBarButtonItem.title = NSLocalizedString(@"Credits",nil);
     
+    
     //self.labelGPS.text = NSLocalizedString(self.labelGPS.text, nil);
     //self.labelShake.text = NSLocalizedString(self.labelShake.text, nil);
+     
     
      
 }
@@ -114,12 +138,22 @@
     
     if(((UISwitch *)sender).isOn){
         [[GeoLocal shared] enableGPS];
-        [clima setEnabled:NO];
+        self.clima.enabled = NO;
+        self.selectClima.alpha = 0.2;
+        [self.clima setEnabled:NO forSegmentAtIndex:0];
+        [self.clima setEnabled:NO forSegmentAtIndex:1];
+        [self.clima setEnabled:NO forSegmentAtIndex:2];
         
     }
     else{
         [[GeoLocal shared] disableGPS];
-        [clima setEnabled:YES];
+        [self.clima setEnabled:YES];
+        self.selectClima.alpha = 1;
+        self.clima.selectedSegmentIndex = [[options objectForKey:@"customStagione"] intValue];
+        [self.clima setEnabled:YES forSegmentAtIndex:0];
+        [self.clima setEnabled:YES forSegmentAtIndex:1];
+        [self.clima setEnabled:YES forSegmentAtIndex:2];
+
         [dao setCurrStagioneKeyFromTemp:999];
     }
 }
@@ -147,14 +181,22 @@
     if(!((UISwitch *)sender).isOn){
         gps.on = NO;
         [gps setEnabled:NO];
-        [clima setEnabled:NO];
+        self.clima.enabled = NO;
+        self.selectClima.alpha = 0.2;
+        [self.clima setEnabled:NO forSegmentAtIndex:0];
+        [self.clima setEnabled:NO forSegmentAtIndex:1];
+        [self.clima setEnabled:NO forSegmentAtIndex:2];
         [options setValue:[NSNumber numberWithBool:((UISwitch *)sender).isOn] forKey:@"gps"];
         [[GeoLocal shared] disableGPS];
     }
     else{
         gps.on = YES;
         [gps setEnabled:YES];
-        [clima setEnabled:NO];
+        self.clima.enabled = NO;
+        self.selectClima.alpha = 0.2;
+        [self.clima setEnabled:NO forSegmentAtIndex:0];
+        [self.clima setEnabled:NO forSegmentAtIndex:1];
+        [self.clima setEnabled:NO forSegmentAtIndex:2];
         [options setValue:[NSNumber numberWithBool:((UISwitch *)sender).isOn] forKey:@"gps"];
         [[GeoLocal shared] enableGPS];
     }
@@ -191,7 +233,11 @@
         gps.on = YES;
         gps.enabled = YES;
         tutorial.on = YES;
-        clima.enabled = NO;
+        self.clima.enabled = NO;
+        self.selectClima.alpha = 0.2;
+        [self.clima setEnabled:NO forSegmentAtIndex:0];
+        [self.clima setEnabled:NO forSegmentAtIndex:1];
+        [self.clima setEnabled:NO forSegmentAtIndex:2];
         [[GeoLocal shared] enableGPS];
         [self viewDidAppear:NO];
     }
@@ -205,6 +251,7 @@
     [gps release];
     [shake release];
     [clima release];
+    [selectClima release];
     [labelShake release];
     [labelGPS release];
     [super dealloc];

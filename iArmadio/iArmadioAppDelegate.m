@@ -59,8 +59,8 @@
         count++;
     }    
     self.tabBarController.selectedIndex = 0;
-     
     
+    tutorial.enable = NO;
     CoverViewController *coverviewcontroller = [[CoverViewController alloc] initWithNibName:@"CoverViewController" bundle:nil];
     [self.window addSubview:coverviewcontroller.view];
     [coverviewcontroller.view removeFromSuperview];
@@ -77,6 +77,7 @@
     [self.window addSubview:addviewcontroller.view];
     [addviewcontroller.view removeFromSuperview];
     //[addviewcontroller release];
+    tutorial.enable = YES;
     
     [CurrState shared].currSection = ENABLE_SHAKE;
 
@@ -131,8 +132,8 @@
         openimageleft.frame = CGRectMake(0, 0, 160,480);
         [openViewLeft addSubview:openimageleft];
         
-        blinkLabel = [[UILabel alloc] initWithFrame:CGRectMake(190, 252, 32, 32)];
-        blinkLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"left_arrow.png"]];
+        blinkLabel = [[UIImageView alloc] initWithFrame:CGRectMake(190, 252, 32, 32)];   
+        blinkLabel.image = [dao getImageBundleFromFile:@"left_arrow.png"];
         
         [self.window addSubview:openViewLeft];
         [self.window addSubview:openView];

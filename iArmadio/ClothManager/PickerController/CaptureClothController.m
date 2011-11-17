@@ -73,11 +73,13 @@
     
     
     if (buttonIndex == 0) {
-#if !(TARGET_IPHONE_SIMULATOR)
-        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-#else
-        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-#endif
+
+        if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        }    
+        else{
+            picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        }    
 
         [((iArmadioAppDelegate *)[[UIApplication sharedApplication] delegate]).tabBarController presentModalViewController:picker animated:YES];
         [picker release];

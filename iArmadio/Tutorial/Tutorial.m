@@ -11,11 +11,13 @@
 static Tutorial *singleton;
 
 @implementation Tutorial
+@synthesize enable;
 
 + (Tutorial *)shared{
     if(singleton == nil){
         singleton = [[Tutorial alloc] init];
         [singleton loadTutorialDictionary];
+        singleton.enable = YES;
     }
     return singleton;
 }
@@ -31,7 +33,7 @@ static Tutorial *singleton;
     NSMutableDictionary *config_tutorial = [config objectForKey:@"Tutorial"];
     BOOL tutorialEnable = [[options objectForKey:@"tutorial"] boolValue];
     
-    if(tutorialEnable){
+    if((tutorialEnable)&&(self.enable)){
         NSString *info = [tutorial objectForKey:action];
         if((info != nil)&&([config_tutorial objectForKey:action] == nil)){
             [self showInfo:info];

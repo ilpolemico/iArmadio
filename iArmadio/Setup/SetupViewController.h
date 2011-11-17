@@ -23,6 +23,7 @@
     IBOutlet UISwitch *shake;
     IBOutlet UISwitch *tutorial;
     IBOutlet UISegmentedControl *clima;
+    IBOutlet UILabel *selectClima;
 }
 
 @property (retain,nonatomic) IBOutlet UINavigationController *navcontroler;
@@ -33,6 +34,7 @@
 @property (retain,nonatomic) IBOutlet UISwitch *shake;
 @property (retain,nonatomic) IBOutlet UISwitch *tutorial;
 @property (retain,nonatomic) IBOutlet UISegmentedControl *clima;
+@property (retain,nonatomic) IBOutlet UILabel *selectClima;
 
 -(IBAction)credits:(id)sender;
 -(IBAction)enableGPS:(id)sender;
