@@ -127,7 +127,7 @@
 -(IBAction)setStagione:(id)sender{
     NSMutableDictionary *settings = [dao.config copy];
     NSMutableDictionary *options = [settings objectForKey:@"Settings"];
-    int index = ((UISegmentedControl *)sender).selectedSegmentIndex+1;
+    int index = ((UISegmentedControl *)sender).selectedSegmentIndex;
     
     [options setValue:[NSNumber numberWithInt:index] forKey:@"customStagione"];
     dao.config = settings;
