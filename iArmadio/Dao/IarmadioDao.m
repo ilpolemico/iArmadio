@@ -1119,7 +1119,12 @@ static IarmadioDao *singleton;
         NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error]; 
         if([results count] > 0){
             if(!currStagioneKey){ [currStagioneKey release];} 
-            currStagioneKey = ((Stagione *)[results objectAtIndex:0]).stagione;
+            if([results count] > 1){
+            	currStagioneKey = @"calda-fredda";
+            }
+            else{
+            	currStagioneKey = ((Stagione *)[results objectAtIndex:0]).stagione;
+            }	
             [currStagioneKey retain];
         }
         else{
