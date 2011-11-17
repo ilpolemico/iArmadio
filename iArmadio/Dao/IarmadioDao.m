@@ -1119,7 +1119,12 @@ static IarmadioDao *singleton;
         NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error]; 
         if([results count] > 0){
             if(!currStagioneKey){ [currStagioneKey release];} 
-            currStagioneKey = ((Stagione *)[results objectAtIndex:0]).stagione;
+            if([results count] > 1){
+            	currStagioneKey = @"calda-fredda";
+            }
+            else{
+            	currStagioneKey = ((Stagione *)[results objectAtIndex:0]).stagione;
+            }	
             [currStagioneKey retain];
         }
         else{
@@ -1133,11 +1138,15 @@ static IarmadioDao *singleton;
            ([[[self.config objectForKey:@"Settings"] objectForKey:@"shake"] boolValue])
            ) 
         {
-            if([[[self.config objectForKey:@"Settings"] objectForKey:@"caldo"] boolValue]){
+            int indexStagione = [[[self.config objectForKey:@"Settings"] objectForKey:@"clima"] intValue];  	
+            if(indexStagione == 0){
                 currStagioneKey = @"calda";
             }
-            else{
+            else if(indexStagione == 1){
                 currStagioneKey = @"fredda";
+            }
+            else{
+            	currStagioneKey = @"calda-fredda";
             }
         } 
         else{
