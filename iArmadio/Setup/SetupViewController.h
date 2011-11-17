@@ -38,7 +38,7 @@
 -(IBAction)enableGPS:(id)sender;
 -(IBAction)enableShake:(id)sender;
 -(IBAction)enableTutorial:(id)sender;
--(IBAction) ;
+-(IBAction)setStagione:(id)sender
 -(IBAction)reset:(id)sender;
 
 @end
