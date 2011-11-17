@@ -43,9 +43,9 @@
 		<key>id</key>
 		<integer>2</integer>
 		<key>temp_min</key>
-		<integer>999</integer>
+		<integer>-999</integer>
 		<key>temp_max</key>
-		<integer>999</integer>
+		<integer>-999</integer>
 		<key>date_from</key>
 		<string>1-1</string>
 		<key>date_to</key>
