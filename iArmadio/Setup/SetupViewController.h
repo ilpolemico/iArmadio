@@ -22,7 +22,7 @@
     IBOutlet UISwitch *gps;
     IBOutlet UISwitch *shake;
     IBOutlet UISwitch *tutorial;
-    IBOutlet UISegmentControl *clima;
+    IBOutlet UISegmentedControl *clima;
 }
 
 @property (retain,nonatomic) IBOutlet UINavigationController *navcontroler;
@@ -32,13 +32,13 @@
 @property (retain,nonatomic) IBOutlet UISwitch *gps;
 @property (retain,nonatomic) IBOutlet UISwitch *shake;
 @property (retain,nonatomic) IBOutlet UISwitch *tutorial;
-@property (retain,nonatomic) IBOutlet UISegmentControl *clima;
+@property (retain,nonatomic) IBOutlet UISegmentedControl *clima;
 
 -(IBAction)credits:(id)sender;
 -(IBAction)enableGPS:(id)sender;
 -(IBAction)enableShake:(id)sender;
 -(IBAction)enableTutorial:(id)sender;
--(IBAction)setStagione:(id)sender
+-(IBAction)setStagione:(id)sender;
 -(IBAction)reset:(id)sender;
 
 @end

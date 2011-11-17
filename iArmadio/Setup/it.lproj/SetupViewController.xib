@@ -12,17 +12,18 @@
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<string>IBProxyObject</string>
-			<string>IBUINavigationController</string>
-			<string>IBUILabel</string>
-			<string>IBUIViewController</string>
-			<string>IBUISwitch</string>
 			<string>IBUIBarButtonItem</string>
-			<string>IBUIImageView</string>
-			<string>IBUINavigationBar</string>
-			<string>IBUINavigationItem</string>
 			<string>IBUITextView</string>
+			<string>IBUISegmentedControl</string>
+			<string>IBUISwitch</string>
+			<string>IBUILabel</string>
+			<string>IBUINavigationBar</string>
+			<string>IBProxyObject</string>
+			<string>IBUINavigationItem</string>
 			<string>IBUIView</string>
+			<string>IBUINavigationController</string>
+			<string>IBUIViewController</string>
+			<string>IBUIImageView</string>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -43,9 +44,12 @@
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 			</object>
 			<object class="IBUIView" id="77052978">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<string key="NSFrameSize">{320, 460}</string>
+				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
+				<reference key="NSNextKeyView"/>
 				<string key="NSReuseIdentifierKey">_NS:180</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -171,17 +175,17 @@
 								<object class="IBUILabel" id="850922463">
 									<reference key="NSNextResponder" ref="191373211"/>
 									<int key="NSvFlags">292</int>
-									<string key="NSFrame">{{78, 201}, {109, 21}}</string>
+									<string key="NSFrame">{{85, 201}, {151, 21}}</string>
 									<reference key="NSSuperview" ref="191373211"/>
 									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView" ref="330131885"/>
+									<reference key="NSNextKeyView" ref="221616917"/>
 									<string key="NSReuseIdentifierKey">_NS:311</string>
 									<bool key="IBUIOpaque">NO</bool>
 									<bool key="IBUIClipsSubviews">YES</bool>
 									<int key="IBUIContentMode">7</int>
 									<bool key="IBUIUserInteractionEnabled">NO</bool>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-									<string key="IBUIText">Ora è caldo?</string>
+									<string key="IBUIText">Seleziona il clima corrente</string>
 									<reference key="IBUITextColor" ref="636070032"/>
 									<nil key="IBUIHighlightedColor"/>
 									<int key="IBUIBaselineAdjustment">1</int>
@@ -197,20 +201,6 @@
 										<double key="NSSize">12</double>
 										<int key="NSfFlags">16</int>
 									</object>
-								</object>
-								<object class="IBUISwitch" id="330131885">
-									<reference key="NSNextResponder" ref="191373211"/>
-									<int key="NSvFlags">292</int>
-									<string key="NSFrame">{{153, 198}, {94, 27}}</string>
-									<reference key="NSSuperview" ref="191373211"/>
-									<reference key="NSWindow"/>
-									<reference key="NSNextKeyView" ref="354951957"/>
-									<string key="NSReuseIdentifierKey">_NS:590</string>
-									<bool key="IBUIOpaque">NO</bool>
-									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-									<int key="IBUIContentHorizontalAlignment">0</int>
-									<int key="IBUIContentVerticalAlignment">0</int>
-									<bool key="IBUIOn">YES</bool>
 								</object>
 								<object class="IBUISwitch" id="323805386">
 									<reference key="NSNextResponder" ref="191373211"/>
@@ -306,7 +296,7 @@ ZGF0dGkgYWwgY2xpbWEuA</string>
 								<object class="IBUITextView" id="354951957">
 									<reference key="NSNextResponder" ref="191373211"/>
 									<int key="NSvFlags">292</int>
-									<string key="NSFrame">{{69, 230}, {182, 77}}</string>
+									<string key="NSFrame">{{69, 267}, {182, 57}}</string>
 									<reference key="NSSuperview" ref="191373211"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="167273885"/>
@@ -350,6 +340,7 @@ ZGF0dGkgYWwgY2xpbWEuA</string>
 									<string key="NSFrame">{{108, 367}, {105, 21}}</string>
 									<reference key="NSSuperview" ref="191373211"/>
 									<reference key="NSWindow"/>
+									<reference key="NSNextKeyView"/>
 									<string key="NSReuseIdentifierKey">_NS:328</string>
 									<bool key="IBUIOpaque">NO</bool>
 									<bool key="IBUIClipsSubviews">YES</bool>
@@ -372,6 +363,50 @@ ZGF0dGkgYWwgY2xpbWEuA</string>
 										<string key="NSName">STHeitiTC-Light</string>
 										<double key="NSSize">12</double>
 										<int key="NSfFlags">16</int>
+									</object>
+								</object>
+								<object class="IBUISegmentedControl" id="221616917">
+									<reference key="NSNextResponder" ref="191373211"/>
+									<int key="NSvFlags">292</int>
+									<string key="NSFrame">{{76, 230}, {168, 30}}</string>
+									<reference key="NSSuperview" ref="191373211"/>
+									<reference key="NSWindow"/>
+									<reference key="NSNextKeyView" ref="354951957"/>
+									<string key="NSReuseIdentifierKey">_NS:273</string>
+									<bool key="IBUIOpaque">NO</bool>
+									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+									<int key="IBSegmentControlStyle">2</int>
+									<int key="IBNumberOfSegments">3</int>
+									<int key="IBSelectedSegmentIndex">0</int>
+									<object class="NSArray" key="IBSegmentTitles">
+										<bool key="EncodedWithXMLCoder">YES</bool>
+										<string>Caldo</string>
+										<string>Freddo</string>
+										<string>Tiepido</string>
+									</object>
+									<object class="NSMutableArray" key="IBSegmentWidths">
+										<bool key="EncodedWithXMLCoder">YES</bool>
+										<real value="0.0"/>
+										<real value="0.0"/>
+										<real value="0.0"/>
+									</object>
+									<object class="NSMutableArray" key="IBSegmentEnabledStates">
+										<bool key="EncodedWithXMLCoder">YES</bool>
+										<boolean value="YES"/>
+										<boolean value="YES"/>
+										<boolean value="YES"/>
+									</object>
+									<object class="NSMutableArray" key="IBSegmentContentOffsets">
+										<bool key="EncodedWithXMLCoder">YES</bool>
+										<string>{0, 0}</string>
+										<string>{0, 0}</string>
+										<string>{0, 0}</string>
+									</object>
+									<object class="NSMutableArray" key="IBSegmentImages">
+										<bool key="EncodedWithXMLCoder">YES</bool>
+										<object class="NSNull" id="4"/>
+										<reference ref="4"/>
+										<reference ref="4"/>
 									</object>
 								</object>
 							</object>
@@ -485,9 +520,9 @@ ZGF0dGkgYWwgY2xpbWEuA</string>
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">clima</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="330131885"/>
+						<reference key="destination" ref="221616917"/>
 					</object>
-					<int key="connectionID">63</int>
+					<int key="connectionID">65</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -542,12 +577,12 @@ ZGF0dGkgYWwgY2xpbWEuA</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">isCaldo:</string>
-						<reference key="source" ref="330131885"/>
+						<string key="label">setStagione:</string>
+						<reference key="source" ref="221616917"/>
 						<reference key="destination" ref="372490531"/>
 						<int key="IBEventType">13</int>
 					</object>
-					<int key="connectionID">62</int>
+					<int key="connectionID">66</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -617,8 +652,8 @@ ZGF0dGkgYWwgY2xpbWEuA</string>
 							<reference ref="323805386"/>
 							<reference ref="794647108"/>
 							<reference ref="850922463"/>
-							<reference ref="330131885"/>
 							<reference ref="651242876"/>
+							<reference ref="221616917"/>
 						</object>
 						<reference key="parent" ref="235583008"/>
 					</object>
@@ -698,8 +733,8 @@ ZGF0dGkgYWwgY2xpbWEuA</string>
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">60</int>
-						<reference key="object" ref="330131885"/>
+						<int key="objectID">64</int>
+						<reference key="object" ref="221616917"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
 				</object>
@@ -730,7 +765,7 @@ ZGF0dGkgYWwgY2xpbWEuA</string>
 					<string>56.IBPluginDependency</string>
 					<string>58.IBPluginDependency</string>
 					<string>59.IBPluginDependency</string>
-					<string>60.IBPluginDependency</string>
+					<string>64.IBPluginDependency</string>
 					<string>9.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
@@ -773,7 +808,7 @@ ZGF0dGkgYWwgY2xpbWEuA</string>
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">63</int>
+			<int key="maxID">66</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -790,9 +825,11 @@ ZGF0dGkgYWwgY2xpbWEuA</string>
 							<string>enableShake:</string>
 							<string>enableTutorial:</string>
 							<string>reset:</string>
+							<string>setStagione:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -809,6 +846,7 @@ ZGF0dGkgYWwgY2xpbWEuA</string>
 							<string>enableShake:</string>
 							<string>enableTutorial:</string>
 							<string>reset:</string>
+							<string>setStagione:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -832,6 +870,10 @@ ZGF0dGkgYWwgY2xpbWEuA</string>
 								<string key="name">reset:</string>
 								<string key="candidateClassName">id</string>
 							</object>
+							<object class="IBActionInfo">
+								<string key="name">setStagione:</string>
+								<string key="candidateClassName">id</string>
+							</object>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
@@ -849,7 +891,7 @@ ZGF0dGkgYWwgY2xpbWEuA</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>UISwitch</string>
+							<string>UISegmentedControl</string>
 							<string>UISwitch</string>
 							<string>UILabel</string>
 							<string>UILabel</string>
@@ -876,7 +918,7 @@ ZGF0dGkgYWwgY2xpbWEuA</string>
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
 								<string key="name">clima</string>
-								<string key="candidateClassName">UISwitch</string>
+								<string key="candidateClassName">UISegmentedControl</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">gps</string>

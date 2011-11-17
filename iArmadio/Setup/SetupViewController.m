@@ -50,7 +50,7 @@
             [clima setEnabled:NO];
         }
     };
-    clima.selectedIndex = [[options objectForKey:@"customStagione"] intValue];
+    clima.selectedSegmentIndex = [[options objectForKey:@"customStagione"] intValue];
     tutorial.on = [[options objectForKey:@"tutorial"] boolValue];
 }
 
@@ -127,8 +127,9 @@
 -(IBAction)setStagione:(id)sender{
     NSMutableDictionary *settings = [dao.config copy];
     NSMutableDictionary *options = [settings objectForKey:@"Settings"];
+    int index = ((UISegmentedControl *)sender).selectedSegmentIndex+1;
     
-    [options setValue:[NSNumber numberWithInt:[((UISegmentControl *)sender).selectedIndex+1]] forKey:@"customStagione"];
+    [options setValue:[NSNumber numberWithInt:index] forKey:@"customStagione"];
     dao.config = settings;
     [dao setCurrStagioneKeyFromTemp:999];
     [settings release];
