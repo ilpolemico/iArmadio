@@ -146,7 +146,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9CD1ACAB1412840600441AB7 /* ShakeUStyle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShakeUStyle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9CD1ACAB1412840600441AB7 /* ShakeUrStyle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShakeUrStyle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD1ACAF1412840600441AB7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9CD1ACB11412840600441AB7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9CD1ACB31412840600441AB7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -377,7 +377,7 @@
 		9CD1ACAC1412840600441AB7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9CD1ACAB1412840600441AB7 /* ShakeUStyle.app */,
+				9CD1ACAB1412840600441AB7 /* ShakeUrStyle.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -794,7 +794,7 @@
 			);
 			name = iArmadio;
 			productName = iArmadio;
-			productReference = 9CD1ACAB1412840600441AB7 /* ShakeUStyle.app */;
+			productReference = 9CD1ACAB1412840600441AB7 /* ShakeUrStyle.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1143,7 +1143,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				"OTHER_LDFLAGS[arch=*]" = "";
-				PRODUCT_NAME = ShakeUStyle;
+				PRODUCT_NAME = ShakeUrStyle;
 				PROVISIONING_PROFILE = "273D3B8F-E72A-4C36-9FA6-1856F12F8344";
 				"PROVISIONING_PROFILE[sdk=*]" = "273D3B8F-E72A-4C36-9FA6-1856F12F8344";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "273D3B8F-E72A-4C36-9FA6-1856F12F8344";
@@ -1183,7 +1183,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				"OTHER_LDFLAGS[arch=*]" = "";
-				PRODUCT_NAME = ShakeUStyle;
+				PRODUCT_NAME = ShakeUrStyle;
 				PROVISIONING_PROFILE = "273D3B8F-E72A-4C36-9FA6-1856F12F8344";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/**";
@@ -1224,7 +1224,7 @@
 					armv7,
 					armv6,
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: Luca Fortunato (45SRM5RB6Z)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iArmadio/iArmadio-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1246,8 +1246,8 @@
 				);
 				OTHER_LDFLAGS = "";
 				"OTHER_LDFLAGS[arch=*]" = "";
-				PRODUCT_NAME = ShakeUStyle;
-				PROVISIONING_PROFILE = "273D3B8F-E72A-4C36-9FA6-1856F12F8344";
+				PRODUCT_NAME = ShakeUrStyle;
+				PROVISIONING_PROFILE = "";
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/**";
 				WRAPPER_EXTENSION = app;
 			};
