@@ -46,7 +46,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrameSize">{337, 467}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="144895507"/>
 						<string key="NSReuseIdentifierKey">_NS:567</string>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -61,8 +60,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{77, 2}, {183, 29}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:311</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -95,7 +92,6 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{71, 25}, {189, 388}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="801406982"/>
 						<string key="NSReuseIdentifierKey">_NS:639</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
@@ -113,12 +109,13 @@
 						<bool key="IBUICanCancelContentTouches">NO</bool>
 						<bool key="IBUIBouncesZoom">NO</bool>
 						<bool key="IBUIEditable">NO</bool>
-						<string type="base64-UTF8" key="IBUIText">ICAgICAgICAgICAgIFJhZGljYWwgQml0CgpJZGVhdG8gZGE6CgkgIEx1Y2EgRm9ydHVuYXRvCiAgICB0
-d2l0dGVyLmNvbS9SYWRpY2FsQml0CgkKICAgICAgICAgQW5kcmVhIFF1YXJ0YQogICB3d3cuYW5kcmVh
-cXVhcnRhLml0CgpTdmlsdXBwYXRvIGRhOgoJTHVjYSBGb3J0dW5hdG8KCkdyYWZpY2E6CglHcmV0YSBH
-aGVkaW5pCgkKICAgICAgICBNYXJjbyBDb3JyYWRpbmkKICAgICAgd3d3Lm1hc2F5dW1lLml0CgpSaW5n
-cmF6aWFtZW50aSBzcGVjaWFsaTogCkdyZXRhIEdoZWRpbmkgZSBXaWxsaWFtIFBvbXBlaSBwZXIgaWwg
-c3VwcG9ydG8gbW9yYWxlIGUgdGVjbmljbw</string>
+						<string type="base64-UTF8" key="IBUIText">ICAgICAgICBSYWRpY2FsQml0IFNvZnR3YXJlCgpJZGVhdG8gZGE6CgkgIEx1Y2EgRm9ydHVuYXRvCiAg
+ICB0d2l0dGVyLmNvbS9SYWRpY2FsQml0CgkKICAgICAgICAgQW5kcmVhIFF1YXJ0YQogICB3d3cuYW5k
+cmVhcXVhcnRhLml0CgpTdmlsdXBwYXRvIGUgcHJvZ2V0dGF0byBkYToKCUx1Y2EgRm9ydHVuYXRvCgpH
+cmFmaWNhOgoJR3JldGEgR2hlZGluaQoJCiAgICAgICAgTWFyY28gQ29ycmFkaW5pCiAgICAgIHd3dy5t
+YXNheXVtZS5pdAoKClJpbmdyYXppYW1lbnRpIHNwZWNpYWxpIGE6IApHcmV0YSBHaGVkaW5pLCBWYW5l
+c3NhIENpYmluZWwgZSBQYXRyaXppYSBOYXJkdWNjaSBwZXIgaWwgc3VwcG9ydG8gbW9yYWxlLiBXaWxs
+aWFtIFBvbXBlaSBwZXIgaWwgc3VwcG9ydG8gdGVjbmljbyBlIG1vcmFsZQ</string>
 						<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 							<int key="IBUIAutocapitalizationType">2</int>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -128,18 +125,17 @@ c3VwcG9ydG8gbW9yYWxlIGUgdGVjbmljbw</string>
 							<string key="name">STHeitiTC-Medium</string>
 							<string key="family">Heiti TC</string>
 							<int key="traits">2</int>
-							<double key="pointSize">14</double>
+							<double key="pointSize">12</double>
 						</object>
 						<object class="NSFont" key="IBUIFont">
 							<string key="NSName">STHeitiTC-Medium</string>
-							<double key="NSSize">14</double>
+							<double key="NSSize">12</double>
 							<int key="NSfFlags">16</int>
 						</object>
 					</object>
 				</object>
 				<string key="NSFrame">{{0, 44}, {320, 436}}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="609218751"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
