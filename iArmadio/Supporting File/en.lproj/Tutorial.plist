@@ -3,29 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>action_startApp_no</key>
-	<string>Welcome to WhatDoWear: you can start adding new dresses in the
-        section: wardrobe. If you want disable this tutorial go to
+	<string>Welcome to WhatDoWear: you can start adding new dresses in the section: wardrobe. If you want disable this tutorial go to
         settings</string>
 	<key>action_addCloth</key>
-	<string>Add the dress: From this form you can modify the picture
-        (zoom, move, rotate) and insert its properties. You can put a
-        bookmark pushing button on the up toolbar</string>
+	<string>Add the dress: From this form you can modify the picture (zoom, move, rotate) and insert its properties. You can put a bookmark pushing button on the up toolbar</string>
 	<key>action_coverFlow</key>
-	<string>There you can see all the dresses of selected type. In the up
-        toolbar you can select the dresses catalogue by: hot, cold, both hot
-        and cold and all.Otherwise you can order they by data or preference.
-        If you push the button + you can add new dress into your wardrobe.</string>
+	<string>There you can see all the dresses of selected type. In the up toolbar you can select the dresses catalogue by: hot, cold, both hot and cold and all.Otherwise you can order they by data or preference. If you push the button + you can add new dress into your wardrobe.</string>
 	<key>action_lookTable_no</key>
-	<string>In this table you can see your look which are catalogue by:
-        sporting, casual, elegant. You can also filter they by temperature</string>
+	<string>In this table you can see your look which are catalogue by: sporting, casual, elegant. You can also filter they by temperature</string>
 	<key>action_lookView</key>
-	<string>Create a look add the dresses present in wardrobe. Otherwise you can
-        shake your phone. If you do a double tap on a dress, this will go
-        zoom.
-        If you push the tag button or drag up the look,
-        you can see/modify its properties</string>
+	<string>Create a look add the dresses present in wardrobe. Otherwise you can shake your phone. If you do a double tap on a dress, this will go zoom. If you push the tag button or drag up the look, you can see/modify its properties</string>
 	<key>action_preferiti_no</key>
-	<string>If you want add a dress or look in bookmark, you can select the
-        bookmark icon in the up toolbar of the dress or look form</string>
+	<string>If you want add a dress or look in bookmark, you can select the bookmark icon in the up toolbar of the dress or look form</string>
 </dict>
 </plist>
