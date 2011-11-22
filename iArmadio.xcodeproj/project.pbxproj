@@ -135,7 +135,6 @@
 		A3EBC7031467E62D009D99B4 /* SetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3EBC7051467E62D009D99B4 /* SetupViewController.xib */; };
 		A3F03257147C4652000FBB1E /* termo.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F03256147C4652000FBB1E /* termo.png */; };
 		A3F0325B147C512E000FBB1E /* CreditsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3F03259147C512E000FBB1E /* CreditsViewController.xib */; };
-		A3F0325D147C5169000FBB1E /* SetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3297D7F143DE31300EBF25A /* SetupViewController.m */; };
 		A3F14748144F08E3007779DF /* LookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F14746144F08E3007779DF /* LookViewController.m */; };
 		A3F1474E144F0FB6007779DF /* LookTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3F1474B144F0FB6007779DF /* LookTableView.xib */; };
 		A3F1474F144F0FB6007779DF /* LookTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F1474D144F0FB6007779DF /* LookTableViewController.m */; };
@@ -973,7 +972,6 @@
 				A3D6DFC914659D4D005E2F86 /* Tutorial.m in Sources */,
 				A3F613361469ED72001775C3 /* Combinazione.m in Sources */,
 				A3F613391469ED73001775C3 /* Vestito.m in Sources */,
-				A3F0325D147C5169000FBB1E /* SetupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
