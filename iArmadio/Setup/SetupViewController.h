@@ -25,7 +25,6 @@
     IBOutlet UISwitch *shake;
     IBOutlet UISwitch *tutorial;
     IBOutlet UISegmentedControl *clima;
-    IBOutlet UILabel *selectClima;
     IBOutlet UILabel *labelTemp;
 }
 
@@ -37,7 +36,6 @@
 @property (retain,nonatomic) IBOutlet UISwitch *shake;
 @property (retain,nonatomic) IBOutlet UISwitch *tutorial;
 @property (retain,nonatomic) IBOutlet UISegmentedControl *clima;
-@property (retain,nonatomic) IBOutlet UILabel *selectClima;
 @property (retain,nonatomic) IBOutlet UILabel *labelTemp;
 
 +(SetupViewController *)shared;

@@ -10,7 +10,7 @@
 
 @implementation SetupViewController
 
-@synthesize navcontroler, viewImpostazioni, labelGPS, labelShake, tutorial, gps, shake, clima, selectClima, labelTemp;
+@synthesize navcontroler, viewImpostazioni, labelGPS, labelShake, tutorial, gps, shake, clima, labelTemp;
 
 static SetupViewController *singleton;
 
@@ -56,7 +56,7 @@ static SetupViewController *singleton;
         gps.on = NO;
         [gps setEnabled:NO];
         self.clima.enabled = NO;
-        self.selectClima.alpha = 0.2;
+        self.clima.hidden = YES;
         [self.clima setEnabled:NO forSegmentAtIndex:0];
         [self.clima setEnabled:NO forSegmentAtIndex:1];
         [self.clima setEnabled:NO forSegmentAtIndex:2];
@@ -67,15 +67,15 @@ static SetupViewController *singleton;
         gps.on = [[options objectForKey:@"gps"] boolValue];
         if(gps.on){
             self.clima.enabled = NO;
-            self.selectClima.alpha = 0.2;
+            self.clima.hidden = YES;
             [self.clima setEnabled:NO forSegmentAtIndex:0];
             [self.clima setEnabled:NO forSegmentAtIndex:1];
             [self.clima setEnabled:NO forSegmentAtIndex:2];
         }
         else{
             labelTemp.hidden = YES;
+            self.clima.hidden = NO;
             self.clima.enabled = YES;
-            self.selectClima.alpha = 1;
             [self.clima setEnabled:YES forSegmentAtIndex:0];
             [self.clima setEnabled:YES forSegmentAtIndex:1];
             [self.clima setEnabled:YES forSegmentAtIndex:2];
@@ -155,8 +155,8 @@ static SetupViewController *singleton;
     if(((UISwitch *)sender).isOn){
         [[GeoLocal shared] enableGPS];
         self.clima.enabled = NO;
+        self.clima.hidden = YES;
         self.labelTemp.hidden = NO;
-        self.selectClima.alpha = 0.2;
         [self.clima setEnabled:NO forSegmentAtIndex:0];
         [self.clima setEnabled:NO forSegmentAtIndex:1];
         [self.clima setEnabled:NO forSegmentAtIndex:2];
@@ -165,8 +165,8 @@ static SetupViewController *singleton;
     else{
         [[GeoLocal shared] disableGPS];
         self.labelTemp.hidden = YES;
+        self.clima.hidden = NO;
         [self.clima setEnabled:YES];
-        self.selectClima.alpha = 1;
         self.clima.selectedSegmentIndex = [[options objectForKey:@"customStagione"] intValue];
         [self.clima setEnabled:YES forSegmentAtIndex:0];
         [self.clima setEnabled:YES forSegmentAtIndex:1];
@@ -200,7 +200,7 @@ static SetupViewController *singleton;
         gps.on = NO;
         [gps setEnabled:NO];
         self.clima.enabled = NO;
-        self.selectClima.alpha = 0.2;
+        self.clima.hidden = YES;
         [self.clima setEnabled:NO forSegmentAtIndex:0];
         [self.clima setEnabled:NO forSegmentAtIndex:1];
         [self.clima setEnabled:NO forSegmentAtIndex:2];
@@ -212,7 +212,7 @@ static SetupViewController *singleton;
         self.labelTemp.hidden = NO;
         [gps setEnabled:YES];
         self.clima.enabled = NO;
-        self.selectClima.alpha = 0.2;
+        self.clima.hidden = YES;
         [self.clima setEnabled:NO forSegmentAtIndex:0];
         [self.clima setEnabled:NO forSegmentAtIndex:1];
         [self.clima setEnabled:NO forSegmentAtIndex:2];
@@ -254,12 +254,14 @@ static SetupViewController *singleton;
         gps.enabled = YES;
         tutorial.on = YES;
         self.clima.enabled = NO;
-        self.selectClima.alpha = 0.2;
+        self.clima.hidden = YES;
+        self.labelTemp.hidden = NO;
         [self.clima setEnabled:NO forSegmentAtIndex:0];
         [self.clima setEnabled:NO forSegmentAtIndex:1];
         [self.clima setEnabled:NO forSegmentAtIndex:2];
         [[GeoLocal shared] enableGPS];
-        [self viewDidAppear:NO];
+        
+        
     }
     
 }
@@ -284,7 +286,6 @@ static SetupViewController *singleton;
     [gps release];
     [shake release];
     [clima release];
-    [selectClima release];
     [labelShake release];
     [labelGPS release];
     [labelTemp release];
