@@ -15,7 +15,6 @@
 			<string>IBUITextView</string>
 			<string>IBUIImageView</string>
 			<string>IBUIView</string>
-			<string>IBUILabel</string>
 			<string>IBProxyObject</string>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -55,45 +54,12 @@
 							<string key="NSResourceName">crediti_02.png</string>
 						</object>
 					</object>
-					<object class="IBUILabel" id="801406982">
-						<reference key="NSNextResponder" ref="191373211"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{77, 2}, {183, 29}}</string>
-						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSNextKeyView"/>
-						<string key="NSReuseIdentifierKey">_NS:311</string>
-						<bool key="IBUIOpaque">NO</bool>
-						<bool key="IBUIClipsSubviews">YES</bool>
-						<int key="IBUIContentMode">7</int>
-						<bool key="IBUIUserInteractionEnabled">NO</bool>
-						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<string key="IBUIText">Credits</string>
-						<object class="NSColor" key="IBUITextColor">
-							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MCAwIDAAA</bytes>
-						</object>
-						<nil key="IBUIHighlightedColor"/>
-						<int key="IBUIBaselineAdjustment">1</int>
-						<float key="IBUIMinimumFontSize">10</float>
-						<int key="IBUITextAlignment">1</int>
-						<object class="IBUIFontDescription" key="IBUIFontDescription">
-							<string key="name">STHeitiTC-Medium</string>
-							<string key="family">Heiti TC</string>
-							<int key="traits">2</int>
-							<double key="pointSize">25</double>
-						</object>
-						<object class="NSFont" key="IBUIFont">
-							<string key="NSName">STHeitiTC-Medium</string>
-							<double key="NSSize">25</double>
-							<int key="NSfFlags">16</int>
-						</object>
-					</object>
 					<object class="IBUITextView" id="144895507">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{71, 25}, {189, 411}}</string>
+						<string key="NSFrame">{{71, 0}, {189, 411}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
-						<reference key="NSNextKeyView" ref="801406982"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:639</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
@@ -110,14 +76,14 @@
 						<bool key="IBUICanCancelContentTouches">NO</bool>
 						<bool key="IBUIBouncesZoom">NO</bool>
 						<bool key="IBUIEditable">NO</bool>
-						<string type="base64-UTF8" key="IBUIText">ICAgICAgICBSYWRpY2FsQml0IFNvZnR3YXJlCgpJZGVhdG8gZGE6CiAtIEx1Y2EgRm9ydHVuYXRvCiAg
-ICB0d2l0dGVyLmNvbS9SYWRpY2FsQml0CQogLSBBbmRyZWEgUXVhcnRhCiAgICB3d3cuYW5kcmVhcXVh
-cnRhLml0CgpTdmlsdXBwYXRvIGUgcHJvZ2V0dGF0byBkYToKIC0gTHVjYSBGb3J0dW5hdG8KCkdyYWZp
-Y2E6CiAtIEdyZXRhIEdoZWRpbmkJCiAtIE1hcmNvIENvcnJhZGluaQogICAgd3d3Lm1hc2F5dW1lLml0
-CgpUcmFkdXppb25lIEluZ2xlc2U6CiAtIFNpbHZpbyBVbWJlcnRvIFphbnppCiAgICB3d3cuc2lsdmlv
-emFuemkuaXQKClJpbmdyYXppYW1lbnRpIHNwZWNpYWxpIGE6IApHcmV0YSBHaGVkaW5pLCBWYW5lc3Nh
-IENpYmluZWwgZSBQYXRyaXppYSBOYXJkdWNjaSBwZXIgaWwgc3VwcG9ydG8gbW9yYWxlLiBXaWxsaWFt
-IFBvbXBlaSBwZXIgaWwgc3VwcG9ydG8gdGVjbmljbyBlIG1vcmFsZQ</string>
+						<string type="base64-UTF8" key="IBUIText">ICAgICAgICBSYWRpY2FsQml0IFNvZnR3YXJlCgpBbiBpZGVhIG9mOgogLSBMdWNhIEZvcnR1bmF0bwog
+ICAgdHdpdHRlci5jb20vUmFkaWNhbEJpdAkKIC0gQW5kcmVhIFF1YXJ0YQogICAgd3d3LmFuZHJlYXF1
+YXJ0YS5pdAoKRGV2ZWxvcGVkIGFuZCBEZXNpZ25lZCBieToKIC0gTHVjYSBGb3J0dW5hdG8KCkdyYXBo
+aWNzOgogLSBHcmV0YSBHaGVkaW5pCQogLSBNYXJjbyBDb3JyYWRpbmkKICAgIHd3dy5tYXNheXVtZS5p
+dAoKRW5nbGlzaCB0cmFuc2xhdGU6CiAtIFNpbHZpbyBVbWJlcnRvIFphbnppCiAgICB3d3cuc2lsdmlv
+emFuemkuaXQKClNwZWNpYWwgdGhhbmtzIHRvOgpHcmV0YSBHaGVkaW5pLCBWYW5lc3NhIENpYmluZWwg
+ZSBQYXRyaXppYSBOYXJkdWNjaSBwZXIgaWwgc3VwcG9ydG8gbW9yYWxlLiBXaWxsaWFtIFBvbXBlaSBw
+ZXIgaWwgc3VwcG9ydG8gdGVjbmljbyBlIG1vcmFsZQ</string>
 						<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 							<int key="IBUIAutocapitalizationType">2</int>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -181,7 +147,6 @@ IFBvbXBlaSBwZXIgaWwgc3VwcG9ydG8gdGVjbmljbyBlIG1vcmFsZQ</string>
 						<reference key="object" ref="191373211"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="801406982"/>
 							<reference ref="609218751"/>
 							<reference ref="144895507"/>
 						</object>
@@ -197,11 +162,6 @@ IFBvbXBlaSBwZXIgaWwgc3VwcG9ydG8gdGVjbmljbyBlIG1vcmFsZQ</string>
 						<int key="objectID">-2</int>
 						<reference key="object" ref="975951072"/>
 						<reference key="parent" ref="0"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">4</int>
-						<reference key="object" ref="801406982"/>
-						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">7</int>
@@ -224,7 +184,6 @@ IFBvbXBlaSBwZXIgaWwgc3VwcG9ydG8gdGVjbmljbyBlIG1vcmFsZQ</string>
 					<string>-2.CustomClassName</string>
 					<string>-2.IBPluginDependency</string>
 					<string>1.IBPluginDependency</string>
-					<string>4.IBPluginDependency</string>
 					<string>7.IBPluginDependency</string>
 					<string>8.IBPluginDependency</string>
 				</object>
@@ -233,7 +192,6 @@ IFBvbXBlaSBwZXIgaWwgc3VwcG9ydG8gdGVjbmljbyBlIG1vcmFsZQ</string>
 					<string>CredtisViewController</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>UIResponder</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>

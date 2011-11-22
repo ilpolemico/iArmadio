@@ -766,7 +766,7 @@ labelnote;
 -(void)textFieldDidBeginEditing:(UITextField *)textField { //Keyboard becomes visible
     
     [UIView beginAnimations:@"slideUp" context:NULL];
-    [UIView setAnimationDuration:0.2];
+    [UIView setAnimationDuration:0.3];
     
     self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y-215, 
                                  self.view.frame.size.width, self.view.frame.size.height); //resize
@@ -779,12 +779,23 @@ labelnote;
 -(void)textFieldDidEndEditing:(UITextField *)textField { //keyboard will hide
     
     [UIView beginAnimations:@"slideDown" context:NULL];
-    [UIView setAnimationDuration:0.2];
+    [UIView setAnimationDuration:0.3];
     
     self.view.frame = CGRectMake(self.view.frame.origin.x, 0, 
                                  self.view.frame.size.width, self.view.frame.size.height); //resize
     [UIView commitAnimations];
     
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    
+    NSUInteger newLength = [textField.text length] + [string length] - range.length;
+    return (newLength > LENGTH_NOTE) ? NO : YES;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    return YES;
 }
 
 -(IBAction)  doneEditing: (id) sender{

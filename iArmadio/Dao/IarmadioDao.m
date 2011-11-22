@@ -1157,7 +1157,7 @@ static IarmadioDao *singleton;
      
     
         
-    NSLog(@"CurrStagione:%@ %d",currStagioneKey,temperatura);
+    //NSLog(@"CurrStagione:%@ %d",currStagioneKey,temperatura);
     
 }
 

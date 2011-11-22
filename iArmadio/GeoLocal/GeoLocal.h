@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "IarmadioDao.h"
+#import "SetupViewController.h"
+
+
+
 @class IarmadioDao;
 
 

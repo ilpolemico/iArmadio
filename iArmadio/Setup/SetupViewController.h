@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "IarmadioDao.h"
-#import "GeoLocal.h"
 #import "CreditsViewController.h"
 #import "Tutorial.h"
 #import "Shake2Style.h"
+
+@class IarmadioDao;
+@class GeoLocal;
 
 @interface SetupViewController : UIViewController{
     IarmadioDao *dao;
@@ -24,6 +26,7 @@
     IBOutlet UISwitch *tutorial;
     IBOutlet UISegmentedControl *clima;
     IBOutlet UILabel *selectClima;
+    IBOutlet UILabel *labelTemp;
 }
 
 @property (retain,nonatomic) IBOutlet UINavigationController *navcontroler;
@@ -35,12 +38,15 @@
 @property (retain,nonatomic) IBOutlet UISwitch *tutorial;
 @property (retain,nonatomic) IBOutlet UISegmentedControl *clima;
 @property (retain,nonatomic) IBOutlet UILabel *selectClima;
+@property (retain,nonatomic) IBOutlet UILabel *labelTemp;
 
++(SetupViewController *)shared;
 -(IBAction)credits:(id)sender;
 -(IBAction)enableGPS:(id)sender;
 -(IBAction)enableShake:(id)sender;
 -(IBAction)enableTutorial:(id)sender;
 -(IBAction)setStagione:(id)sender;
 -(IBAction)reset:(id)sender;
+
 
 @end

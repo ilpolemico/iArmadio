@@ -17,8 +17,9 @@
 #import "Vestito.h"
 #import "ProprietaCombinazione.h"
 #import "CurrState.h"
-#import "GeoLocal.h"
 #import "NYXImagesUtilities.h"
+
+
 
 
 static NSString * const ADD_CLOTH_EVENT = @"add_cloth_event";
@@ -35,7 +36,6 @@ static NSString * const STILE_PLIST = @"stile";
 static NSString * const IMAGES_PLIST = @"images";
 static NSString * const CONFIG_PLIST = @"Config";
 
-@class iArmadioAppDelegate;
 
 @interface IarmadioDao : NSObject {
     NSManagedObjectContext *managedObjectContext;

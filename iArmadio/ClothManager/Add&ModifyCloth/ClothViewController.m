@@ -616,7 +616,7 @@
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField { //Keyboard becomes visible
     [UIView beginAnimations:@"slideUp" context:NULL];
-    [UIView setAnimationDuration:0.2];
+    [UIView setAnimationDuration:0.3];
     
     self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y-215, 
                                  self.view.frame.size.width, self.view.frame.size.height); //resize
@@ -627,7 +627,7 @@
 
 -(void)textFieldDidEndEditing:(UITextField *)textField { //keyboard will hide
     [UIView beginAnimations:@"slideDown" context:NULL];
-    [UIView setAnimationDuration:0.2];
+    [UIView setAnimationDuration:0.3];
     
     self.view.frame = CGRectMake(self.view.frame.origin.x, 0, 
                                  self.view.frame.size.width, self.view.frame.size.height); //resize
@@ -639,10 +639,13 @@
     [[Shake2Style shared] becomeFirstResponder];
 }
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    return YES;
+}
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     NSUInteger newLength = [textField.text length] + [string length] - range.length;
-    return (newLength >= 40) ? NO : YES;
+    return (newLength > LENGTH_NOTE) ? NO : YES;
 }
 
 

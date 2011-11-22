@@ -102,6 +102,12 @@ int curr_temp;
         [parser release];
         
         oldTemperatura = curr_temp;
+        if([SetupViewController shared] != nil){
+            int farTemp = (curr_temp*(9/5)) + 32;
+            NSString *textLabel = [NSString stringWithFormat:@"Temp: %d C - %d F", curr_temp,farTemp,nil];
+            //NSLog(@"%@",textLabel);
+            [SetupViewController shared].labelTemp.text = textLabel;
+        }
         [dao setCurrStagioneKeyFromTemp:curr_temp]; 
         if(self.lastUpdate != nil){
             [lastUpdate release];
@@ -198,7 +204,7 @@ int curr_temp;
 // this delegate method is called if an error occurs in locating your current location
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error 
 {
-    NSLog(@"locationManager:%@ didFailWithError:%@", manager, error);
+    //NSLog(@"locationManager:%@ didFailWithError:%@", manager, error);
     
 }
 

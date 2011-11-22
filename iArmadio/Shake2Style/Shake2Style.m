@@ -49,7 +49,7 @@ static Shake2Style *singleton;
     for(Vestito *c in vestiti){
         tot += [c.gradimento intValue]+2;
         [pesi addObject:[NSNumber numberWithInt:tot]];
-        NSLog(@"tot:%d",tot);
+        //NSLog(@"tot:%d",tot);
     }
     if(tot==0){tot = 1;}
     int random = arc4random()%(tot+1);
@@ -65,8 +65,7 @@ static Shake2Style *singleton;
     
     
     [pesi autorelease];
-    NSLog(@"count vestiti:%d random:%d index:%d",
-          [vestiti count] ,random, index);
+    //NSLog(@"count vestiti:%d random:%d index:%d",[vestiti count] ,random, index);
     return [vestiti objectAtIndex: index];
 }
 
@@ -88,7 +87,7 @@ static Shake2Style *singleton;
     for(Combinazione *c in combinazioni){
         tot += [c.gradimento intValue]+2;
         [pesi addObject:[NSNumber numberWithInt:tot]];
-        NSLog(@"tot:%d",tot);
+        //NSLog(@"tot:%d",tot);
     }
     if(tot==0){tot = 1;}
     int random = arc4random()%(tot+1);
@@ -104,8 +103,7 @@ static Shake2Style *singleton;
     
     
     [pesi autorelease];
-    NSLog(@"count combinazioni:%d random:%d index:%d",
-          [combinazioni count] ,random, index);
+    //NSLog(@"count combinazioni:%d random:%d index:%d",[combinazioni count] ,random, index);
     return [combinazioni objectAtIndex: index];
 }
 
@@ -188,7 +186,7 @@ static Shake2Style *singleton;
 
 
 -(void) motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
-    NSLog(@"currSection:%@ EnableShake:%@",[CurrState shared].currSection,[[dao.config objectForKey:@"Settings"] objectForKey:@"shake"]);
+    //NSLog(@"currSection:%@ EnableShake:%@",[CurrState shared].currSection,[[dao.config objectForKey:@"Settings"] objectForKey:@"shake"]);
     if(
        (event.type == UIEventSubtypeMotionShake)
        &&
@@ -212,6 +210,10 @@ static Shake2Style *singleton;
                    if(vestito != nil){
                        [vestiti addObject:vestito];
                    }
+               }
+               if([vestiti count] == 0){
+                   UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:NSLocalizedString( @"Shake2Style",nil) message:NSLocalizedString(@"Non ci sono vestiti disponibili!",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Annulla",nil) otherButtonTitles:nil] autorelease];
+                   [alert show];
                }
                [self.delegate getVestitiShake:vestiti];
            }

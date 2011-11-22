@@ -10,16 +10,31 @@
 
 @implementation SetupViewController
 
-@synthesize navcontroler, viewImpostazioni, labelGPS, labelShake, tutorial, gps, shake, clima, selectClima;
+@synthesize navcontroler, viewImpostazioni, labelGPS, labelShake, tutorial, gps, shake, clima, selectClima, labelTemp;
+
+static SetupViewController *singleton;
+
++ (SetupViewController *)shared{
+    return singleton;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder{
+    self = [super initWithCoder:aDecoder];
+    singleton = self;
+    return self;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    singleton = self;
     if (self) {
         // Custom initialization
     }
     return self;
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -58,6 +73,7 @@
             [self.clima setEnabled:NO forSegmentAtIndex:2];
         }
         else{
+            labelTemp.hidden = YES;
             self.clima.enabled = YES;
             self.selectClima.alpha = 1;
             [self.clima setEnabled:YES forSegmentAtIndex:0];
@@ -139,6 +155,7 @@
     if(((UISwitch *)sender).isOn){
         [[GeoLocal shared] enableGPS];
         self.clima.enabled = NO;
+        self.labelTemp.hidden = NO;
         self.selectClima.alpha = 0.2;
         [self.clima setEnabled:NO forSegmentAtIndex:0];
         [self.clima setEnabled:NO forSegmentAtIndex:1];
@@ -147,6 +164,7 @@
     }
     else{
         [[GeoLocal shared] disableGPS];
+        self.labelTemp.hidden = YES;
         [self.clima setEnabled:YES];
         self.selectClima.alpha = 1;
         self.clima.selectedSegmentIndex = [[options objectForKey:@"customStagione"] intValue];
@@ -191,6 +209,7 @@
     }
     else{
         gps.on = YES;
+        self.labelTemp.hidden = NO;
         [gps setEnabled:YES];
         self.clima.enabled = NO;
         self.selectClima.alpha = 0.2;
@@ -199,6 +218,7 @@
         [self.clima setEnabled:NO forSegmentAtIndex:2];
         [options setValue:[NSNumber numberWithBool:((UISwitch *)sender).isOn] forKey:@"gps"];
         [[GeoLocal shared] enableGPS];
+        [[Shake2Style shared] becomeFirstResponder];
     }
     dao.config = settings;
     [settings release];
@@ -245,6 +265,19 @@
 }
 
 
+- (void)fade:(UIView *)view
+{
+    [UIView beginAnimations:@"" context:nil];
+    [UIView setAnimationDuration:0.5f];
+    [UIView setAnimationDelegate:self];
+    if ([view alpha] == 1.0f)
+        [view setAlpha:0.0f];
+    else
+        [view setAlpha:1.0f];
+    [UIView commitAnimations];
+}
+
+
 - (void)dealloc{
     [navcontroler release];
     [viewImpostazioni release];
@@ -254,6 +287,7 @@
     [selectClima release];
     [labelShake release];
     [labelGPS release];
+    [labelTemp release];
     [super dealloc];
 }
 

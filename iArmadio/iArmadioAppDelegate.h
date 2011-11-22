@@ -16,7 +16,9 @@
 #import "ExtendTabBarController.h"
 
 
+
 @class Shake2Style;
+@class GeoLocal;
 
 @interface iArmadioAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate, UIScrollViewDelegate>{
 

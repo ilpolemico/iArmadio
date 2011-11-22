@@ -32,7 +32,7 @@
     //[NSThread sleepForTimeInterval:2.0];
     // Override point for customization after application launch.
     // Add the tab bar controller's current view as a subview of the window
-    geolocal = [GeoLocal shared];
+    
     dao = [IarmadioDao shared];
     currstate = [CurrState shared];
     currstate.currStagioneKey = dao.currStagioneKey;
@@ -59,6 +59,7 @@
         count++;
     }    
     self.tabBarController.selectedIndex = 0;
+    geolocal = [GeoLocal shared];
     
     tutorial.enable = NO;
     CoverViewController *coverviewcontroller = [[CoverViewController alloc] initWithNibName:@"CoverViewController" bundle:nil];
@@ -132,7 +133,7 @@
         openimageleft.frame = CGRectMake(0, 0, 160,480);
         [openViewLeft addSubview:openimageleft];
         
-        blinkLabel = [[UIImageView alloc] initWithFrame:CGRectMake(190, 252, 32, 32)];   
+        blinkLabel = [[UIImageView alloc] initWithFrame:CGRectMake(250, 252, 32, 32)];   
         blinkLabel.image = [dao getImageBundleFromFile:@"left_arrow.png"];
         
         [self.window addSubview:openViewLeft];

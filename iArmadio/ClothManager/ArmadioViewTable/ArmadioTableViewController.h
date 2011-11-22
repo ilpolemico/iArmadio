@@ -10,7 +10,7 @@
 #import "iArmadioAppDelegate.h"
 #import "ClothViewController.h"
 #import "CoverViewController.h"
-#import "SelectTypeViewController.h"
+#import "IarmadioDao.h"
 
 
 @class CoverViewController;

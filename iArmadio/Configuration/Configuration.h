@@ -20,6 +20,8 @@
 #define MAX_CLOTH 100
 #define MAX_LOOK 1000
 
+#define LENGTH_NOTE 100
+
 
 #define DISABLE_SHAKE   @"NoShake"
 #define ENABLE_SHAKE   @"Shake"
