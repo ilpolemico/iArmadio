@@ -155,6 +155,7 @@
     
     
     self.navigationItem.titleView = segmentcontrol;
+    //self.tabbar action:dimissview
     
     
     
@@ -183,6 +184,11 @@
     self.imageview.layer.shadowOpacity = 1;
     self.imageview.layer.shadowRadius = 3.0;
     [[Tutorial shared] actionInfo:ACTION_COVERFLOW];
+}
+
+- (void)dismissCoverView
+{
+   //[self dismissControllerView];
 }
 
 

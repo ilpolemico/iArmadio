@@ -106,6 +106,7 @@
 - (void) changeStile:(NSInteger) selectedIndex;
 - (void) changeOrderBy:(NSInteger) selectedIndex;
 - (void)removeNotification;
+- (void)dismissCoverView;
 
 
 @end

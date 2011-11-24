@@ -68,6 +68,8 @@ static SetupViewController *singleton;
         if(gps.on){
             self.clima.enabled = NO;
             self.clima.hidden = YES;
+            [dao setCurrStagioneKeyFromTemp:999];
+            [[GeoLocal shared] enabledGPS];
             [self.clima setEnabled:NO forSegmentAtIndex:0];
             [self.clima setEnabled:NO forSegmentAtIndex:1];
             [self.clima setEnabled:NO forSegmentAtIndex:2];
@@ -153,6 +155,7 @@ static SetupViewController *singleton;
     [settings release];
     
     if(((UISwitch *)sender).isOn){
+        [dao setCurrStagioneKeyFromTemp:999];
         [[GeoLocal shared] enableGPS];
         self.clima.enabled = NO;
         self.clima.hidden = YES;
@@ -209,6 +212,7 @@ static SetupViewController *singleton;
     }
     else{
         gps.on = YES;
+        [dao setCurrStagioneKeyFromTemp:999];
         self.labelTemp.hidden = NO;
         [gps setEnabled:YES];
         self.clima.enabled = NO;
