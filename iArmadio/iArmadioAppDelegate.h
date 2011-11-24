@@ -14,11 +14,18 @@
 #import "Configuration.h"
 #import "Tutorial.h"
 #import "ExtendTabBarController.h"
+#import "CoverViewController.h"
+#import "LookViewController.h"
+#import "ClothViewController.h"
+#import "ClothManagerViewController.h"
 
 
 
 @class Shake2Style;
 @class GeoLocal;
+@class CoverViewController;
+@class ClothViewController;
+@class LookViewController;
 
 @interface iArmadioAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate, UIScrollViewDelegate>{
 
@@ -35,6 +42,9 @@
     int lastTranslation;
     UIImageView *blinkLabel;
     NSTimer *timerblink;
+    CoverViewController *coverviewcontroller;
+    LookViewController *lookviewcontroller;
+    ClothViewController *addviewcontroller; 
 }
 
 

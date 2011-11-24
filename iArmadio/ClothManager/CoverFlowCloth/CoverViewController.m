@@ -155,9 +155,6 @@
     
     
     self.navigationItem.titleView = segmentcontrol;
-    //self.tabbar action:dimissview
-    
-    
     
     self.navigationItem.rightBarButtonItem = self.addButton;
     

@@ -69,7 +69,7 @@ static SetupViewController *singleton;
             self.clima.enabled = NO;
             self.clima.hidden = YES;
             [dao setCurrStagioneKeyFromTemp:999];
-            [[GeoLocal shared] enabledGPS];
+            [[GeoLocal shared] enableGPS];
             [self.clima setEnabled:NO forSegmentAtIndex:0];
             [self.clima setEnabled:NO forSegmentAtIndex:1];
             [self.clima setEnabled:NO forSegmentAtIndex:2];

@@ -34,7 +34,9 @@ static Shake2Style *singleton;
 
 - (Vestito *)shake2styleVestiti:(NSArray *)tipi filterStagione:(NSString *)filterStagione{
     
-    
+    if([filterStagione isEqualToString:@"calda-fredda"]){
+        filterStagione = nil;
+    }
     
     NSArray *vestiti = [dao getVestitiEntities:tipi  filterStagioneKey:filterStagione filterStiliKeys:nil filterGradimento:0];
     
@@ -73,6 +75,9 @@ static Shake2Style *singleton;
 - (Combinazione *)shake2style:(NSArray *)filterStili filterStagione:(NSString *)filterStagione{
     
     
+    if([filterStagione isEqualToString:@"calda-fredda"]){
+        filterStagione = nil;
+    }
     
     NSArray *combinazioni = [dao getCombinazioniEntities:0 filterStagioneKey:filterStagione filterStiliKeys:filterStili];
     

@@ -62,19 +62,17 @@
     geolocal = [GeoLocal shared];
     
     tutorial.enable = NO;
-    CoverViewController *coverviewcontroller = [[CoverViewController alloc] initWithNibName:@"CoverViewController" bundle:nil];
+    coverviewcontroller = [[CoverViewController alloc] initWithNibName:@"CoverViewController" bundle:nil];
     [self.window addSubview:coverviewcontroller.view];
     [coverviewcontroller.view removeFromSuperview];
     //[coverviewcontroller release];
     
-    
-    LookViewController *lookviewcontroller = [[LookViewController alloc] initWithNibName:@"LookViewController" bundle:nil];
+    lookviewcontroller = [[LookViewController alloc] initWithNibName:@"LookViewController" bundle:nil];
     [self.window addSubview:lookviewcontroller.view];
     [lookviewcontroller.view removeFromSuperview];
     //[lookviewcontroller release];
     
-    
-    ClothViewController *addviewcontroller = [[ClothViewController alloc] initWithNibName:@"ClothView" bundle:nil setImage: nil];
+    addviewcontroller = [[ClothViewController alloc] initWithNibName:@"ClothView" bundle:nil setImage: nil];
     [self.window addSubview:addviewcontroller.view];
     [addviewcontroller.view removeFromSuperview];
     //[addviewcontroller release];
@@ -160,7 +158,6 @@
     timerblink = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(blinkingLabel:) userInfo:nil repeats:YES];
     [timerblink retain];
 }
-
 
 
 - (void)blinkingLabel:(NSTimer *)timer
@@ -286,8 +283,12 @@
     CGRect frame = tabBarArrow.frame;
     frame.origin.x = [self horizontalLocationFor:tabBarController.selectedIndex];
     tabBarArrow.frame = frame;
-    [UIView commitAnimations];  
+    [UIView commitAnimations]; 
     
+    if((tabBarController.selectedIndex == 0)||(tabBarController.selectedIndex == 3)){
+        [((ClothManagerViewController *)viewController).navcontroler 
+         popViewControllerAnimated:YES];
+    }
 }
 
 
@@ -305,6 +306,9 @@
     [shake2style release];
     [tabBarController release];
     [tabBarArrow release];
+    [coverviewcontroller release];
+    [lookviewcontroller release];
+    [addviewcontroller release];
     [super dealloc];
 }
 

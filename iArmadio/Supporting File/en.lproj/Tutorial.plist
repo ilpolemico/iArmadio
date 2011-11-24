@@ -6,14 +6,14 @@
 	<string>Welcome to WhatDoWear: you can start adding new dresses in the section: wardrobe. If you want disable this tutorial go to
         settings</string>
 	<key>action_addCloth</key>
-	<string>Add the dress: From this form you can modify the picture (zoom, move, rotate) and insert its properties. You can put a bookmark clicking on symbol on the top toolbar</string>
+	<string>Add a garment: in this panel you can modify the picture (zoom, move, rotate) and insert its properties. You can add a bookmark using the toolbar</string>
 	<key>action_coverFlow</key>
-	<string>There you can see all the dresses of selected type. In the top toolbar you can select the dresses catalogues by weather: hot, cold, intermidiate weather and all.Otherwise you can order they by data or preference. If you push the button +,  you can add new dress into your wardrobe.</string>
+	<string>Here you can see the garments by kind. Using the toolbar you can select the garments sorted by season: hot, cold, both or all. Otherwise you can sort them by date or choice. Pushing the + button you can add a new garment into your wardrobe</string>
 	<key>action_lookTable_no</key>
-	<string>In this table you can see your look which are catalogue by: sporting, casual, elegant. You can also filter they by temperature</string>
+	<string>This table show your matchings sorted by sporting, casual, elegant. You can filter the matchings by season</string>
 	<key>action_lookView</key>
-	<string>Create a look adding the dresses in your wardrobe. Otherwise you can shake your ipod/iphone. If you do a double tap on a dress, this will go zoomed. If you push the tag button or drag up the look, you can see/modify its properties</string>
+	<string>Create a matching using the garments from your wardrobe or shake your device! Tap the garment twice to zoom it. Check the matching properties pushing the tag button or dragging it up</string>
 	<key>action_preferiti_no</key>
-	<string>If you want add a dress or look in bookmark, you can select the bookmark icon in the up toolbar of the dress or look form</string>
+	<string>If you want add a garment or look in bookmark, you can select the bookmark icon in the up toolbar of the garment or look form</string>
 </dict>
 </plist>

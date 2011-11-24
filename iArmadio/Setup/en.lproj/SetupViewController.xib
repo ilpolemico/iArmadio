@@ -226,9 +226,7 @@
 									<bool key="IBUICanCancelContentTouches">NO</bool>
 									<bool key="IBUIBouncesZoom">NO</bool>
 									<bool key="IBUIEditable">NO</bool>
-									<string type="base64-UTF8" key="IBUIText">RmFpIHVubyBzaGFrZSBxdWFuZG8gc3RhaSBjcmVhbmRvIHVuIGxvb2sgbyBpbiBxdWFsdW5xdWUgYWx0
-cm8gbW9tZW50byEhIQpMYSBhcHAgc2NlZ2xpZXLDoCBwZXIgdGUgaSB2ZXN0aXRpIG8gdW4gbG9vayBh
-ZGF0dGkgYWwgY2xpbWEuA</string>
+									<string key="IBUIText">Shake your device! The app will match your garment to the current season and temperature</string>
 									<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 										<int key="IBUIAutocapitalizationType">2</int>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -308,7 +306,7 @@ ZGF0dGkgYWwgY2xpbWEuA</string>
 									<bool key="IBUICanCancelContentTouches">NO</bool>
 									<bool key="IBUIBouncesZoom">NO</bool>
 									<bool key="IBUIEditable">NO</bool>
-									<string key="IBUIText">Attenzione: Abilitando il GPS la batteria del dispositivo si scaricherà piu' rapidamente</string>
+									<string key="IBUIText">Warning: the GPS function will shorten your battery life.</string>
 									<int key="IBUITextAlignment">1</int>
 									<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 										<int key="IBUIAutocapitalizationType">2</int>

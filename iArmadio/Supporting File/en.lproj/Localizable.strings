@@ -4,48 +4,49 @@
 "Credits" = "Credits";
 "Abilita GPS" = "Enable GPS";
 "Abilita Shake" = "Enable Shake";
-"Il numero massimo di look è stato raggiunto" = "The look max number was reached";
+"Il numero massimo di look è stato raggiunto" = "The maximum number of matchings has been reached";
 "Cancellare tutte le impostazioni" = "Delete all preferences and settings";
-"Vuoi cancellare tutte le impostazioni? In questo modo cancellerai anche tutti i vestiti" = "Do you want erase all settings? You will erase too all dresses and looks";
-"sportivo" = "sporty";
+"Vuoi cancellare tutte le impostazioni? In questo modo cancellerai anche tutti i vestiti" = "Do you want to erase all settings? All dresses and matchings will be lost";
+
+"sportivo" = "sporting";
 "casual" = "casual";
 "elegante" = "elegant";
-"tutte" = "everything";
+"tutte" = "all";
 
-"Aggiungi vestito" = "Add dress";
-"Aggiungi un altro vestito" = "Add another dress";
+"Aggiungi vestito" = "Add a garment";
+"Aggiungi un altro vestito" = "Add another garment";
 "Fotocamera" = "Camera";
 "Album" = "Album";
 
 "Cancel" = "Cancel";
 "Cancella" = "Delete";
 "Annulla" = "Cancel";
-"Vuoi cancellare il vestito" = "Do you want erase this dress?";
+"Vuoi cancellare il vestito" = "Do you want to erase this garment?";
 "Numero massimo superato" = "Max number reached";
-"Il numero massimo dei capi per questo tipo è stato raggiunto" = "The dresses max number, for this kind, was reached";
-"Cambia Immagine Vestito" = "Change dress picture";
+"Il numero massimo dei capi per questo tipo è stato raggiunto" = "The maximum number of garments of this kind has been reached";
+"Cambia Immagine Vestito" = "Change garment picture";
 
 "Stile" = "Style";
 "Piace" = "Like";
 "Stagione" = "Season";
-"Scegli tipo vestito" = "Choose dress type";
+"Scegli tipo vestito" = "Choose garment type";
 
 
 "Look" = "Look";
-"Preferiti" = "Bookmarks";
+"Preferiti" = "Bookmark";
 "look" = "look";
 "Ordina" = "Order by";
 "Armadio" = "Wardrobe";
 "armadio" = "wardrobe";
 
-"Vuoi cancellare il look" = "Do you want erase this look?";
-"Abiti" = "dresses";
+"Vuoi cancellare il look" = "Do you want to erase this apparel?";
+"Abiti" = "Garments";
 "Look" = "Look";
 
 "calzature" = "footwear";
 "stivali" = "boots";
 "scarpe" = "shoes";
-"abiti" = "dress";
+"abiti" = "garments";
 "soprabiti" = "coats";
 "tailer" = "tailer";
 
@@ -88,29 +89,10 @@
 "felpa" = "sweatshirt";
 "felpe" = "sweatshirts";
 
-"Non ci sono combinazioni disponibili per la stagione corrente!" = "There aren't looks available for the current season!";
+"Non ci sono combinazioni disponibili per la stagione corrente!" = "No matchings are available for the current season";
 
-"Non ci sono vestiti disponibili!" = "There aren't dresses available";
+"Non ci sono vestiti disponibili!" = "No matchings are available for the current season";
 
-"Non ci sono ancora vestiti/accessori disponibili per la stagione corrente!" = "There aren't ohter dresses/accessories available for the current season!";
+
 "Il look è già completo!" = "The look is completed!";
 
-
-"Aggiungi il vestito: Da questa maschera puoi modificare l'immagine (ingrandiscila, spostala, ruotala) e inserire i suoi attributi. Puoi mettere un segnalibro schiacciando sul simbolo nella barra in alto" 
-= 
-"Add the dress: From this form you can modify the picture (zoom, move, rotate) and insert its properties. You can put a bookmark clicking on symbol on the top toolbar";
-
-
-"Qui puoi vedere tutti gli abiti del tipo selezionato. Nella toolbar in alto puoi selezionare i vestiti catalogati per: caldo, freddo, mezza stagione, tutti. Oppure ordinarli per data o preferenza. Schiacciando sul tasto + puoi aggiungere un nuovo vestito al tuo armadio" 
-= 
-"There you can see all the dresses of selected type. In the top toolbar you can select the dresses catalogues by weather: hot, cold, intermidiate weather and all.Otherwise you can order they by data or preference. If you push the button +,  you can add new dress into your wardrobe.";
-
-
-"In questa tabella puoi vedere i tuoi look catalogati come: sportivi, casual, eleganti. Puoi filtrarli per clima come per i vestiti"
-= 
-"In this table you can see your looks which are catalogue by: sporty, casual, elegant. You can also filter they by weather";
-
-
-"Crea un look aggiungendo i vestiti presenti nell'armadio oppure fai uno shake! Ti verranno proposti vestiti per il clima attuale.Se fai un doppio click su un vestito puoi ingrandirlo. Schiacciando sul pulsante:&quot;tag&quot; o trascinando verso l&apos;alto il look puoi vedere/modificare le sue proprietà"
-= 
-"Create a look adding the dresses in your wardrobe. Otherwise you can shake your ipod/iphone. If you do a double tap on a dress, this will go zoomed. If you push the tag button or drag up the look, you can see/modify its properties";

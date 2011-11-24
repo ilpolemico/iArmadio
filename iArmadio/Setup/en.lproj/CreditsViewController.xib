@@ -61,7 +61,6 @@
 						<string key="NSFrame">{{71, 0}, {189, 411}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:639</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
@@ -78,14 +77,14 @@
 						<bool key="IBUICanCancelContentTouches">NO</bool>
 						<bool key="IBUIBouncesZoom">NO</bool>
 						<bool key="IBUIEditable">NO</bool>
-						<string type="base64-UTF8" key="IBUIText">ICAgICAgICBSYWRpY2FsQml0IFNvZnR3YXJlCgpBbiBpZGVhIG9mOgogLSBMdWNhIEZvcnR1bmF0bwog
-ICAgdHdpdHRlci5jb20vUmFkaWNhbEJpdAkKIC0gQW5kcmVhIFF1YXJ0YQogICAgd3d3LmFuZHJlYXF1
-YXJ0YS5pdAoKRGV2ZWxvcGVkIGFuZCBEZXNpZ25lZCBieToKIC0gTHVjYSBGb3J0dW5hdG8KCkdyYXBo
-aWNzOgogLSBHcmV0YSBHaGVkaW5pCQogLSBNYXJjbyBDb3JyYWRpbmkKICAgIHd3dy5tYXNheXVtZS5p
-dAoKRW5nbGlzaCB0cmFuc2xhdGU6CiAtIFNpbHZpbyBVbWJlcnRvIFphbnppCiAgICB3d3cuc2lsdmlv
-emFuemkuaXQKClNwZWNpYWwgdGhhbmtzIHRvOgpHcmV0YSBHaGVkaW5pLCBWYW5lc3NhIENpYmluZWwg
-ZSBQYXRyaXppYSBOYXJkdWNjaSBmb3IgbW9yYWwgc3VwcG9ydC4gV2lsbGlhbSBQb21wZWkgZm9yIHRl
-Y2huaWNhbCBhbmQgbW9yYWwgc3VwcG9ydA</string>
+						<string type="base64-UTF8" key="IBUIText">ICAgICAgICBSYWRpY2FsQml0IFNvZnR3YXJlCgpDb25jZXB0OgogLSBMdWNhIEZvcnR1bmF0bwogICAg
+dHdpdHRlci5jb20vUmFkaWNhbEJpdAkKIC0gQW5kcmVhIFF1YXJ0YQogICAgd3d3LmFuZHJlYXF1YXJ0
+YS5pdAoKRGV2ZWxvcGVkIGFuZCBEZXNpZ25lZCBieToKIC0gTHVjYSBGb3J0dW5hdG8KCkdyYXBoaWNz
+OgogLSBHcmV0YSBHaGVkaW5pCQogLSBNYXJjbyBDb3JyYWRpbmkKICAgIHd3dy5tYXNheXVtZS5pdAoK
+RW5nbGlzaCBDb25zdWx0YW50OgogLSBTaWx2aW8gVW1iZXJ0byBaYW56aQogICAgd3d3LnNpbHZpb3ph
+bnppLml0CgpNYW55IHRoYW5rcyB0bzoKR3JldGEgR2hlZGluaSwgVmFuZXNzYSBDaWJpbmVsIGUgUGF0
+cml6aWEgTmFyZHVjY2kgZm9yIG1vcmFsIHN1cHBvcnQuIFdpbGxpYW0gUG9tcGVpIGZvciB0ZWNobmlj
+YWwgYW5kIG1vcmFsIHN1cHBvcnQ</string>
 						<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 							<int key="IBUIAutocapitalizationType">2</int>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
