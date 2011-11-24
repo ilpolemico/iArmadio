@@ -88,6 +88,16 @@
     [self addTabBarArrow];
     [self.window makeKeyAndVisible];
     [self openArmadio];
+    
+    NSString *currVersion = [[UIDevice currentDevice] systemVersion];
+    if ([currVersion compare:@"5.0" options:NSNumericSearch] == NSOrderedAscending)
+    {
+        /*
+        UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:NSLocalizedString( @"GPS",nil) message:NSLocalizedString(@"L'applicazione utilizza la funzione GPS, se vuoi disattivarla vai in impostazioni",nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Prosegui",nil) otherButtonTitles:nil] autorelease];
+        [alert show];
+        */ 
+    }
+   
     return YES;
 }
 
