@@ -188,7 +188,7 @@ int curr_temp;
     
     if(
        (![currLocation isEqualToString:@""])&&
-       (![[SetupViewController shared].labelTemp.text isEqualToString:@"-"]) &&
+       (![[SetupViewController shared].labelTemp.text isEqualToString:@"?"]) &&
        ([date compare:currdate] == NSOrderedDescending)
     ){
         return;

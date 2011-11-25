@@ -61,7 +61,6 @@
 						<string key="NSFrame">{{71, 0}, {189, 411}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:639</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
@@ -82,10 +81,10 @@
 ICB0d2l0dGVyLmNvbS9SYWRpY2FsQml0CQogLSBBbmRyZWEgUXVhcnRhCiAgICB3d3cuYW5kcmVhcXVh
 cnRhLml0CgpTdmlsdXBwYXRvIGUgcHJvZ2V0dGF0byBkYToKIC0gTHVjYSBGb3J0dW5hdG8KCkdyYWZp
 Y2E6CiAtIEdyZXRhIEdoZWRpbmkJCiAtIE1hcmNvIENvcnJhZGluaQogICAgd3d3Lm1hc2F5dW1lLml0
-CgpUcmFkdXppb25lIEluZ2xlc2U6CiAtIFNpbHZpbyBVbWJlcnRvIFphbnppCiAgICB3d3cuc2lsdmlv
-emFuemkuaXQKClJpbmdyYXppYW1lbnRpIHNwZWNpYWxpIGE6IApHcmV0YSBHaGVkaW5pLCBWYW5lc3Nh
-IENpYmluZWwgZSBQYXRyaXppYSBOYXJkdWNjaSBwZXIgaWwgc3VwcG9ydG8gbW9yYWxlLiBXaWxsaWFt
-IFBvbXBlaSBwZXIgaWwgc3VwcG9ydG8gdGVjbmljbyBlIG1vcmFsZQ</string>
+CgpDb25zdWxlbnphIHRyYWR1emlvbmUgSW5nbGVzZToKIC0gU2lsdmlvIFVtYmVydG8gWmFuemkKICAg
+IHd3dy5zaWx2aW96YW56aS5pdAoKUmluZ3JhemlhbWVudGkgc3BlY2lhbGkgYTogCkdyZXRhIEdoZWRp
+bmksIFZhbmVzc2EgQ2liaW5lbCBlIFBhdHJpemlhIE5hcmR1Y2NpIHBlciBpbCBzdXBwb3J0byBtb3Jh
+bGUuIFdpbGxpYW0gUG9tcGVpIHBlciBpbCBzdXBwb3J0byB0ZWNuaWNvIGUgbW9yYWxlA</string>
 						<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 							<int key="IBUIAutocapitalizationType">2</int>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
