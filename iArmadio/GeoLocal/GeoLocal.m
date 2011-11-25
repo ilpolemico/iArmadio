@@ -50,34 +50,13 @@ int curr_temp;
 }
 
 -(void)enableGPS{
-    [currLocation release];
-    currLocation = @"";
-    [currLocation retain];
-    [dao setCurrStagioneKeyFromTemp:999];
-    if([SetupViewController shared] != nil){
-        //[SetupViewController shared].labelTemp.text = @"?";
-    }
     locationManager.delegate=self;
-    
+    [dao setCurrStagioneKeyFromTemp:curr_temp];
     [locationManager startUpdatingLocation];
-    /*if([CLLocationManager significantLocationChangeMonitoringAvailable]){
-        [locationManager startMonitoringSignificantLocationChanges];
-    }
-    else{
-        [locationManager startUpdatingLocation];
-    }
-    */
 }
 
 -(void)disableGPS{
     [locationManager stopUpdatingLocation];
-    /*if([CLLocationManager significantLocationChangeMonitoringAvailable]){
-        [locationManager stopMonitoringSignificantLocationChanges];
-    }
-    else{
-        [locationManager stopUpdatingLocation];
-    }
-    */
     locationManager.delegate=nil;
 }
 
@@ -156,17 +135,20 @@ int curr_temp;
     
     [currLocation release];
     currLocation = placemark.locality;
-    //NSLog(@"location:%@",currLocation);
+    NSLog(@"location:%@",currLocation);
     [currLocation retain];
     dao.localita = currLocation;
     [self setTemperatura];
+    [geoCoder setDelegate:nil];
     [geoCoder release];
+    
     geoCoder = nil;
 }
 
 - (void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFailWithError:(NSError *)error
 {
-    //NSLog(@"reverseGeocoder:%@ didFailWithError:%@", geocoder, error);
+    NSLog(@"reverseGeocoder:%@ didFailWithError:%@", geocoder, error);
+    [geoCoder setDelegate:nil];
     [geoCoder autorelease];
     geoCoder = nil;
     
@@ -186,13 +168,13 @@ int curr_temp;
     NSDate *currdate = [NSDate date];
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     [comps setHour:1];
+    //[comps setMinute:5];
     NSCalendar *gregorian = [[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] autorelease];
     [gregorian setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
     NSDate *date = [gregorian dateByAddingComponents:comps toDate:lastUpdate  options:0];
     [comps release];
     
     
-    //NSLog(@"update location!");
     if(
        (![currLocation isEqualToString:@""])&&
        (![[SetupViewController shared].labelTemp.text isEqualToString:@"?"]) &&
@@ -200,6 +182,14 @@ int curr_temp;
     ){
         //NSLog(@"NO location! %@",[SetupViewController shared].labelTemp.text);
         return;
+    }
+    
+    [currLocation release];
+    currLocation = @"";
+    [currLocation retain];
+    [dao setCurrStagioneKeyFromTemp:999];
+    if([SetupViewController shared] != nil){
+        [SetupViewController shared].labelTemp.text = @"?";
     }
     
     if(!geoCoder){
@@ -213,7 +203,7 @@ int curr_temp;
 // this delegate method is called if an error occurs in locating your current location
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error 
 {
-    //NSLog(@"locationManager:%@ didFailWithError:%@", manager, error);
+    NSLog(@"locationManager:%@ didFailWithError:%@", manager, error);
     
 }
 
