@@ -81,9 +81,9 @@
 dHdpdHRlci5jb20vUmFkaWNhbEJpdAkKIC0gQW5kcmVhIFF1YXJ0YQogICAgd3d3LmFuZHJlYXF1YXJ0
 YS5pdAoKRGV2ZWxvcGVkIGFuZCBEZXNpZ25lZCBieToKIC0gTHVjYSBGb3J0dW5hdG8KCkdyYXBoaWNz
 OgogLSBHcmV0YSBHaGVkaW5pCQogLSBNYXJjbyBDb3JyYWRpbmkKICAgIHd3dy5tYXNheXVtZS5pdAoK
-Q29uc3VsdGFudDoKIC0gU2lsdmlvIFVtYmVydG8gWmFuemkKICAgIHd3dy5zaWx2aW96YW56aS5pdAoK
-TWFueSB0aGFua3MgdG86CkdyZXRhIEdoZWRpbmksIFdpbGxpYW0gUG9tcGVpLCBWYW5lc3NhIENpYmlu
-ZWwgZSBQYXRyaXppYSBOYXJkdWNjaSw</string>
+Q29uc3VsdGFudDoKIC0gU2lsdmlvIFVtYmVydG8gWmFuemkKICAgIHd3dy5pbmZvcm1hemlvbmUuYml6
+CgpNYW55IHRoYW5rcyB0bzoKR3JldGEgR2hlZGluaSwgV2lsbGlhbSBQb21wZWksIFZhbmVzc2EgQ2li
+aW5lbCBlIFBhdHJpemlhIE5hcmR1Y2NpLA</string>
 						<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 							<int key="IBUIAutocapitalizationType">2</int>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>

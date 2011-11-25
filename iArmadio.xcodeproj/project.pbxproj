@@ -1074,8 +1074,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "(*) *.nib *.lproj *.framework *.gch *.xcode* .DS_Store CVS .svn .git .hg";
@@ -1094,6 +1093,7 @@
 				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = WhatDoWear;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
@@ -1104,8 +1104,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "(*) *.nib *.lproj *.framework *.gch *.xcode* .DS_Store CVS .svn .git .hg";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1117,6 +1117,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = WhatDoWear;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
@@ -1131,9 +1132,9 @@
 					armv7,
 					armv6,
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: Luca Fortunato (45SRM5RB6Z)";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: Luca Fortunato (45SRM5RB6Z)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Luca Fortunato (45SRM5RB6Z)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iArmadio/iArmadio-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1152,9 +1153,7 @@
 				OTHER_LDFLAGS = "";
 				"OTHER_LDFLAGS[arch=*]" = "";
 				PRODUCT_NAME = ShakeUrStyle;
-				PROVISIONING_PROFILE = "273D3B8F-E72A-4C36-9FA6-1856F12F8344";
-				"PROVISIONING_PROFILE[sdk=*]" = "273D3B8F-E72A-4C36-9FA6-1856F12F8344";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "273D3B8F-E72A-4C36-9FA6-1856F12F8344";
+				PROVISIONING_PROFILE = "";
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/**";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1168,71 +1167,8 @@
 					armv7,
 					armv6,
 				);
-				CODE_SIGN_IDENTITY = "iPhone Developer: Luca Fortunato (45SRM5RB6Z)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iArmadio/iArmadio-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)";
-				INFOPLIST_FILE = "iArmadio/iArmadio-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
-				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)",
-					"$(inherited)",
-				);
-				OTHER_CFLAGS = "";
-				"OTHER_CFLAGS[arch=*]" = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"-Dmacintosh=1",
-				);
-				OTHER_CPLUSPLUSFLAGS = (
-					"-DNS_BLOCK_ASSERTIONS=1",
-					"-Dmacintosh=1",
-				);
-				OTHER_LDFLAGS = "";
-				"OTHER_LDFLAGS[arch=*]" = "";
-				PRODUCT_NAME = ShakeUrStyle;
-				PROVISIONING_PROFILE = "273D3B8F-E72A-4C36-9FA6-1856F12F8344";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/**";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		A3DEA86E146AD68400243324 /* Distribution */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "(*) *.nib *.lproj *.framework *.gch *.xcode* .DS_Store CVS .svn .git .hg";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PRODUCT_NAME = WhatDoWear;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos;
-				USER_HEADER_SEARCH_PATHS = "";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Distribution;
-		};
-		A3DEA86F146AD68400243324 /* Distribution */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv7,
-					armv6,
-				);
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iArmadio/iArmadio-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -1256,6 +1192,71 @@
 				"OTHER_LDFLAGS[arch=*]" = "";
 				PRODUCT_NAME = ShakeUrStyle;
 				PROVISIONING_PROFILE = "";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/**";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A3DEA86E146AD68400243324 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "(*) *.nib *.lproj *.framework *.gch *.xcode* .DS_Store CVS .svn .git .hg";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_NAME = WhatDoWear;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Distribution;
+		};
+		A3DEA86F146AD68400243324 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					armv7,
+					armv6,
+				);
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Luca Fortunato";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Luca Fortunato";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iArmadio/iArmadio-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)";
+				INFOPLIST_FILE = "iArmadio/iArmadio-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)",
+					"$(inherited)",
+				);
+				OTHER_CFLAGS = "";
+				"OTHER_CFLAGS[arch=*]" = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"-Dmacintosh=1",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DNS_BLOCK_ASSERTIONS=1",
+					"-Dmacintosh=1",
+				);
+				OTHER_LDFLAGS = "";
+				"OTHER_LDFLAGS[arch=*]" = "";
+				PRODUCT_NAME = ShakeUrStyle;
+				PROVISIONING_PROFILE = "CA4E8BAB-EEAB-4950-83ED-63ADAEECC07E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CA4E8BAB-EEAB-4950-83ED-63ADAEECC07E";
 				"USER_HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/**";
 				WRAPPER_EXTENSION = app;
 			};

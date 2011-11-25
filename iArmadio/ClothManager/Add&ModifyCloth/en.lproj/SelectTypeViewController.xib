@@ -72,7 +72,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBUINavigationItem" id="74003909">
 								<reference key="IBUINavigationBar" ref="144203374"/>
-								<string key="IBUITitle">Choose Dress</string>
+								<string key="IBUITitle">Choose Garment Kind</string>
 								<object class="IBUIBarButtonItem" key="IBUILeftBarButtonItem" id="511838365">
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 									<int key="IBUIStyle">1</int>
