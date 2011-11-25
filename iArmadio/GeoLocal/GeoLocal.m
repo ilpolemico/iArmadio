@@ -53,6 +53,10 @@ int curr_temp;
     [currLocation release];
     currLocation = @"";
     [currLocation retain];
+    [dao setCurrStagioneKeyFromTemp:999];
+    if([SetupViewController shared] != nil){
+        //[SetupViewController shared].labelTemp.text = @"?";
+    }
     locationManager.delegate=self;
     
     [locationManager startUpdatingLocation];
@@ -152,6 +156,7 @@ int curr_temp;
     
     [currLocation release];
     currLocation = placemark.locality;
+    //NSLog(@"location:%@",currLocation);
     [currLocation retain];
     dao.localita = currLocation;
     [self setTemperatura];
@@ -186,11 +191,14 @@ int curr_temp;
     NSDate *date = [gregorian dateByAddingComponents:comps toDate:lastUpdate  options:0];
     [comps release];
     
+    
+    //NSLog(@"update location!");
     if(
        (![currLocation isEqualToString:@""])&&
        (![[SetupViewController shared].labelTemp.text isEqualToString:@"?"]) &&
        ([date compare:currdate] == NSOrderedDescending)
     ){
+        //NSLog(@"NO location! %@",[SetupViewController shared].labelTemp.text);
         return;
     }
     
