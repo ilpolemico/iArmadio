@@ -29,6 +29,7 @@ int curr_temp;
     currLocation = @"";
     [currLocation retain];
     curr_temp = 999;
+    tentativi = 0;
     oldTemperatura = 999;
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
@@ -147,7 +148,7 @@ int curr_temp;
     [self setTemperatura];
     [geoCoder setDelegate:nil];
     [geoCoder release];
-    
+    tentativi = 0;
     geoCoder = nil;
 }
 
@@ -161,8 +162,13 @@ int curr_temp;
     [currLocation release];
     currLocation = @"";
     [currLocation retain];
-    [self disableGPS];
-    [self enableGPS];
+    
+    tentativi++;
+    if(tentativi <= MAX_TENTATIVI){
+        [self disableGPS];
+        [self enableGPS];
+    }
+    
 }
 
 

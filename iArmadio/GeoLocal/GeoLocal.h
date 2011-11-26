@@ -14,7 +14,7 @@
 
 
 @class IarmadioDao;
-
+#define MAX_TENTATIVI 30
 
 @interface GeoLocal: NSObject  <MKMapViewDelegate, CLLocationManagerDelegate, MKReverseGeocoderDelegate, NSXMLParserDelegate> { 
     
@@ -28,8 +28,7 @@
     BOOL isEnableGPS;
     BOOL isStartedUpdatingLocation;
     NSDate *lastUpdate;
-    
-      
+    int tentativi;
 }
 
 @property (nonatomic, retain) NSDate *lastUpdate;
