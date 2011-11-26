@@ -34,7 +34,7 @@ int curr_temp;
     locationManager.delegate = self;
     locationManager.distanceFilter = kCLDistanceFilterNone;
     locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers;
-    
+    isStartedUpdatingLocation = FALSE;
     
     if([self isEnableGPS]){
         [self enableGPS];        
@@ -50,14 +50,20 @@ int curr_temp;
 }
 
 -(void)enableGPS{
-    locationManager.delegate=self;
-    [dao setCurrStagioneKeyFromTemp:curr_temp];
-    [locationManager startUpdatingLocation];
+    if(!isStartedUpdatingLocation){
+        locationManager.delegate=self;
+        [dao setCurrStagioneKeyFromTemp:curr_temp];
+        [locationManager startUpdatingLocation];
+        isStartedUpdatingLocation = TRUE;
+    }
 }
 
 -(void)disableGPS{
-    [locationManager stopUpdatingLocation];
-    locationManager.delegate=nil;
+    if(isStartedUpdatingLocation){
+        [locationManager stopUpdatingLocation];
+        locationManager.delegate=nil;
+        isStartedUpdatingLocation = FALSE;
+    }
 }
 
 
@@ -155,6 +161,8 @@ int curr_temp;
     [currLocation release];
     currLocation = @"";
     [currLocation retain];
+    [self disableGPS];
+    [self enableGPS];
 }
 
 

@@ -49,6 +49,7 @@
 				<string key="NSFrameSize">{320, 460}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
+				<reference key="NSNextKeyView"/>
 				<string key="NSReuseIdentifierKey">_NS:180</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
@@ -329,6 +330,7 @@
 									<string key="NSFrame">{{108, 351}, {105, 21}}</string>
 									<reference key="NSSuperview" ref="191373211"/>
 									<reference key="NSWindow"/>
+									<reference key="NSNextKeyView"/>
 									<string key="NSReuseIdentifierKey">_NS:328</string>
 									<bool key="IBUIOpaque">NO</bool>
 									<bool key="IBUIClipsSubviews">YES</bool>
@@ -368,9 +370,9 @@
 									<int key="IBSelectedSegmentIndex">0</int>
 									<object class="NSArray" key="IBSegmentTitles">
 										<bool key="EncodedWithXMLCoder">YES</bool>
-										<string>Caldo</string>
-										<string>Freddo</string>
-										<string>Tiepido</string>
+										<string>hot</string>
+										<string>cold</string>
+										<string>mid</string>
 									</object>
 									<object class="NSMutableArray" key="IBSegmentWidths">
 										<bool key="EncodedWithXMLCoder">YES</bool>
@@ -782,6 +784,7 @@
 					<string>56.IBPluginDependency</string>
 					<string>58.IBPluginDependency</string>
 					<string>64.IBPluginDependency</string>
+					<string>64.IUISegmentedControlInspectorSelectedSegmentMetadataKey</string>
 					<string>72.IBPluginDependency</string>
 					<string>74.IBPluginDependency</string>
 					<string>9.IBPluginDependency</string>
@@ -810,6 +813,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<integer value="2"/>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>

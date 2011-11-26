@@ -26,6 +26,7 @@
     NSString *currLocation;
     CLLocationManager *locationManager;
     BOOL isEnableGPS;
+    BOOL isStartedUpdatingLocation;
     NSDate *lastUpdate;
     
       
