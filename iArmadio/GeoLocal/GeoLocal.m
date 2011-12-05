@@ -28,6 +28,9 @@ int curr_temp;
     dao = [IarmadioDao shared];
     currLocation = @"";
     [currLocation retain];
+    
+    //[options setValue:[NSNumber intvalue:temperatura forKey:@"currGpsTemp"];
+    
     curr_temp = 999;
     tentativi = 0;
     oldTemperatura = 999;
@@ -147,7 +150,7 @@ int curr_temp;
     dao.localita = currLocation;
     [self setTemperatura];
     [geoCoder setDelegate:nil];
-    [geoCoder release];
+    [geoCoder autorelease];
     tentativi = 0;
     geoCoder = nil;
 }
@@ -197,7 +200,7 @@ int curr_temp;
         //NSLog(@"NO location! %@",[SetupViewController shared].labelTemp.text);
         return;
     }
-    
+    NSLog(@"%f - %f",newLocation.coordinate.latitude, newLocation.coordinate.longitude);
     [currLocation release];
     currLocation = @"";
     [currLocation retain];

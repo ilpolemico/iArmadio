@@ -1130,6 +1130,12 @@ static IarmadioDao *singleton;
         else{
             currStagioneKey = @"calda-fredda";
         }
+        
+        /*
+        NSMutableDictionary *options = [dao.config objectForKey:@"Settings"];
+        [options setValue:[NSNumber intvalue:temperatura forKey:@"currGpsTemp"];
+        */ 
+        
 
     }
     else{
