@@ -149,8 +149,6 @@ int curr_temp;
     [currLocation retain];
     dao.localita = currLocation;
     [self setTemperatura];
-    [geoCoder setDelegate:nil];
-    [geoCoder autorelease];
     tentativi = 0;
     geoCoder = nil;
 }
